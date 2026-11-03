@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="brand.css">
+<script src="mascotte.js"></script>
+<script src="common.js"></script>
+<style>
+  /* PAROLA PER PAROLA: tipografia cinetica a tutto schermo */
+  #bars { position: absolute; top: 80px; left: 70px; right: 70px; display: flex; gap: 10px; z-index: 15; }
+  #bars i { flex: 1; height: 10px; border-radius: 5px; background: rgba(255,255,255,0.3); overflow: hidden; }
+  #bars i b { display: block; height: 100%; width: 0; background: #fff; }
+  #stage { position: absolute; left: 70px; right: 70px; top: 300px; bottom: 420px; display: flex; flex-direction: column; justify-content: center; gap: 4px; }
+  .ln { font-family: var(--f-titolo); font-weight: 700; letter-spacing: -0.04em; line-height: 0.98; white-space: nowrap; transform-origin: 0% 70%; }
+  .ln.alt { color: var(--limone); }
+  .lbl { font-family: var(--f-mono); font-size: 32px; letter-spacing: 3px; margin-bottom: 20px; opacity: .85; }
+  #peek { position: absolute; left: 50%; bottom: 360px; margin-left: -140px; z-index: 6; }
+  #hookWrap { position: absolute; left: 70px; right: 70px; top: 300px; bottom: 420px; display: flex; flex-direction: column; justify-content: center; }
+  #hook { font-family: var(--f-titolo); font-weight: 700; font-size: 112px; line-height: 1; letter-spacing: -4px; text-wrap: balance; }
+</style>
+</head>
+<body>
+  <div id="bars"></div>
+  <div id="hookWrap"><div id="hook"></div></div>
+  <div id="stage"></div>
+  <div id="peek"></div>
+<script>
+let R, J = [], INTRO = 1.6, ENDS = 0, lastE = '';
+const CH = 0.36; // secondi per blocco di parole
+
+function chunks(text, maxc) { // parole raggruppate in righe brevi
+  const out = []; let cur = '';
+  text.split(/\s+/).forEach(w => { if ((cur + ' ' + w).trim().length > maxc && cur) { out.push(cur); cur = w; } else cur = (cur + ' ' + w).trim(); });
+  if (cur) out.push(cur); return out;
+}
+function fitSize(lines, maxW, maxS) { // dimensione che fa stare la riga più lunga
+  const probe = document.createElement('div'); probe.className = 'ln'; probe.style.position = 'absolute'; probe.style.visibility = 'hidden';
+  document.body.appendChild(probe); let s = maxS;
+  for (; s > 60; s -= 4) { probe.style.fontSize = s + 'px'; if (Math.max(...lines.map(l => { probe.textContent = l; return probe.offsetWidth; })) <= maxW) break; }
+  probe.remove(); return s;
+}
+
+function setup(reel, handle) {
+  R = reel; baseLayer('PAROLA PER PAROLA', handle, reel.fine);
+  document.querySelector('.logo').style.top = '130px';
+  $('hook').innerHTML = hlWords(reel.hook);
+  $('bars').innerHTML = reel.battute.map(() => '<i><b></b></i>').join('');
+  let t = INTRO; const sounds = [{ t: 0.02, k: 'slam' }];
+  reel.battute.forEach((b, i) => {
+    const q = chunks(b[0], 11), a = chunks(b[1], 10);
+    const qs = fitSize(q, 940, 190), as = fitSize(a, 940, 210);
+    const start = t, qEnd = start + q.length * CH, beat = qEnd + 0.75, aEnd = beat + a.length * CH * 0.9, end = aEnd + 1.9;
+    J.push({ i, q, a, qs, as, start, qEnd, beat, end });
+    q.forEach((_, k) => sounds.push({ t: start + k * CH, k: 'pop' }));
+    sounds.push({ t: beat, k: 'ice' });
+    a.forEach((_, k) => k && sounds.push({ t: beat + k * CH * 0.9, k: 'pop' }));
+    t = end;
+  });
+  ENDS = t; sounds.push({ t: ENDS, k: 'slam' });
+  return { duration: ENDS + 2.5, sounds };
+}
+
+function render(lines, size, t0, step, alt) {
+  return lines.map((l, k) => {
+    const p = (window._t - (t0 + k * step)) / 0.22;
+    if (p < 0) return '';
+    return `<div class="ln${alt && k % 2 ? ' alt' : ''}" style="font-size:${size}px;transform:scale(${1.5 - 0.5 * back(p)}) rotate(${(1 - ease(p)) * -6}deg);opacity:${cl(p * 3)}">${l}</div>`;
+  }).join('');
+}
+
+function setTime(t) {
+  window._t = t; bgTick(t);
+  if (endCard(t, ENDS)) return;
+  // hook iniziale: visibile dal primo frame
+  const hk = $('hookWrap');
+  hk.style.display = t < INTRO ? 'flex' : 'none';
+  if (t < INTRO) {
+    $('hook').style.transform = `scale(${1 + 0.07 * Math.sin(cl(t / 0.3) * Math.PI)})`; $('hook').style.transformOrigin = '0% 50%';
+    const out = ease((t - (INTRO - 0.25)) / 0.25); hk.style.opacity = 1 - out;
+  }
+  const e = J.find(x => t >= x.start && t < x.end) || J[J.length - 1];
+  const inPunch = t >= e.beat;
+  // sfondo: cobalto per la domanda, ghiacciolo per la battuta
+  document.body.style.background = t >= INTRO && inPunch ? 'var(--ghiacciolo)' : 'var(--cobalto)';
+  const st = $('stage');
+  if (t < INTRO) st.innerHTML = '';
+  else if (!inPunch) st.innerHTML = `<div class="lbl">BATTUTA ${pad2(e.i + 1)}/${pad2(J.length)}</div>` + render(e.q, e.qs, e.start, CH, true);
+  else st.innerHTML = `<div class="lbl">BATTUTA ${pad2(e.i + 1)}/${pad2(J.length)}</div><div style="font-family:var(--f-titolo);font-weight:700;font-size:46px;line-height:1.1;margin-bottom:34px;opacity:.85">${e.q.join(' ')}</div>` + render(e.a, e.as, e.beat, CH * 0.9, false);
+  // uscita: la riga sale via
+  const ex = ease((t - (e.end - 0.2)) / 0.2);
+  st.style.transform = `translateY(${-ex * 1400}px)`;
+  // mascotte che sbuca durante la pausa
+  const pk = $('peek');
+  const expr = inPunch ? 'gelato' : 'furbo';
+  if (expr !== lastE) { pk.innerHTML = gelo(expr, 280); lastE = expr; }
+  let py = 600;
+  if (t >= e.qEnd && t < e.beat) py = 600 - 560 * back((t - e.qEnd) / 0.35);
+  else if (inPunch) py = Math.max(-40, -40 + 640 * ease((t - (e.end - 0.5)) / 0.4));
+  pk.style.left = inPunch ? '700px' : '50%'; pk.style.marginLeft = inPunch ? '0' : '-140px';
+  pk.style.transform = `translateY(${py}px) rotate(${inPunch ? Math.sin(t * 60) * 6 : -6}deg)`;
+  pk.style.display = t < INTRO || py >= 599 ? 'none' : 'block';
+  // barre di avanzamento in stile storie
+  document.querySelectorAll('#bars b').forEach((b, k) => { b.style.width = (k < e.i ? 100 : k > e.i || t < INTRO ? 0 : 100 * cl((t - e.start) / (e.end - e.start))) + '%'; });
+  const shake = freeze(inPunch && t >= INTRO ? t - e.beat : null, [600, 330]);
+  st.style.marginLeft = shake + 'px';
+}
+window.setup = setup; window.setTime = setTime;
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+/* BATTUTE GELATE — token di brand condivisi da Reel, caroselli e post */
+@font-face { font-family: "Boldonse"; src: url("../fonts/Boldonse-Regular.ttf"); font-weight: 400; }
+@font-face { font-family: "Bricolage"; src: url("../fonts/BricolageGrotesque-Regular.ttf"); font-weight: 400; }
+@font-face { font-family: "Bricolage"; src: url("../fonts/BricolageGrotesque-Bold.ttf"); font-weight: 700; }
+@font-face { font-family: "Instrument"; src: url("../fonts/InstrumentSans-Regular.ttf"); font-weight: 400; }
+@font-face { font-family: "Instrument"; src: url("../fonts/InstrumentSans-Bold.ttf"); font-weight: 700; }
+@font-face { font-family: "DMMono"; src: url("../fonts/DMMono-Regular.ttf"); font-weight: 400; }
+
+:root {
+  /* Colori */
+  --cobalto: #1F3BFF;      /* sfondo principale: blu ghiacciolo */
+  --cobalto-deep: #1428C7; /* ombre e gradienti dello sfondo */
+  --brina: #EAF6FF;        /* card e superfici chiare */
+  --ghiacciolo: #FF4F9A;   /* accento: battuta finale, timbri */
+  --limone: #FFD93D;       /* evidenziatore: parole chiave, sticker */
+  --menta: #4FF0C0;        /* risposte giuste, conferme */
+  --inchiostro: #0A0F3D;   /* testo su superfici chiare, ombre dure */
+
+  /* Font */
+  --f-logo: "Boldonse", "Bricolage", sans-serif;            /* logo, numeri, timbri: solo poche parole */
+  --f-titolo: "Bricolage", "Instrument", sans-serif;        /* hook, domande, battute */
+  --f-testo: "Instrument", "Bricolage", sans-serif;         /* testi di servizio, CTA */
+  --f-mono: "DMMono", monospace;                            /* etichette: BATTUTA 03/05, GELO 9/10 */
+  --f-emoji: "Noto Color Emoji";
+
+  /* Forme */
+  --r-card: 56px;
+  --ombra-dura: 0 18px 0 var(--inchiostro);
+}

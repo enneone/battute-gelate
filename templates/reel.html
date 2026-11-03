@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="brand.css">
+<script src="mascotte.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; }
+  body { background: var(--cobalto); color: #fff; position: relative; font-family: var(--f-testo); }
+  /* sfondo: griglia di cubetti che scorre lenta + alone */
+  #bg { position: absolute; inset: 0; overflow: hidden; }
+  #bg .glow { position: absolute; width: 1400px; height: 1400px; left: -160px; top: 300px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.16), rgba(255,255,255,0) 60%); }
+  #grid { position: absolute; inset: -200px; background-image:
+      linear-gradient(rgba(255,255,255,0.07) 3px, transparent 3px),
+      linear-gradient(90deg, rgba(255,255,255,0.07) 3px, transparent 3px);
+    background-size: 120px 120px; }
+  /* testata */
+  .logo { position: absolute; top: 120px; left: 70px; display: flex; align-items: center; gap: 16px;
+    font-family: var(--f-logo); font-size: 34px; letter-spacing: 1px; }
+  .logo .tag { font-family: var(--f-mono); font-size: 24px; background: var(--inchiostro); padding: 6px 14px; border-radius: 10px; letter-spacing: 1px; }
+  .hook { position: absolute; top: 200px; left: 70px; right: 70px; font-family: var(--f-titolo); font-weight: 700;
+    font-size: 84px; line-height: 1.02; letter-spacing: -2px; text-wrap: balance; }
+  .hook .w { display: inline-block; transform-origin: 50% 80%; }
+  .hook .hl { background: var(--limone); color: var(--inchiostro); padding: 0 16px; border-radius: 16px; display: inline-block; transform: rotate(-2deg); }
+  .sticker { position: absolute; left: 70px; background: var(--ghiacciolo); color: #fff; font-family: var(--f-titolo); font-weight: 700;
+    font-size: 38px; padding: 12px 26px; border-radius: 999px; border: 5px solid var(--inchiostro); box-shadow: 0 8px 0 var(--inchiostro); }
+  /* card */
+  .card { position: absolute; left: 60px; right: 60px; top: 640px; height: 800px; background: var(--brina); color: var(--inchiostro);
+    border-radius: var(--r-card); border: 7px solid var(--inchiostro); box-shadow: 18px 18px 0 var(--inchiostro); overflow: hidden; }
+  .card .lbl { position: absolute; top: 40px; left: 48px; font-family: var(--f-mono); font-size: 30px; letter-spacing: 2px; color: #5568A8; }
+  .card .q { position: absolute; top: 120px; left: 48px; right: 48px; font-family: var(--f-titolo); font-weight: 700; font-size: 76px; line-height: 1.05; letter-spacing: -1.5px; text-wrap: balance; }
+  .meter { position: absolute; left: 48px; right: 48px; top: 450px; }
+  .meter .t { font-family: var(--f-mono); font-size: 26px; letter-spacing: 2px; color: #5568A8; margin-bottom: 14px; }
+  .meter .track { height: 34px; border-radius: 17px; background: #fff; border: 5px solid var(--inchiostro); overflow: hidden; }
+  .meter .fill { height: 100%; width: 0; background: repeating-linear-gradient(-45deg, var(--cobalto) 0 22px, #4D66FF 22px 44px); }
+  .punch { position: absolute; left: 36px; right: 36px; top: 400px; min-height: 260px; background: var(--ghiacciolo); color: #fff;
+    border: 7px solid var(--inchiostro); border-radius: 40px; display: flex; align-items: center; justify-content: center; text-align: center;
+    font-family: var(--f-titolo); font-weight: 700; font-size: 80px; line-height: 1.02; letter-spacing: -1.5px; padding: 30px 40px; text-wrap: balance; }
+  .score { position: absolute; left: 48px; bottom: 48px; font-family: var(--f-mono); font-size: 34px; letter-spacing: 2px; }
+  .score b { font-family: var(--f-titolo); font-weight: 700; font-size: 60px; color: var(--cobalto); letter-spacing: 0; }
+  .cd { position: absolute; left: 50%; top: 400px; width: 300px; height: 300px; margin-left: -150px; border-radius: 50%;
+    background: var(--ghiacciolo); border: 8px solid var(--inchiostro); display: grid; place-items: center;
+    font-family: var(--f-logo); font-size: 150px; color: #fff; line-height: 1; padding-top: 18px; }
+  .okl { position: absolute; left: 48px; top: 380px; background: var(--menta); color: var(--inchiostro); font-family: var(--f-mono); font-size: 28px; padding: 8px 18px; border-radius: 10px; border: 4px solid var(--inchiostro); letter-spacing: 2px; z-index: 2; }
+  .mascot { position: absolute; right: 30px; top: 520px; z-index: 5; }
+  /* congelamento */
+  .frost { position: absolute; inset: 0; pointer-events: none; z-index: 8;
+    background: radial-gradient(ellipse at center, rgba(234,246,255,0) 58%, rgba(234,246,255,0.85) 100%); }
+  .crack { position: absolute; inset: 0; z-index: 9; pointer-events: none; }
+  .flash { position: absolute; inset: 0; background: #fff; z-index: 20; pointer-events: none; }
+  .stamp { position: absolute; z-index: 12; left: 70px; top: 575px; font-family: var(--f-logo); font-size: 92px; color: var(--limone);
+    -webkit-text-stroke: 7px var(--inchiostro); paint-order: stroke fill; transform: rotate(-10deg); }
+  .dots { position: absolute; top: 1500px; left: 0; right: 0; display: flex; justify-content: center; gap: 16px; }
+  .dots i { width: 26px; height: 26px; border-radius: 8px; background: rgba(255,255,255,0.25); border: 4px solid transparent; }
+  .dots i.on { background: var(--limone); border-color: var(--inchiostro); }
+  .dots i.done { background: #fff; }
+  /* chiusura */
+  .end { position: absolute; inset: 0; z-index: 30; background: var(--ghiacciolo); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 46px; text-align: center; padding: 0 90px; }
+  .end .t1 { font-family: var(--f-titolo); font-weight: 700; font-size: 96px; line-height: 1.02; letter-spacing: -2px; text-wrap: balance; }
+  .end .t2 { font-family: var(--f-logo); font-size: 40px; background: var(--limone); color: var(--inchiostro); padding: 22px 40px 14px; border-radius: 22px; border: 6px solid var(--inchiostro); box-shadow: 0 10px 0 var(--inchiostro); }
+</style>
+</head>
+<body>
+  <div id="bg"><div id="grid"></div><div class="glow"></div></div>
+  <div class="logo"><span>BATTUTE GELATE</span><span class="tag" id="fmt"></span></div>
+  <div class="hook" id="hook"></div>
+  <div class="sticker" id="sticker"></div>
+  <div class="card" id="card">
+    <div class="lbl" id="lbl"></div>
+    <div class="q" id="q"></div>
+    <div class="meter" id="meter"><div class="t" id="mt">GELOMETRO</div><div class="track"><div class="fill" id="fill"></div></div></div>
+    <div class="cd" id="cd"></div>
+    <div class="okl" id="okl">RISPOSTA</div>
+    <div class="punch" id="punch"></div>
+    <div class="score" id="score"></div>
+    <div class="frost" id="frost"></div>
+    <svg class="crack" id="crack" viewBox="0 0 946 866" preserveAspectRatio="none">
+      <g stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M0 90 L110 140 L160 90 L250 160 L300 130"/><path d="M946 60 L840 130 L800 80 L690 150"/>
+        <path d="M0 780 L120 730 L170 800 L280 740"/><path d="M946 820 L830 760 L780 830 L660 770"/>
+      </g>
+    </svg>
+  </div>
+  <div class="mascot" id="mascot"></div>
+  <div class="stamp" id="stamp">BRRR!</div>
+  <div class="dots" id="dots"></div>
+  <div class="flash" id="flash"></div>
+  <div class="end" id="end"><div id="endM"></div><div class="t1" id="endTxt"></div><div class="t2" id="endH"></div></div>
+<script>
+const $ = (id) => document.getElementById(id);
+const cl = (x) => Math.max(0, Math.min(1, x));
+const ease = (x) => 1 - Math.pow(1 - cl(x), 3);
+const back = (x) => { x = cl(x); const c = 1.9; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+let R, TL = [], INTRO = 1.25, ENDSTART = 0, END = 0, IND = false, lastExpr = '';
+
+function setup(reel, handle) {
+  R = reel; IND = reel.formato === 'indovina';
+  $('fmt').textContent = IND ? 'INDOVINA IN 3' : 'RAFFICA';
+  // hook: parole separate, *parola* evidenziata
+  const parts = reel.hook.split(/(\*[^*]+\*)/).filter(Boolean);
+  let html = '';
+  parts.forEach(p => {
+    if (p.startsWith('*')) html += `<span class="w hl">${p.slice(1, -1)}</span> `;
+    else p.trim().split(/\s+/).forEach(w => html += `<span class="w">${w}</span> `);
+  });
+  $('hook').innerHTML = html;
+  $('sticker').textContent = reel.sticker;
+  $('endTxt').textContent = reel.fine; $('endH').textContent = 'SEGUI ' + handle.toUpperCase();
+  $('endM').innerHTML = gelo('ride', 300);
+  $('dots').innerHTML = reel.battute.map(() => '<i></i>').join('');
+  let t = INTRO; const sounds = [{ t: 0.02, k: 'slam' }];
+  reel.battute.forEach((b, i) => {
+    const start = t;
+    const think = IND ? 4.1 : Math.min(2.5, 1.35 + b[0].length * 0.02);
+    const reveal = start + think;
+    const hold = IND ? 1.9 : Math.min(2.6, 1.7 + b[1].length * 0.028);
+    TL.push({ i, q: b[0], a: b[1], s: b[2], start, reveal, end: reveal + hold, cdStart: start + 1.1 });
+    sounds.push({ t: start, k: 'whoosh' }, { t: reveal, k: IND ? 'ding' : 'ice' });
+    if (IND) for (let s = 0; s < 3; s++) sounds.push({ t: start + 1.1 + s, k: 'tick' });
+    t = reveal + hold;
+  });
+  ENDSTART = t; END = t + 2.5;
+  sounds.push({ t: ENDSTART, k: 'slam' });
+  return { duration: END, sounds };
+}
+
+function setTime(t) {
+  $('grid').style.transform = `translate(${-(t * 30) % 120}px, ${-(t * 30) % 120}px)`;
+  // fine
+  const end = $('end');
+  if (t >= ENDSTART) {
+    end.style.display = 'flex'; const p = (t - ENDSTART);
+    end.style.clipPath = `circle(${ease(p / 0.45) * 150}% at 50% 60%)`;
+    $('endM').style.transform = `scale(${back((p - 0.1) / 0.4)}) rotate(${Math.sin(t * 6) * 6}deg)`;
+    $('flash').style.opacity = 0; return;
+  }
+  end.style.display = 'none';
+  // hook: tutto visibile dal primo frame, entra con uno "slam"; la parola chiave salta dopo
+  const hp = back(t / 0.28);
+  $('hook').style.transform = `scale(${1.25 - 0.25 * hp})`; $('hook').style.transformOrigin = '0% 50%';
+  document.querySelectorAll('.hook .hl').forEach(w => { w.style.transform = `rotate(-2deg) scale(${1 + 0.35 * Math.max(0, Math.sin(cl((t - 0.3) / 0.35) * Math.PI))})`; });
+  $('sticker').style.top = ($('hook').offsetTop + $('hook').offsetHeight + 30) + 'px';
+  const sp = (t - 0.55) / 0.35;
+  $('sticker').style.transform = `rotate(-4deg) scale(${back(sp)})`;
+  $('sticker').style.opacity = cl(sp * 4);
+  // card in ingresso
+  const e = TL.find(x => t >= x.start && t < x.end) || (t < INTRO ? TL[0] : TL[TL.length - 1]);
+  const card = $('card');
+  let ty = t < INTRO ? (1 - ease((t - 0.2) / 0.45)) * 1400 : 0;
+  let tx = 0;
+  if (t >= INTRO) {
+    if (e.i > 0) tx = (1 - ease((t - e.start) / 0.32)) * 1200;
+    if (e.i < TL.length - 1) tx -= ease((t - (e.end - 0.22)) / 0.22) * 1200;
+  }
+  const revealed = t >= e.reveal; const pr = t - e.reveal;
+  const shake = revealed && pr < 0.4 ? Math.sin(pr * 95) * 16 * (1 - pr / 0.4) : 0;
+  card.style.transform = `translate(${tx + shake}px, ${ty}px) rotate(${-1.2 + (revealed ? 0.6 : 0)}deg)`;
+  $('lbl').textContent = (IND ? 'INDOVINELLO ' : 'BATTUTA ') + String(e.i + 1).padStart(2, '0') + '/' + String(TL.length).padStart(2, '0');
+  $('q').textContent = e.q; $('punch').textContent = e.a;
+  // attesa: gelometro o conto alla rovescia
+  const waitP = cl((t - e.start) / (e.reveal - e.start));
+  $('meter').style.display = !IND && !revealed ? 'block' : 'none';
+  $('fill').style.width = (waitP * 100) + '%';
+  const cd = $('cd');
+  const cnum = IND && !revealed && t >= e.cdStart ? 3 - Math.floor(t - e.cdStart) : 0;
+  cd.style.display = cnum > 0 ? 'grid' : 'none';
+  if (cnum > 0) { cd.textContent = cnum; const f = (t - e.cdStart) % 1; cd.style.transform = `scale(${1.35 - 0.35 * back(f / 0.3)})`; }
+  // rivelazione
+  const pu = $('punch');
+  pu.style.display = revealed ? 'flex' : 'none';
+  pu.style.transform = `rotate(${revealed ? -2 : 0}deg) scale(${0.3 + 0.7 * back(pr / 0.32)})`;
+  pu.style.background = IND ? 'var(--menta)' : 'var(--ghiacciolo)';
+  pu.style.color = IND ? 'var(--inchiostro)' : '#fff';
+  $('okl').style.display = IND && revealed ? 'block' : 'none';
+  const sc = $('score');
+  sc.style.display = !IND && revealed ? 'block' : 'none';
+  if (!IND && revealed) { const n = Math.round(Math.min(e.s, e.s * ease((pr - 0.2) / 0.5))); sc.innerHTML = `GELO <b>${n}</b>/10`; }
+  const fz = !IND && revealed ? ease(pr / 0.25) : 0;
+  $('frost').style.opacity = fz; $('crack').style.opacity = fz;
+  const st = $('stamp');
+  st.style.display = !IND && revealed ? 'block' : 'none';
+  if (!IND && revealed) st.style.transform = `rotate(-10deg) scale(${2.2 - 1.2 * back((pr - 0.12) / 0.28)})`, st.style.opacity = cl((pr - 0.12) * 8);
+  $('flash').style.opacity = !IND && revealed && pr < 0.14 ? 0.85 * (1 - pr / 0.14) : 0;
+  // mascotte
+  const expr = revealed ? (IND ? 'ride' : 'gelato') : 'furbo';
+  if (expr !== lastExpr) { $('mascot').innerHTML = gelo(expr, 230); lastExpr = expr; }
+  const m = $('mascot');
+  const mIn = back((t - 0.45) / 0.4);
+  m.style.transform = revealed && !IND
+    ? `translate(${Math.sin(t * 70) * 7}px, ${ty}px) rotate(${Math.sin(t * 50) * 5}deg)`
+    : `translate(${tx * 0}px, ${ty + Math.sin(t * 3.5) * 10}px) rotate(8deg) scale(${t < 1.4 ? mIn : 1})`;
+  // pallini avanzamento
+  document.querySelectorAll('.dots i').forEach((d, k) => { d.className = k < e.i || (k === e.i && revealed) ? 'done' : (k === e.i && t >= INTRO ? 'on' : ''); });
+}
+window.setup = setup; window.setTime = setTime;
+</script>
+</body>
+</html>
