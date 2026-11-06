@@ -7,9 +7,11 @@ Istruzioni per l'attività programmata che riempie il calendario di @battutegela
 - **Brand Metricool:** "Battute Gelate", blogId `7845959`, Instagram `@battutegelate`, fuso `Europe/Rome`. Non pubblicare mai su altri brand.
 - **Cadenza:** 2 contenuti al giorno.
   - **19:30** un Reel, ruotando i 6 template: raffica (`reel` + `formato: raffica`), quiz, kinetic, ruota, classifica, indovina (`reel` + `formato: indovina`). Mai lo stesso template due giorni di fila.
-  - **12:30** a giorni alterni: un carosello (Scorri e congela, 12 slide) o un post "Completa la battuta". Nel post, la risposta va nel primo commento (`firstCommentText`).
+  - **12:30** un Reel breve "Battuta del giorno": template `kinetic` con `hook: ""`, `tag: "BATTUTA DEL GIORNO"` e una sola battuta, circa 8 secondi.
+  - Caroselli e post "Completa la battuta" restano pronti nei template, ma si usano solo quando la pagina supera i 1.000 follower. Sotto quella soglia li vedono quasi solo i follower: nei primi giorni hanno raggiunto 1-3 persone contro le circa 180 dei Reel.
+- **Durata dei Reel delle 19:30:** massimo 20 secondi. Il tempo medio di visione nei primi giorni è stato di 5 secondi. Usa 3 battute per raffica, 3 domande per il quiz e 3 indovinelli; per parola per parola e ruota bastano 2 o 3 battute.
 - **Pubblicazione:** `autoPublish: true`, `draft: false`.
-- **Copertina Reel** (`videoCoverMilliseconds`): 1600 per raffica e indovina, 1000 per gli altri template.
+- **Copertina Reel** (`videoCoverMilliseconds`): 1600 per raffica e indovina, 1500 per Battuta del giorno, 1000 per gli altri template.
 - **Battute:** nessuna risposta già presente in `usate.txt`. Battute pulite, niente politica, religione o prese in giro di gruppi o persone reali. Ogni volta almeno metà inedite.
 
 ## Passaggi
