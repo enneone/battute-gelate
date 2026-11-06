@@ -41,7 +41,7 @@ function fitSize(lines, maxW, maxS) { // dimensione che fa stare la riga più lu
 }
 
 function setup(reel, handle) {
-  R = reel; baseLayer('PAROLA PER PAROLA', handle, reel.fine);
+  R = reel; if (!reel.hook) INTRO = 0; baseLayer(reel.tag || 'PAROLA PER PAROLA', handle, reel.fine);
   document.querySelector('.logo').style.top = '130px';
   $('hook').innerHTML = hlWords(reel.hook);
   $('bars').innerHTML = reel.battute.map(() => '<i><b></b></i>').join('');
@@ -62,7 +62,7 @@ function setup(reel, handle) {
 
 function render(lines, size, t0, step, alt) {
   return lines.map((l, k) => {
-    const p = (window._t - (t0 + k * step)) / 0.22;
+    let p = (window._t - (t0 + k * step)) / 0.22; if (t0 === 0 && k === 0) p = 1; // primo frame già pieno
     if (p < 0) return '';
     return `<div class="ln${alt && k % 2 ? ' alt' : ''}" style="font-size:${size}px;transform:scale(${1.5 - 0.5 * back(p)}) rotate(${(1 - ease(p)) * -6}deg);opacity:${cl(p * 3)}">${l}</div>`;
   }).join('');

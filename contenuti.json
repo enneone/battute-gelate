@@ -488,6 +488,156 @@
       "fine": "Mandalo al collega che ne ha bisogno",
       "didascalia": "Mandalo al collega che oggi ne ha bisogno ☕🥶",
       "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
+    },
+    {
+      "id": "M01-cavoli",
+      "template": "kinetic",
+      "tag": "BATTUTA DEL GIORNO",
+      "hook": "",
+      "battute": [
+        [
+          "Qual è il colmo per un fruttivendolo?",
+          "Farsi sempre i cavoli suoi"
+        ]
+      ],
+      "fine": "Mandala a chi sai tu",
+      "didascalia": "Mandala a chi la direbbe sicuro 🥶",
+      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
+    },
+    {
+      "id": "M02-boomerang",
+      "template": "kinetic",
+      "tag": "BATTUTA DEL GIORNO",
+      "hook": "",
+      "battute": [
+        [
+          "Come si chiama un boomerang che non torna?",
+          "Un bastone"
+        ]
+      ],
+      "fine": "Mandala a chi sai tu",
+      "didascalia": "Se ridi hai perso 🥶 Mandala a chi ride sempre",
+      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
+    },
+    {
+      "id": "M03-pasticcio",
+      "template": "kinetic",
+      "tag": "BATTUTA DEL GIORNO",
+      "hook": "",
+      "battute": [
+        [
+          "Qual è il colmo per un pasticciere?",
+          "Combinare un pasticcio"
+        ]
+      ],
+      "fine": "Mandala a chi sai tu",
+      "didascalia": "Voto di gelo da 1 a 10? 👇🥶",
+      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
+    },
+    {
+      "id": "M04-salita",
+      "template": "kinetic",
+      "tag": "BATTUTA DEL GIORNO",
+      "hook": "",
+      "battute": [
+        [
+          "Qual è il colmo per un ciclista?",
+          "Avere una vita tutta in salita"
+        ]
+      ],
+      "fine": "Mandala a chi sai tu",
+      "didascalia": "Tagga chi te l'ha raccontata per primo 🥶",
+      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
+    },
+    {
+      "id": "M05-pesce-aprile",
+      "template": "kinetic",
+      "tag": "BATTUTA DEL GIORNO",
+      "hook": "",
+      "battute": [
+        [
+          "Qual è il pesce più famoso?",
+          "Il pesce d'aprile"
+        ]
+      ],
+      "fine": "Mandala a chi sai tu",
+      "didascalia": "Mandala al più simpatico del gruppo 🥶",
+      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
+    },
+    {
+      "id": "M06-fioraio",
+      "template": "kinetic",
+      "tag": "BATTUTA DEL GIORNO",
+      "hook": "",
+      "battute": [
+        [
+          "Qual è il colmo per un fioraio?",
+          "Avere una vita tutta rose e fiori"
+        ]
+      ],
+      "fine": "Mandala a chi sai tu",
+      "didascalia": "Ditemi che non sono l'unico che ride da solo 🥶",
+      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
+    },
+    {
+      "id": "M07-vetraio",
+      "template": "kinetic",
+      "tag": "BATTUTA DEL GIORNO",
+      "hook": "",
+      "battute": [
+        [
+          "Qual è il colmo per un vetraio?",
+          "Avere un carattere trasparente"
+        ]
+      ],
+      "fine": "Mandala a chi sai tu",
+      "didascalia": "Voto di gelo da 1 a 10? 👇🥶",
+      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
+    },
+    {
+      "id": "M08-gommista",
+      "template": "kinetic",
+      "tag": "BATTUTA DEL GIORNO",
+      "hook": "",
+      "battute": [
+        [
+          "Qual è il colmo per un gommista?",
+          "Sentirsi a terra"
+        ]
+      ],
+      "fine": "Mandala a chi sai tu",
+      "didascalia": "Mandala a chi la direbbe sicuro 🥶",
+      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
+    },
+    {
+      "id": "M09-lavandaio",
+      "template": "kinetic",
+      "tag": "BATTUTA DEL GIORNO",
+      "hook": "",
+      "battute": [
+        [
+          "Qual è il colmo per un lavandaio?",
+          "Avere la coscienza pulita"
+        ]
+      ],
+      "fine": "Mandala a chi sai tu",
+      "didascalia": "Se ridi hai perso 🥶 Mandala a chi ride sempre",
+      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
+    },
+    {
+      "id": "M10-elastico",
+      "template": "kinetic",
+      "tag": "BATTUTA DEL GIORNO",
+      "hook": "",
+      "battute": [
+        [
+          "Qual è la parola più lunga del mondo?",
+          "Elastico, perché si allunga"
+        ]
+      ],
+      "fine": "Mandala a chi sai tu",
+      "didascalia": "Tagga chi la diceva alle elementari 🥶",
+      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
     }
   ],
   "caroselli": [
