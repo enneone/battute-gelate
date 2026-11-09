@@ -8,11 +8,11 @@
 <style>
   /* PAROLA PER PAROLA: tipografia cinetica a tutto schermo */
   #bars { position: absolute; top: 80px; left: 70px; right: 70px; display: flex; gap: 10px; z-index: 15; }
-  #bars i { flex: 1; height: 10px; border-radius: 5px; background: rgba(255,255,255,0.3); overflow: hidden; }
-  #bars i b { display: block; height: 100%; width: 0; background: #fff; }
+  #bars i { flex: 1; height: 10px; border-radius: 5px; background: var(--line); outline: 2px solid var(--fg); outline-offset: -2px; overflow: hidden; }
+  #bars i b { display: block; height: 100%; width: 0; background: var(--fg); }
   #stage { position: absolute; left: 70px; right: 70px; top: 300px; bottom: 420px; display: flex; flex-direction: column; justify-content: center; gap: 4px; }
   .ln { font-family: var(--f-titolo); font-weight: 700; letter-spacing: -0.04em; line-height: 0.98; white-space: nowrap; transform-origin: 0% 70%; }
-  .ln.alt { color: var(--limone); }
+  .ln.alt { color: var(--alt); }
   .lbl { font-family: var(--f-mono); font-size: 32px; letter-spacing: 3px; margin-bottom: 20px; opacity: .85; }
   #peek { position: absolute; left: 50%; bottom: 360px; margin-left: -140px; z-index: 6; }
   #hookWrap { position: absolute; left: 70px; right: 70px; top: 300px; bottom: 420px; display: flex; flex-direction: column; justify-content: center; }
@@ -81,7 +81,7 @@ function setTime(t) {
   const e = J.find(x => t >= x.start && t < x.end) || J[J.length - 1];
   const inPunch = t >= e.beat;
   // sfondo: cobalto per la domanda, ghiacciolo per la battuta
-  document.body.style.background = t >= INTRO && inPunch ? 'var(--ghiacciolo)' : 'var(--cobalto)';
+  const kin = t >= INTRO && inPunch; document.body.style.background = kin ? 'var(--kin)' : 'var(--bg)'; document.body.style.color = kin ? 'var(--kinfg)' : 'var(--fg)'; document.querySelector('.logo').style.color = kin ? 'var(--kinfg)' : 'var(--fg)';
   const st = $('stage');
   if (t < INTRO) st.innerHTML = '';
   else if (!inPunch) st.innerHTML = `<div class="lbl">BATTUTA ${pad2(e.i + 1)}/${pad2(J.length)}</div>` + render(e.q, e.qs, e.start, CH, true);

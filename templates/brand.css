@@ -27,3 +27,12 @@
   --r-card: 56px;
   --ombra-dura: 0 18px 0 var(--inchiostro);
 }
+
+/* Temi di colore: si alternano tra un contenuto e l'altro per variare la griglia del profilo.
+   --bg sfondo, --fg testo sullo sfondo, --line griglia, --punch blocco della battuta, --punchfg testo della battuta,
+   --sticker etichetta sotto l'hook, --kin sfondo del momento "gelo" nel template parola per parola */
+:root, .theme-cobalto { --alt: var(--limone); --bg: var(--cobalto); --fg: #fff; --line: rgba(255,255,255,0.07); --punch: var(--ghiacciolo); --punchfg: #fff; --sticker: var(--ghiacciolo); --stickerfg: #fff; --kin: var(--ghiacciolo); --kinfg: #fff; }
+.theme-ghiacciolo { --alt: var(--limone); --bg: var(--ghiacciolo); --fg: #fff; --line: rgba(255,255,255,0.10); --punch: var(--cobalto); --punchfg: #fff; --sticker: var(--limone); --stickerfg: var(--inchiostro); --kin: var(--cobalto); --kinfg: #fff; }
+.theme-limone { --alt: var(--cobalto); --bg: var(--limone); --fg: var(--inchiostro); --line: rgba(10,15,61,0.07); --punch: var(--ghiacciolo); --punchfg: #fff; --sticker: var(--cobalto); --stickerfg: #fff; --kin: var(--ghiacciolo); --kinfg: #fff; }
+.theme-notte { --alt: var(--limone); --bg: var(--inchiostro); --fg: #fff; --line: rgba(255,255,255,0.06); --punch: var(--menta); --punchfg: var(--inchiostro); --sticker: var(--menta); --stickerfg: var(--inchiostro); --kin: var(--menta); --kinfg: var(--inchiostro); }
+.theme-menta { --alt: var(--cobalto); --bg: var(--menta); --fg: var(--inchiostro); --line: rgba(10,15,61,0.07); --punch: var(--cobalto); --punchfg: #fff; --sticker: var(--ghiacciolo); --stickerfg: #fff; --kin: var(--cobalto); --kinfg: #fff; }

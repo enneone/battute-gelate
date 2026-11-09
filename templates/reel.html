@@ -7,24 +7,24 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { width: 1080px; height: 1920px; overflow: hidden; }
-  body { background: var(--cobalto); color: #fff; position: relative; font-family: var(--f-testo); }
+  body { background: var(--bg); color: var(--fg); position: relative; font-family: var(--f-testo); }
   /* sfondo: griglia di cubetti che scorre lenta + alone */
   #bg { position: absolute; inset: 0; overflow: hidden; }
   #bg .glow { position: absolute; width: 1400px; height: 1400px; left: -160px; top: 300px; border-radius: 50%;
     background: radial-gradient(circle, rgba(255,255,255,0.16), rgba(255,255,255,0) 60%); }
   #grid { position: absolute; inset: -200px; background-image:
-      linear-gradient(rgba(255,255,255,0.07) 3px, transparent 3px),
-      linear-gradient(90deg, rgba(255,255,255,0.07) 3px, transparent 3px);
+      linear-gradient(var(--line) 3px, transparent 3px),
+      linear-gradient(90deg, var(--line) 3px, transparent 3px);
     background-size: 120px 120px; }
   /* testata */
-  .logo { position: absolute; top: 120px; left: 70px; display: flex; align-items: center; gap: 16px;
+  .logo { position: absolute; top: 120px; left: 70px; color: var(--fg); display: flex; align-items: center; gap: 16px;
     font-family: var(--f-logo); font-size: 34px; letter-spacing: 1px; }
   .logo .tag { font-family: var(--f-mono); font-size: 24px; background: var(--inchiostro); padding: 6px 14px; border-radius: 10px; letter-spacing: 1px; }
   .hook { position: absolute; top: 200px; left: 70px; right: 70px; font-family: var(--f-titolo); font-weight: 700;
     font-size: 84px; line-height: 1.02; letter-spacing: -2px; text-wrap: balance; }
   .hook .w { display: inline-block; transform-origin: 50% 80%; }
   .hook .hl { background: var(--limone); color: var(--inchiostro); padding: 0 16px; border-radius: 16px; display: inline-block; transform: rotate(-2deg); }
-  .sticker { position: absolute; left: 70px; background: var(--ghiacciolo); color: #fff; font-family: var(--f-titolo); font-weight: 700;
+  .sticker { position: absolute; left: 70px; background: var(--sticker); color: var(--stickerfg); font-family: var(--f-titolo); font-weight: 700;
     font-size: 38px; padding: 12px 26px; border-radius: 999px; border: 5px solid var(--inchiostro); box-shadow: 0 8px 0 var(--inchiostro); }
   /* card */
   .card { position: absolute; left: 60px; right: 60px; top: 640px; height: 800px; background: var(--brina); color: var(--inchiostro);
@@ -53,7 +53,7 @@
   .stamp { position: absolute; z-index: 12; left: 70px; top: 575px; font-family: var(--f-logo); font-size: 92px; color: var(--limone);
     -webkit-text-stroke: 7px var(--inchiostro); paint-order: stroke fill; transform: rotate(-10deg); }
   .dots { position: absolute; top: 1500px; left: 0; right: 0; display: flex; justify-content: center; gap: 16px; }
-  .dots i { width: 26px; height: 26px; border-radius: 8px; background: rgba(255,255,255,0.25); border: 4px solid transparent; }
+  .dots i { width: 26px; height: 26px; border-radius: 8px; background: var(--line); outline: 3px solid var(--fg); outline-offset: -3px; opacity: .9; border: 4px solid transparent; }
   .dots i.on { background: var(--limone); border-color: var(--inchiostro); }
   .dots i.done { background: #fff; }
   /* chiusura */
@@ -171,8 +171,8 @@ function setTime(t) {
   const pu = $('punch');
   pu.style.display = revealed ? 'flex' : 'none';
   pu.style.transform = `rotate(${revealed ? -2 : 0}deg) scale(${0.3 + 0.7 * back(pr / 0.32)})`;
-  pu.style.background = IND ? 'var(--menta)' : 'var(--ghiacciolo)';
-  pu.style.color = IND ? 'var(--inchiostro)' : '#fff';
+  pu.style.background = IND ? 'var(--menta)' : 'var(--punch)';
+  pu.style.color = IND ? 'var(--inchiostro)' : 'var(--punchfg)';
   $('okl').style.display = IND && revealed ? 'block' : 'none';
   const sc = $('score');
   sc.style.display = !IND && revealed ? 'block' : 'none';

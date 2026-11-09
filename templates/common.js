@@ -55,16 +55,16 @@ function bgTick(t) { $('grid').style.transform = `translate(${-(t * 30) % 120}px
 const BASE_CSS = `
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { width: 1080px; height: 1920px; overflow: hidden; }
-  body { background: var(--cobalto); color: #fff; position: relative; font-family: var(--f-testo); }
+  body { background: var(--bg); color: var(--fg); position: relative; font-family: var(--f-testo); }
   #bgc { position: absolute; inset: 0; overflow: hidden; transition: none; }
   #grid { position: absolute; inset: -200px; background-image:
-      linear-gradient(rgba(255,255,255,0.07) 3px, transparent 3px), linear-gradient(90deg, rgba(255,255,255,0.07) 3px, transparent 3px);
+      linear-gradient(var(--line) 3px, transparent 3px), linear-gradient(90deg, var(--line) 3px, transparent 3px);
     background-size: 120px 120px; }
   .logo { position: absolute; top: 120px; left: 70px; display: flex; align-items: center; gap: 16px; z-index: 15;
-    font-family: var(--f-logo); font-size: 34px; letter-spacing: 1px; color: #fff; }
+    font-family: var(--f-logo); font-size: 34px; letter-spacing: 1px; color: var(--fg); }
   .logo .tag { font-family: var(--f-mono); font-size: 24px; background: var(--inchiostro); padding: 6px 14px; border-radius: 10px; letter-spacing: 1px; }
   .hl { background: var(--limone); color: var(--inchiostro); padding: 0 16px; border-radius: 16px; display: inline-block; transform: rotate(-2deg); }
-  .sticker { position: absolute; left: 70px; background: var(--ghiacciolo); color: #fff; font-family: var(--f-titolo); font-weight: 700; z-index: 14;
+  .sticker { position: absolute; left: 70px; background: var(--sticker); color: var(--stickerfg); font-family: var(--f-titolo); font-weight: 700; z-index: 14;
     font-size: 38px; padding: 12px 26px; border-radius: 999px; border: 5px solid var(--inchiostro); box-shadow: 0 8px 0 var(--inchiostro); }
   #frostAll { position: absolute; inset: 0; z-index: 18; pointer-events: none; opacity: 0;
     background: radial-gradient(ellipse at center, rgba(234,246,255,0) 55%, rgba(234,246,255,0.85) 100%); }

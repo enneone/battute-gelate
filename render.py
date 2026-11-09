@@ -80,6 +80,7 @@ def make_audio(path, duration, sounds):
 # ---------- Reel ----------
 def load_reel(page, reel):
     page.goto((TPL / (reel.get("template", "reel") + ".html")).as_uri()); page.evaluate("document.fonts.ready")
+    page.evaluate("t => document.body.classList.add('theme-' + t)", reel.get("tema", "cobalto"))
     return page.evaluate("([r, h]) => setup(r, h)", [reel, DATA["handle"]])
 
 
