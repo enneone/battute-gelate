@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><link rel="stylesheet" href="brand.css"><script src="mascotte.js"></script><script src="common.js"></script>
+<style>
+  /* Copertina dei Reel: tutto il testo sta nella zona che il profilo mostra (3:4, y 240-1680) */
+  #t { position: absolute; left: 80px; right: 80px; top: 470px; font-family: var(--f-titolo); font-weight: 700; font-size: 132px; line-height: 1; letter-spacing: -4px; text-wrap: balance; z-index: 4; }
+  #k { position: absolute; left: 80px; top: 330px; font-family: var(--f-logo); font-size: 34px; padding: 16px 24px 8px; border-radius: 16px; background: var(--inchiostro); color: #fff; z-index: 4; transform: rotate(-2deg); }
+  #m { position: absolute; right: 70px; top: 1250px; z-index: 4; transform: rotate(8deg); }
+  #b { position: absolute; left: 80px; top: 1440px; font-family: var(--f-logo); font-size: 30px; z-index: 4; }
+</style></head><body><div id="k"></div><div id="t"></div><div id="m"></div><div id="b">BATTUTE GELATE</div>
+<script>
+function setup(reel, handle) {
+  baseLayer('', handle, '', { noProg: true });
+  document.querySelector('.logo').style.display = 'none';
+  $('k').textContent = reel.etichetta || reel.tag || '';
+  $('k').style.display = $('k').textContent ? 'block' : 'none';
+  $('t').innerHTML = hlWords(reel.copertina || reel.hook);
+  for (let s = 132; s > 70; s -= 6) { $('t').style.fontSize = s + 'px'; if ($('t').offsetHeight <= 720) break; }
+  $('m').innerHTML = gelo(reel.copertina_gelo || 'furbo', 340);
+  bgTick(3); endCard(0, 99);
+  return { duration: 0, sounds: [] };
+}
+window.setup = setup; window.setTime = () => {};
+</script></body></html>

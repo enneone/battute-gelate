@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="brand.css">
+<script src="mascotte.js"></script>
+<script src="common.js"></script>
+<style>
+  /* TROVA IL GELO: una griglia di Gelo tutti uguali tranne uno, tre livelli sempre più difficili */
+  #hook { position: absolute; top: 196px; left: 70px; right: 70px; font-family: var(--f-titolo); font-weight: 700; font-size: 88px; line-height: 1.04; letter-spacing: -2.5px; text-wrap: balance; transform-origin: 0% 50%; z-index: 4; }
+  #lev { position: absolute; top: 432px; left: 70px; font-family: var(--f-logo); font-size: 30px; padding: 14px 22px 6px; border-radius: 16px; background: var(--inchiostro); color: #fff; z-index: 5; }
+  #tbar { position: absolute; top: 438px; left: 390px; right: 190px; height: 44px; border-radius: 22px; background: rgba(10,15,61,0.3); border: 5px solid var(--inchiostro); overflow: hidden; z-index: 5; }
+  #tfill { height: 100%; width: 100%; background: var(--alt); border-radius: 0 16px 16px 0; }
+  #tnum { position: absolute; top: 410px; right: 70px; width: 100px; height: 100px; border-radius: 50%; background: var(--inchiostro); color: #fff; display: grid; place-items: center; font-family: var(--f-logo); font-size: 46px; padding-top: 8px; z-index: 6; }
+  #board { position: absolute; left: 70px; top: 540px; width: 940px; height: 940px; background: var(--brina); border: 7px solid var(--inchiostro); border-radius: 56px; box-shadow: 16px 16px 0 var(--inchiostro); z-index: 4; overflow: hidden; }
+  #cells { position: absolute; inset: 22px; }
+  .c { position: absolute; display: grid; place-items: center; }
+  #spot { position: absolute; border-radius: 50%; border: 12px solid var(--ghiacciolo); box-shadow: 0 0 0 9999px rgba(10,15,61,0.62); display: none; z-index: 3; }
+  #found { position: absolute; left: 0; right: 0; bottom: 34px; text-align: center; font-family: var(--f-logo); font-size: 64px; color: var(--limone); -webkit-text-stroke: 7px var(--inchiostro); paint-order: stroke fill; z-index: 5; display: none; }
+  #ask { position: absolute; left: 70px; top: 1520px; font-family: var(--f-titolo); font-weight: 700; font-size: 42px; background: var(--inchiostro); color: #fff; padding: 14px 28px; border-radius: 999px; z-index: 5; }
+</style>
+</head>
+<body>
+  <div id="hook"></div>
+  <div id="lev"></div>
+  <div id="tbar"><div id="tfill"></div></div>
+  <div id="tnum"></div>
+  <div id="board"><div id="cells"></div><div id="spot"></div><div id="found">ECCOLO!</div></div>
+  <div id="ask"></div>
+<script>
+let R, L = [], ENDS = 0, cur = -1;
+const REVEAL = 1.5, INNER = 896;
+
+function setup(reel, handle) {
+  R = reel; baseLayer(reel.tag || 'TROVA IL GELO', handle, reel.fine);
+  $('hook').innerHTML = hlWords(reel.hook);
+  $('ask').textContent = reel.chiedi || 'Trovato? Scrivi a che livello sei arrivato';
+  let t = 0; const sounds = [{ t: 0.02, k: 'slam' }];
+  reel.livelli.forEach((lv, i) => {
+    const r = rng((reel.seme || 1) * 17 + i * 101 + 3);
+    const n = lv.n, odd = Math.floor(r() * n * n), think = lv.secondi || 4;
+    const ph = Array.from({ length: n * n }, () => r() * 6.28);
+    const start = t, reveal = start + think, end = reveal + REVEAL;
+    L.push({ i, n, odd, ph, base: lv.base, diff: lv.diverso, flip: !!lv.specchiato, think, start, reveal, end });
+    if (i) sounds.push({ t: start, k: 'whoosh' });
+    for (let s = 0; s < think; s++) sounds.push({ t: start + s + (think % 1), k: 'tick' });
+    sounds.push({ t: reveal, k: i === reel.livelli.length - 1 ? 'ice' : 'ding' }, { t: reveal + 0.12, k: 'pop' });
+    t = end;
+  });
+  ENDS = t; sounds.push({ t: ENDS, k: 'slam' });
+  return { duration: ENDS + END_LEN, sounds };
+}
+
+function build(e) { // la griglia si costruisce una volta per livello
+  const cell = INNER / e.n, g = cell * 0.9;
+  let h = '';
+  for (let k = 0; k < e.n * e.n; k++) {
+    const x = (k % e.n) * cell, y = Math.floor(k / e.n) * cell, isOdd = k === e.odd;
+    h += `<div class="c" style="left:${x}px;top:${y}px;width:${cell}px;height:${cell}px">${gelo(isOdd ? e.diff : e.base, g, { flip: isOdd && e.flip })}</div>`;
+  }
+  $('cells').innerHTML = h;
+}
+
+function setTime(t) {
+  bgTick(t);
+  if (endCard(t, ENDS)) return;
+  $('hook').style.transform = `scale(${1 + 0.06 * Math.sin(cl(t / 0.3) * Math.PI)})`;
+  const e = L.find(x => t >= x.start && t < x.end) || L[L.length - 1];
+  if (cur !== e.i) { build(e); cur = e.i; }
+  const tin = e.i ? ease((t - e.start) / 0.32) : 1, tout = e.i < L.length - 1 ? ease((t - (e.end - 0.22)) / 0.22) : 0;
+  $('board').style.transform = `translateX(${(1 - tin) * 1150 - tout * 1150}px) rotate(${(1 - tin) * 4 - tout * 4 - 0.6}deg)`;
+  $('lev').textContent = `LIVELLO ${e.i + 1}/${L.length}`;
+  $('lev').style.transform = `scale(${e.i ? 1 + 0.18 * Math.sin(cl((t - e.start) / 0.3) * Math.PI) : 1}) rotate(-2deg)`;
+  // tempo che scorre
+  const left = cl(1 - (t - e.start) / e.think), revealed = t >= e.reveal, pr = t - e.reveal;
+  $('tfill').style.width = (left * 100) + '%';
+  $('tfill').style.background = left < 0.28 && !revealed ? 'var(--ghiacciolo)' : 'var(--alt)';
+  $('tnum').textContent = revealed ? '0' : Math.max(1, Math.ceil(e.think - (t - e.start)));
+  $('tnum').style.transform = `scale(${1 + (revealed ? 0 : 0.14 * Math.pow(1 - ((t - e.start + (e.think % 1)) % 1), 3))})`;
+  // i Gelo dondolano; l'ordine di ingresso è a onda
+  const cells = $('cells').children, cell = INNER / e.n;
+  for (let k = 0; k < cells.length; k++) {
+    const col = k % e.n, row = Math.floor(k / e.n);
+    const pin = e.i ? back((t - e.start - 0.1 - (col + row) * 0.012) / 0.3) : 1;
+    const wob = Math.sin(t * 2.6 + e.ph[k]) * 7, bob = Math.sin(t * 3.1 + e.ph[k] * 2) * cell * 0.025;
+    const isOdd = k === e.odd;
+    const pop = revealed && isOdd ? 1 + 0.55 * back(pr / 0.35) + 0.05 * Math.sin(t * 14) : 1;
+    cells[k].style.transform = `translateY(${bob}px) rotate(${revealed && isOdd ? Math.sin(t * 14) * 5 : wob}deg) scale(${pin * pop})`;
+    cells[k].style.zIndex = isOdd && revealed ? 4 : 1;
+  }
+  // riflettore sul Gelo diverso
+  const sp = $('spot');
+  sp.style.display = revealed ? 'block' : 'none';
+  if (revealed) {
+    const d = cell * 1.7 * (2.4 - 1.4 * back(pr / 0.35));
+    const cx = 22 + (e.odd % e.n + 0.5) * cell, cy = 22 + (Math.floor(e.odd / e.n) + 0.5) * cell;
+    sp.style.width = sp.style.height = d + 'px'; sp.style.left = (cx - d / 2) + 'px'; sp.style.top = (cy - d / 2) + 'px';
+    sp.style.opacity = cl(pr * 9);
+  }
+  // "ECCOLO!" in basso o in alto, lontano dal Gelo trovato
+  const f = $('found'); f.style.display = revealed ? 'block' : 'none';
+  const low = Math.floor(e.odd / e.n) < e.n / 2;
+  f.style.bottom = low ? '34px' : 'auto'; f.style.top = low ? 'auto' : '34px';
+  f.style.transform = `rotate(-4deg) scale(${back((pr - 0.1) / 0.3)})`;
+  $('ask').style.opacity = t > 1.2 ? 1 : 0;
+  $('ask').style.transform = `translateY(${(1 - back((t - 1.2) / 0.35)) * 60}px) rotate(-1deg)`;
+  const last = e.i === L.length - 1;
+  const shake = freeze(revealed && last ? pr : null, [560, 380]);
+  $('board').style.marginLeft = shake + 'px';
+}
+window.setup = setup; window.setTime = setTime;
+</script>
+</body>
+</html>

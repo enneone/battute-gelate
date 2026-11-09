@@ -53,7 +53,7 @@ function setup(reel, handle) {
     t = end;
   });
   ENDS = t; sounds.push({ t: ENDS, k: 'slam' });
-  return { duration: ENDS + 2.5, sounds };
+  return { duration: ENDS + END_LEN, sounds };
 }
 
 function setTime(t) {

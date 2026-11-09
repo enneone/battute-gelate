@@ -41,7 +41,7 @@ function fitSize(lines, maxW, maxS) { // dimensione che fa stare la riga più lu
 }
 
 function setup(reel, handle) {
-  R = reel; if (!reel.hook) INTRO = 0; baseLayer(reel.tag || 'PAROLA PER PAROLA', handle, reel.fine);
+  R = reel; if (!reel.hook) INTRO = 0; baseLayer(reel.tag || 'PAROLA PER PAROLA', handle, reel.fine, { noProg: true });
   document.querySelector('.logo').style.top = '130px';
   $('hook').innerHTML = hlWords(reel.hook);
   $('bars').innerHTML = reel.battute.map(() => '<i><b></b></i>').join('');
@@ -57,7 +57,7 @@ function setup(reel, handle) {
     t = end;
   });
   ENDS = t; sounds.push({ t: ENDS, k: 'slam' });
-  return { duration: ENDS + 2.5, sounds };
+  return { duration: ENDS + END_LEN, sounds };
 }
 
 function render(lines, size, t0, step, alt) {

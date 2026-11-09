@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="brand.css">
+<script src="mascotte.js"></script>
+<script src="common.js"></script>
+<style>
+  /* INDOVINA DALLE EMOJI: un proverbio o un modo di dire scritto solo con emoji */
+  #hook { position: absolute; top: 196px; left: 70px; right: 70px; font-family: var(--f-titolo); font-weight: 700; font-size: 88px; line-height: 1.04; letter-spacing: -2.5px; text-wrap: balance; transform-origin: 0% 50%; z-index: 4; }
+  #card { position: absolute; left: 60px; right: 60px; top: 560px; height: 860px; background: var(--brina); color: var(--inchiostro); border: 7px solid var(--inchiostro); border-radius: 56px; box-shadow: 16px 16px 0 var(--inchiostro); z-index: 4; overflow: hidden; }
+  #num { position: absolute; top: 40px; left: 46px; font-family: var(--f-mono); font-size: 30px; letter-spacing: 3px; color: #5568A8; }
+  #cat { position: absolute; top: 30px; right: 40px; font-family: var(--f-logo); font-size: 26px; padding: 12px 20px 4px; border-radius: 14px; background: var(--inchiostro); color: #fff; }
+  #emo { position: absolute; top: 130px; left: 30px; right: 30px; height: 380px; display: flex; flex-wrap: wrap; align-content: center; justify-content: center; gap: 18px 26px; }
+  #emo span { font-family: var(--f-emoji); font-size: 150px; line-height: 1.1; display: inline-block; }
+  #hint { position: absolute; left: 46px; right: 46px; top: 540px; text-align: center; font-family: var(--f-mono); font-size: 44px; letter-spacing: 10px; }
+  #ans { position: absolute; left: 30px; right: 30px; bottom: 30px; min-height: 230px; background: var(--punch); color: var(--punchfg); border: 7px solid var(--inchiostro); border-radius: 40px; display: flex; align-items: center; justify-content: center; text-align: center; font-family: var(--f-titolo); font-weight: 700; font-size: 70px; line-height: 1.02; letter-spacing: -1.5px; padding: 24px 34px; text-wrap: balance; }
+  #ring { position: absolute; right: 70px; top: 1460px; width: 150px; height: 150px; z-index: 5; }
+  #ringN { position: absolute; right: 70px; top: 1460px; width: 150px; height: 150px; display: grid; place-items: center; font-family: var(--f-logo); font-size: 60px; padding-top: 10px; z-index: 6; color: #fff; }
+  #ask { position: absolute; left: 70px; top: 1495px; font-family: var(--f-titolo); font-weight: 700; font-size: 42px; background: var(--inchiostro); color: #fff; padding: 14px 28px; border-radius: 999px; z-index: 5; }
+  #gm { position: absolute; left: 640px; top: 1610px; z-index: 6; }
+</style>
+</head>
+<body>
+  <div id="hook"></div>
+  <div id="card"><div id="num"></div><div id="cat"></div><div id="emo"></div><div id="hint"></div><div id="ans"></div></div>
+  <svg id="ring" viewBox="0 0 150 150"><circle cx="75" cy="75" r="66" fill="var(--inchiostro)"/><circle id="arc" cx="75" cy="75" r="56" fill="none" stroke="var(--limone)" stroke-width="14" stroke-linecap="round" transform="rotate(-90 75 75)" stroke-dasharray="352" stroke-dashoffset="0"/></svg>
+  <div id="ringN"></div>
+  <div id="ask"></div>
+  <div id="gm"></div>
+<script>
+let R, Q = [], ENDS = 0, cur = -1, lastE = '';
+function setup(reel, handle) {
+  R = reel; baseLayer(reel.tag || 'INDOVINA DALLE EMOJI', handle, reel.fine);
+  $('hook').innerHTML = hlWords(reel.hook);
+  $('ask').textContent = reel.chiedi || 'Scrivilo nei commenti 👇';
+  let t = 0; const sounds = [{ t: 0.02, k: 'slam' }];
+  reel.giri.forEach((g, i) => {
+    const em = [...new Intl.Segmenter('it', { granularity: 'grapheme' }).segment(g.emoji)].map(x => x.segment).filter(x => x.trim());
+    const think = g.secondi || 4, start = t, popEnd = start + 0.15 + em.length * 0.16, reveal = popEnd + think, end = reveal + 2.1;
+    Q.push({ i, em, ...g, think, start, popEnd, reveal, end });
+    if (i) sounds.push({ t: start, k: 'whoosh' });
+    em.forEach((_, k) => sounds.push({ t: start + 0.15 + k * 0.16, k: 'pop' }));
+    for (let s = 0; s < think; s++) sounds.push({ t: popEnd + s, k: 'tick' });
+    sounds.push({ t: reveal, k: 'ice' });
+    t = end;
+  });
+  ENDS = t; sounds.push({ t: ENDS, k: 'slam' });
+  return { duration: ENDS + END_LEN, sounds };
+}
+function setTime(t) {
+  bgTick(t);
+  if (endCard(t, ENDS)) return;
+  $('hook').style.transform = `scale(${1 + 0.06 * Math.sin(cl(t / 0.3) * Math.PI)})`;
+  const e = Q.find(x => t >= x.start && t < x.end) || Q[Q.length - 1];
+  if (cur !== e.i) { $('emo').innerHTML = e.em.map(x => `<span>${x}</span>`).join(''); $('ans').textContent = e.risposta; $('cat').textContent = (e.categoria || 'PROVERBIO').toUpperCase(); $('num').textContent = `GIRO ${pad2(e.i + 1)}/${pad2(Q.length)}`; cur = e.i; }
+  const tin = e.i ? ease((t - e.start) / 0.3) : 1, tout = e.i < Q.length - 1 ? ease((t - (e.end - 0.22)) / 0.22) : 0;
+  const card = $('card'), rev = t >= e.reveal, pr = t - e.reveal;
+  const sp = $('emo').children;
+  for (let k = 0; k < sp.length; k++) {
+    const p = e.i ? (t - (e.start + 0.15 + k * 0.16)) / 0.3 : 1 + 0 * k; // primo giro: emoji già tutte visibili dal primo fotogramma
+    sp[k].style.transform = `scale(${back(p)}) rotate(${Math.sin(t * 3 + k) * 6}deg) translateY(${Math.sin(t * 4 + k * 1.3) * 8}px)`;
+    sp[k].style.opacity = cl(p * 4);
+  }
+  // aiuto: le lettere iniziali di ogni parola, a metà del tempo
+  const words = e.risposta.replace(/[^\p{L}' ]/gu, '').split(' ');
+  const showHint = t >= e.popEnd + e.think * 0.5 && !rev;
+  $('hint').textContent = showHint ? 'AIUTO: ' + words.map(w => w[0].toUpperCase() + '_'.repeat(Math.max(0, w.length - 1))).join(' ') : '';
+  $('hint').style.fontSize = (words.join(' ').length > 22 ? 30 : 40) + 'px'; $('hint').style.letterSpacing = (words.join(' ').length > 22 ? 4 : 8) + 'px';
+  $('hint').style.opacity = cl((t - (e.popEnd + e.think * 0.5)) * 5);
+  $('ans').style.display = rev ? 'flex' : 'none';
+  $('ans').style.transform = `rotate(-2deg) scale(${0.3 + 0.7 * back(pr / 0.32)})`;
+  const shake = freeze(rev ? pr : null, [600, 500]);
+  card.style.transform = `translateX(${(1 - tin) * 1150 - tout * 1150 + shake}px) rotate(${(1 - tin) * 4 - tout * 4 - 0.8}deg)`;
+  // timer
+  const show = t >= e.popEnd && !rev, tp = cl((t - e.popEnd) / e.think);
+  $('ring').style.display = show ? 'block' : 'none'; $('ringN').style.display = show ? 'grid' : 'none';
+  $('arc').style.strokeDashoffset = 352 * tp; $('ringN').textContent = Math.max(1, Math.ceil(e.think - (t - e.popEnd)));
+  $('ask').style.opacity = t > 0.8 ? 1 : 0;
+  const expr = rev ? 'ride' : showHint ? 'stupito' : 'furbo';
+  if (lastE !== expr) { $('gm').innerHTML = gelo(expr, 200); lastE = expr; }
+  $('gm').style.transform = `rotate(${rev ? Math.sin(t * 20) * 8 : -8 + Math.sin(t * 3) * 4}deg)`;
+}
+window.setup = setup; window.setTime = setTime;
+</script>
+</body>
+</html>

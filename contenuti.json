@@ -1,902 +1,1130 @@
 {
-  "handle": "@battutegelate",
-  "reel": [
+ "handle": "@battutegelate",
+ "reel": [
+  {
+   "id": "R01-raffica-colmi",
+   "formato": "raffica",
+   "hook": "5 battute così fredde che ti si *congela* il telefono",
+   "sticker": "Mi dissocio dalla n.4",
+   "battute": [
+    [
+     "Qual è il colmo per un medico?",
+     "Non avere pazienza",
+     7
+    ],
+    [
+     "Qual è il colmo per un idraulico?",
+     "Non capire un tubo",
+     8
+    ],
+    [
+     "Qual è il colmo per un sarto?",
+     "Perdere il filo del discorso",
+     6
+    ],
+    [
+     "Qual è il colmo per una gallina?",
+     "Avere la pelle d'oca",
+     10
+    ],
+    [
+     "Qual è il colmo per un professore?",
+     "Non avere classe",
+     9
+    ]
+   ],
+   "fine": "Invialo a chi ride sempre per ultimo",
+   "didascalia": "Invialo a chi sai tu 🥶 Che voto di gelo dai alla n.4?",
+   "hashtag": "#battute #freddure #colmi #battutesquallide #ridere",
+   "template": "reel"
+  },
+  {
+   "id": "R02-raffica-oggetti",
+   "formato": "raffica",
+   "hook": "Cosa si dicono gli *oggetti* quando non li senti",
+   "sticker": "La n.3 è illegale",
+   "battute": [
+    [
+     "Cosa dice un muro a un altro muro?",
+     "Ci vediamo all'angolo",
+     7
+    ],
+    [
+     "Cosa dice lo zero all'otto?",
+     "Bella cintura!",
+     9
+    ],
+    [
+     "Cosa dice un semaforo a un altro semaforo?",
+     "Non guardarmi, mi sto cambiando!",
+     10
+    ],
+    [
+     "Perché il pomodoro non riesce a dormire?",
+     "Perché l'insalata russa",
+     8
+    ],
+    [
+     "Perché i pesci non vanno su internet?",
+     "Hanno paura della rete",
+     6
+    ]
+   ],
+   "fine": "Mandalo a chi fa sempre queste battute",
+   "didascalia": "Ditemi che non sono l'unico che ride da solo 🥶 Qual è la peggiore?",
+   "hashtag": "#battute #freddure #giochidiparole #battutesquallide #ridere",
+   "template": "reel"
+  },
+  {
+   "id": "R03-indovina-in-3",
+   "formato": "indovina",
+   "hook": "5 indovinelli, *3 secondi* ciascuno",
+   "sticker": "Solo il 10% le prende tutte",
+   "battute": [
+    [
+     "Più ne togli, più diventa grande. Cos'è?",
+     "Il buco"
+    ],
+    [
+     "Ha i denti ma non morde. Cos'è?",
+     "Il pettine"
+    ],
+    [
+     "Si rompe appena dici il suo nome. Cos'è?",
+     "Il silenzio"
+    ],
+    [
+     "Ha il collo ma non ha la testa. Cos'è?",
+     "La bottiglia"
+    ],
+    [
+     "Più è caldo, più è fresco. Cos'è?",
+     "Il pane"
+    ]
+   ],
+   "fine": "Quante ne hai prese? Scrivilo nei commenti",
+   "didascalia": "Quante su 5? Sii onesto 👀 Mandalo a chi si crede un genio",
+   "hashtag": "#indovinelli #quiz #rompicapo #indovinello #sfida",
+   "template": "reel"
+  },
+  {
+   "id": "R04-parola-per-parola",
+   "template": "kinetic",
+   "hook": "3 battute da dire *ad alta voce* (a tuo rischio)",
+   "battute": [
+    [
+     "Cosa fa un'ape in palestra?",
+     "Zumba!"
+    ],
+    [
+     "Qual è il colmo per un elettricista?",
+     "Non essere al corrente"
+    ],
+    [
+     "Perché il calendario è sempre triste?",
+     "Perché ha i giorni contati"
+    ]
+   ],
+   "fine": "Mandalo a chi te le dice tutte",
+   "didascalia": "Leggile ad alta voce e guarda le facce intorno a te 🥶 Qual è la peggiore?",
+   "hashtag": "#battute #freddure #giochidiparole #battutesquallide #ridere"
+  },
+  {
+   "id": "R05-ruota-mestieri",
+   "template": "ruota",
+   "hook": "Gira la ruota: esce un *mestiere*, arriva il colmo",
+   "spicchi": [
+    "Medico",
+    "Pittore",
+    "Sarto",
+    "Astronauta",
+    "Cuoco",
+    "Fotografo",
+    "Ottico",
+    "Pilota"
+   ],
+   "battute": [
+    [
+     "Pittore",
+     "Qual è il colmo per un pittore?",
+     "Non avere un quadro della situazione"
+    ],
+    [
+     "Astronauta",
+     "Qual è il colmo per un astronauta?",
+     "Non avere spazio per niente"
+    ],
+    [
+     "Fotografo",
+     "Qual è il colmo per un fotografo?",
+     "Avere una vita senza sviluppi"
+    ]
+   ],
+   "fine": "Che mestiere fai? Scrivilo e ti diciamo il tuo colmo",
+   "didascalia": "Scrivi il tuo mestiere nei commenti: il prossimo giro lo facciamo con voi 🎡🥶",
+   "hashtag": "#battute #colmi #freddure #mestieri #ridere"
+  },
+  {
+   "id": "R06-quiz-abc",
+   "template": "quiz",
+   "hook": "Indovina la battuta giusta: *A, B o C?*",
+   "domande": [
     {
-      "id": "R01-raffica-colmi",
-      "formato": "raffica",
-      "hook": "5 battute così fredde che ti si *congela* il telefono",
-      "sticker": "Mi dissocio dalla n.4",
-      "battute": [
-        [
-          "Qual è il colmo per un medico?",
-          "Non avere pazienza",
-          7
-        ],
-        [
-          "Qual è il colmo per un idraulico?",
-          "Non capire un tubo",
-          8
-        ],
-        [
-          "Qual è il colmo per un sarto?",
-          "Perdere il filo del discorso",
-          6
-        ],
-        [
-          "Qual è il colmo per una gallina?",
-          "Avere la pelle d'oca",
-          10
-        ],
-        [
-          "Qual è il colmo per un professore?",
-          "Non avere classe",
-          9
-        ]
-      ],
-      "fine": "Invialo a chi ride sempre per ultimo",
-      "didascalia": "Invialo a chi sai tu 🥶 Che voto di gelo dai alla n.4?",
-      "hashtag": "#battute #freddure #colmi #battutesquallide #ridere",
-      "template": "reel"
+     "q": "Qual è il colmo per un ottico?",
+     "opzioni": [
+      "Non vedere l'ora",
+      "Avere la vista corta",
+      "Perdere gli occhiali"
+     ],
+     "giusta": 0
     },
     {
-      "id": "R02-raffica-oggetti",
-      "formato": "raffica",
-      "hook": "Cosa si dicono gli *oggetti* quando non li senti",
-      "sticker": "La n.3 è illegale",
-      "battute": [
-        [
-          "Cosa dice un muro a un altro muro?",
-          "Ci vediamo all'angolo",
-          7
-        ],
-        [
-          "Cosa dice lo zero all'otto?",
-          "Bella cintura!",
-          9
-        ],
-        [
-          "Cosa dice un semaforo a un altro semaforo?",
-          "Non guardarmi, mi sto cambiando!",
-          10
-        ],
-        [
-          "Perché il pomodoro non riesce a dormire?",
-          "Perché l'insalata russa",
-          8
-        ],
-        [
-          "Perché i pesci non vanno su internet?",
-          "Hanno paura della rete",
-          6
-        ]
-      ],
-      "fine": "Mandalo a chi fa sempre queste battute",
-      "didascalia": "Ditemi che non sono l'unico che ride da solo 🥶 Qual è la peggiore?",
-      "hashtag": "#battute #freddure #giochidiparole #battutesquallide #ridere",
-      "template": "reel"
+     "q": "Qual è la città preferita dai ragni?",
+     "opzioni": [
+      "Ragusa",
+      "Mosca",
+      "Pisa"
+     ],
+     "giusta": 1
     },
     {
-      "id": "R03-indovina-in-3",
-      "formato": "indovina",
-      "hook": "5 indovinelli, *3 secondi* ciascuno",
-      "sticker": "Solo il 10% le prende tutte",
-      "battute": [
-        [
-          "Più ne togli, più diventa grande. Cos'è?",
-          "Il buco"
-        ],
-        [
-          "Ha i denti ma non morde. Cos'è?",
-          "Il pettine"
-        ],
-        [
-          "Si rompe appena dici il suo nome. Cos'è?",
-          "Il silenzio"
-        ],
-        [
-          "Ha il collo ma non ha la testa. Cos'è?",
-          "La bottiglia"
-        ],
-        [
-          "Più è caldo, più è fresco. Cos'è?",
-          "Il pane"
-        ]
-      ],
-      "fine": "Quante ne hai prese? Scrivilo nei commenti",
-      "didascalia": "Quante su 5? Sii onesto 👀 Mandalo a chi si crede un genio",
-      "hashtag": "#indovinelli #quiz #rompicapo #indovinello #sfida",
-      "template": "reel"
+     "q": "Perché i pesci sono così intelligenti?",
+     "opzioni": [
+      "Mangiano fosforo",
+      "Leggono sott'acqua",
+      "Vivono in banchi"
+     ],
+     "giusta": 2
     },
     {
-      "id": "R04-parola-per-parola",
-      "template": "kinetic",
-      "hook": "3 battute da dire *ad alta voce* (a tuo rischio)",
-      "battute": [
-        [
-          "Cosa fa un'ape in palestra?",
-          "Zumba!"
-        ],
-        [
-          "Qual è il colmo per un elettricista?",
-          "Non essere al corrente"
-        ],
-        [
-          "Perché il calendario è sempre triste?",
-          "Perché ha i giorni contati"
-        ]
-      ],
-      "fine": "Mandalo a chi te le dice tutte",
-      "didascalia": "Leggile ad alta voce e guarda le facce intorno a te 🥶 Qual è la peggiore?",
-      "hashtag": "#battute #freddure #giochidiparole #battutesquallide #ridere"
-    },
-    {
-      "id": "R05-ruota-mestieri",
-      "template": "ruota",
-      "hook": "Gira la ruota: esce un *mestiere*, arriva il colmo",
-      "spicchi": [
-        "Medico",
-        "Pittore",
-        "Sarto",
-        "Astronauta",
-        "Cuoco",
-        "Fotografo",
-        "Ottico",
-        "Pilota"
-      ],
-      "battute": [
-        [
-          "Pittore",
-          "Qual è il colmo per un pittore?",
-          "Non avere un quadro della situazione"
-        ],
-        [
-          "Astronauta",
-          "Qual è il colmo per un astronauta?",
-          "Non avere spazio per niente"
-        ],
-        [
-          "Fotografo",
-          "Qual è il colmo per un fotografo?",
-          "Avere una vita senza sviluppi"
-        ]
-      ],
-      "fine": "Che mestiere fai? Scrivilo e ti diciamo il tuo colmo",
-      "didascalia": "Scrivi il tuo mestiere nei commenti: il prossimo giro lo facciamo con voi 🎡🥶",
-      "hashtag": "#battute #colmi #freddure #mestieri #ridere"
-    },
-    {
-      "id": "R06-quiz-abc",
-      "template": "quiz",
-      "hook": "Indovina la battuta giusta: *A, B o C?*",
-      "domande": [
-        {
-          "q": "Qual è il colmo per un ottico?",
-          "opzioni": [
-            "Non vedere l'ora",
-            "Avere la vista corta",
-            "Perdere gli occhiali"
-          ],
-          "giusta": 0
-        },
-        {
-          "q": "Qual è la città preferita dai ragni?",
-          "opzioni": [
-            "Ragusa",
-            "Mosca",
-            "Pisa"
-          ],
-          "giusta": 1
-        },
-        {
-          "q": "Perché i pesci sono così intelligenti?",
-          "opzioni": [
-            "Mangiano fosforo",
-            "Leggono sott'acqua",
-            "Vivono in banchi"
-          ],
-          "giusta": 2
-        },
-        {
-          "q": "Qual è l'animale più vecchio?",
-          "opzioni": [
-            "La tartaruga",
-            "La zebra: è in bianco e nero",
-            "Il dinosauro"
-          ],
-          "giusta": 1
-        }
-      ],
-      "fine": "Quante ne hai prese su 4? Scrivilo",
-      "didascalia": "Scrivi le tue 4 risposte prima della soluzione 👀 Tipo: ABCB",
-      "hashtag": "#quiz #battute #freddure #indovina #sfida"
-    },
-    {
-      "id": "R07-classifica-gelo",
-      "template": "classifica",
-      "hook": "5 battute dalla più tiepida alla più *glaciale*",
-      "battute": [
-        [
-          "Qual è il colmo per un cantante?",
-          "Non avere voce in capitolo",
-          4
-        ],
-        [
-          "Qual è il colmo per un barbiere?",
-          "Salvarsi per un pelo",
-          6
-        ],
-        [
-          "Perché lo scheletro non litiga mai?",
-          "Perché non ha fegato",
-          7
-        ],
-        [
-          "Qual è la pianta più puzzolente?",
-          "La pianta dei piedi",
-          9
-        ],
-        [
-          "Come si chiama un cane senza zampe?",
-          "Non importa, tanto non viene",
-          10
-        ]
-      ],
-      "fine": "Sei d'accordo con la classifica? Scrivi la tua",
-      "didascalia": "La classifica è giusta o ho sbagliato tutto? Scrivi la tua top 3 👇🥶",
-      "hashtag": "#battute #classifica #freddure #battutesquallide #ridere"
-    },
-    {
-      "id": "R08-raffica-animali",
-      "template": "reel",
-      "formato": "raffica",
-      "hook": "5 battute su *animali e cibo* che nessuno ha chiesto",
-      "sticker": "La n.2 è da denuncia",
-      "battute": [
-        [
-          "Perché la mucca guarda il cielo?",
-          "Per vedere la Via Lattea",
-          8
-        ],
-        [
-          "Cosa dice un uovo a un altro uovo?",
-          "Mi fai ridere a crepapelle",
-          9
-        ],
-        [
-          "Perché le banane si mettono la crema solare?",
-          "Perché si spellano",
-          7
-        ],
-        [
-          "Cosa fa un ragno al computer?",
-          "Naviga nel web",
-          6
-        ],
-        [
-          "Come si chiama un dinosauro che dorme?",
-          "Un dinoronfo",
-          10
-        ]
-      ],
-      "fine": "Mandalo a chi ride per queste cose",
-      "didascalia": "Mandalo a chi ride per queste cose (lo sai chi è) 🥶 Voto di gelo alla n.5?",
-      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
-    },
-    {
-      "id": "R09-quiz-abc-2",
-      "template": "quiz",
-      "hook": "Indovina la battuta giusta: *A, B o C?*",
-      "domande": [
-        {
-          "q": "Qual è il colmo per un pilota?",
-          "opzioni": [
-            "Soffrire di vertigini",
-            "Avere la testa fra le nuvole",
-            "Perdere il volo"
-          ],
-          "giusta": 1
-        },
-        {
-          "q": "Perché il computer va dal dottore?",
-          "opzioni": [
-            "Ha un virus",
-            "Ha la febbre a 40 giga",
-            "Ha mal di testa"
-          ],
-          "giusta": 0
-        },
-        {
-          "q": "Qual è il colmo per un paracadutista?",
-          "opzioni": [
-            "Avere paura del vuoto",
-            "Restare a terra",
-            "Cadere dalle nuvole"
-          ],
-          "giusta": 2
-        },
-        {
-          "q": "Cosa dice il caffè allo zucchero?",
-          "opzioni": [
-            "Mi sciogli",
-            "Senza di te la vita è amara",
-            "Ci vediamo a colazione"
-          ],
-          "giusta": 1
-        }
-      ],
-      "fine": "Quante ne hai prese su 4? Scrivilo",
-      "didascalia": "Scrivi la tua sequenza prima di vedere la soluzione 👀 Tipo: BACB",
-      "hashtag": "#quiz #battute #freddure #indovina #sfida"
-    },
-    {
-      "id": "R10-parola-per-parola-2",
-      "template": "kinetic",
-      "hook": "3 battute da mandare al *gruppo di famiglia*",
-      "battute": [
-        [
-          "Perché il pomodoro diventa rosso?",
-          "Ha visto l'insalata spogliarsi"
-        ],
-        [
-          "Perché l'albero di Natale non sa cucire?",
-          "Perché perde sempre gli aghi"
-        ],
-        [
-          "Cosa dice un pupazzo di neve a un altro?",
-          "Senti anche tu odore di carote?"
-        ]
-      ],
-      "fine": "Mandalo al gruppo di famiglia",
-      "didascalia": "Incollale nel gruppo di famiglia e aspetta la risposta della zia 🥶",
-      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
-    },
-    {
-      "id": "R11-indovina-in-3-2",
-      "template": "reel",
-      "formato": "indovina",
-      "hook": "5 indovinelli che sembrano facili (*non lo sono*)",
-      "sticker": "Se le prendi tutte, sei un genio",
-      "battute": [
-        [
-          "Ha le chiavi ma non apre nessuna porta. Cos'è?",
-          "La tastiera"
-        ],
-        [
-          "Ha un occhio ma non vede. Cos'è?",
-          "L'ago"
-        ],
-        [
-          "Corre sempre ma non ha gambe. Cos'è?",
-          "Il fiume"
-        ],
-        [
-          "Più asciuga, più si bagna. Cos'è?",
-          "L'asciugamano"
-        ],
-        [
-          "Ha la testa e i piedi ma non cammina. Cos'è?",
-          "Il letto"
-        ]
-      ],
-      "fine": "Quante ne hai prese? Scrivilo nei commenti",
-      "didascalia": "Quante su 5? Mandalo a chi dice di essere un genio 🧠🥶",
-      "hashtag": "#indovinelli #quiz #rompicapo #indovinello #sfida"
-    },
-    {
-      "id": "R12-ruota-mestieri-2",
-      "template": "ruota",
-      "hook": "Gira la ruota: esce un *mestiere*, arriva il colmo",
-      "spicchi": [
-        "Orologiaio",
-        "Pescatore",
-        "Architetto",
-        "Bagnino",
-        "Chirurgo",
-        "Tennista",
-        "Astronomo",
-        "Fornaio"
-      ],
-      "battute": [
-        [
-          "Orologiaio",
-          "Qual è il colmo per un orologiaio?",
-          "Non avere mai tempo"
-        ],
-        [
-          "Tennista",
-          "Qual è il colmo per un tennista?",
-          "Essere sempre al servizio degli altri"
-        ],
-        [
-          "Bagnino",
-          "Qual è il colmo per un bagnino?",
-          "Affogare nei debiti"
-        ]
-      ],
-      "fine": "Che mestiere fai? Scrivilo e ti diciamo il tuo colmo",
-      "didascalia": "Scrivi il tuo mestiere: i prossimi giri li facciamo con i vostri 🎡🥶",
-      "hashtag": "#battute #colmi #freddure #mestieri #ridere"
-    },
-    {
-      "id": "R13-classifica-gelo-2",
-      "template": "classifica",
-      "hook": "5 colmi dal più tiepido al più *glaciale*",
-      "battute": [
-        [
-          "Qual è il colmo per uno spazzino?",
-          "Fare piazza pulita",
-          5
-        ],
-        [
-          "Qual è il colmo per un astronomo?",
-          "Avere la luna storta",
-          6
-        ],
-        [
-          "Qual è il colmo per un architetto?",
-          "Non avere progetti per il futuro",
-          7
-        ],
-        [
-          "Qual è il colmo per un pompiere?",
-          "Avere una vecchia fiamma",
-          9
-        ],
-        [
-          "Qual è il colmo per un pescatore?",
-          "Prendere un granchio",
-          10
-        ]
-      ],
-      "fine": "Sei d'accordo con la classifica? Scrivi la tua",
-      "didascalia": "La classifica è giusta? Scrivi qual è la tua numero 1 👇🥶",
-      "hashtag": "#battute #colmi #classifica #freddure #ridere"
-    },
-    {
-      "id": "R14-raffica-lunedi",
-      "template": "reel",
-      "formato": "raffica",
-      "hook": "5 battute per sopravvivere al *lunedì*",
-      "sticker": "La n.5 ti fa licenziare",
-      "battute": [
-        [
-          "Qual è il colmo per un contabile?",
-          "Non fare i conti con la realtà",
-          7
-        ],
-        [
-          "Qual è il colmo per un chirurgo?",
-          "Tagliare corto",
-          8
-        ],
-        [
-          "Perché i fantasmi sono pessimi bugiardi?",
-          "Perché si vede attraverso di loro",
-          6
-        ],
-        [
-          "Qual è il colmo per un meteorologo?",
-          "Fare il bello e il cattivo tempo",
-          9
-        ],
-        [
-          "Qual è il colmo per un ascensorista?",
-          "Avere alti e bassi",
-          10
-        ]
-      ],
-      "fine": "Mandalo al collega che ne ha bisogno",
-      "didascalia": "Mandalo al collega che oggi ne ha bisogno ☕🥶",
-      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
-    },
-    {
-      "id": "M01-cavoli",
-      "template": "kinetic",
-      "tag": "BATTUTA DEL GIORNO",
-      "hook": "",
-      "battute": [
-        [
-          "Qual è il colmo per un fruttivendolo?",
-          "Farsi sempre i cavoli suoi"
-        ]
-      ],
-      "fine": "Mandala a chi sai tu",
-      "didascalia": "Mandala a chi la direbbe sicuro 🥶",
-      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
-    },
-    {
-      "id": "M02-boomerang",
-      "template": "kinetic",
-      "tag": "BATTUTA DEL GIORNO",
-      "hook": "",
-      "battute": [
-        [
-          "Come si chiama un boomerang che non torna?",
-          "Un bastone"
-        ]
-      ],
-      "fine": "Mandala a chi sai tu",
-      "didascalia": "Se ridi hai perso 🥶 Mandala a chi ride sempre",
-      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
-    },
-    {
-      "id": "M03-pasticcio",
-      "template": "kinetic",
-      "tag": "BATTUTA DEL GIORNO",
-      "hook": "",
-      "battute": [
-        [
-          "Qual è il colmo per un pasticciere?",
-          "Combinare un pasticcio"
-        ]
-      ],
-      "fine": "Mandala a chi sai tu",
-      "didascalia": "Voto di gelo da 1 a 10? 👇🥶",
-      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
-    },
-    {
-      "id": "M04-salita",
-      "template": "kinetic",
-      "tag": "BATTUTA DEL GIORNO",
-      "hook": "",
-      "battute": [
-        [
-          "Qual è il colmo per un ciclista?",
-          "Avere una vita tutta in salita"
-        ]
-      ],
-      "fine": "Mandala a chi sai tu",
-      "didascalia": "Tagga chi te l'ha raccontata per primo 🥶",
-      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
-    },
-    {
-      "id": "M05-pesce-aprile",
-      "template": "kinetic",
-      "tag": "BATTUTA DEL GIORNO",
-      "hook": "",
-      "battute": [
-        [
-          "Qual è il pesce più famoso?",
-          "Il pesce d'aprile"
-        ]
-      ],
-      "fine": "Mandala a chi sai tu",
-      "didascalia": "Mandala al più simpatico del gruppo 🥶",
-      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
-    },
-    {
-      "id": "M06-fioraio",
-      "template": "kinetic",
-      "tag": "BATTUTA DEL GIORNO",
-      "hook": "",
-      "battute": [
-        [
-          "Qual è il colmo per un fioraio?",
-          "Avere una vita tutta rose e fiori"
-        ]
-      ],
-      "fine": "Mandala a chi sai tu",
-      "didascalia": "Ditemi che non sono l'unico che ride da solo 🥶",
-      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
-    },
-    {
-      "id": "M07-vetraio",
-      "template": "kinetic",
-      "tag": "BATTUTA DEL GIORNO",
-      "hook": "",
-      "battute": [
-        [
-          "Qual è il colmo per un vetraio?",
-          "Avere un carattere trasparente"
-        ]
-      ],
-      "fine": "Mandala a chi sai tu",
-      "didascalia": "Voto di gelo da 1 a 10? 👇🥶",
-      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
-    },
-    {
-      "id": "M08-gommista",
-      "template": "kinetic",
-      "tag": "BATTUTA DEL GIORNO",
-      "hook": "",
-      "battute": [
-        [
-          "Qual è il colmo per un gommista?",
-          "Sentirsi a terra"
-        ]
-      ],
-      "fine": "Mandala a chi sai tu",
-      "didascalia": "Mandala a chi la direbbe sicuro 🥶",
-      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
-    },
-    {
-      "id": "M09-lavandaio",
-      "template": "kinetic",
-      "tag": "BATTUTA DEL GIORNO",
-      "hook": "",
-      "battute": [
-        [
-          "Qual è il colmo per un lavandaio?",
-          "Avere la coscienza pulita"
-        ]
-      ],
-      "fine": "Mandala a chi sai tu",
-      "didascalia": "Se ridi hai perso 🥶 Mandala a chi ride sempre",
-      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
-    },
-    {
-      "id": "M10-elastico",
-      "template": "kinetic",
-      "tag": "BATTUTA DEL GIORNO",
-      "hook": "",
-      "battute": [
-        [
-          "Qual è la parola più lunga del mondo?",
-          "Elastico, perché si allunga"
-        ]
-      ],
-      "fine": "Mandala a chi sai tu",
-      "didascalia": "Tagga chi la diceva alle elementari 🥶",
-      "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
+     "q": "Qual è l'animale più vecchio?",
+     "opzioni": [
+      "La tartaruga",
+      "La zebra: è in bianco e nero",
+      "Il dinosauro"
+     ],
+     "giusta": 1
     }
-  ],
-  "caroselli": [
+   ],
+   "fine": "Quante ne hai prese su 4? Scrivilo",
+   "didascalia": "Scrivi le tue 4 risposte prima della soluzione 👀 Tipo: ABCB",
+   "hashtag": "#quiz #battute #freddure #indovina #sfida"
+  },
+  {
+   "id": "R07-classifica-gelo",
+   "template": "classifica",
+   "hook": "5 battute dalla più tiepida alla più *glaciale*",
+   "battute": [
+    [
+     "Qual è il colmo per un cantante?",
+     "Non avere voce in capitolo",
+     4
+    ],
+    [
+     "Qual è il colmo per un barbiere?",
+     "Salvarsi per un pelo",
+     6
+    ],
+    [
+     "Perché lo scheletro non litiga mai?",
+     "Perché non ha fegato",
+     7
+    ],
+    [
+     "Qual è la pianta più puzzolente?",
+     "La pianta dei piedi",
+     9
+    ],
+    [
+     "Come si chiama un cane senza zampe?",
+     "Non importa, tanto non viene",
+     10
+    ]
+   ],
+   "fine": "Sei d'accordo con la classifica? Scrivi la tua",
+   "didascalia": "La classifica è giusta o ho sbagliato tutto? Scrivi la tua top 3 👇🥶",
+   "hashtag": "#battute #classifica #freddure #battutesquallide #ridere"
+  },
+  {
+   "id": "R08-raffica-animali",
+   "template": "reel",
+   "formato": "raffica",
+   "hook": "5 battute su *animali e cibo* che nessuno ha chiesto",
+   "sticker": "La n.2 è da denuncia",
+   "battute": [
+    [
+     "Perché la mucca guarda il cielo?",
+     "Per vedere la Via Lattea",
+     8
+    ],
+    [
+     "Cosa dice un uovo a un altro uovo?",
+     "Mi fai ridere a crepapelle",
+     9
+    ],
+    [
+     "Perché le banane si mettono la crema solare?",
+     "Perché si spellano",
+     7
+    ],
+    [
+     "Cosa fa un ragno al computer?",
+     "Naviga nel web",
+     6
+    ],
+    [
+     "Come si chiama un dinosauro che dorme?",
+     "Un dinoronfo",
+     10
+    ]
+   ],
+   "fine": "Mandalo a chi ride per queste cose",
+   "didascalia": "Mandalo a chi ride per queste cose (lo sai chi è) 🥶 Voto di gelo alla n.5?",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
+  },
+  {
+   "id": "R09-quiz-abc-2",
+   "template": "quiz",
+   "hook": "Indovina la battuta giusta: *A, B o C?*",
+   "domande": [
     {
-      "id": "C01-colmi-gelidi",
-      "copertina": "I 5 colmi *più gelidi* di sempre",
-      "sottotitolo": "Scorri. Se non ridi, hai vinto.",
-      "battute": [
-        [
-          "Qual è il colmo per un calzolaio?",
-          "Avere il morale sotto le scarpe",
-          8
-        ],
-        [
-          "Qual è il colmo per un dentista?",
-          "Avere il dente avvelenato",
-          7
-        ],
-        [
-          "Qual è il colmo per un giardiniere?",
-          "Piantare la fidanzata",
-          9
-        ],
-        [
-          "Qual è il colmo per un cuoco?",
-          "Avere un sacco di grane",
-          6
-        ],
-        [
-          "Qual è il colmo per un vampiro?",
-          "Non sopportare la vista del sangue",
-          10
-        ]
-      ],
-      "fine": "Qual è la peggiore? Scrivi il numero",
-      "didascalia": "Salvalo per il prossimo silenzio imbarazzante 🥶 Qual è la peggiore? 1-5 👇",
-      "hashtag": "#battute #freddure #battutesquallide #carosello #ridere"
+     "q": "Qual è il colmo per un pilota?",
+     "opzioni": [
+      "Soffrire di vertigini",
+      "Avere la testa fra le nuvole",
+      "Perdere il volo"
+     ],
+     "giusta": 1
     },
     {
-      "id": "C02-pranzo-natale",
-      "copertina": "Battute da *pranzo di Natale* con lo zio",
-      "sottotitolo": "Le ha dette tutte. Ogni anno.",
-      "battute": [
-        [
-          "Qual è il re dei formaggi?",
-          "Il Parmigiano Reggiano",
-          6
-        ],
-        [
-          "Cosa dice il mare alla spiaggia?",
-          "Niente, la saluta con un'onda",
-          7
-        ],
-        [
-          "Qual è il colmo per un postino?",
-          "Perdere la posta in gioco",
-          8
-        ],
-        [
-          "Perché il gelato non ha amici?",
-          "Perché è freddo con tutti",
-          9
-        ],
-        [
-          "Come si chiama un boomerang che non torna?",
-          "Un bastone",
-          10
-        ]
-      ],
-      "fine": "Tagga lo zio che le dice tutte",
-      "didascalia": "Ogni famiglia ha lo zio delle battute 🎄🥶 Taggalo",
-      "hashtag": "#battute #freddure #battutesquallide #carosello #ridere"
+     "q": "Perché il computer va dal dottore?",
+     "opzioni": [
+      "Ha un virus",
+      "Ha la febbre a 40 giga",
+      "Ha mal di testa"
+     ],
+     "giusta": 0
     },
     {
-      "id": "C03-simpatico",
-      "copertina": "5 battute per chi si crede *simpatico*",
-      "sottotitolo": "Usale con moderazione.",
-      "battute": [
-        [
-          "Perché la luna non va mai a dormire?",
-          "Perché fa sempre il turno di notte",
-          6
-        ],
-        [
-          "Qual è l'animale più religioso?",
-          "La mantide religiosa",
-          7
-        ],
-        [
-          "Perché il mago non trova lavoro?",
-          "Perché fa sparire il curriculum",
-          8
-        ],
-        [
-          "Qual è il colmo per un orologio?",
-          "Avere le ore contate",
-          9
-        ],
-        [
-          "Qual è il pesce più famoso?",
-          "Il pesce d'aprile",
-          10
-        ]
-      ],
-      "fine": "Mandalo a chi si crede simpatico",
-      "didascalia": "Mandalo a chi si crede simpatico 😏🥶 Qual è la tua preferita?",
-      "hashtag": "#battute #freddure #battutesquallide #carosello #ridere"
+     "q": "Qual è il colmo per un paracadutista?",
+     "opzioni": [
+      "Avere paura del vuoto",
+      "Restare a terra",
+      "Cadere dalle nuvole"
+     ],
+     "giusta": 2
     },
     {
-      "id": "C04-mestieri",
-      "copertina": "Colmi di *mestieri* che non ti aspetti",
-      "sottotitolo": "Il tuo c'è?",
-      "battute": [
-        [
-          "Qual è il colmo per un sub?",
-          "Toccare il fondo",
-          6
-        ],
-        [
-          "Qual è il colmo per un cartografo?",
-          "Perdere la bussola",
-          7
-        ],
-        [
-          "Qual è il colmo per un fornaio?",
-          "Avere le mani in pasta",
-          8
-        ],
-        [
-          "Qual è il colmo per un banchiere?",
-          "Avere un conto in sospeso",
-          9
-        ],
-        [
-          "Qual è il colmo per un gommista?",
-          "Sentirsi a terra",
-          10
-        ]
-      ],
-      "fine": "Che mestiere fai? Scrivilo nei commenti",
-      "didascalia": "Scrivi il tuo mestiere: il prossimo carosello lo facciamo con i vostri 👇🥶",
-      "hashtag": "#battute #colmi #mestieri #freddure #carosello"
-    },
-    {
-      "id": "C05-elementari",
-      "copertina": "Battute da *elementari* che fanno ancora ridere",
-      "sottotitolo": "Non dirmi che non le sapevi.",
-      "battute": [
-        [
-          "Qual è l'animale più forte?",
-          "La lumaca: porta la casa sulle spalle",
-          6
-        ],
-        [
-          "Perché le giraffe hanno il collo lungo?",
-          "Perché hanno i piedi che puzzano",
-          7
-        ],
-        [
-          "Perché la gallina attraversa la strada?",
-          "Per arrivare dall'altra parte",
-          8
-        ],
-        [
-          "Qual è il frutto più triste?",
-          "La pera, perché è disperata",
-          9
-        ],
-        [
-          "Qual è la parola più lunga del mondo?",
-          "Elastico, perché si allunga",
-          10
-        ]
-      ],
-      "fine": "Qual è quella che dicevi tu? Scrivila",
-      "didascalia": "Quale dicevi alle elementari? Scrivila nei commenti 👇🥶",
-      "hashtag": "#battute #freddure #battutesquallide #carosello #ridere"
+     "q": "Cosa dice il caffè allo zucchero?",
+     "opzioni": [
+      "Mi sciogli",
+      "Senza di te la vita è amara",
+      "Ci vediamo a colazione"
+     ],
+     "giusta": 1
     }
-  ],
-  "post": [
+   ],
+   "fine": "Quante ne hai prese su 4? Scrivilo",
+   "didascalia": "Scrivi la tua sequenza prima di vedere la soluzione 👀 Tipo: BACB",
+   "hashtag": "#quiz #battute #freddure #indovina #sfida"
+  },
+  {
+   "id": "R10-parola-per-parola-2",
+   "template": "kinetic",
+   "hook": "3 battute da mandare al *gruppo di famiglia*",
+   "battute": [
+    [
+     "Perché il pomodoro diventa rosso?",
+     "Ha visto l'insalata spogliarsi"
+    ],
+    [
+     "Perché l'albero di Natale non sa cucire?",
+     "Perché perde sempre gli aghi"
+    ],
+    [
+     "Cosa dice un pupazzo di neve a un altro?",
+     "Senti anche tu odore di carote?"
+    ]
+   ],
+   "fine": "Mandalo al gruppo di famiglia",
+   "didascalia": "Incollale nel gruppo di famiglia e aspetta la risposta della zia 🥶",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
+  },
+  {
+   "id": "R11-indovina-in-3-2",
+   "template": "reel",
+   "formato": "indovina",
+   "hook": "5 indovinelli che sembrano facili (*non lo sono*)",
+   "sticker": "Se le prendi tutte, sei un genio",
+   "battute": [
+    [
+     "Ha le chiavi ma non apre nessuna porta. Cos'è?",
+     "La tastiera"
+    ],
+    [
+     "Ha un occhio ma non vede. Cos'è?",
+     "L'ago"
+    ],
+    [
+     "Corre sempre ma non ha gambe. Cos'è?",
+     "Il fiume"
+    ],
+    [
+     "Più asciuga, più si bagna. Cos'è?",
+     "L'asciugamano"
+    ],
+    [
+     "Ha la testa e i piedi ma non cammina. Cos'è?",
+     "Il letto"
+    ]
+   ],
+   "fine": "Quante ne hai prese? Scrivilo nei commenti",
+   "didascalia": "Quante su 5? Mandalo a chi dice di essere un genio 🧠🥶",
+   "hashtag": "#indovinelli #quiz #rompicapo #indovinello #sfida"
+  },
+  {
+   "id": "R12-ruota-mestieri-2",
+   "template": "ruota",
+   "hook": "Gira la ruota: esce un *mestiere*, arriva il colmo",
+   "spicchi": [
+    "Orologiaio",
+    "Pescatore",
+    "Architetto",
+    "Bagnino",
+    "Chirurgo",
+    "Tennista",
+    "Astronomo",
+    "Fornaio"
+   ],
+   "battute": [
+    [
+     "Orologiaio",
+     "Qual è il colmo per un orologiaio?",
+     "Non avere mai tempo"
+    ],
+    [
+     "Tennista",
+     "Qual è il colmo per un tennista?",
+     "Essere sempre al servizio degli altri"
+    ],
+    [
+     "Bagnino",
+     "Qual è il colmo per un bagnino?",
+     "Affogare nei debiti"
+    ]
+   ],
+   "fine": "Che mestiere fai? Scrivilo e ti diciamo il tuo colmo",
+   "didascalia": "Scrivi il tuo mestiere: i prossimi giri li facciamo con i vostri 🎡🥶",
+   "hashtag": "#battute #colmi #freddure #mestieri #ridere"
+  },
+  {
+   "id": "R13-classifica-gelo-2",
+   "template": "classifica",
+   "hook": "5 colmi dal più tiepido al più *glaciale*",
+   "battute": [
+    [
+     "Qual è il colmo per uno spazzino?",
+     "Fare piazza pulita",
+     5
+    ],
+    [
+     "Qual è il colmo per un astronomo?",
+     "Avere la luna storta",
+     6
+    ],
+    [
+     "Qual è il colmo per un architetto?",
+     "Non avere progetti per il futuro",
+     7
+    ],
+    [
+     "Qual è il colmo per un pompiere?",
+     "Avere una vecchia fiamma",
+     9
+    ],
+    [
+     "Qual è il colmo per un pescatore?",
+     "Prendere un granchio",
+     10
+    ]
+   ],
+   "fine": "Sei d'accordo con la classifica? Scrivi la tua",
+   "didascalia": "La classifica è giusta? Scrivi qual è la tua numero 1 👇🥶",
+   "hashtag": "#battute #colmi #classifica #freddure #ridere"
+  },
+  {
+   "id": "R14-raffica-lunedi",
+   "template": "reel",
+   "formato": "raffica",
+   "hook": "5 battute per sopravvivere al *lunedì*",
+   "sticker": "La n.5 ti fa licenziare",
+   "battute": [
+    [
+     "Qual è il colmo per un contabile?",
+     "Non fare i conti con la realtà",
+     7
+    ],
+    [
+     "Qual è il colmo per un chirurgo?",
+     "Tagliare corto",
+     8
+    ],
+    [
+     "Perché i fantasmi sono pessimi bugiardi?",
+     "Perché si vede attraverso di loro",
+     6
+    ],
+    [
+     "Qual è il colmo per un meteorologo?",
+     "Fare il bello e il cattivo tempo",
+     9
+    ],
+    [
+     "Qual è il colmo per un ascensorista?",
+     "Avere alti e bassi",
+     10
+    ]
+   ],
+   "fine": "Mandalo al collega che ne ha bisogno",
+   "didascalia": "Mandalo al collega che oggi ne ha bisogno ☕🥶",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
+  },
+  {
+   "id": "M01-cavoli",
+   "template": "kinetic",
+   "tag": "BATTUTA DEL GIORNO",
+   "hook": "",
+   "battute": [
+    [
+     "Qual è il colmo per un fruttivendolo?",
+     "Farsi sempre i cavoli suoi"
+    ]
+   ],
+   "fine": "Mandala a chi sai tu",
+   "didascalia": "Mandala a chi la direbbe sicuro 🥶",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
+  },
+  {
+   "id": "M02-boomerang",
+   "template": "kinetic",
+   "tag": "BATTUTA DEL GIORNO",
+   "hook": "",
+   "battute": [
+    [
+     "Come si chiama un boomerang che non torna?",
+     "Un bastone"
+    ]
+   ],
+   "fine": "Mandala a chi sai tu",
+   "didascalia": "Se ridi hai perso 🥶 Mandala a chi ride sempre",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
+  },
+  {
+   "id": "M03-pasticcio",
+   "template": "kinetic",
+   "tag": "BATTUTA DEL GIORNO",
+   "hook": "",
+   "battute": [
+    [
+     "Qual è il colmo per un pasticciere?",
+     "Combinare un pasticcio"
+    ]
+   ],
+   "fine": "Mandala a chi sai tu",
+   "didascalia": "Voto di gelo da 1 a 10? 👇🥶",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo"
+  },
+  {
+   "id": "M04-salita",
+   "template": "kinetic",
+   "tag": "BATTUTA DEL GIORNO",
+   "hook": "",
+   "battute": [
+    [
+     "Qual è il colmo per un ciclista?",
+     "Avere una vita tutta in salita"
+    ]
+   ],
+   "fine": "Mandala a chi sai tu",
+   "didascalia": "Tagga chi te l'ha raccontata per primo 🥶",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo",
+   "tema": "cobalto",
+   "copertina": "Qual è il colmo per un ciclista?",
+   "etichetta": "BATTUTA DEL GIORNO",
+   "copertina_gelo": "furbo"
+  },
+  {
+   "id": "M05-pesce-aprile",
+   "template": "kinetic",
+   "tag": "BATTUTA DEL GIORNO",
+   "hook": "",
+   "battute": [
+    [
+     "Qual è il pesce più famoso?",
+     "Il pesce d'aprile"
+    ]
+   ],
+   "fine": "Mandala a chi sai tu",
+   "didascalia": "Mandala al più simpatico del gruppo 🥶",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo",
+   "tema": "cobalto",
+   "copertina": "Qual è il pesce più famoso?",
+   "etichetta": "BATTUTA DEL GIORNO",
+   "copertina_gelo": "furbo"
+  },
+  {
+   "id": "M06-fioraio",
+   "template": "kinetic",
+   "tag": "BATTUTA DEL GIORNO",
+   "hook": "",
+   "battute": [
+    [
+     "Qual è il colmo per un fioraio?",
+     "Avere una vita tutta rose e fiori"
+    ]
+   ],
+   "fine": "Mandala a chi sai tu",
+   "didascalia": "Ditemi che non sono l'unico che ride da solo 🥶",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo",
+   "tema": "cobalto",
+   "copertina": "Qual è il colmo per un fioraio?",
+   "etichetta": "BATTUTA DEL GIORNO",
+   "copertina_gelo": "furbo"
+  },
+  {
+   "id": "M07-vetraio",
+   "template": "kinetic",
+   "tag": "BATTUTA DEL GIORNO",
+   "hook": "",
+   "battute": [
+    [
+     "Qual è il colmo per un vetraio?",
+     "Avere un carattere trasparente"
+    ]
+   ],
+   "fine": "Mandala a chi sai tu",
+   "didascalia": "Voto di gelo da 1 a 10? 👇🥶",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo",
+   "tema": "cobalto",
+   "copertina": "Qual è il colmo per un vetraio?",
+   "etichetta": "BATTUTA DEL GIORNO",
+   "copertina_gelo": "furbo"
+  },
+  {
+   "id": "M08-gommista",
+   "template": "kinetic",
+   "tag": "BATTUTA DEL GIORNO",
+   "hook": "",
+   "battute": [
+    [
+     "Qual è il colmo per un gommista?",
+     "Sentirsi a terra"
+    ]
+   ],
+   "fine": "Mandala a chi sai tu",
+   "didascalia": "Mandala a chi la direbbe sicuro 🥶",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo",
+   "tema": "cobalto",
+   "copertina": "Qual è il colmo per un gommista?",
+   "etichetta": "BATTUTA DEL GIORNO",
+   "copertina_gelo": "furbo"
+  },
+  {
+   "id": "M09-lavandaio",
+   "template": "kinetic",
+   "tag": "BATTUTA DEL GIORNO",
+   "hook": "",
+   "battute": [
+    [
+     "Qual è il colmo per un lavandaio?",
+     "Avere la coscienza pulita"
+    ]
+   ],
+   "fine": "Mandala a chi sai tu",
+   "didascalia": "Se ridi hai perso 🥶 Mandala a chi ride sempre",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo",
+   "tema": "cobalto",
+   "copertina": "Qual è il colmo per un lavandaio?",
+   "etichetta": "BATTUTA DEL GIORNO",
+   "copertina_gelo": "furbo"
+  },
+  {
+   "id": "M10-elastico",
+   "template": "kinetic",
+   "tag": "BATTUTA DEL GIORNO",
+   "hook": "",
+   "battute": [
+    [
+     "Qual è la parola più lunga del mondo?",
+     "Elastico, perché si allunga"
+    ]
+   ],
+   "fine": "Mandala a chi sai tu",
+   "didascalia": "Tagga chi la diceva alle elementari 🥶",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo",
+   "tema": "cobalto",
+   "copertina": "Qual è la parola più lunga del mondo?",
+   "etichetta": "BATTUTA DEL GIORNO",
+   "copertina_gelo": "furbo"
+  },
+  {
+   "id": "T01-trova-il-gelo",
+   "template": "trova",
+   "tema": "ghiacciolo",
+   "seme": 3,
+   "hook": "Solo il 3% trova *il Gelo diverso*",
+   "chiedi": "Scrivi a che livello sei arrivato 👇",
+   "livelli": [
     {
-      "id": "P01-libro-matematica",
-      "domanda": "Perché il libro di matematica è sempre triste?",
-      "inizio": "Perché ha troppi",
-      "fine_frase": "",
-      "risposta": "problemi",
-      "didascalia": "Completa la battuta 👇 Chi ci arriva per primo vince il gelo d'oro 🥇🥶",
-      "primo_commento": "Risposta: Perché ha troppi PROBLEMI 🥶",
-      "hashtag": "#battute #completalabattuta #freddure #colmi #indovina"
+     "n": 4,
+     "base": "furbo",
+     "diverso": "stupito",
+     "secondi": 3
     },
     {
-      "id": "P02-musicista",
-      "domanda": "Qual è il colmo per un musicista?",
-      "inizio": "Perdere la",
-      "fine_frase": "",
-      "risposta": "chiave",
-      "didascalia": "Completa la battuta 👇 La risposta ufficiale è nel primo commento (non barare) 🥶",
-      "primo_commento": "Risposta: Perdere la CHIAVE 🥶",
-      "hashtag": "#battute #completalabattuta #freddure #colmi #indovina"
+     "n": 6,
+     "base": "sveglio",
+     "diverso": "serio",
+     "secondi": 4
     },
     {
-      "id": "P03-fruttivendolo",
-      "domanda": "Qual è il colmo per un fruttivendolo?",
-      "inizio": "Farsi sempre i",
-      "fine_frase": " suoi",
-      "risposta": "cavoli",
-      "didascalia": "Completa la battuta 👇 Chi ci arriva per primo vince il gelo d'oro 🥇🥶",
-      "primo_commento": "Risposta: Farsi sempre i CAVOLI suoi 🥶",
-      "hashtag": "#battute #completalabattuta #freddure #colmi #indovina"
-    },
-    {
-      "id": "P04-pasticciere",
-      "domanda": "Qual è il colmo per un pasticciere?",
-      "inizio": "Combinare un",
-      "fine_frase": "",
-      "risposta": "pasticcio",
-      "didascalia": "Completa la battuta 👇 La risposta ufficiale è nel primo commento (non barare) 🥶",
-      "primo_commento": "Risposta: Combinare un PASTICCIO 🥶",
-      "hashtag": "#battute #completalabattuta #freddure #colmi #indovina"
-    },
-    {
-      "id": "P05-ciclista",
-      "domanda": "Qual è il colmo per un ciclista?",
-      "inizio": "Avere una vita tutta in",
-      "fine_frase": "",
-      "risposta": "salita",
-      "didascalia": "Completa la battuta 👇 Chi ci arriva per primo vince il gelo d'oro 🥇🥶",
-      "primo_commento": "Risposta: Avere una vita tutta in SALITA 🥶",
-      "hashtag": "#battute #completalabattuta #freddure #colmi #indovina"
-    },
-    {
-      "id": "P06-fioraio",
-      "domanda": "Qual è il colmo per un fioraio?",
-      "inizio": "Avere una vita tutta rose e",
-      "fine_frase": "",
-      "risposta": "fiori",
-      "didascalia": "Completa la battuta 👇 La risposta ufficiale è nel primo commento (non barare) 🥶",
-      "primo_commento": "Risposta: Avere una vita tutta rose e FIORI 🥶",
-      "hashtag": "#battute #completalabattuta #freddure #colmi #indovina"
-    },
-    {
-      "id": "P08-vetraio",
-      "domanda": "Qual è il colmo per un vetraio?",
-      "inizio": "Avere un carattere",
-      "fine_frase": "",
-      "risposta": "trasparente",
-      "didascalia": "Completa la battuta 👇 Chi ci arriva per primo vince il gelo d'oro 🥇🥶",
-      "primo_commento": "Risposta: Avere un carattere TRASPARENTE 🥶",
-      "hashtag": "#battute #completalabattuta #freddure #colmi #indovina"
-    },
-    {
-      "id": "P09-lavandaio",
-      "domanda": "Qual è il colmo per un lavandaio?",
-      "inizio": "Avere la coscienza",
-      "fine_frase": "",
-      "risposta": "pulita",
-      "didascalia": "Completa la battuta 👇 La risposta ufficiale è nel primo commento (non barare) 🥶",
-      "primo_commento": "Risposta: Avere la coscienza PULITA 🥶",
-      "hashtag": "#battute #completalabattuta #freddure #colmi #indovina"
+     "n": 8,
+     "base": "furbo",
+     "diverso": "furbo",
+     "specchiato": true,
+     "secondi": 5
     }
-  ]
+   ],
+   "fine": "Al livello 3 ci sei arrivato?",
+   "didascalia": "Livello 3 = vista da falco 🦅 Scrivi a che livello ti sei fermato",
+   "hashtag": "#trovalodifferenza #giochi #sfida #indovinelli #battutegelate",
+   "copertina": "Solo il 3% trova *il Gelo diverso*",
+   "etichetta": "TROVA IL GELO",
+   "copertina_gelo": "stupito"
+  },
+  {
+   "id": "B01-segui-il-gelo",
+   "template": "bicchieri",
+   "tema": "ghiacciolo",
+   "seme": 5,
+   "scambi": 12,
+   "hook": "Segui *il Gelo*. Non perderlo d'occhio",
+   "fine": "L'hai preso? Sii sincero",
+   "didascalia": "Scrivi il numero PRIMA di vedere la risposta 👀 1, 2 o 3?",
+   "hashtag": "#giochi #sfida #indovina #battutegelate #reels",
+   "copertina": "Segui il Gelo. *Non perderlo*",
+   "etichetta": "SEGUI IL GELO",
+   "copertina_gelo": "sveglio"
+  },
+  {
+   "id": "E01-emoji-proverbi",
+   "template": "emoji",
+   "tema": "limone",
+   "hook": "Indovina il proverbio *dalle emoji*",
+   "chiedi": "Quanti ne hai presi su 3? 👇",
+   "giri": [
+    {
+     "emoji": "🐟🐟🐟🍽️🏡🗓️3️⃣",
+     "risposta": "L'ospite è come il pesce: dopo tre giorni puzza",
+     "categoria": "proverbio",
+     "secondi": 4
+    },
+    {
+     "emoji": "🌅⛰️🥇",
+     "risposta": "Il mattino ha l'oro in bocca",
+     "categoria": "proverbio",
+     "secondi": 4
+    },
+    {
+     "emoji": "🐈🌙⬛",
+     "risposta": "Di notte tutti i gatti sono bigi",
+     "categoria": "proverbio",
+     "secondi": 4
+    }
+   ],
+   "fine": "Quanti ne hai presi su 3?",
+   "didascalia": "Il terzo è quasi impossibile 🥶 Scrivi quanti ne hai indovinati",
+   "hashtag": "#proverbi #emoji #indovina #giochi #battutegelate",
+   "copertina": "Indovina il proverbio *dalle emoji*",
+   "etichetta": "INDOVINA DALLE EMOJI",
+   "copertina_gelo": "furbo"
+  },
+  {
+   "id": "T02-trova-il-gelo-2",
+   "template": "trova",
+   "seme": 8,
+   "hook": "Il 90% si ferma *al livello 2*",
+   "chiedi": "Scrivi a che livello sei arrivato 👇",
+   "livelli": [
+    {
+     "n": 5,
+     "base": "sveglio",
+     "diverso": "ride",
+     "secondi": 3
+    },
+    {
+     "n": 7,
+     "base": "serio",
+     "diverso": "sveglio",
+     "secondi": 4
+    },
+    {
+     "n": 9,
+     "base": "furbo",
+     "diverso": "furbo",
+     "specchiato": true,
+     "secondi": 5
+    }
+   ],
+   "fine": "Livello 3 superato?",
+   "didascalia": "Il livello 3 è cattivo 🥶 Scrivi dove ti sei fermato",
+   "hashtag": "#trovalodifferenza #giochi #sfida #indovinelli #battutegelate",
+   "tema": "limone",
+   "copertina": "Il 90% si ferma *al livello 2*",
+   "etichetta": "TROVA IL GELO",
+   "copertina_gelo": "stupito"
+  },
+  {
+   "id": "T03-trova-il-gelo-3",
+   "template": "trova",
+   "seme": 13,
+   "hook": "Trova il Gelo diverso *in 5 secondi*",
+   "chiedi": "Scrivi a che livello sei arrivato 👇",
+   "livelli": [
+    {
+     "n": 5,
+     "base": "gelato",
+     "diverso": "ride",
+     "secondi": 3
+    },
+    {
+     "n": 7,
+     "base": "furbo",
+     "diverso": "sveglio",
+     "secondi": 4
+    },
+    {
+     "n": 9,
+     "base": "stupito",
+     "diverso": "serio",
+     "secondi": 5
+    }
+   ],
+   "fine": "Mandalo a chi si vanta della vista",
+   "didascalia": "Mandalo a chi dice di avere la vista da falco 🦅",
+   "hashtag": "#trovalodifferenza #giochi #sfida #indovinelli #battutegelate",
+   "tema": "ghiacciolo",
+   "copertina": "Trova il Gelo diverso *in 5 secondi*",
+   "etichetta": "TROVA IL GELO",
+   "copertina_gelo": "stupito"
+  },
+  {
+   "id": "E02-emoji-modi-di-dire",
+   "template": "emoji",
+   "hook": "Indovina il modo di dire *dalle emoji*",
+   "chiedi": "Quanti ne hai presi su 3? 👇",
+   "giri": [
+    {
+     "emoji": "🌧️☔💦",
+     "risposta": "Piove sul bagnato",
+     "categoria": "modo di dire",
+     "secondi": 4
+    },
+    {
+     "emoji": "👐🕳️💸",
+     "risposta": "Avere le mani bucate",
+     "categoria": "modo di dire",
+     "secondi": 4
+    },
+    {
+     "emoji": "🐦🐦1️⃣🫘",
+     "risposta": "Prendere due piccioni con una fava",
+     "categoria": "modo di dire",
+     "secondi": 4
+    }
+   ],
+   "fine": "Quanti ne hai presi su 3?",
+   "didascalia": "Il terzo lo prende solo la nonna 👵 Scrivi quanti ne hai indovinati",
+   "hashtag": "#modididire #emoji #indovina #giochi #battutegelate",
+   "tema": "ghiacciolo",
+   "copertina": "Indovina il modo di dire *dalle emoji*",
+   "etichetta": "INDOVINA DALLE EMOJI",
+   "copertina_gelo": "furbo"
+  },
+  {
+   "id": "B02-segui-il-gelo-2",
+   "template": "bicchieri",
+   "seme": 9,
+   "scambi": 15,
+   "lento": 0.5,
+   "veloce": 0.2,
+   "hook": "Livello difficile: *15 scambi*",
+   "fine": "Preso? Mandalo a chi è sicuro di farcela",
+   "didascalia": "Scrivi il numero PRIMA della risposta 👀 1, 2 o 3?",
+   "hashtag": "#giochi #sfida #indovina #battutegelate #reels",
+   "tema": "limone",
+   "copertina": "Livello difficile: *15 scambi*",
+   "etichetta": "SEGUI IL GELO",
+   "copertina_gelo": "sveglio"
+  }
+ ],
+ "caroselli": [
+  {
+   "id": "C01-colmi-gelidi",
+   "copertina": "I 5 colmi *più gelidi* di sempre",
+   "sottotitolo": "Scorri. Se non ridi, hai vinto.",
+   "battute": [
+    [
+     "Qual è il colmo per un calzolaio?",
+     "Avere il morale sotto le scarpe",
+     8
+    ],
+    [
+     "Qual è il colmo per un dentista?",
+     "Avere il dente avvelenato",
+     7
+    ],
+    [
+     "Qual è il colmo per un giardiniere?",
+     "Piantare la fidanzata",
+     9
+    ],
+    [
+     "Qual è il colmo per un cuoco?",
+     "Avere un sacco di grane",
+     6
+    ],
+    [
+     "Qual è il colmo per un vampiro?",
+     "Non sopportare la vista del sangue",
+     10
+    ]
+   ],
+   "fine": "Qual è la peggiore? Scrivi il numero",
+   "didascalia": "Salvalo per il prossimo silenzio imbarazzante 🥶 Qual è la peggiore? 1-5 👇",
+   "hashtag": "#battute #freddure #battutesquallide #carosello #ridere"
+  },
+  {
+   "id": "C02-pranzo-natale",
+   "copertina": "Battute da *pranzo di Natale* con lo zio",
+   "sottotitolo": "Le ha dette tutte. Ogni anno.",
+   "battute": [
+    [
+     "Qual è il re dei formaggi?",
+     "Il Parmigiano Reggiano",
+     6
+    ],
+    [
+     "Cosa dice il mare alla spiaggia?",
+     "Niente, la saluta con un'onda",
+     7
+    ],
+    [
+     "Qual è il colmo per un postino?",
+     "Perdere la posta in gioco",
+     8
+    ],
+    [
+     "Perché il gelato non ha amici?",
+     "Perché è freddo con tutti",
+     9
+    ],
+    [
+     "Come si chiama un boomerang che non torna?",
+     "Un bastone",
+     10
+    ]
+   ],
+   "fine": "Tagga lo zio che le dice tutte",
+   "didascalia": "Ogni famiglia ha lo zio delle battute 🎄🥶 Taggalo",
+   "hashtag": "#battute #freddure #battutesquallide #carosello #ridere"
+  },
+  {
+   "id": "C03-simpatico",
+   "copertina": "5 battute per chi si crede *simpatico*",
+   "sottotitolo": "Usale con moderazione.",
+   "battute": [
+    [
+     "Perché la luna non va mai a dormire?",
+     "Perché fa sempre il turno di notte",
+     6
+    ],
+    [
+     "Qual è l'animale più religioso?",
+     "La mantide religiosa",
+     7
+    ],
+    [
+     "Perché il mago non trova lavoro?",
+     "Perché fa sparire il curriculum",
+     8
+    ],
+    [
+     "Qual è il colmo per un orologio?",
+     "Avere le ore contate",
+     9
+    ],
+    [
+     "Qual è il pesce più famoso?",
+     "Il pesce d'aprile",
+     10
+    ]
+   ],
+   "fine": "Mandalo a chi si crede simpatico",
+   "didascalia": "Mandalo a chi si crede simpatico 😏🥶 Qual è la tua preferita?",
+   "hashtag": "#battute #freddure #battutesquallide #carosello #ridere"
+  },
+  {
+   "id": "C04-mestieri",
+   "copertina": "Colmi di *mestieri* che non ti aspetti",
+   "sottotitolo": "Il tuo c'è?",
+   "battute": [
+    [
+     "Qual è il colmo per un sub?",
+     "Toccare il fondo",
+     6
+    ],
+    [
+     "Qual è il colmo per un cartografo?",
+     "Perdere la bussola",
+     7
+    ],
+    [
+     "Qual è il colmo per un fornaio?",
+     "Avere le mani in pasta",
+     8
+    ],
+    [
+     "Qual è il colmo per un banchiere?",
+     "Avere un conto in sospeso",
+     9
+    ],
+    [
+     "Qual è il colmo per un gommista?",
+     "Sentirsi a terra",
+     10
+    ]
+   ],
+   "fine": "Che mestiere fai? Scrivilo nei commenti",
+   "didascalia": "Scrivi il tuo mestiere: il prossimo carosello lo facciamo con i vostri 👇🥶",
+   "hashtag": "#battute #colmi #mestieri #freddure #carosello"
+  },
+  {
+   "id": "C05-elementari",
+   "copertina": "Battute da *elementari* che fanno ancora ridere",
+   "sottotitolo": "Non dirmi che non le sapevi.",
+   "battute": [
+    [
+     "Qual è l'animale più forte?",
+     "La lumaca: porta la casa sulle spalle",
+     6
+    ],
+    [
+     "Perché le giraffe hanno il collo lungo?",
+     "Perché hanno i piedi che puzzano",
+     7
+    ],
+    [
+     "Perché la gallina attraversa la strada?",
+     "Per arrivare dall'altra parte",
+     8
+    ],
+    [
+     "Qual è il frutto più triste?",
+     "La pera, perché è disperata",
+     9
+    ],
+    [
+     "Qual è la parola più lunga del mondo?",
+     "Elastico, perché si allunga",
+     10
+    ]
+   ],
+   "fine": "Qual è quella che dicevi tu? Scrivila",
+   "didascalia": "Quale dicevi alle elementari? Scrivila nei commenti 👇🥶",
+   "hashtag": "#battute #freddure #battutesquallide #carosello #ridere"
+  }
+ ],
+ "post": [
+  {
+   "id": "P01-libro-matematica",
+   "domanda": "Perché il libro di matematica è sempre triste?",
+   "inizio": "Perché ha troppi",
+   "fine_frase": "",
+   "risposta": "problemi",
+   "didascalia": "Completa la battuta 👇 Chi ci arriva per primo vince il gelo d'oro 🥇🥶",
+   "primo_commento": "Risposta: Perché ha troppi PROBLEMI 🥶",
+   "hashtag": "#battute #completalabattuta #freddure #colmi #indovina"
+  },
+  {
+   "id": "P02-musicista",
+   "domanda": "Qual è il colmo per un musicista?",
+   "inizio": "Perdere la",
+   "fine_frase": "",
+   "risposta": "chiave",
+   "didascalia": "Completa la battuta 👇 La risposta ufficiale è nel primo commento (non barare) 🥶",
+   "primo_commento": "Risposta: Perdere la CHIAVE 🥶",
+   "hashtag": "#battute #completalabattuta #freddure #colmi #indovina"
+  },
+  {
+   "id": "P03-fruttivendolo",
+   "domanda": "Qual è il colmo per un fruttivendolo?",
+   "inizio": "Farsi sempre i",
+   "fine_frase": " suoi",
+   "risposta": "cavoli",
+   "didascalia": "Completa la battuta 👇 Chi ci arriva per primo vince il gelo d'oro 🥇🥶",
+   "primo_commento": "Risposta: Farsi sempre i CAVOLI suoi 🥶",
+   "hashtag": "#battute #completalabattuta #freddure #colmi #indovina"
+  },
+  {
+   "id": "P04-pasticciere",
+   "domanda": "Qual è il colmo per un pasticciere?",
+   "inizio": "Combinare un",
+   "fine_frase": "",
+   "risposta": "pasticcio",
+   "didascalia": "Completa la battuta 👇 La risposta ufficiale è nel primo commento (non barare) 🥶",
+   "primo_commento": "Risposta: Combinare un PASTICCIO 🥶",
+   "hashtag": "#battute #completalabattuta #freddure #colmi #indovina"
+  },
+  {
+   "id": "P05-ciclista",
+   "domanda": "Qual è il colmo per un ciclista?",
+   "inizio": "Avere una vita tutta in",
+   "fine_frase": "",
+   "risposta": "salita",
+   "didascalia": "Completa la battuta 👇 Chi ci arriva per primo vince il gelo d'oro 🥇🥶",
+   "primo_commento": "Risposta: Avere una vita tutta in SALITA 🥶",
+   "hashtag": "#battute #completalabattuta #freddure #colmi #indovina"
+  },
+  {
+   "id": "P06-fioraio",
+   "domanda": "Qual è il colmo per un fioraio?",
+   "inizio": "Avere una vita tutta rose e",
+   "fine_frase": "",
+   "risposta": "fiori",
+   "didascalia": "Completa la battuta 👇 La risposta ufficiale è nel primo commento (non barare) 🥶",
+   "primo_commento": "Risposta: Avere una vita tutta rose e FIORI 🥶",
+   "hashtag": "#battute #completalabattuta #freddure #colmi #indovina"
+  },
+  {
+   "id": "P08-vetraio",
+   "domanda": "Qual è il colmo per un vetraio?",
+   "inizio": "Avere un carattere",
+   "fine_frase": "",
+   "risposta": "trasparente",
+   "didascalia": "Completa la battuta 👇 Chi ci arriva per primo vince il gelo d'oro 🥇🥶",
+   "primo_commento": "Risposta: Avere un carattere TRASPARENTE 🥶",
+   "hashtag": "#battute #completalabattuta #freddure #colmi #indovina"
+  },
+  {
+   "id": "P09-lavandaio",
+   "domanda": "Qual è il colmo per un lavandaio?",
+   "inizio": "Avere la coscienza",
+   "fine_frase": "",
+   "risposta": "pulita",
+   "didascalia": "Completa la battuta 👇 La risposta ufficiale è nel primo commento (non barare) 🥶",
+   "primo_commento": "Risposta: Avere la coscienza PULITA 🥶",
+   "hashtag": "#battute #completalabattuta #freddure #colmi #indovina"
+  }
+ ]
 }

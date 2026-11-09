@@ -81,7 +81,9 @@ def make_audio(path, duration, sounds):
 def load_reel(page, reel):
     page.goto((TPL / (reel.get("template", "reel") + ".html")).as_uri()); page.evaluate("document.fonts.ready")
     page.evaluate("t => document.body.classList.add('theme-' + t)", reel.get("tema", "cobalto"))
-    return page.evaluate("([r, h]) => setup(r, h)", [reel, DATA["handle"]])
+    info = page.evaluate("([r, h]) => setup(r, h)", [reel, DATA["handle"]])
+    page.evaluate("d => window.DUR = d", info["duration"])
+    return info
 
 
 def render_reel(page, reel):
@@ -95,10 +97,14 @@ def render_reel(page, reel):
         page.evaluate("t => setTime(t)", f / FPS)
         ff.stdin.write(page.screenshot(type="jpeg", quality=92))
     ff.stdin.close(); ff.wait(); wav.unlink()
-    # copertina consigliata (frame con hook completo)
-    page.evaluate("t => setTime(t)", 1.6)
-    page.screenshot(path=str(d / f"{reel['id']}-copertina.png"))
+    render_cover(page, reel)
     print(reel["id"], f"{dur:.1f}s", flush=True)
+
+
+def render_cover(page, reel):
+    """Copertina con il testo dentro la zona 3:4 che si vede nella griglia del profilo."""
+    load_reel(page, dict(reel, template="copertina"))
+    page.screenshot(path=str(OUT / "copertine" / f"{reel['id']}.jpg"), type="jpeg", quality=90)
 
 
 # ---------- grafiche ----------
@@ -132,6 +138,9 @@ if __name__ == "__main__":
             for t in args[1:]:
                 page.evaluate("t => setTime(t)", float(t))
                 page.screenshot(path=str(SCRATCH / f"st_{args[0]}_{t}.png"))
+        elif mode == "copertine":
+            for i in ([int(a) for a in args] or range(len(DATA["reel"]))):
+                render_cover(page, DATA["reel"][i])
         elif mode == "grafiche":
             render_graphics(page)
         b.close()

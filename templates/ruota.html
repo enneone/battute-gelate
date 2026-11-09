@@ -69,7 +69,7 @@ function setup(reel, handle) {
     rot = endRot; t = end;
   });
   ENDS = t; sounds.push({ t: ENDS, k: 'slam' });
-  return { duration: ENDS + 2.5, sounds };
+  return { duration: ENDS + END_LEN, sounds };
 }
 function spinEase(x) { x = cl(x); return 1 - Math.pow(1 - x, 4); }
 

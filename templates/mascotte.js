@@ -1,20 +1,26 @@
-// "Gelo": la mascotte. Un cubetto di ghiaccio con 3 espressioni: "furbo", "gelato", "ride".
-function gelo(expr, size) {
-  expr = expr || 'furbo'; size = size || 200;
+// "Gelo": la mascotte. Un cubetto di ghiaccio.
+// Espressioni: "furbo", "gelato", "ride", "sveglio", "serio", "stupito". opts.flip = faccia specchiata.
+function gelo(expr, size, opts) {
+  expr = expr || 'furbo'; size = size || 200; opts = opts || {};
+  const dot = (x) => `<circle cx="${x}" cy="90" r="10" fill="#0A0F3D"/><circle cx="${x + 3}" cy="87" r="3" fill="#fff"/>`;
+  const two = dot(74) + dot(134);
   const eyes = {
-    furbo: '<path d="M62 92 q12 -10 24 0" stroke="#0A0F3D" stroke-width="9" fill="none" stroke-linecap="round"/>' +
-           '<circle cx="134" cy="90" r="10" fill="#0A0F3D"/>',
+    furbo: '<path d="M62 92 q12 -10 24 0" stroke="#0A0F3D" stroke-width="9" fill="none" stroke-linecap="round"/>' + dot(134),
     gelato: '<path d="M58 84 l26 14 M58 98 l26 -14" stroke="#0A0F3D" stroke-width="8" stroke-linecap="round"/>' +
             '<path d="M120 84 l26 14 M120 98 l26 -14" stroke="#0A0F3D" stroke-width="8" stroke-linecap="round"/>',
     ride: '<path d="M60 96 q12 -16 24 0" stroke="#0A0F3D" stroke-width="9" fill="none" stroke-linecap="round"/>' +
           '<path d="M120 96 q12 -16 24 0" stroke="#0A0F3D" stroke-width="9" fill="none" stroke-linecap="round"/>' +
-          '<path d="M58 104 q-6 14 2 22" stroke="#4FF0C0" stroke-width="7" fill="none" stroke-linecap="round"/>'
+          '<path d="M58 104 q-6 14 2 22" stroke="#4FF0C0" stroke-width="7" fill="none" stroke-linecap="round"/>',
+    sveglio: two, serio: two, stupito: two
   }[expr];
   const mouth = {
     furbo: '<path d="M78 128 q26 18 52 -4" stroke="#0A0F3D" stroke-width="9" fill="none" stroke-linecap="round"/>',
     gelato: '<rect x="72" y="120" width="60" height="22" rx="8" fill="#fff" stroke="#0A0F3D" stroke-width="6"/>' +
             '<path d="M87 120 v22 M102 120 v22 M117 120 v22" stroke="#0A0F3D" stroke-width="4"/>',
-    ride: '<path d="M70 120 q32 40 64 0 z" fill="#0A0F3D"/><path d="M84 132 q18 12 36 0" fill="#FF4F9A"/>'
+    ride: '<path d="M70 120 q32 40 64 0 z" fill="#0A0F3D"/><path d="M84 132 q18 12 36 0" fill="#FF4F9A"/>',
+    sveglio: '<path d="M76 124 q28 24 56 0" stroke="#0A0F3D" stroke-width="9" fill="none" stroke-linecap="round"/>',
+    serio: '<path d="M78 132 h52" stroke="#0A0F3D" stroke-width="9" fill="none" stroke-linecap="round"/>',
+    stupito: '<ellipse cx="104" cy="132" rx="14" ry="17" fill="#0A0F3D"/>'
   }[expr];
   const cheeks = expr === 'gelato'
     ? '<ellipse cx="56" cy="122" rx="12" ry="7" fill="#7FB8FF"/><ellipse cx="150" cy="122" rx="12" ry="7" fill="#7FB8FF"/>'
@@ -25,7 +31,7 @@ function gelo(expr, size) {
     <path d="M36 40 q30 -12 70 -4" stroke="#fff" stroke-width="12" fill="none" stroke-linecap="round"/>
     <path d="M150 34 l10 14" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
     <path d="M24 150 q60 22 150 0 v18 q-6 16 -40 16 h-70 q-34 0 -40 -16 z" fill="#BFE3FF"/>
-    ${eyes}${mouth}${cheeks}
+    <g${opts.flip ? ' transform="translate(206 0) scale(-1 1)"' : ''}>${eyes}${mouth}${cheeks}</g>
   </svg>`;
 }
 window.gelo = gelo;
