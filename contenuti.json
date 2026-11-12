@@ -866,6 +866,494 @@
    "copertina": "Livello difficile: *15 scambi*",
    "etichetta": "SEGUI IL GELO",
    "copertina_gelo": "sveglio"
+  },
+  {
+   "id": "M11-windows",
+   "template": "kinetic",
+   "tag": "BATTUTA DEL GIORNO",
+   "hook": "",
+   "battute": [
+    [
+     "Perché il computer ha freddo?",
+     "Perché ha lasciato Windows aperto"
+    ]
+   ],
+   "fine": "Mandala a chi sai tu",
+   "didascalia": "Mandala al collega che chiude sempre tutto 🥶",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo",
+   "tema": "cobalto",
+   "copertina": "Perché il computer ha freddo?",
+   "etichetta": "BATTUTA DEL GIORNO",
+   "copertina_gelo": "furbo"
+  },
+  {
+   "id": "E03-emoji-proverbi-2",
+   "template": "emoji",
+   "hook": "Indovina il proverbio *dalle emoji*",
+   "chiedi": "Quanti ne hai presi su 3? 👇",
+   "giri": [
+    {
+     "emoji": "😴🎣❌🐟",
+     "risposta": "Chi dorme non piglia pesci",
+     "categoria": "proverbio",
+     "secondi": 2.5
+    },
+    {
+     "emoji": "🍎📅👋👨‍⚕️",
+     "risposta": "Una mela al giorno toglie il medico di torno",
+     "categoria": "proverbio",
+     "secondi": 3
+    },
+    {
+     "emoji": "🗣️↔️🔨🌊",
+     "risposta": "Tra il dire e il fare c'è di mezzo il mare",
+     "categoria": "proverbio",
+     "secondi": 3.5
+    }
+   ],
+   "fine": "Quanti ne hai presi su 3?",
+   "didascalia": "Il terzo è cattivissimo 🥶 Scrivi quanti ne hai indovinati",
+   "hashtag": "#proverbi #emoji #indovina #giochi #battutegelate",
+   "copertina": "Indovina il proverbio *dalle emoji*",
+   "etichetta": "INDOVINA DALLE EMOJI",
+   "copertina_gelo": "furbo",
+   "tema": "limone"
+  },
+  {
+   "id": "M12-cameriere",
+   "template": "kinetic",
+   "tag": "BATTUTA DEL GIORNO",
+   "hook": "",
+   "battute": [
+    [
+     "Qual è il colmo per un cameriere?",
+     "Non essere mai servito a niente"
+    ]
+   ],
+   "fine": "Mandala a chi sai tu",
+   "didascalia": "Voto di gelo da 1 a 10? 👇🥶",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo",
+   "tema": "cobalto",
+   "copertina": "Qual è il colmo per un cameriere?",
+   "etichetta": "BATTUTA DEL GIORNO",
+   "copertina_gelo": "furbo"
+  },
+  {
+   "id": "T04-trova-il-gelo-4",
+   "template": "trova",
+   "seme": 21,
+   "hook": "Solo 1 su 10 arriva *al livello 3*",
+   "chiedi": "Scrivi a che livello sei arrivato 👇",
+   "livelli": [
+    {
+     "n": 5,
+     "base": "ride",
+     "diverso": "furbo",
+     "secondi": 3
+    },
+    {
+     "n": 7,
+     "base": "serio",
+     "diverso": "stupito",
+     "secondi": 4
+    },
+    {
+     "n": 9,
+     "base": "sveglio",
+     "diverso": "sveglio",
+     "specchiato": true,
+     "secondi": 5
+    }
+   ],
+   "fine": "Livello 3 preso?",
+   "didascalia": "Il livello 3 non perdona 🦅 Scrivi dove ti sei fermato",
+   "hashtag": "#trovalodifferenza #giochi #sfida #indovinelli #battutegelate",
+   "copertina": "Solo 1 su 10 arriva *al livello 3*",
+   "etichetta": "TROVA IL GELO",
+   "copertina_gelo": "stupito",
+   "tema": "ghiacciolo"
+  },
+  {
+   "id": "M13-attore",
+   "template": "kinetic",
+   "tag": "BATTUTA DEL GIORNO",
+   "hook": "",
+   "battute": [
+    [
+     "Qual è il colmo per un attore?",
+     "Fare sempre scena muta"
+    ]
+   ],
+   "fine": "Mandala a chi sai tu",
+   "didascalia": "Tagga chi la diceva alle elementari 🥶",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo",
+   "tema": "cobalto",
+   "copertina": "Qual è il colmo per un attore?",
+   "etichetta": "BATTUTA DEL GIORNO",
+   "copertina_gelo": "furbo"
+  },
+  {
+   "id": "B03-segui-il-gelo-3",
+   "template": "bicchieri",
+   "seme": 11,
+   "scambi": 13,
+   "veloce": 0.22,
+   "hook": "Dov'è finito *il Gelo*?",
+   "fine": "Preso? Mandalo a chi non lo trova mai",
+   "didascalia": "Scrivi il numero PRIMA della risposta 👀 1, 2 o 3?",
+   "hashtag": "#giochi #sfida #indovina #battutegelate #reels",
+   "copertina": "Dov'è finito *il Gelo*?",
+   "etichetta": "SEGUI IL GELO",
+   "copertina_gelo": "sveglio",
+   "tema": "limone"
+  },
+  {
+   "id": "M14-giudice",
+   "template": "kinetic",
+   "tag": "BATTUTA DEL GIORNO",
+   "hook": "",
+   "battute": [
+    [
+     "Qual è il colmo per un giudice?",
+     "Non avere giudizio"
+    ]
+   ],
+   "fine": "Mandala a chi sai tu",
+   "didascalia": "Se ridi hai perso 🥶 Mandala a chi ride sempre",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo",
+   "tema": "cobalto",
+   "copertina": "Qual è il colmo per un giudice?",
+   "etichetta": "BATTUTA DEL GIORNO",
+   "copertina_gelo": "furbo"
+  },
+  {
+   "id": "R15-raffica-gelo",
+   "template": "reel",
+   "formato": "raffica",
+   "hook": "3 battute così fredde che *gelano lo schermo*",
+   "sticker": "La n.3 è illegale",
+   "battute": [
+    [
+     "Qual è il colmo per un orso polare?",
+     "Avere il sangue freddo",
+     8
+    ],
+    [
+     "Qual è il colmo per un pescivendolo?",
+     "Sentirsi un pesce fuor d'acqua",
+     7
+    ],
+    [
+     "Qual è il colmo per un cartolaio?",
+     "Giocarsi l'ultima carta",
+     9
+    ]
+   ],
+   "fine": "Mandalo a chi ride per queste cose",
+   "didascalia": "Qual è la più gelata delle 3? Scrivi il numero 👇🥶",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo",
+   "copertina": "3 battute che *gelano lo schermo*",
+   "etichetta": "RAFFICA DI GELO",
+   "copertina_gelo": "gelato",
+   "tema": "ghiacciolo"
+  },
+  {
+   "id": "M15-gelataio",
+   "template": "kinetic",
+   "tag": "BATTUTA DEL GIORNO",
+   "hook": "",
+   "battute": [
+    [
+     "Qual è il colmo per un gelataio?",
+     "Avere un cuore di ghiaccio"
+    ]
+   ],
+   "fine": "Mandala a chi sai tu",
+   "didascalia": "Questa è la più gelata di tutte 🥶 Mandala a chi sai tu",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo",
+   "tema": "cobalto",
+   "copertina": "Qual è il colmo per un gelataio?",
+   "etichetta": "BATTUTA DEL GIORNO",
+   "copertina_gelo": "furbo"
+  },
+  {
+   "id": "T05-trova-il-gelo-5",
+   "template": "trova",
+   "seme": 27,
+   "hook": "Trova il Gelo diverso *prima del timer*",
+   "chiedi": "Scrivi a che livello sei arrivato 👇",
+   "livelli": [
+    {
+     "n": 5,
+     "base": "stupito",
+     "diverso": "gelato",
+     "secondi": 3
+    },
+    {
+     "n": 7,
+     "base": "furbo",
+     "diverso": "ride",
+     "secondi": 4
+    },
+    {
+     "n": 9,
+     "base": "serio",
+     "diverso": "serio",
+     "specchiato": true,
+     "secondi": 5
+    }
+   ],
+   "fine": "Mandalo a chi si vanta della vista",
+   "didascalia": "Mandalo a chi dice di vedere tutto 🦅 Tu a che livello ti sei fermato?",
+   "hashtag": "#trovalodifferenza #giochi #sfida #indovinelli #battutegelate",
+   "copertina": "Trova il Gelo diverso *prima del timer*",
+   "etichetta": "TROVA IL GELO",
+   "copertina_gelo": "stupito",
+   "tema": "limone"
+  },
+  {
+   "id": "M16-benzinaio",
+   "template": "kinetic",
+   "tag": "BATTUTA DEL GIORNO",
+   "hook": "",
+   "battute": [
+    [
+     "Qual è il colmo per un benzinaio?",
+     "Fare il pieno di problemi"
+    ]
+   ],
+   "fine": "Mandala a chi sai tu",
+   "didascalia": "Mandala a chi la direbbe sicuro 🥶",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo",
+   "tema": "cobalto",
+   "copertina": "Qual è il colmo per un benzinaio?",
+   "etichetta": "BATTUTA DEL GIORNO",
+   "copertina_gelo": "furbo"
+  },
+  {
+   "id": "E04-emoji-modi-di-dire-2",
+   "template": "emoji",
+   "hook": "Indovina il modo di dire *dalle emoji*",
+   "chiedi": "Quanti ne hai presi su 3? 👇",
+   "giri": [
+    {
+     "emoji": "💧👄🤫",
+     "risposta": "Acqua in bocca",
+     "categoria": "modo di dire",
+     "secondi": 2.5
+    },
+    {
+     "emoji": "💰👁️🧠",
+     "risposta": "Costare un occhio della testa",
+     "categoria": "modo di dire",
+     "secondi": 3
+    },
+    {
+     "emoji": "❌🧔👅",
+     "risposta": "Non avere peli sulla lingua",
+     "categoria": "modo di dire",
+     "secondi": 3.5
+    }
+   ],
+   "fine": "Quanti ne hai presi su 3?",
+   "didascalia": "Il terzo lo prende solo chi ha la nonna in casa 👵 Scrivi quanti ne hai indovinati",
+   "hashtag": "#modididire #emoji #indovina #giochi #battutegelate",
+   "copertina": "Indovina il modo di dire *dalle emoji*",
+   "etichetta": "INDOVINA DALLE EMOJI",
+   "copertina_gelo": "furbo",
+   "tema": "ghiacciolo"
+  },
+  {
+   "id": "M17-nuotatore",
+   "template": "kinetic",
+   "tag": "BATTUTA DEL GIORNO",
+   "hook": "",
+   "battute": [
+    [
+     "Qual è il colmo per un nuotatore?",
+     "Fare un buco nell'acqua"
+    ]
+   ],
+   "fine": "Mandala a chi sai tu",
+   "didascalia": "Ditemi che non sono l'unico che ride da solo 🥶",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo",
+   "tema": "cobalto",
+   "copertina": "Qual è il colmo per un nuotatore?",
+   "etichetta": "BATTUTA DEL GIORNO",
+   "copertina_gelo": "furbo"
+  },
+  {
+   "id": "B04-segui-il-gelo-4",
+   "template": "bicchieri",
+   "seme": 17,
+   "scambi": 16,
+   "lento": 0.5,
+   "veloce": 0.18,
+   "hook": "Livello impossibile: *16 scambi*",
+   "fine": "Preso? Allora sei un falco",
+   "didascalia": "Il più veloce di sempre 👀 Scrivi il numero PRIMA della risposta: 1, 2 o 3?",
+   "hashtag": "#giochi #sfida #indovina #battutegelate #reels",
+   "copertina": "Livello impossibile: *16 scambi*",
+   "etichetta": "SEGUI IL GELO",
+   "copertina_gelo": "sveglio",
+   "tema": "limone"
+  },
+  {
+   "id": "M18-gioielliere",
+   "template": "kinetic",
+   "tag": "BATTUTA DEL GIORNO",
+   "hook": "",
+   "battute": [
+    [
+     "Qual è il colmo per un gioielliere?",
+     "Avere un cuore d'oro"
+    ]
+   ],
+   "fine": "Mandala a chi sai tu",
+   "didascalia": "Mandala al più simpatico del gruppo 🥶",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo",
+   "tema": "cobalto",
+   "copertina": "Qual è il colmo per un gioielliere?",
+   "etichetta": "BATTUTA DEL GIORNO",
+   "copertina_gelo": "furbo"
+  },
+  {
+   "id": "T06-trova-il-gelo-6",
+   "template": "trova",
+   "seme": 34,
+   "hook": "Il 95% sbaglia *il livello 3*",
+   "chiedi": "Scrivi a che livello sei arrivato 👇",
+   "livelli": [
+    {
+     "n": 5,
+     "base": "gelato",
+     "diverso": "sveglio",
+     "secondi": 3
+    },
+    {
+     "n": 7,
+     "base": "ride",
+     "diverso": "stupito",
+     "secondi": 4
+    },
+    {
+     "n": 9,
+     "base": "furbo",
+     "diverso": "furbo",
+     "specchiato": true,
+     "secondi": 5
+    }
+   ],
+   "fine": "Al livello 3 ci sei arrivato?",
+   "didascalia": "Il livello 3 è il più cattivo finora 🥶 Scrivi dove ti sei fermato",
+   "hashtag": "#trovalodifferenza #giochi #sfida #indovinelli #battutegelate",
+   "copertina": "Il 95% sbaglia *il livello 3*",
+   "etichetta": "TROVA IL GELO",
+   "copertina_gelo": "stupito",
+   "tema": "ghiacciolo"
+  },
+  {
+   "id": "M19-ladro",
+   "template": "kinetic",
+   "tag": "BATTUTA DEL GIORNO",
+   "hook": "",
+   "battute": [
+    [
+     "Qual è il colmo per un ladro?",
+     "Rubare la scena"
+    ]
+   ],
+   "fine": "Mandala a chi sai tu",
+   "didascalia": "Voto di gelo da 1 a 10? 👇🥶",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo",
+   "tema": "cobalto",
+   "copertina": "Qual è il colmo per un ladro?",
+   "etichetta": "BATTUTA DEL GIORNO",
+   "copertina_gelo": "furbo"
+  },
+  {
+   "id": "R16-quiz-abc-3",
+   "template": "quiz",
+   "hook": "Indovina la battuta giusta: *A, B o C?*",
+   "domande": [
+    {
+     "q": "Qual è il colmo per un salumiere?",
+     "opzioni": [
+      "Tagliare la corda",
+      "Avere le fette di salame sugli occhi",
+      "Fare il salame"
+     ],
+     "giusta": 1
+    },
+    {
+     "q": "Qual è il colmo per un muratore?",
+     "opzioni": [
+      "Avere un carattere di pietra",
+      "Fare un buco nel muro",
+      "Avere un mattone sullo stomaco"
+     ],
+     "giusta": 2
+    }
+   ],
+   "fine": "Quante ne hai prese su 2? Scrivilo",
+   "didascalia": "Scrivi la tua sequenza prima della soluzione 👀 Tipo: BC",
+   "hashtag": "#quiz #battute #freddure #indovina #sfida",
+   "copertina": "Indovina la battuta: *A, B o C?*",
+   "etichetta": "QUIZ DI GELO",
+   "copertina_gelo": "furbo",
+   "tema": "limone"
+  },
+  {
+   "id": "M20-fantino",
+   "template": "kinetic",
+   "tag": "BATTUTA DEL GIORNO",
+   "hook": "",
+   "battute": [
+    [
+     "Qual è il colmo per un fantino?",
+     "Perdere le staffe"
+    ]
+   ],
+   "fine": "Mandala a chi sai tu",
+   "didascalia": "Tagga chi te l'ha raccontata per primo 🥶",
+   "hashtag": "#battute #freddure #battutesquallide #ridere #umorismo",
+   "tema": "cobalto",
+   "copertina": "Qual è il colmo per un fantino?",
+   "etichetta": "BATTUTA DEL GIORNO",
+   "copertina_gelo": "furbo"
+  },
+  {
+   "id": "E05-emoji-proverbi-3",
+   "template": "emoji",
+   "hook": "Indovina il proverbio *dalle emoji*",
+   "chiedi": "Quanti ne hai presi su 3? 👇",
+   "giri": [
+    {
+     "emoji": "🐕🗣️🚫🦷",
+     "risposta": "Can che abbaia non morde",
+     "categoria": "proverbio",
+     "secondi": 2.5
+    },
+    {
+     "emoji": "🔴🌆☀️🙏",
+     "risposta": "Rosso di sera, bel tempo si spera",
+     "categoria": "proverbio",
+     "secondi": 3
+    },
+    {
+     "emoji": "🐢✅🛣️",
+     "risposta": "Chi va piano va sano e va lontano",
+     "categoria": "proverbio",
+     "secondi": 3.5
+    }
+   ],
+   "fine": "Quanti ne hai presi su 3?",
+   "didascalia": "Facili i primi due, poi il gelo 🥶 Scrivi quanti ne hai indovinati",
+   "hashtag": "#proverbi #emoji #indovina #giochi #battutegelate",
+   "copertina": "Indovina il proverbio *dalle emoji*",
+   "etichetta": "INDOVINA DALLE EMOJI",
+   "copertina_gelo": "furbo",
+   "tema": "ghiacciolo"
   }
  ],
  "caroselli": [
