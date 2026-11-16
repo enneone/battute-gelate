@@ -1354,6 +1354,206 @@
    "etichetta": "INDOVINA DALLE EMOJI",
    "copertina_gelo": "furbo",
    "tema": "ghiacciolo"
+  },
+  {
+   "id": "L01-lampo-trova",
+   "template": "trova",
+   "tag": "GIOCO LAMPO",
+   "tema": "cobalto",
+   "seme": 40,
+   "hook": "Lo trovi *in 4 secondi*?",
+   "chiedi": "Trovato? Scrivi SÌ o NO 👇",
+   "livelli": [
+    {
+     "n": 6,
+     "base": "furbo",
+     "diverso": "sveglio",
+     "secondi": 4
+    }
+   ],
+   "fine": "Trovato al primo colpo?",
+   "didascalia": "Trovato al primo colpo? Scrivi SÌ o NO 👇",
+   "hashtag": "#trovalodifferenza #giochi #sfida #battutegelate #reels",
+   "copertina": "Lo trovi *in 4 secondi*?",
+   "etichetta": "GIOCO LAMPO",
+   "copertina_gelo": "stupito"
+  },
+  {
+   "id": "L02-lampo-bicchieri",
+   "template": "bicchieri",
+   "tag": "GIOCO LAMPO",
+   "tema": "cobalto",
+   "seme": 60,
+   "scambi": 8,
+   "lento": 0.42,
+   "veloce": 0.24,
+   "hook": "Segui il Gelo: *8 scambi*",
+   "fine": "L'hai seguito fino alla fine?",
+   "didascalia": "1, 2 o 3? Scrivilo PRIMA della risposta 👀",
+   "hashtag": "#giochi #sfida #indovina #battutegelate #reels",
+   "copertina": "Segui il Gelo: *8 scambi*",
+   "etichetta": "GIOCO LAMPO",
+   "copertina_gelo": "sveglio"
+  },
+  {
+   "id": "L03-lampo-trova",
+   "template": "trova",
+   "tag": "GIOCO LAMPO",
+   "tema": "cobalto",
+   "seme": 41,
+   "hook": "Il 90% *non lo vede*",
+   "chiedi": "Trovato? Scrivi SÌ o NO 👇",
+   "livelli": [
+    {
+     "n": 7,
+     "base": "ride",
+     "diverso": "gelato",
+     "secondi": 4
+    }
+   ],
+   "fine": "Trovato al primo colpo?",
+   "didascalia": "Rivedilo: al secondo giro lo trovi 👀",
+   "hashtag": "#trovalodifferenza #giochi #sfida #battutegelate #reels",
+   "copertina": "Il 90% *non lo vede*",
+   "etichetta": "GIOCO LAMPO",
+   "copertina_gelo": "stupito"
+  },
+  {
+   "id": "L04-lampo-bicchieri",
+   "template": "bicchieri",
+   "tag": "GIOCO LAMPO",
+   "tema": "cobalto",
+   "seme": 61,
+   "scambi": 8,
+   "lento": 0.42,
+   "veloce": 0.24,
+   "hook": "Dove finisce *il Gelo*?",
+   "fine": "L'hai seguito fino alla fine?",
+   "didascalia": "Rivedilo al rallentatore 👀 Dove l'hai perso?",
+   "hashtag": "#giochi #sfida #indovina #battutegelate #reels",
+   "copertina": "Dove finisce *il Gelo*?",
+   "etichetta": "GIOCO LAMPO",
+   "copertina_gelo": "sveglio"
+  },
+  {
+   "id": "L05-lampo-trova",
+   "template": "trova",
+   "tag": "GIOCO LAMPO",
+   "tema": "cobalto",
+   "seme": 42,
+   "hook": "Trova il Gelo *diverso*",
+   "chiedi": "Trovato? Scrivi SÌ o NO 👇",
+   "livelli": [
+    {
+     "n": 6,
+     "base": "serio",
+     "diverso": "stupito",
+     "secondi": 4
+    }
+   ],
+   "fine": "Trovato al primo colpo?",
+   "didascalia": "Mandalo a chi si vanta della vista 🦅",
+   "hashtag": "#trovalodifferenza #giochi #sfida #battutegelate #reels",
+   "copertina": "Trova il Gelo *diverso*",
+   "etichetta": "GIOCO LAMPO",
+   "copertina_gelo": "stupito"
+  },
+  {
+   "id": "L06-lampo-bicchieri",
+   "template": "bicchieri",
+   "tag": "GIOCO LAMPO",
+   "tema": "cobalto",
+   "seme": 62,
+   "scambi": 8,
+   "lento": 0.42,
+   "veloce": 0.24,
+   "hook": "Occhio: *velocità ×2*",
+   "fine": "L'hai seguito fino alla fine?",
+   "didascalia": "Scrivi il numero prima della risposta 👇",
+   "hashtag": "#giochi #sfida #indovina #battutegelate #reels",
+   "copertina": "Occhio: *velocità ×2*",
+   "etichetta": "GIOCO LAMPO",
+   "copertina_gelo": "sveglio"
+  },
+  {
+   "id": "L07-lampo-trova",
+   "template": "trova",
+   "tag": "GIOCO LAMPO",
+   "tema": "cobalto",
+   "seme": 43,
+   "hook": "Solo i più svegli *lo trovano*",
+   "chiedi": "Trovato? Scrivi SÌ o NO 👇",
+   "livelli": [
+    {
+     "n": 7,
+     "base": "sveglio",
+     "diverso": "furbo",
+     "secondi": 4
+    }
+   ],
+   "fine": "Trovato al primo colpo?",
+   "didascalia": "Scrivi in quanti secondi l'hai trovato 👇",
+   "hashtag": "#trovalodifferenza #giochi #sfida #battutegelate #reels",
+   "copertina": "Solo i più svegli *lo trovano*",
+   "etichetta": "GIOCO LAMPO",
+   "copertina_gelo": "stupito"
+  },
+  {
+   "id": "L08-lampo-bicchieri",
+   "template": "bicchieri",
+   "tag": "GIOCO LAMPO",
+   "tema": "cobalto",
+   "seme": 63,
+   "scambi": 8,
+   "lento": 0.42,
+   "veloce": 0.24,
+   "hook": "Non perderlo *d'occhio*",
+   "fine": "L'hai seguito fino alla fine?",
+   "didascalia": "Mandalo a chi dice che non si distrae mai 👀",
+   "hashtag": "#giochi #sfida #indovina #battutegelate #reels",
+   "copertina": "Non perderlo *d'occhio*",
+   "etichetta": "GIOCO LAMPO",
+   "copertina_gelo": "sveglio"
+  },
+  {
+   "id": "L09-lampo-trova",
+   "template": "trova",
+   "tag": "GIOCO LAMPO",
+   "tema": "cobalto",
+   "seme": 44,
+   "hook": "Ultima chance: *4 secondi*",
+   "chiedi": "Trovato? Scrivi SÌ o NO 👇",
+   "livelli": [
+    {
+     "n": 6,
+     "base": "stupito",
+     "diverso": "ride",
+     "secondi": 4
+    }
+   ],
+   "fine": "Trovato al primo colpo?",
+   "didascalia": "Se lo trovi sei un falco 🦅",
+   "hashtag": "#trovalodifferenza #giochi #sfida #battutegelate #reels",
+   "copertina": "Ultima chance: *4 secondi*",
+   "etichetta": "GIOCO LAMPO",
+   "copertina_gelo": "stupito"
+  },
+  {
+   "id": "L10-lampo-bicchieri",
+   "template": "bicchieri",
+   "tag": "GIOCO LAMPO",
+   "tema": "cobalto",
+   "seme": 64,
+   "scambi": 8,
+   "lento": 0.42,
+   "veloce": 0.24,
+   "hook": "Il più veloce *finora*",
+   "fine": "L'hai seguito fino alla fine?",
+   "didascalia": "1, 2 o 3? Sii onesto 👇",
+   "hashtag": "#giochi #sfida #indovina #battutegelate #reels",
+   "copertina": "Il più veloce *finora*",
+   "etichetta": "GIOCO LAMPO",
+   "copertina_gelo": "sveglio"
   }
  ],
  "caroselli": [
