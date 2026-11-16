@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="brand.css">
+<script src="mascotte.js"></script>
+<script src="common.js"></script>
+<style>
+  /* GARA DEI GELO: palline in un anello che gira con un varco. Chi esce per primo vince. */
+  body { background: #070B2E; color: #fff; }
+  #bgc { display: none; }
+  #sky { position: absolute; inset: 0; background:
+    radial-gradient(ellipse 900px 700px at 50% 52%, rgba(31,59,255,0.55), rgba(31,59,255,0) 70%),
+    radial-gradient(ellipse 700px 500px at 20% 10%, rgba(255,79,154,0.22), rgba(255,79,154,0) 70%),
+    radial-gradient(ellipse 700px 600px at 85% 95%, rgba(79,240,192,0.16), rgba(79,240,192,0) 70%), #070B2E; }
+  #grain2 { position: absolute; inset: 0; background-image: var(--grain); opacity: .22; mix-blend-mode: overlay; z-index: 2; }
+  #cv { position: absolute; left: 0; top: 0; z-index: 3; }
+  #top { position: absolute; top: 150px; left: 0; right: 0; text-align: center; z-index: 5; }
+  #k { display: inline-block; font-family: var(--f-mono); font-size: 28px; letter-spacing: 6px; color: var(--menta); padding: 10px 22px; border: 2px solid rgba(79,240,192,.5); border-radius: 999px; background: rgba(79,240,192,.08); }
+  #h { margin-top: 26px; font-family: var(--f-titolo); font-weight: 700; font-size: 104px; line-height: .98; letter-spacing: -4px; text-shadow: 0 0 40px rgba(31,59,255,.9); }
+  #h em { font-style: normal; background: linear-gradient(90deg, #FFD93D, #FF4F9A); -webkit-background-clip: text; color: transparent; }
+  #board { position: absolute; left: 70px; right: 70px; top: 1560px; display: flex; justify-content: space-between; z-index: 5; }
+  .p { width: 210px; height: 120px; border-radius: 30px; display: flex; align-items: center; justify-content: center; gap: 14px; font-family: var(--f-logo); font-size: 30px; padding-top: 6px;
+    background: rgba(255,255,255,.06); border: 2px solid rgba(255,255,255,.18); backdrop-filter: blur(6px); }
+  .p i { width: 34px; height: 34px; border-radius: 50%; display: block; margin-top: -6px; }
+  #ask { position: absolute; left: 0; right: 0; top: 1720px; text-align: center; font-family: var(--f-titolo); font-weight: 700; font-size: 42px; color: rgba(255,255,255,.85); z-index: 5; }
+  #win { position: absolute; left: 90px; right: 90px; top: 760px; text-align: center; z-index: 8; display: none; }
+  #win .a { font-family: var(--f-mono); font-size: 34px; letter-spacing: 8px; color: var(--limone); }
+  #win .b { margin-top: 14px; font-family: var(--f-logo); font-size: 150px; line-height: 1.15; -webkit-text-stroke: 10px #070B2E; paint-order: stroke fill; }
+  #tim { position: absolute; right: 70px; top: 80px; font-family: var(--f-mono); font-size: 30px; color: rgba(255,255,255,.7); z-index: 6; }
+  .logo { color: #fff !important; top: 80px !important; }
+</style>
+</head>
+<body>
+  <div id="sky"></div>
+  <canvas id="cv" width="1080" height="1920"></canvas>
+  <div id="grain2"></div>
+  <div id="top"><div id="k"></div><div id="h"></div></div>
+  <div id="tim"></div>
+  <div id="board"></div>
+  <div id="ask"></div>
+  <div id="win"><div class="a">HA VINTO</div><div class="b"></div></div>
+<script>
+document.documentElement.style.setProperty('--grain', GRAIN);
+const C = { x: 540, y: 1010 }, RING = 410, BR = 50, FPS = 30, SUB = 8;
+let R, F = [], WIN = -1, T_WIN = 0, ENDS = 0, P = [], FACE = [], GAP = 0.62, OMEGA = 1.1;
+const COLS = [['BLU', '#2F55FF'], ['ROSA', '#FF4F9A'], ['GIALLO', '#FFD93D'], ['MENTA', '#4FF0C0']];
+const NOTES = ['n0', 'n1', 'n2', 'n3', 'n4', 'n5', 'n6', 'n7'];
+
+function simulate(seed, maxT) {
+  const r = rng(seed), g = 1500, dt = 1 / (FPS * SUB);
+  let b = COLS.map((_, i) => ({ x: C.x - 150 + i * 100, y: C.y - 120 + r() * 80, vx: (r() - 0.5) * 900, vy: -300 - r() * 400, out: false }));
+  const frames = [], hits = []; let winner = -1, tw = 0, rot = r() * 6.28;
+  for (let f = 0; f < maxT * FPS; f++) {
+    for (let s = 0; s < SUB; s++) {
+      rot += OMEGA * dt;
+      for (const o of b) {
+        o.vy += g * dt; o.x += o.vx * dt; o.y += o.vy * dt;
+        if (o.out) continue;
+        const dx = o.x - C.x, dy = o.y - C.y, d = Math.hypot(dx, dy);
+        if (d > RING - BR) {
+          let a = Math.atan2(dy, dx) - rot; a = ((a % 6.2832) + 6.2832) % 6.2832; if (a > Math.PI) a -= 6.2832;
+          if (Math.abs(a) < GAP / 2 - 0.06) { if (d > RING + BR) { o.out = true; if (winner < 0) { winner = b.indexOf(o); tw = (f + s / SUB) / FPS; } } continue; }
+          const nx = dx / d, ny = dy / d, vn = o.vx * nx + o.vy * ny;
+          if (vn > 0) { o.vx -= 2 * vn * nx; o.vy -= 2 * vn * ny; const k = Math.min(1.03, 2600 / Math.hypot(o.vx, o.vy)); o.vx *= k; o.vy *= k; hits.push((f + s / SUB) / FPS); }
+          o.x = C.x + nx * (RING - BR); o.y = C.y + ny * (RING - BR);
+        }
+      }
+      for (let i = 0; i < b.length; i++) for (let j = i + 1; j < b.length; j++) {
+        const p = b[i], q = b[j]; if (p.out || q.out) continue;
+        const dx = q.x - p.x, dy = q.y - p.y, d = Math.hypot(dx, dy);
+        if (d < 2 * BR && d > 0) {
+          const nx = dx / d, ny = dy / d, rv = (q.vx - p.vx) * nx + (q.vy - p.vy) * ny;
+          if (rv < 0) { p.vx += rv * nx; p.vy += rv * ny; q.vx -= rv * nx; q.vy -= rv * ny; }
+          const o = (2 * BR - d) / 2; p.x -= nx * o; p.y -= ny * o; q.x += nx * o; q.y += ny * o;
+        }
+      }
+    }
+    frames.push({ rot, b: b.map(o => [o.x, o.y, o.out]) });
+    if (winner >= 0 && (f / FPS) > tw + 3.2) break;
+  }
+  return { frames, winner, tw, hits };
+}
+
+function setup(reel, handle) {
+  R = reel; GAP = reel.varco || 0.62; OMEGA = reel.giri || 1.1;
+  baseLayer('GARA DEI GELO', handle, reel.fine, { noProg: true });
+  $('k').textContent = 'GARA N.' + (reel.numero || 1);
+  $('h').innerHTML = (reel.hook || 'Chi esce *per primo*?').replace(/\*([^*]+)\*/g, '<em>$1</em>');
+  $('ask').textContent = reel.chiedi || 'Scegli un colore nei commenti prima della fine 👇';
+  $('board').innerHTML = COLS.map(c => `<div class="p"><i style="background:${c[1]};box-shadow:0 0 18px ${c[1]}"></i>${c[0]}</div>`).join('');
+  // cerca un seme che dia una gara tra minT e maxT secondi
+  let s = reel.seme || 1, sim;
+  for (let k = 0; k < 400; k++, s++) { sim = simulate(s, (reel.max || 22) + 4); if (sim.winner >= 0 && sim.tw >= (reel.min || 13) && sim.tw <= (reel.max || 22)) break; }
+  F = sim.frames; WIN = sim.winner; T_WIN = sim.tw; ENDS = T_WIN + 3.0; window._seed = s;
+  FACE = COLS.map((c, i) => { const im = new Image(); im.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(gelo(i === WIN ? 'furbo' : 'sveglio', 200)); return im; });
+  const sounds = [{ t: 0.02, k: 'slam' }];
+  let last = -1; sim.hits.forEach((t, i) => { if (t - last > 0.07) { sounds.push({ t, k: NOTES[i % 8] }); last = t; } });
+  sounds.push({ t: T_WIN, k: 'ice' }, { t: T_WIN + 0.05, k: 'slam' });
+  return { duration: ENDS + END_LEN, sounds };
+}
+
+const cv = document.getElementById('cv'), cx = cv.getContext('2d');
+function setTime(t) {
+  if (endCard(t, ENDS)) return;
+  const fi = Math.min(F.length - 1, Math.floor(t * FPS)), fr = F[fi];
+  cx.clearRect(0, 0, 1080, 1920);
+  // anello luminoso con varco
+  const won = t >= T_WIN, pw = t - T_WIN;
+  cx.save(); cx.translate(C.x, C.y);
+  cx.lineCap = 'round';
+  for (const [w, a, blur] of [[46, 0.18, 40], [22, 0.5, 18], [10, 1, 0]]) {
+    cx.beginPath(); cx.arc(0, 0, RING + 6, fr.rot + GAP / 2, fr.rot + 6.2832 - GAP / 2);
+    cx.strokeStyle = `rgba(234,246,255,${a})`; cx.lineWidth = w; cx.shadowColor = '#7FA0FF'; cx.shadowBlur = blur; cx.stroke();
+  }
+  cx.restore();
+  // scie e palline
+  for (let i = 0; i < 4; i++) {
+    const col = COLS[i][1];
+    for (let k = 10; k >= 1; k--) {
+      const p = F[Math.max(0, fi - k)].b[i];
+      cx.beginPath(); cx.arc(p[0], p[1], BR * (1 - k / 14), 0, 6.2832); cx.fillStyle = col; cx.globalAlpha = 0.05 * (11 - k); cx.fill();
+    }
+    cx.globalAlpha = won && i !== WIN ? Math.max(0.25, 1 - pw * 1.5) : 1;
+    const p = fr.b[i];
+    cx.save(); cx.shadowColor = col; cx.shadowBlur = 40;
+    cx.beginPath(); cx.arc(p[0], p[1], BR, 0, 6.2832); cx.fillStyle = col; cx.fill(); cx.restore();
+    // riflesso lucido
+    const gr = cx.createRadialGradient(p[0] - BR * .35, p[1] - BR * .4, 2, p[0], p[1], BR);
+    gr.addColorStop(0, 'rgba(255,255,255,.75)'); gr.addColorStop(.35, 'rgba(255,255,255,.08)'); gr.addColorStop(1, 'rgba(0,0,0,.25)');
+    cx.beginPath(); cx.arc(p[0], p[1], BR, 0, 6.2832); cx.fillStyle = gr; cx.fill();
+    if (FACE[i].complete) cx.drawImage(FACE[i], p[0] - BR * .62, p[1] - BR * .58, BR * 1.24, BR * 1.24);
+    cx.globalAlpha = 1;
+  }
+  // pulsazione dell'anello sugli urti: la luce segue il ritmo
+  $('tim').textContent = won ? '' : (t).toFixed(1) + 's';
+  const boards = $('board').children;
+  for (let i = 0; i < 4; i++) {
+    const on = won && i === WIN;
+    boards[i].style.transform = `scale(${on ? 1 + 0.12 * back(pw / 0.35) : 1})`;
+    boards[i].style.background = on ? COLS[i][1] : 'rgba(255,255,255,.06)';
+    boards[i].style.color = on && i > 1 ? '#070B2E' : '#fff';
+    boards[i].style.opacity = won && !on ? 0.4 : 1;
+  }
+  const w = $('win'); w.style.display = won ? 'block' : 'none';
+  if (won) { w.querySelector('.b').textContent = COLS[WIN][0] + '!'; w.querySelector('.b').style.color = COLS[WIN][1];
+    w.style.transform = `scale(${back((pw - 0.15) / 0.4)}) rotate(-3deg)`; }
+  $('top').style.opacity = won ? Math.max(0.25, 1 - pw * 2) : 1;
+  $('h').style.transform = `scale(${1 + 0.05 * Math.sin(cl(t / 0.3) * Math.PI)})`;
+  $('flashAll').style.opacity = won && pw < 0.16 ? 0.7 * (1 - pw / 0.16) : 0;
+  // coriandoli del colore vincente
+  if (won) { const rr = rng(7); for (let k = 0; k < 90; k++) {
+    const a = rr() * 6.2832, v = 500 + rr() * 1300, x = C.x + Math.cos(a) * v * pw, y = C.y - 120 + Math.sin(a) * v * pw + 900 * pw * pw;
+    cx.save(); cx.translate(x, y); cx.rotate(a + pw * 8); cx.globalAlpha = Math.max(0, 1 - pw / 2.6);
+    cx.fillStyle = k % 3 ? COLS[WIN][1] : '#fff'; cx.fillRect(-9, -5, 18, 10); cx.restore(); } }
+}
+window.setup = setup; window.setTime = setTime;
+</script>
+</body>
+</html>

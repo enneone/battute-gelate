@@ -1554,6 +1554,21 @@
    "copertina": "Il più veloce *finora*",
    "etichetta": "GIOCO LAMPO",
    "copertina_gelo": "sveglio"
+  },
+  {
+   "id": "G01-gara-dei-gelo",
+   "template": "gara",
+   "seme": 3,
+   "numero": 1,
+   "hook": "Chi esce *per primo*?",
+   "fine": "Avevi scelto il colore giusto?",
+   "didascalia": "Che colore avevi scelto? Scrivilo 👇",
+   "hashtag": "#battutegelate",
+   "copertina": "Chi esce *per primo*?",
+   "etichetta": "GARA DEI GELO",
+   "copertina_gelo": "sveglio",
+   "min": 12,
+   "max": 20
   }
  ],
  "caroselli": [

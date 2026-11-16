@@ -64,6 +64,9 @@ def buzz():
 SFX = {"whoosh": whoosh(), "ice": ice(), "slam": slam(), "buzz": buzz(),
        "pop": env_tone([520, 780], 0.09, 40, 0.35), "click": env_tone([2400], 0.025, 120, 0.25),
        "tick": env_tone([1000], 0.06, 60, 0.35), "ding": env_tone([1568, 2349], 0.6, 6, 0.3)}
+# note di una scala pentatonica: ogni rimbalzo della gara suona una nota (effetto "satisfying")
+for _k, _f in enumerate([523, 587, 659, 784, 880, 1047, 1175, 1319]):
+    SFX[f"n{_k}"] = env_tone([_f, _f * 2], 0.35, 9, 0.22)
 
 
 def make_audio(path, duration, sounds):

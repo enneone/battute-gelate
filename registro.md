@@ -18,3 +18,9 @@
 - Mix: `trova` 3, `emoji` 3, `bicchieri` 2 (ancora senza dati), vecchi template 2 (raffica da 3, quiz da 2).
 - Durate: i Reel `emoji` uscivano a 22 s, ora giri da 2,5/3/3,5 s (19-20 s). Il quiz con 3 domande dura 26 s (pausa fissa di 4 s), quindi ridotto a 2 domande (18,4 s).
 - 11 nov (M05, E01) pubblicati regolarmente, nessun post in errore.
+
+## 16 novembre: analisi due settimane
+- Follower 3 → 145 (+125 tra 10 e 11 nov, non dai Reel: copertura per Reel ferma a 107-174).
+- Giochi serali: visione media 4,7-6,5 s (prima 4,2-5,6), oltre i 3 s 26-42% (migliore B02 41,6%, T02 38,7%). Zero condivisioni e salvataggi.
+- Battute del giorno: 2,3-2,9 s, 22-29%. Tolte: le 12:30 dal 17 al 26 nov diventano giochi lampo L01-L10 (commit b0fbe98).
+- Hashtag ridotti a 2. Prototipo nuovo format `gara` (G01), in attesa di approvazione.
