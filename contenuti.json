@@ -1568,7 +1568,69 @@
    "etichetta": "GARA DEI GELO",
    "copertina_gelo": "sveglio",
    "min": 12,
-   "max": 20
+   "max": 20,
+   "tema": "notte"
+  },
+  {
+   "id": "P01-pressa",
+   "template": "pressa",
+   "numero": 1,
+   "oggetti": [
+    "uovo",
+    "pallina",
+    "anguria"
+   ],
+   "hook": "Cosa resiste *alla pressa*?",
+   "fine": "Avevi indovinato chi resiste?",
+   "didascalia": "Quanti ne avevi indovinati? Scrivi il numero 👇",
+   "hashtag": "#battutegelate #pressaidraulica",
+   "copertina": "Cosa resiste *alla pressa*?",
+   "etichetta": "LA PRESSA",
+   "copertina_gelo": "stupito",
+   "tema": "notte"
+  },
+  {
+   "id": "K01-plinko",
+   "template": "plinko",
+   "numero": 1,
+   "seme": 11,
+   "lanci": 3,
+   "hook": "Dove cade *Gelo*?",
+   "chiedi": "Scrivi il numero prima che arrivi 👇",
+   "caselle": [
+    "Pigiama tutto il giorno",
+    "Pizza stasera",
+    "Sonnellino di 3 ore",
+    "Weekend al mare",
+    "Nessuno ti scrive oggi",
+    "Caffè offerto",
+    "Lunedì cancellato"
+   ],
+   "fine": "Avevi indovinato il numero?",
+   "didascalia": "Scrivi il numero PRIMA che la pallina arrivi 👇 Quale casella vorresti?",
+   "hashtag": "#battutegelate #plinko",
+   "copertina": "Dove cade *Gelo*?",
+   "etichetta": "PLINKO",
+   "copertina_gelo": "sveglio",
+   "tema": "notte"
+  },
+  {
+   "id": "P02-pressa-2",
+   "template": "pressa",
+   "numero": 2,
+   "oggetti": [
+    "pomodoro",
+    "budino",
+    "telefono"
+   ],
+   "hook": "Cosa resiste *alla pressa*?",
+   "fine": "Il telefono te lo aspettavi?",
+   "didascalia": "Il budino resiste o no? Scrivilo PRIMA di guardare 👇",
+   "hashtag": "#battutegelate #pressaidraulica",
+   "copertina": "Il telefono *resiste*?",
+   "etichetta": "LA PRESSA",
+   "copertina_gelo": "stupito",
+   "tema": "notte"
   }
  ],
  "caroselli": [

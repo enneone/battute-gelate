@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="brand.css">
+<script src="mascotte.js"></script>
+<script src="common.js"></script>
+<style>
+  /* LA PRESSA: oggetti sotto la pressa idraulica, uno alla volta. L'ultimo è sempre Gelo, e congela la pressa. */
+  body { background: #070B2E; color: #fff; }
+  #bgc { display: none; }
+  #sky { position: absolute; inset: 0; background:
+    radial-gradient(ellipse 900px 700px at 50% 60%, rgba(31,59,255,0.45), rgba(31,59,255,0) 70%),
+    radial-gradient(ellipse 700px 500px at 15% 8%, rgba(255,217,61,0.16), rgba(255,217,61,0) 70%),
+    radial-gradient(ellipse 700px 600px at 90% 95%, rgba(255,79,154,0.18), rgba(255,79,154,0) 70%), #070B2E; }
+  #grain2 { position: absolute; inset: 0; opacity: .22; mix-blend-mode: overlay; z-index: 2; }
+  #cv { position: absolute; left: 0; top: 0; z-index: 3; }
+  #top { position: absolute; top: 160px; left: 0; right: 0; text-align: center; z-index: 5; }
+  #k { display: inline-block; font-family: var(--f-mono); font-size: 28px; letter-spacing: 6px; color: var(--limone); padding: 10px 22px; border: 2px solid rgba(255,217,61,.5); border-radius: 999px; background: rgba(255,217,61,.08); }
+  #h { margin-top: 22px; font-family: var(--f-titolo); font-weight: 700; font-size: 96px; line-height: .98; letter-spacing: -4px; text-shadow: 0 0 40px rgba(31,59,255,.9); }
+  #h em { font-style: normal; background: linear-gradient(90deg, #FFD93D, #FF4F9A); -webkit-background-clip: text; color: transparent; }
+  #lab { position: absolute; left: 0; right: 0; top: 1560px; text-align: center; z-index: 6; }
+  #lab .n { font-family: var(--f-mono); font-size: 28px; letter-spacing: 6px; color: rgba(255,255,255,.6); }
+  #lab .o { margin-top: 8px; font-family: var(--f-logo); font-size: 70px; line-height: 1.25; }
+  #res { position: absolute; left: 0; right: 0; top: 1730px; text-align: center; z-index: 6; font-family: var(--f-titolo); font-weight: 700; font-size: 46px; }
+  #verdict { position: absolute; left: 60px; right: 60px; top: 880px; text-align: center; z-index: 8; font-family: var(--f-logo); font-size: 110px; line-height: 1.2; -webkit-text-stroke: 9px #070B2E; paint-order: stroke fill; display: none; }
+  .logo { color: #fff !important; top: 80px !important; }
+</style>
+</head>
+<body>
+  <div id="sky"></div>
+  <canvas id="cv" width="1080" height="1920"></canvas>
+  <div id="grain2"></div>
+  <div id="top"><div id="k">PRESSA VS</div><div id="h"></div></div>
+  <div id="verdict"></div>
+  <div id="lab"><div class="n"></div><div class="o"></div></div>
+  <div id="res"></div>
+<script>
+$('grain2').style.backgroundImage = GRAIN;
+const BASE = 1390, REST = 640, PL_W = 720, PL_H = 110, CX = 540;
+let R, O = [], ENDS = 0, GELO_IMG = null, GELO_RIDE = null;
+// Ogni oggetto: tipo di disegno, colore degli schizzi, comportamento (splat = si spiaccica, molla = torna su, gelo = congela la pressa)
+const KIND = {
+  uovo: { h: 300, col: '#FFD93D', mode: 'splat', nome: 'UN UOVO' },
+  anguria: { h: 320, col: '#FF4F6A', mode: 'splat', nome: "UN'ANGURIA" },
+  pallina: { h: 290, col: '#FF4F9A', mode: 'molla', nome: 'LA PALLINA ANTISTRESS' },
+  telefono: { h: 380, col: '#7FA0FF', mode: 'splat', nome: 'UN TELEFONO' },
+  pomodoro: { h: 270, col: '#FF3B30', mode: 'splat', nome: 'UN POMODORO' },
+  budino: { h: 270, col: '#C8742B', mode: 'molla', nome: 'UN BUDINO' },
+  gelo: { h: 300, col: '#BFE3FF', mode: 'gelo', nome: 'GELO' }
+};
+
+function setup(reel, handle) {
+  R = reel; baseLayer('LA PRESSA', handle, reel.fine, { noProg: true });
+  $('h').innerHTML = (reel.hook || 'Cosa resiste *alla pressa*?').replace(/\*([^*]+)\*/g, '<em>$1</em>');
+  $('k').textContent = 'PRESSA N.' + (reel.numero || 1);
+  GELO_IMG = new Image(); GELO_IMG.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(gelo('furbo', 300));
+  GELO_RIDE = new Image(); GELO_RIDE.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(gelo('ride', 300));
+  let t = 0; const sounds = [{ t: 0.02, k: 'slam' }];
+  const list = reel.oggetti.concat(['gelo']);
+  list.forEach((k, i) => {
+    const K = KIND[k], last = k === 'gelo';
+    const o = { i, k, ...K, start: t, drop: t + 0.35, ask: t + 0.45, down: t + 1.35 };
+    o.contact = o.down + 0.75; o.crush = o.contact + 0.3; o.up = o.crush + 0.45; o.end = last ? o.contact + 3.0 : o.up + 0.55;
+    O.push(o);
+    sounds.push({ t: o.start + 0.3, k: 'pop' }, { t: o.down, k: 'hiss' });
+    if (last) sounds.push({ t: o.contact, k: 'slam' }, { t: o.contact + 0.05, k: 'ice' }, { t: o.contact + 1.0, k: 'crunch' }, { t: o.contact + 1.05, k: 'ice' });
+    else if (K.mode === 'splat') sounds.push({ t: o.contact + 0.12, k: 'crunch' }, { t: o.contact + 0.14, k: 'slam' });
+    else sounds.push({ t: o.contact + 0.1, k: 'buzz' }, { t: o.up + 0.1, k: 'n5' }, { t: o.up + 0.22, k: 'n7' });
+    t = o.end;
+  });
+  ENDS = t; sounds.push({ t: ENDS, k: 'slam' });
+  return { duration: ENDS + END_LEN, sounds };
+}
+
+const cv = document.getElementById('cv'), cx = cv.getContext('2d');
+function steel(x, y, w, h, dark) {
+  const g = cx.createLinearGradient(x, y, x, y + h);
+  g.addColorStop(0, dark ? '#3A4266' : '#C9D3F2'); g.addColorStop(0.45, dark ? '#1C2244' : '#7E89B5'); g.addColorStop(1, dark ? '#0E1230' : '#3D4675');
+  cx.fillStyle = g; cx.beginPath(); cx.roundRect(x, y, w, h, 18); cx.fill();
+  cx.strokeStyle = 'rgba(255,255,255,.35)'; cx.lineWidth = 3; cx.stroke();
+}
+function hazard(x, y, w, h) {
+  cx.save(); cx.beginPath(); cx.roundRect(x, y, w, h, 8); cx.clip();
+  cx.fillStyle = '#FFD93D'; cx.fillRect(x, y, w, h); cx.fillStyle = '#0A0F3D';
+  for (let k = -h; k < w; k += 56) { cx.beginPath(); cx.moveTo(x + k, y + h); cx.lineTo(x + k + 28, y + h); cx.lineTo(x + k + 28 + h, y); cx.lineTo(x + k + h, y); cx.fill(); }
+  cx.restore();
+}
+function glossy(x, y, rx, ry, col) {
+  cx.save(); cx.shadowColor = col; cx.shadowBlur = 40; cx.beginPath(); cx.ellipse(x, y, rx, ry, 0, 0, 6.2832); cx.fillStyle = col; cx.fill(); cx.restore();
+  const g = cx.createRadialGradient(x - rx * .35, y - ry * .45, 2, x, y, Math.max(rx, ry));
+  g.addColorStop(0, 'rgba(255,255,255,.8)'); g.addColorStop(.3, 'rgba(255,255,255,.1)'); g.addColorStop(1, 'rgba(0,0,0,.3)');
+  cx.beginPath(); cx.ellipse(x, y, rx, ry, 0, 0, 6.2832); cx.fillStyle = g; cx.fill();
+}
+function drawObj(o, sq, t) { // sq: 0 = intatto, 1 = schiacciato del tutto
+  const h = o.h * (1 - sq * 0.86), w = o.h * (1 + sq * 1.25), y = BASE - h / 2;
+  if (o.k === 'uovo') glossy(CX, y, w * 0.4, h * 0.5, '#F4EFE6');
+  else if (o.k === 'anguria') { glossy(CX, y, w * 0.55, h * 0.5, '#2FA84F'); cx.strokeStyle = 'rgba(10,60,20,.5)'; cx.lineWidth = 10;
+    for (let k = -2; k <= 2; k++) { cx.beginPath(); cx.ellipse(CX + k * w * 0.12, y, w * 0.06, h * 0.48, 0, 0, 6.2832); cx.stroke(); } }
+  else if (o.k === 'pallina' || o.k === 'pomodoro') { glossy(CX, y, w * 0.5, h * 0.5, o.col);
+    if (o.k === 'pomodoro') { cx.fillStyle = '#2FA84F'; cx.beginPath(); cx.ellipse(CX, y - h * 0.5, 40, 14, 0, 0, 6.2832); cx.fill(); } }
+  else if (o.k === 'budino') { cx.save(); cx.shadowColor = o.col; cx.shadowBlur = 40; cx.fillStyle = o.col; cx.beginPath();
+    cx.moveTo(CX - w * 0.32, y - h / 2); cx.lineTo(CX + w * 0.32, y - h / 2); cx.lineTo(CX + w * 0.5, y + h / 2); cx.lineTo(CX - w * 0.5, y + h / 2); cx.closePath(); cx.fill(); cx.restore();
+    cx.fillStyle = '#5A2E0E'; cx.beginPath(); cx.ellipse(CX, y - h / 2, w * 0.32, 22 * (1 - sq * .7), 0, 0, 6.2832); cx.fill(); }
+  else if (o.k === 'telefono') { cx.save(); cx.shadowColor = '#7FA0FF'; cx.shadowBlur = 30; cx.fillStyle = '#10142E'; cx.beginPath(); cx.roundRect(CX - w * 0.26, y - h / 2, w * 0.52, h, 30); cx.fill(); cx.restore();
+    const g = cx.createLinearGradient(CX - w * .22, y - h / 2, CX + w * .22, y + h / 2); g.addColorStop(0, '#4F6BFF'); g.addColorStop(1, '#FF4F9A');
+    cx.fillStyle = g; cx.beginPath(); cx.roundRect(CX - w * 0.22, y - h / 2 + 20, w * 0.44, h - 40, 20); cx.fill(); }
+  else if (o.k === 'gelo') { const im = t > o.contact + 1.0 ? GELO_RIDE : GELO_IMG; const s = o.h * 1.15; cx.save(); cx.shadowColor = '#BFE3FF'; cx.shadowBlur = 60;
+    cx.drawImage(im, CX - s / 2, BASE - s + 8, s, s); cx.restore(); }
+}
+function splat(o, p) { // schizzi e macchia dopo lo schiacciamento
+  const r = rng(o.i * 13 + 5);
+  cx.fillStyle = o.col; cx.globalAlpha = 0.9;
+  cx.beginPath(); cx.ellipse(CX, BASE - 6, 200 + 140 * ease(p * 3), 18, 0, 0, 6.2832); cx.fill();
+  for (let k = 0; k < 46; k++) {
+    const a = Math.PI + r() * Math.PI, v = 500 + r() * 1100, sz = 8 + r() * 22;
+    const x = CX + Math.cos(a) * v * p * (r() < .5 ? -1 : 1), y = BASE - 40 + Math.sin(a) * v * p * 0.9 + 1600 * p * p;
+    if (y > BASE + 10) continue;
+    cx.globalAlpha = Math.max(0, 1 - p * 1.3); cx.beginPath(); cx.arc(x, y, sz * (1 - p * .4), 0, 6.2832); cx.fill();
+  }
+  cx.globalAlpha = 1;
+}
+
+function setTime(t) {
+  if (endCard(t, ENDS)) return;
+  const o = O.find(x => t >= x.start && t < x.end) || O[O.length - 1];
+  const last = o.k === 'gelo';
+  // posizione della piastra
+  const contactY = BASE - o.h, crushY = BASE - o.h * (o.mode === 'molla' ? 0.45 : 0.14) - PL_H;
+  let py = REST;
+  if (t >= o.down && t < o.contact) py = REST + (contactY - PL_H - REST) * Math.pow((t - o.down) / (o.contact - o.down), 2.2);
+  else if (t >= o.contact) {
+    if (last) py = contactY - PL_H + (t < o.contact + 1.0 ? Math.sin((t - o.contact) * 70) * 4 : 0);
+    else if (t < o.crush) py = contactY - PL_H + (crushY - contactY + PL_H) * ease((t - o.contact) / (o.crush - o.contact));
+    else if (t < o.up) py = crushY;
+    else py = crushY + (REST - crushY) * easeIO((t - o.up) / 0.5);
+  }
+  const shake = (t >= o.contact && t < o.contact + 0.35) ? Math.sin(t * 90) * 14 * (1 - (t - o.contact) / 0.35) : 0;
+  cx.clearRect(0, 0, 1080, 1920); cx.save(); cx.translate(shake, 0);
+  // colonne e base
+  steel(110, 470, 70, 1050, true); steel(900, 470, 70, 1050, true); steel(80, 470, 920, 90, false);
+  steel(CX - 470, BASE, 940, 130, false); hazard(CX - 450, BASE + 92, 900, 26);
+  // oggetto
+  let sq = 0;
+  if (!last && t >= o.contact) {
+    const pen = (py + PL_H) - contactY; sq = cl(pen / o.h);
+  }
+  const dropP = cl((t - o.start) / 0.35), dy = (1 - ease(dropP)) * -700;
+  cx.save(); cx.translate(0, dy);
+  const splatted = o.mode === 'splat' && t >= o.contact + 0.12;
+  if (splatted) splat(o, (t - o.contact - 0.12) / 1.2);
+  else if (o.mode === 'molla' && t >= o.up) { const p = t - o.up; const s = sq * Math.exp(-p * 5) * Math.cos(p * 24); drawObj(o, Math.max(-0.15, s), t); }
+  else drawObj(o, sq, t);
+  cx.restore();
+  // pistone e piastra
+  const pg = cx.createLinearGradient(CX - 70, 0, CX + 70, 0);
+  pg.addColorStop(0, '#5E6894'); pg.addColorStop(0.35, '#EDF2FF'); pg.addColorStop(0.6, '#9AA6D6'); pg.addColorStop(1, '#3D4675');
+  cx.fillStyle = pg; cx.fillRect(CX - 70, 540, 140, py - 530);
+  steel(CX - PL_W / 2, py, PL_W, PL_H, false); hazard(CX - PL_W / 2 + 20, py + PL_H - 34, PL_W - 40, 22);
+  // ghiaccio che sale sulla pressa
+  if (last && t >= o.contact) {
+    const p = ease((t - o.contact) / 1.0);
+    const ig = cx.createLinearGradient(0, py + PL_H, 0, py + PL_H - 1400 * p);
+    ig.addColorStop(0, 'rgba(234,246,255,.92)'); ig.addColorStop(1, 'rgba(234,246,255,0)');
+    cx.fillStyle = ig; cx.beginPath(); cx.roundRect(CX - PL_W / 2, py, PL_W, PL_H, 18); cx.fill(); cx.fillRect(CX - 70, 560, 140, py - 560); cx.beginPath(); cx.roundRect(80, 470, 920, 90, 18); cx.globalAlpha = p; cx.fill(); cx.globalAlpha = 1;
+    if (t > o.contact + 1.0) { cx.strokeStyle = '#fff'; cx.lineWidth = 7; cx.lineCap = 'round'; const r = rng(3);
+      for (let k = 0; k < 6; k++) { let x = CX - 300 + r() * 600, y = py + PL_H; cx.beginPath(); cx.moveTo(x, y);
+        for (let s = 0; s < 4; s++) { x += (r() - .5) * 120; y -= 40 + r() * 70; cx.lineTo(x, y); } cx.stroke(); } }
+  }
+  cx.restore();
+  // testi
+  $('lab').querySelector('.n').textContent = last ? 'ULTIMO SFIDANTE' : `OGGETTO ${o.i + 1}/${O.length}`;
+  $('lab').querySelector('.o').textContent = o.nome; $('lab').querySelector('.o').style.color = last ? '#BFE3FF' : o.col;
+  $('lab').style.transform = `scale(${back((t - o.start) / 0.3)})`;
+  const asking = t >= o.ask && t < o.contact;
+  const rs = $('res'); rs.textContent = asking ? 'Resiste? Scrivilo prima 👇' : '';
+  const v = $('verdict'), after = t >= o.contact + (last ? 1.0 : 0.2);
+  v.style.display = after ? 'block' : 'none';
+  if (after) { const p = t - o.contact - (last ? 1.0 : 0.2);
+    v.textContent = last ? 'LA PRESSA SI È CONGELATA' : (o.mode === 'molla' ? 'RESISTE!' : 'DISTRUTTO');
+    v.style.fontSize = last ? '96px' : '120px'; v.style.top = last ? '250px' : '760px';
+    v.style.color = last ? '#BFE3FF' : (o.mode === 'molla' ? '#4FF0C0' : '#FF4F9A');
+    v.style.transform = `scale(${back(p / 0.3)}) rotate(-4deg)`; v.style.opacity = last ? 1 : 1 - cl((t - (o.end - 0.25)) / 0.25); }
+  $('top').style.opacity = after && last ? 0 : 1;
+  $('flashAll').style.opacity = last && t >= o.contact + 1.0 && t < o.contact + 1.15 ? 0.8 * (1 - (t - o.contact - 1.0) / 0.15) : 0;
+}
+window.setup = setup; window.setTime = setTime;
+</script>
+</body>
+</html>

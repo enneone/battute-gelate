@@ -64,6 +64,23 @@ def buzz():
 SFX = {"whoosh": whoosh(), "ice": ice(), "slam": slam(), "buzz": buzz(),
        "pop": env_tone([520, 780], 0.09, 40, 0.35), "click": env_tone([2400], 0.025, 120, 0.25),
        "tick": env_tone([1000], 0.06, 60, 0.35), "ding": env_tone([1568, 2349], 0.6, 6, 0.3)}
+def crunch():  # schiacciamento: rumore secco a scatti
+    n = int(0.45 * SR); out = []
+    for k in range(n):
+        x = k / n; burst = 1.0 if (k // 900) % 3 else 0.35
+        out.append(rnd.uniform(-1, 1) * 0.6 * burst * math.exp(-x * 6))
+    return out
+
+
+def hiss():  # pistone idraulico che scende
+    n = int(0.75 * SR); out = []; lp = 0.0
+    for k in range(n):
+        x = k / n; lp += 0.5 * (rnd.uniform(-1, 1) - lp)
+        out.append((rnd.uniform(-1, 1) - lp) * 0.16 * math.sin(math.pi * x))
+    return out
+
+
+SFX["crunch"] = crunch(); SFX["hiss"] = hiss()
 # note di una scala pentatonica: ogni rimbalzo della gara suona una nota (effetto "satisfying")
 for _k, _f in enumerate([523, 587, 659, 784, 880, 1047, 1175, 1319]):
     SFX[f"n{_k}"] = env_tone([_f, _f * 2], 0.35, 9, 0.22)

@@ -24,3 +24,7 @@
 - Giochi serali: visione media 4,7-6,5 s (prima 4,2-5,6), oltre i 3 s 26-42% (migliore B02 41,6%, T02 38,7%). Zero condivisioni e salvataggi.
 - Battute del giorno: 2,3-2,9 s, 22-29%. Tolte: le 12:30 dal 17 al 26 nov diventano giochi lampo L01-L10 (commit b0fbe98).
 - Hashtag ridotti a 2. Prototipo nuovo format `gara` (G01), in attesa di approvazione.
+
+## 18 novembre: format satisfying
+- Dati 15-17 nov: E03 emoji 40% oltre i 3 s e 7,7 s di visione (record), L01 lampo trova 43,9% (record), T03 trova serale 24,8%.
+- Nuovi template `pressa` e `plinko`, stile scuro come `gara`. Tolti dal piano raffica R15 (20 nov), quiz R16 (25 nov), trova T05 (21 nov) e T06 (24 nov): al loro posto G01 gara, P01 pressa, K01 plinko, P02 pressa.
