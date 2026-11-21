@@ -1,5 +1,35 @@
 <!doctype html><html><head><meta charset="utf-8"><script src="base.js"></script>
-<style>html,body{width:1080px;height:1080px}body{display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#1c1c24,#0B0B10 70%)}
-.g{display:flex;align-items:flex-end;gap:46px;height:520px}.g i{width:150px;border-radius:26px;display:block;background:#C8FF2E;box-shadow:0 0 90px rgba(200,255,46,.35)}
-.g i:nth-child(2){background:#F4F4F6;box-shadow:none}.g i:nth-child(1){background:#FF5B4A;box-shadow:0 0 90px rgba(255,91,74,.35)}</style></head>
-<body><div class="g"><i style="height:38%"></i><i style="height:66%"></i><i style="height:100%"></i></div></body></html>
+<style>
+  /* Logo: la "d" di dati costruita da un grafico a ciambella (la pancia) e da una barra (l'asta) */
+  html,body{width:1080px;height:1080px}
+  body{background:#0B0B10;display:grid;place-items:center}
+  #amb{display:none}
+  .wrap{position:relative;width:1080px;height:1080px;display:grid;place-items:center;
+    background:radial-gradient(circle at 50% 38%,#24242E 0%,#0B0B10 62%)}
+  svg{filter:drop-shadow(0 30px 60px rgba(0,0,0,.6))}
+  .grain{position:absolute;inset:0;background-image:var(--g);opacity:.10;mix-blend-mode:screen}
+</style></head>
+<body><div class="wrap">
+<svg width="760" height="760" viewBox="0 0 760 760">
+  <defs>
+    <linearGradient id="lime" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ECFF9E"/><stop offset=".5" stop-color="#C8FF2E"/><stop offset="1" stop-color="#86B012"/></linearGradient>
+    <linearGradient id="cor" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFB0A6"/><stop offset="1" stop-color="#E8402F"/></linearGradient>
+    <linearGradient id="wh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#B9B9C6"/></linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="22" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <!-- pancia della d: ciambella divisa in tre spicchi di dati -->
+  <g transform="translate(360 470)" filter="url(#glow)">
+    <circle r="190" fill="none" stroke="#1C1C24" stroke-width="96"/>
+    <circle r="190" fill="none" stroke="url(#lime)" stroke-width="96" stroke-dasharray="716 1194" transform="rotate(-90)" stroke-linecap="butt"/>
+    <circle r="190" fill="none" stroke="url(#cor)" stroke-width="96" stroke-dasharray="250 1194" stroke-dashoffset="-736" transform="rotate(-90)"/>
+    <circle r="190" fill="none" stroke="url(#wh)" stroke-width="96" stroke-dasharray="168 1194" stroke-dashoffset="-1006" transform="rotate(-90)"/>
+  </g>
+  <!-- asta della d: una barra alta -->
+  <rect x="550" y="60" width="96" height="648" rx="48" fill="url(#lime)" filter="url(#glow)"/>
+  <rect x="560" y="74" width="26" height="560" rx="13" fill="#fff" opacity=".25"/>
+  <!-- tacca di crescita -->
+  
+</svg>
+<div class="grain"></div></div>
+<script>document.querySelector('.grain').style.setProperty('--g', GRAIN);</script>
+</body></html>

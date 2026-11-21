@@ -1,16 +1,127 @@
-{"handle": "@datiallamano", "reel": [
- {"id": "D01-stipendi-europa", "template": "classifica3d", "numero": 1,
-  "hook": ["L'Italia", "guadagna meno", "della *Spagna*"],
-  "sottotitolo": "STIPENDIO MEDIO ANNUO · <b>2024</b>",
-  "prefisso": "$ ",
-  "voci": [
-   {"n": "Grecia", "f": "🇬🇷", "v": 32257}, {"n": "Portogallo", "f": "🇵🇹", "v": 40002}, {"n": "Polonia", "f": "🇵🇱", "v": 44211},
-   {"n": "Italia", "f": "🇮🇹", "v": 51019, "focus": true}, {"n": "Spagna", "f": "🇪🇸", "v": 54564}, {"n": "Francia", "f": "🇫🇷", "v": 60608},
-   {"n": "Regno Unito", "f": "🇬🇧", "v": 63691}, {"n": "Germania", "f": "🇩🇪", "v": 69433}, {"n": "Stati Uniti", "f": "🇺🇸", "v": 82933},
-   {"n": "Svizzera", "f": "🇨🇭", "v": 87468}, {"n": "Lussemburgo", "f": "🇱🇺", "v": 94447}],
-  "nota": "Un lussemburghese guadagna quasi il *doppio* di un italiano.",
-  "fonte": "OCSE, AVERAGE ANNUAL WAGES 2024 · DOLLARI A PARITÀ DI POTERE D'ACQUISTO",
-  "fine": "Salvalo e mandalo a chi vuole trasferirsi.",
-  "didascalia": "In Italia lo stipendio medio è più basso che in Spagna e Francia 👀 In quale paese ti trasferiresti?",
-  "hashtag": "#stipendi #europa"}
-]}
+{
+ "handle": "@datiallamano",
+ "reel": [
+  {
+   "id": "D01-stipendi-europa",
+   "template": "classifica3d",
+   "numero": 1,
+   "hook": [
+    "L'Italia",
+    "guadagna meno",
+    "della *Spagna*"
+   ],
+   "sottotitolo": "STIPENDIO MEDIO ANNUO · <b>2024</b>",
+   "prefisso": "$ ",
+   "voci": [
+    {
+     "n": "Grecia",
+     "f": "🇬🇷",
+     "v": 32257
+    },
+    {
+     "n": "Portogallo",
+     "f": "🇵🇹",
+     "v": 40002
+    },
+    {
+     "n": "Polonia",
+     "f": "🇵🇱",
+     "v": 44211
+    },
+    {
+     "n": "Italia",
+     "f": "🇮🇹",
+     "v": 51019,
+     "focus": true
+    },
+    {
+     "n": "Spagna",
+     "f": "🇪🇸",
+     "v": 54564
+    },
+    {
+     "n": "Francia",
+     "f": "🇫🇷",
+     "v": 60608
+    },
+    {
+     "n": "Regno Unito",
+     "f": "🇬🇧",
+     "v": 63691
+    },
+    {
+     "n": "Germania",
+     "f": "🇩🇪",
+     "v": 69433
+    },
+    {
+     "n": "Stati Uniti",
+     "f": "🇺🇸",
+     "v": 82933
+    },
+    {
+     "n": "Svizzera",
+     "f": "🇨🇭",
+     "v": 87468
+    },
+    {
+     "n": "Lussemburgo",
+     "f": "🇱🇺",
+     "v": 94447
+    }
+   ],
+   "nota": "Un lussemburghese guadagna quasi il *doppio* di un italiano.",
+   "fonte": "OCSE, AVERAGE ANNUAL WAGES 2024 · DOLLARI A PARITÀ DI POTERE D'ACQUISTO",
+   "fine": "Salvalo e mandalo a chi vuole trasferirsi.",
+   "didascalia": "In Italia lo stipendio medio è più basso che in Spagna e Francia 👀 In quale paese ti trasferiresti?",
+   "hashtag": "#stipendi #europa",
+   "fps": 60
+  },
+  {
+   "id": "D02-gta6-lancio",
+   "template": "hype",
+   "numero": 2,
+   "fps": 60,
+   "kicker": "IL LANCIO PIÙ RICCO DELLA STORIA",
+   "titolo": "GTA VI",
+   "valore": 3790000000,
+   "etichetta": "incassati *al lancio*",
+   "confronti": [
+    {
+     "n": "GTA V",
+     "sub": "Primo giorno · 2013",
+     "v": 800000000
+    },
+    {
+     "n": "Endgame",
+     "sub": "Primo weekend · 2019",
+     "v": 1200000000
+    },
+    {
+     "n": "GTA VI",
+     "sub": "Al lancio · 2026",
+     "v": 3790000000
+    }
+   ],
+   "volte": [
+    [
+     "3,2",
+     "Endgame"
+    ],
+    [
+     "4,7",
+     "GTA V"
+    ]
+   ],
+   "domanda": [
+    "L'hai già",
+    "*comprato?*"
+   ],
+   "domanda2": "Scrivi SÌ o NO 👇",
+   "fonte": "TAKE-TWO, 20/11/2026 (VENDITE FINO AL 19/11, PREVENDITE INCLUSE) · BOX OFFICE MOJO (ENDGAME)",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "3,79 miliardi di dollari al lancio 🤯 Più di 3 volte il primo weekend di Avengers: Endgame. L'hai già comprato?",
+   "hashtag": "#gta6 #gtavi"
+  }
+ ]
+}

@@ -70,7 +70,7 @@ function setTime(t) {
   const n = C.length, total = (n - 1) * GAP;
   // camera: segue la colonna che sta salendo, poi allarga su tutta la classifica
   const cur = Math.max(0, Math.min(n - 1, (t - T0) / STEP));
-  let camX = t < T0 ? C[FOCUS].x : lerp(C[FOCUS].x, C[Math.floor(cur)].x + (cur % 1) * GAP * 0.6, cl((t - T0) / 0.8));
+  let camX = lerp(C[FOCUS].x, (cur + 0.5) * GAP, easeIO((t - T0) / 1.0)); // movimento continuo, niente scatti
   camX = Math.min(camX, Math.max(...C.map(c => c.x)));
   let S = 1, camY = 0;
   const z = easeIO((t - T_ZOOM) / 1.1);

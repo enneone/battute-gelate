@@ -22,11 +22,12 @@ def load(page, reel):
 def render_reel(page, reel):
     info = load(page, reel); dur = info["duration"]
     wav = OUT / "reel" / f"{reel['id']}.wav"; R0.make_audio(wav, dur, info["sounds"])
-    ff = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "image2pipe", "-framerate", str(FPS), "-c:v", "mjpeg", "-i", "-",
+    ff = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "image2pipe", "-framerate", str(reel.get("fps", FPS)), "-c:v", "mjpeg", "-i", "-",
                            "-i", str(wav), "-c:v", "libx264", "-preset", "veryfast", "-crf", "17", "-pix_fmt", "yuv420p", "-c:a", "aac",
                            "-b:a", "160k", "-shortest", "-movflags", "+faststart", str(OUT / "reel" / f"{reel['id']}.mp4")], stdin=subprocess.PIPE)
-    for f in range(int(dur * FPS)):
-        page.evaluate("t => setTime(t)", f / FPS)
+    fps = reel.get("fps", FPS)
+    for f in range(int(dur * fps)):
+        page.evaluate("t => setTime(t)", f / fps)
         ff.stdin.write(page.screenshot(type="jpeg", quality=93))
     ff.stdin.close(); ff.wait(); wav.unlink()
     print(reel["id"], f"{dur:.1f}s", flush=True)

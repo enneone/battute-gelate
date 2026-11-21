@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<script src="base.js"></script>
+<style>
+  /* HYPE: un numero enorme in apertura, poi il confronto che "rompe" il grafico. Per i temi del momento. */
+  #cv { position: absolute; left: 0; top: 0; z-index: 2; }
+  #kick { position: absolute; top: 420px; left: 70px; right: 70px; z-index: 20; font-family: "Geist"; font-weight: 700; font-size: 28px; letter-spacing: 5px; color: #FFB36B; }
+  #title { position: absolute; top: 480px; left: 60px; right: 60px; z-index: 20; font-family: "Shoulders"; font-weight: 700; font-size: 250px; line-height: .82; text-transform: uppercase;
+    background: linear-gradient(180deg, #FFF3E6 0%, #FFB36B 45%, #FF3E9A 100%); -webkit-background-clip: text; color: transparent; filter: drop-shadow(0 10px 40px rgba(255,62,154,.45)); }
+  #big { position: absolute; top: 760px; left: 60px; right: 60px; z-index: 20; font-family: "Geist"; font-weight: 700; font-size: 104px; letter-spacing: -4px; color: #fff; white-space: nowrap; }
+  #big small { font-size: 56px; letter-spacing: 0; color: #FFB36B; margin-left: 8px; }
+  #lbl { position: absolute; top: 900px; left: 66px; z-index: 20; font-family: "Outfit"; font-weight: 700; font-size: 50px; }
+  #lbl .ser { font-size: 62px; color: #C8FF2E; }
+  .call { position: absolute; z-index: 25; font-family: "Shoulders"; font-weight: 700; font-size: 58px; text-transform: uppercase; padding: 14px 28px 10px; border-radius: 18px; background: #C8FF2E; color: #0B0B10; box-shadow: 0 0 60px rgba(200,255,46,.4); opacity: 0; white-space: nowrap; }
+  .call b { font-family: "Geist"; font-size: 60px; margin-right: 12px; }
+  #q { position: absolute; left: 70px; right: 70px; top: 700px; z-index: 26; font-family: "Shoulders"; font-weight: 700; font-size: 150px; line-height: .88; text-transform: uppercase; opacity: 0; }
+  #q .ser { font-size: 170px; }
+  #q2 { position: absolute; left: 74px; top: 1020px; z-index: 26; font-family: "Geist"; font-weight: 700; font-size: 40px; background: #fff; color: #0B0B10; padding: 16px 26px; border-radius: 14px; opacity: 0; }
+</style>
+</head>
+<body>
+  <canvas id="cv" width="1080" height="1920"></canvas>
+  <div id="kick"></div><div id="title"></div><div id="big"></div><div id="lbl"></div>
+  <div id="c1" class="call"></div><div id="c2" class="call"></div>
+  <div id="q"></div><div id="q2"></div>
+<script>
+let R, ENDS = 0, T = {}, MAXV = 1;
+const FLOOR = 1500, HOR = 1500, BW = 230;
+const hl = (s) => s.replace(/\*([^*]+)\*/g, '<span class="ser">$1</span>');
+const money = (v) => v >= 1e9 ? fmt(v / 1e9, v % 1e9 ? 2 : 0).replace(/,00$/, '') + ' mld $' : fmt(v / 1e6) + ' mln $';
+
+function setup(reel, handle) {
+  R = reel; base(reel, handle);
+  $('kick').textContent = reel.kicker; $('title').innerHTML = reel.titolo; $('lbl').innerHTML = hl(reel.etichetta);
+  $('q').innerHTML = reel.domanda.map(hl).join('<br>'); $('q2').textContent = reel.domanda2;
+  const s = [];
+  T.count = 0.15; T.countEnd = 2.3; T.out = 3.0; T.bars = 3.4; T.hero = T.bars + 1.6; T.heroEnd = T.hero + 1.6;
+  T.c1 = T.heroEnd + 0.3; T.c2 = T.c1 + 0.9; T.q = T.c2 + 1.6; ENDS = T.q + 2.6;
+  for (let k = 0; k < 18; k++) s.push({ t: T.count + k * 0.12, k: 'tick' });
+  s.push({ t: 0.02, k: 'hit' }, { t: T.countEnd, k: 'hit' }, { t: T.out, k: 'whoosh' });
+  reel.confronti.forEach((c, i) => s.push({ t: T.bars + i * 0.55, k: 'n' + (2 + i * 2) }));
+  s.push({ t: T.hero, k: 'hiss' }, { t: T.hero + 1.0, k: 'hit' }, { t: T.hero + 1.05, k: 'crunch' }, { t: T.c1, k: 'pop' }, { t: T.c2, k: 'pop' }, { t: T.q, k: 'whoosh' }, { t: ENDS, k: 'whoosh' });
+  MAXV = Math.max(...reel.confronti.map(c => c.v));
+  return { duration: ENDS + END_LEN, sounds: s };
+}
+
+const cv = $('cv'), cx = cv.getContext('2d');
+function sky(t) {
+  const g = cx.createLinearGradient(0, 0, 0, HOR);
+  g.addColorStop(0, '#0B0614'); g.addColorStop(0.55, '#2A0838'); g.addColorStop(1, '#7A1450');
+  cx.fillStyle = g; cx.fillRect(0, 0, 1080, HOR);
+  // sole a righe
+  const r = 360, cy = HOR - 120 + Math.sin(t * 0.6) * 6;
+  cx.save(); cx.beginPath(); cx.rect(0, 0, 1080, HOR); cx.clip();
+  const sg = cx.createLinearGradient(0, cy - r, 0, cy + r); sg.addColorStop(0, '#FFE08A'); sg.addColorStop(0.5, '#FF8A3D'); sg.addColorStop(1, '#FF2E8A');
+  cx.shadowColor = '#FF5A8A'; cx.shadowBlur = 120; cx.fillStyle = sg; cx.beginPath(); cx.arc(540, cy, r, 0, 6.2832); cx.fill(); cx.shadowBlur = 0;
+  cx.fillStyle = '#5A0F44';
+  for (let k = 0; k < 9; k++) { const y = cy + 20 + k * 38 + ((t * 30) % 38); cx.fillRect(0, y, 1080, 4 + k * 1.6); }
+  cx.restore();
+  // pavimento a griglia in movimento
+  const fg = cx.createLinearGradient(0, HOR, 0, 1920); fg.addColorStop(0, '#1A0626'); fg.addColorStop(1, '#07030C');
+  cx.fillStyle = fg; cx.fillRect(0, HOR, 1080, 420);
+  cx.strokeStyle = 'rgba(255,62,154,.55)'; cx.lineWidth = 2;
+  for (let k = -14; k <= 14; k++) { cx.beginPath(); cx.moveTo(540 + k * 40, HOR); cx.lineTo(540 + k * 260, 1920); cx.stroke(); }
+  for (let k = 0; k < 12; k++) { const z = ((k + (t * 1.2) % 1) / 12); const y = HOR + Math.pow(z, 2.2) * 420; cx.globalAlpha = z; cx.beginPath(); cx.moveTo(0, y); cx.lineTo(1080, y); cx.stroke(); }
+  cx.globalAlpha = 1;
+  cx.fillStyle = 'rgba(255,120,200,.9)'; cx.fillRect(0, HOR - 2, 1080, 3);
+}
+function bar(x, h, hero, a) {
+  const y = FLOOR; cx.save(); cx.globalAlpha = a;
+  const g = cx.createLinearGradient(0, y - h, 0, y);
+  if (hero) { g.addColorStop(0, '#E9FF9A'); g.addColorStop(1, '#7DA414'); cx.shadowColor = '#C8FF2E'; cx.shadowBlur = 80; }
+  else { g.addColorStop(0, 'rgba(255,255,255,.28)'); g.addColorStop(1, 'rgba(255,255,255,.06)'); }
+  cx.fillStyle = g; cx.beginPath(); cx.roundRect(x - BW / 2, y - h, BW, h, [22, 22, 0, 0]); cx.fill(); cx.shadowBlur = 0;
+  cx.strokeStyle = hero ? 'rgba(255,255,255,.7)' : 'rgba(255,255,255,.45)'; cx.lineWidth = 3; cx.stroke();
+  cx.restore();
+}
+
+function setTime(t) {
+  if (endCard(t, ENDS)) return;
+  cx.clearRect(0, 0, 1080, 1920); sky(t);
+  // fase 1: numero che gira
+  const out = easeIO((t - T.out) / 0.5);
+  const cnt = R.valore * easeIO((t - T.count) / (T.countEnd - T.count));
+  $('big').innerHTML = fmt(Math.round(cnt)) + '<small>$</small>';
+  const pulse = t >= T.countEnd ? 1 + 0.06 * Math.sin(cl((t - T.countEnd) / 0.3) * Math.PI) : 1;
+  for (const id of ['title', 'big', 'lbl']) { const el = $(id); el.style.opacity = 1 - out; el.style.transform = `translateY(${-out * 160}px) scale(${id === 'big' ? pulse : 1})`; el.style.transformOrigin = '0 50%'; }
+  $('kick').style.opacity = 1;
+  // fase 2: barre (le prime due crescono, la terza rompe il grafico e la camera si allarga)
+  const n = R.confronti.length, xs = R.confronti.map((_, i) => 520 + (i - (n - 1) / 2) * 300);
+  const k0 = 820 / R.confronti[n - 2].v * 0.62; // scala iniziale: la seconda barra arriva a metà schermo circa
+  const heroP = easeIO((t - T.hero) / 1.35);
+  const heroH = R.confronti[n - 1].v * k0 * heroP;
+  const need = FLOOR - 330, S = Math.min(1, need / Math.max(need, heroH * 1.0) ) ;
+  const shakeY = t >= T.hero + 1.0 && t < T.hero + 1.4 ? Math.sin(t * 80) * 12 * (1 - (t - T.hero - 1.0) / 0.4) : 0;
+  cx.save(); cx.translate(0, shakeY);
+  R.confronti.forEach((c, i) => {
+    const hero = i === n - 1, st = hero ? T.hero : T.bars + i * 0.55;
+    const p = hero ? heroP : back((t - st) / 0.7), a = cl((t - st) * 4);
+    if (t < st) return;
+    const h = c.v * k0 * Math.max(0, p) * S;
+    bar(xs[i], h, hero, a);
+    cx.globalAlpha = a; cx.textAlign = 'center';
+    cx.font = `700 ${hero ? 54 : 44}px Geist`; cx.fillStyle = hero ? '#C8FF2E' : '#fff';
+    cx.fillText(money(c.v * cl(hero ? heroP : (t - st) / 0.7)), xs[i], FLOOR - h - 30);
+    cx.font = '700 40px Shoulders'; cx.fillStyle = '#fff'; cx.fillText(c.n.toUpperCase(), xs[i], FLOOR + 70);
+    cx.font = '20px Geist'; cx.fillStyle = 'rgba(255,255,255,.65)'; cx.fillText(c.sub.toUpperCase(), xs[i], FLOOR + 110);
+    cx.globalAlpha = 1;
+  });
+  cx.restore();
+  // fase 3: i "volte" che fanno impressione
+  [['c1', T.c1, R.volte[0]], ['c2', T.c2, R.volte[1]]].forEach(([id, st, v], i) => {
+    const el = $(id), p = (t - st) / 0.35; el.innerHTML = `<b>×${v[0]}</b>${v[1]}`;
+    el.style.left = '70px'; el.style.top = (560 + i * 130) + 'px';
+    el.style.opacity = t >= T.q ? 1 - cl((t - T.q) * 4) : cl(p * 3); el.style.transform = `scale(${back(p)}) rotate(${i ? 2 : -2}deg)`; el.style.transformOrigin = '0 50%';
+  });
+  // fase 4: domanda finale per i commenti
+  const qp = (t - T.q) / 0.45;
+  $('q').style.opacity = cl(qp * 2); $('q').style.transform = `translateY(${(1 - ease(qp)) * 60}px)`;
+  $('q2').style.opacity = cl((qp - 0.6) * 2); $('q2').style.transform = `scale(${back(qp - 0.6)})`;
+  $('kick').style.opacity = 1 - out;
+  cv.style.filter = t >= T.q ? `brightness(${1 - 0.55 * ease(qp)}) blur(${6 * ease(qp)}px)` : 'none';
+}
+window.setup = setup; window.setTime = setTime;
+</script>
+</body>
+</html>
