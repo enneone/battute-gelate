@@ -1,0 +1,16 @@
+{"handle": "@datiallamano", "reel": [
+ {"id": "D01-stipendi-europa", "template": "classifica3d", "numero": 1,
+  "hook": ["L'Italia", "guadagna meno", "della *Spagna*"],
+  "sottotitolo": "STIPENDIO MEDIO ANNUO · <b>2024</b>",
+  "prefisso": "$ ",
+  "voci": [
+   {"n": "Grecia", "f": "🇬🇷", "v": 32257}, {"n": "Portogallo", "f": "🇵🇹", "v": 40002}, {"n": "Polonia", "f": "🇵🇱", "v": 44211},
+   {"n": "Italia", "f": "🇮🇹", "v": 51019, "focus": true}, {"n": "Spagna", "f": "🇪🇸", "v": 54564}, {"n": "Francia", "f": "🇫🇷", "v": 60608},
+   {"n": "Regno Unito", "f": "🇬🇧", "v": 63691}, {"n": "Germania", "f": "🇩🇪", "v": 69433}, {"n": "Stati Uniti", "f": "🇺🇸", "v": 82933},
+   {"n": "Svizzera", "f": "🇨🇭", "v": 87468}, {"n": "Lussemburgo", "f": "🇱🇺", "v": 94447}],
+  "nota": "Un lussemburghese guadagna quasi il *doppio* di un italiano.",
+  "fonte": "OCSE, AVERAGE ANNUAL WAGES 2024 · DOLLARI A PARITÀ DI POTERE D'ACQUISTO",
+  "fine": "Salvalo e mandalo a chi vuole trasferirsi.",
+  "didascalia": "In Italia lo stipendio medio è più basso che in Spagna e Francia 👀 In quale paese ti trasferiresti?",
+  "hashtag": "#stipendi #europa"}
+]}

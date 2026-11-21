@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<script src="base.js"></script>
+<style>
+  /* CLASSIFICA 3D: colonne in prospettiva che salgono dalla più bassa alla più alta, la camera le segue */
+  #cv { position: absolute; left: 0; top: 0; z-index: 5; }
+  #hook { position: absolute; top: 190px; left: 70px; right: 70px; z-index: 20; font-family: "Shoulders"; font-weight: 700; font-size: 132px; line-height: .88; text-transform: uppercase; letter-spacing: -1px; }
+  #hook .ser { font-size: 150px; }
+  #sub { position: absolute; top: 600px; left: 70px; z-index: 20; font-family: "Geist"; font-size: 26px; letter-spacing: 3px; color: #8B8B99; }
+  #sub b { color: #F4F4F6; font-weight: 700; }
+  #note { position: absolute; left: 70px; right: 70px; top: 680px; z-index: 22; font-family: "Outfit"; font-weight: 700; font-size: 54px; line-height: 1.1; opacity: 0; }
+  #note .ser { font-size: 64px; }
+</style>
+</head>
+<body>
+  <canvas id="cv" width="1080" height="1920"></canvas>
+  <div id="hook"></div>
+  <div id="sub"></div>
+  <div id="note"></div>
+<script>
+let R, C = [], ENDS = 0, T0 = 2.6, STEP = 0.78, RISE = 0.6, T_ZOOM = 0, T_HOLD = 0, FOCUS = -1, MAXV = 1;
+const FLOOR = 1560, GAP = 210, W = 132, DX = 44, DY = 30, HMAX = 900;
+const hl = (s) => s.replace(/\*([^*]+)\*/g, '<span class="ser">$1</span>');
+
+function setup(reel, handle) {
+  R = reel; base(reel, handle);
+  $('hook').innerHTML = reel.hook.map(hl).join('<br>');
+  $('sub').innerHTML = reel.sottotitolo;
+  const items = reel.voci.slice().sort((a, b) => a.v - b.v);
+  MAXV = items[items.length - 1].v;
+  FOCUS = items.findIndex(x => x.focus);
+  const sounds = [{ t: 0.02, k: 'hit' }];
+  let t = T0;
+  items.forEach((it, i) => {
+    const pre = i === FOCUS; // la colonna del focus è già alta dall'inizio
+    C.push({ ...it, i, x: i * GAP, start: pre ? -1 : t, top: i === items.length - 1 });
+    if (!pre) { sounds.push({ t, k: 'n' + Math.min(7, Math.floor(i * 8 / items.length)) }); }
+    t += STEP;
+  });
+  T_ZOOM = t + 0.2; T_HOLD = T_ZOOM + 1.1;
+  sounds.push({ t: T_ZOOM, k: 'whoosh' }, { t: T_HOLD - 0.1, k: 'hit' });
+  ENDS = T_HOLD + (reel.tenuta || 3.0);
+  sounds.push({ t: ENDS, k: 'whoosh' });
+  return { duration: ENDS + END_LEN, sounds };
+}
+
+const cv = $('cv'), cx = cv.getContext('2d');
+function face(pts, fill) { cx.beginPath(); cx.moveTo(pts[0][0], pts[0][1]); for (const p of pts.slice(1)) cx.lineTo(p[0], p[1]); cx.closePath(); cx.fillStyle = fill; cx.fill(); }
+function column(x, h, col, glow) {
+  const y = FLOOR;
+  const pal = col === 'lime' ? ['#E4FF8A', '#C8FF2E', '#7FA61A'] : col === 'corallo' ? ['#FF9A8E', '#FF5B4A', '#A8301F'] : ['#4A4A58', '#2C2C36', '#191920'];
+  // ombra a terra
+  cx.save(); cx.fillStyle = 'rgba(0,0,0,.5)'; cx.filter = 'blur(14px)'; face([[x - W / 2, y], [x + W / 2 + DX * 2.2, y - DY * 0.6], [x + W / 2 + DX * 2.2 + 40, y + 10], [x - W / 2 + 30, y + 22]], 'rgba(0,0,0,.6)'); cx.restore();
+  if (h < 1) return;
+  if (glow) { cx.save(); cx.shadowColor = pal[1]; cx.shadowBlur = 70; cx.fillStyle = pal[1]; cx.fillRect(x - W / 2, y - h, W, h); cx.restore(); }
+  const fg = cx.createLinearGradient(0, y - h, 0, y); fg.addColorStop(0, pal[1]); fg.addColorStop(1, col ? pal[2] : '#141418');
+  face([[x - W / 2, y - h], [x + W / 2, y - h], [x + W / 2, y], [x - W / 2, y]], fg);
+  face([[x + W / 2, y - h], [x + W / 2 + DX, y - h - DY], [x + W / 2 + DX, y - DY], [x + W / 2, y]], col ? pal[2] : '#121216');
+  face([[x - W / 2, y - h], [x - W / 2 + DX, y - h - DY], [x + W / 2 + DX, y - h - DY], [x + W / 2, y - h]], pal[0]);
+  // riflesso
+  const sh = cx.createLinearGradient(x - W / 2, 0, x + W / 2, 0); sh.addColorStop(0, 'rgba(255,255,255,0)'); sh.addColorStop(0.25, 'rgba(255,255,255,.14)'); sh.addColorStop(0.5, 'rgba(255,255,255,0)');
+  cx.fillStyle = sh; cx.fillRect(x - W / 2, y - h, W, h);
+}
+
+function setTime(t) {
+  if (endCard(t, ENDS)) return;
+  cx.clearRect(0, 0, 1080, 1920);
+  const n = C.length, total = (n - 1) * GAP;
+  // camera: segue la colonna che sta salendo, poi allarga su tutta la classifica
+  const cur = Math.max(0, Math.min(n - 1, (t - T0) / STEP));
+  let camX = t < T0 ? C[FOCUS].x : lerp(C[FOCUS].x, C[Math.floor(cur)].x + (cur % 1) * GAP * 0.6, cl((t - T0) / 0.8));
+  camX = Math.min(camX, Math.max(...C.map(c => c.x)));
+  let S = 1, camY = 0;
+  const z = easeIO((t - T_ZOOM) / 1.1);
+  const Sfit = 940 / (total + W + DX);
+  camX = lerp(camX, total / 2 + DX / 2 + 40, z); S = lerp(1, Sfit, z); const HZ = lerp(1, 1.85, z);
+  // piano di appoggio con griglia
+  cx.save();
+  cx.translate(540, FLOOR); cx.scale(S, S); cx.translate(-camX, -FLOOR);
+  cx.strokeStyle = 'rgba(255,255,255,.06)'; cx.lineWidth = 2 / S;
+  for (let k = -20; k < 40; k++) { cx.beginPath(); cx.moveTo(k * GAP / 2 - 400, FLOOR + 140); cx.lineTo(k * GAP / 2 - 400 + 140, FLOOR - 60); cx.stroke(); }
+  cx.fillStyle = 'rgba(255,255,255,.08)'; cx.fillRect(-800, FLOOR, total + 1600, 3 / S);
+  // colonne (da destra a sinistra, così la faccia laterale resta corretta)
+  for (let i = n - 1; i >= 0; i--) {
+    const c = C[i], p = c.start < 0 ? 1 : back((t - c.start) / RISE);
+    const h = HMAX * HZ * (c.v / MAXV) * Math.max(0, p);
+    const col = c.focus ? 'corallo' : (c.top && t >= T_HOLD - 0.1 ? 'lime' : null);
+    column(c.x, h, col, !!col);
+    const shown = c.start < 0 || t >= c.start;
+    if (!shown) continue;
+    const val = c.v * cl(c.start < 0 ? 1 : (t - c.start) / RISE);
+    const a = cl(c.start < 0 ? 1 : (t - c.start) * 4);
+    const key = c.focus || c.top, za = key ? 1 : 1 - cl(z * 2);
+    cx.globalAlpha = a * za; cx.textAlign = 'center';
+    const fz = key ? lerp(1, 1 / S * 0.95, z) : 1;
+    cx.fillStyle = col === 'lime' ? '#C8FF2E' : col === 'corallo' ? '#FF5B4A' : '#F4F4F6';
+    cx.font = `700 ${(R.font_valore || 40) * fz}px Geist`; cx.fillText((R.prefisso || '') + fmt(val) + (R.suffisso || ''), c.x + DX / 2, FLOOR - h - DY - 26 * fz);
+    cx.globalAlpha = a; cx.font = `${76 * lerp(1, 1.6, z)}px "Noto Color Emoji"`; cx.fillText(c.f, c.x, FLOOR + 96 * lerp(1, 1.6, z)); cx.globalAlpha = a * za;
+    cx.fillStyle = c.focus ? '#FF5B4A' : '#F4F4F6'; cx.font = `700 ${38 * (key ? lerp(1, 0.72 / S, z) : 1)}px Shoulders`; cx.textAlign = c.top && z > 0 ? "right" : "center"; cx.fillText(c.n.toUpperCase(), c.x + (c.top ? lerp(0, W / 2 + DX, z) : 0), FLOOR + 150 * lerp(1, 2.0, z));
+    cx.globalAlpha = 1;
+  }
+  cx.restore();
+  // testi
+  const hk = $('hook');
+  hk.style.transform = `translateY(${-ease((t - T0) / 0.6) * 20}px) scale(${1 + 0.04 * Math.sin(cl(t / 0.35) * Math.PI)})`; hk.style.transformOrigin = '0 0';
+  const nt = $('note'), np = (t - T_HOLD) / 0.4;
+  nt.innerHTML = hl(R.nota || ''); nt.style.opacity = cl(np * 2); nt.style.transform = `translateY(${(1 - ease(np)) * 40}px)`;
+}
+window.setup = setup; window.setTime = setTime;
+</script>
+</body>
+</html>
