@@ -75,7 +75,18 @@
    "fine": "Salvalo e mandalo a chi vuole trasferirsi.",
    "didascalia": "In Italia lo stipendio medio è più basso che in Spagna e Francia 👀 In quale paese ti trasferiresti?",
    "hashtag": "#stipendi #europa",
-   "fps": 60
+   "fps": 60,
+   "copertina": [
+    "Stipendi:",
+    "l'Italia",
+    "sotto la *Spagna*"
+   ],
+   "copertina_numero": "$ 51.019",
+   "domanda": [
+    "In quale paese",
+    "ti *trasferiresti?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇"
   },
   {
    "id": "D02-gta6-lancio",
@@ -121,7 +132,405 @@
    "fonte": "TAKE-TWO, 20/11/2026 (VENDITE FINO AL 19/11, PREVENDITE INCLUSE) · BOX OFFICE MOJO (ENDGAME)",
    "fine": "Seguici per i numeri dietro le notizie.",
    "didascalia": "3,79 miliardi di dollari al lancio 🤯 Più di 3 volte il primo weekend di Avengers: Endgame. L'hai già comprato?",
-   "hashtag": "#gta6 #gtavi"
+   "hashtag": "#gta6 #gtavi",
+   "copertina": [
+    "GTA VI:",
+    "il lancio",
+    "più *ricco*",
+    "di sempre"
+   ],
+   "copertina_numero": "3,79 MLD $",
+   "copertina_tema": "vice"
+  },
+  {
+   "id": "D03-gta6-copie",
+   "template": "punti",
+   "numero": 3,
+   "fps": 60,
+   "kicker": "GTA VI · COPIE VENDUTE AL LANCIO",
+   "hook": [
+    "Se ogni copia",
+    "di GTA 6 fosse",
+    "una *persona*..."
+   ],
+   "eroe": {
+    "v": 32500000,
+    "unita_testo": "copie vendute",
+    "testo": "Più di *32 milioni* di persone. Ora confrontiamole con un paese vero."
+   },
+   "unita": 250000,
+   "leggenda": "PERSONE / COPIE",
+   "gruppi": [
+    {
+     "n": "Olanda",
+     "f": "🇳🇱",
+     "v": 18044000,
+     "col": "#F4F4F6",
+     "testo": "Tutta l'*Olanda*: 18 milioni di abitanti."
+    },
+    {
+     "n": "Belgio",
+     "f": "🇧🇪",
+     "v": 11900100,
+     "col": "#FF5B4A",
+     "testo": "Aggiungiamo tutto il *Belgio*: 11,9 milioni."
+    }
+   ],
+   "verdetto": "Olanda e Belgio insieme *non bastano*: avanzano ancora 2,5 milioni di copie.",
+   "classifica_titolo": "Sarebbe il *6°* paese più popoloso dell'UE",
+   "classifica": [
+    {
+     "n": "Germania",
+     "f": "🇩🇪",
+     "v": 83577100
+    },
+    {
+     "n": "Francia",
+     "f": "🇫🇷",
+     "v": 68635900
+    },
+    {
+     "n": "Italia",
+     "f": "🇮🇹",
+     "v": 58934200
+    },
+    {
+     "n": "Spagna",
+     "f": "🇪🇸",
+     "v": 49078000
+    },
+    {
+     "n": "Polonia",
+     "f": "🇵🇱",
+     "v": 36497500
+    },
+    {
+     "n": "GTA VI",
+     "f": "🎮",
+     "v": 32500000,
+     "me": true
+    },
+    {
+     "n": "Romania",
+     "f": "🇷🇴",
+     "v": 19036400
+    }
+   ],
+   "domanda": [
+    "PS5",
+    "o *Xbox?*"
+   ],
+   "domanda2": "Scrivi dove ci giochi 👇",
+   "fonte": "TAKE-TWO, 20/11/2026 (COPIE VENDUTE FINO AL 19/11) · EUROSTAT, POPOLAZIONE AL 1/1/2025",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "32,5 milioni di copie di GTA 6 vendute fino al giorno del lancio 🤯 Più degli abitanti di Olanda e Belgio messi insieme. Tu ci giochi su PS5 o Xbox?",
+   "hashtag": "#gta6 #gtavi",
+   "copertina": [
+    "GTA 6",
+    "sarebbe un",
+    "*paese*"
+   ],
+   "copertina_numero": "32,5 MLN",
+   "copertina_tema": "vice"
+  },
+  {
+   "id": "D04-uscita-di-casa",
+   "template": "asse",
+   "numero": 4,
+   "fps": 60,
+   "kicker": "A CHE ETÀ SI ESCE DI CASA · EUROSTAT 2025",
+   "hook": [
+    "Finlandia: 21 anni.",
+    "Italia: *30*."
+   ],
+   "hook_size": 124,
+   "min": 20,
+   "max": 32,
+   "passo": 2,
+   "unita": "anni",
+   "voci": [
+    {
+     "n": "Finlandia",
+     "f": "🇫🇮",
+     "v": 21.4
+    },
+    {
+     "n": "Danimarca",
+     "f": "🇩🇰",
+     "v": 21.8
+    },
+    {
+     "n": "Estonia",
+     "f": "🇪🇪",
+     "v": 22.7
+    },
+    {
+     "n": "Lituania",
+     "f": "🇱🇹",
+     "v": 22.7
+    },
+    {
+     "n": "Svezia",
+     "f": "🇸🇪",
+     "v": 23.1
+    },
+    {
+     "n": "Paesi Bassi",
+     "f": "🇳🇱",
+     "v": 23.4
+    },
+    {
+     "n": "Francia",
+     "f": "🇫🇷",
+     "v": 23.8
+    },
+    {
+     "n": "Germania",
+     "f": "🇩🇪",
+     "v": 24.1
+    },
+    {
+     "n": "Spagna",
+     "f": "🇪🇸",
+     "v": 30.2
+    },
+    {
+     "n": "Italia",
+     "f": "🇮🇹",
+     "v": 30.2,
+     "focus": true
+    },
+    {
+     "n": "Grecia",
+     "f": "🇬🇷",
+     "v": 30.9
+    },
+    {
+     "n": "Slovacchia",
+     "f": "🇸🇰",
+     "v": 30.9
+    },
+    {
+     "n": "Croazia",
+     "f": "🇭🇷",
+     "v": 31.5
+    }
+   ],
+   "media": {
+    "label": "MEDIA UE",
+    "v": 26.3
+   },
+   "messaggio": "Quasi *9 anni* in più di un finlandese.",
+   "domanda": [
+    "Tu a che età",
+    "sei uscito di *casa?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "EUROSTAT, ETÀ MEDIA IN CUI SI LASCIA LA CASA DEI GENITORI, 2025",
+   "fine": "Seguici per i numeri che parlano di noi.",
+   "didascalia": "In Italia si lascia la casa dei genitori a 30,2 anni, in Finlandia a 21,4 🏠 La media UE è 26,3. Tu a che età sei uscito di casa?",
+   "hashtag": "#giovani #casa",
+   "copertina": [
+    "A che età",
+    "si esce",
+    "di *casa*"
+   ],
+   "copertina_numero": "30,2 ANNI"
+  },
+  {
+   "id": "D05-gta6-voti",
+   "template": "countdown",
+   "numero": 5,
+   "fps": 60,
+   "kicker": "METACRITIC · NOVEMBRE 2026",
+   "hook": [
+    "I 10 giochi con",
+    "il voto più alto",
+    "*di sempre*"
+   ],
+   "hook_size": 112,
+   "voci": [
+    {
+     "n": "Grand Theft Auto VI",
+     "s": "PS5",
+     "v": 99
+    },
+    {
+     "n": "Zelda: Ocarina of Time",
+     "s": "Nintendo 64",
+     "v": 99
+    },
+    {
+     "n": "SoulCalibur",
+     "s": "Dreamcast",
+     "v": 98
+    },
+    {
+     "n": "Super Mario Galaxy 2",
+     "s": "Wii",
+     "v": 98
+    },
+    {
+     "n": "Grand Theft Auto IV",
+     "s": "Xbox 360",
+     "v": 98
+    },
+    {
+     "n": "Super Mario Galaxy",
+     "s": "Wii",
+     "v": 97
+    },
+    {
+     "n": "Grand Theft Auto V",
+     "s": "Xbox 360",
+     "v": 97
+    },
+    {
+     "n": "Zelda: Breath of the Wild",
+     "s": "Switch",
+     "v": 97
+    },
+    {
+     "n": "Tony Hawk's Pro Skater 3",
+     "s": "PS2",
+     "v": 97
+    },
+    {
+     "n": "Perfect Dark",
+     "s": "Nintendo 64",
+     "v": 97
+    }
+   ],
+   "nota": "GTA 6 pareggia il *99* di Zelda, ma nei calcoli di Metacritic finisce primo. Tre GTA nella top 10.",
+   "domanda": [
+    "Qual è il tuo",
+    "*preferito?*"
+   ],
+   "domanda2": "Scrivi il numero in classifica 👇",
+   "fonte": "METACRITIC, CLASSIFICA DEI GIOCHI CON IL VOTO PIÙ ALTO (VIA VGC, 18/11/2026) · PIATTAFORMA CON IL VOTO PIÙ ALTO",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "GTA 6 ha preso 99 su Metacritic: è il voto più alto di sempre, a pari merito con Zelda: Ocarina of Time 🎮 Qual è il tuo preferito della top 10?",
+   "hashtag": "#gta6 #videogiochi",
+   "copertina": [
+    "Il voto",
+    "più alto",
+    "di *sempre*"
+   ],
+   "copertina_numero": "99/100",
+   "copertina_tema": "vice"
+  },
+  {
+   "id": "D06-serie-a-stipendi",
+   "template": "barre",
+   "numero": 6,
+   "fps": 60,
+   "kicker": "SERIE A · STIPENDI 2026/27 · LORDI",
+   "hook": [
+    "Inter e Juve pagano",
+    "*quasi 10 volte*",
+    "il Frosinone"
+   ],
+   "hook_size": 112,
+   "voci": [
+    {
+     "n": "Inter",
+     "v": 145.82
+    },
+    {
+     "n": "Juventus",
+     "v": 145.52
+    },
+    {
+     "n": "Napoli",
+     "v": 109.72
+    },
+    {
+     "n": "Milan",
+     "v": 103.14
+    },
+    {
+     "n": "Roma",
+     "v": 92.7
+    },
+    {
+     "n": "Atalanta",
+     "v": 73.77
+    },
+    {
+     "n": "Lazio",
+     "v": 69.87
+    },
+    {
+     "n": "Bologna",
+     "v": 65.0
+    },
+    {
+     "n": "Como",
+     "v": 62.45
+    },
+    {
+     "n": "Fiorentina",
+     "v": 60.87
+    },
+    {
+     "n": "Torino",
+     "v": 48.51
+    },
+    {
+     "n": "Sassuolo",
+     "v": 38.43
+    },
+    {
+     "n": "Venezia",
+     "v": 38.26
+    },
+    {
+     "n": "Genoa",
+     "v": 34.1
+    },
+    {
+     "n": "Cagliari",
+     "v": 30.75
+    },
+    {
+     "n": "Udinese",
+     "v": 28.69
+    },
+    {
+     "n": "Parma",
+     "v": 25.66
+    },
+    {
+     "n": "Monza",
+     "v": 22.94
+    },
+    {
+     "n": "Lecce",
+     "v": 16.18
+    },
+    {
+     "n": "Frosinone",
+     "v": 15.27
+    }
+   ],
+   "suffisso": " mln",
+   "evidenzia_top": 2,
+   "messaggio": "In tutto la Serie A spende oltre *1,2 miliardi* l'anno in stipendi.",
+   "domanda": [
+    "La tua squadra",
+    "spende *troppo?*"
+   ],
+   "domanda2": "Scrivi la tua squadra 👇",
+   "fonte": "CALCIO E FINANZA, STIME MONTE INGAGGI 2026/27 (07/09/2026) · MILIONI DI EURO LORDI, BONUS ESCLUSI",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "Inter 145,8 milioni, Juventus 145,5, Frosinone 15,3 ⚽ Quanto spende in stipendi ogni squadra di Serie A nel 2026/27. La tua squadra spende troppo o troppo poco?",
+   "hashtag": "#seriea #calcio",
+   "copertina": [
+    "Serie A:",
+    "chi paga",
+    "di *più*"
+   ],
+   "copertina_numero": "145,8 MLN"
   }
  ]
 }

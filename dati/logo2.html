@@ -1,0 +1,37 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+  /* Foto profilo: tre varianti, mostrate già ritagliate a cerchio come su Instagram */
+  html,body{width:2160px;height:820px;margin:0;background:#1a1a20}
+  .row{display:flex;gap:60px;padding:50px 60px}
+  .c{width:640px;height:640px;border-radius:50%;overflow:hidden;position:relative}
+  .lab{font:700 34px sans-serif;color:#fff;text-align:center;margin-top:24px}
+  svg{display:block}
+</style></head><body><div class="row">
+<!-- A: d nera su lime, la pancia è una ciambella con uno spicchio corallo -->
+<div><div class="c"><svg width="640" height="640" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#C8FF2E"/>
+  <g transform="translate(470 610)">
+    <circle r="196" fill="none" stroke="#0B0B10" stroke-width="132"/>
+    <circle r="196" fill="none" stroke="#FF5B4A" stroke-width="132" stroke-dasharray="308 1232" transform="rotate(200)"/>
+  </g>
+  <rect x="600" y="210" width="132" height="598" rx="10" fill="#0B0B10"/>
+</svg></div><div class="lab">A · Lime</div></div>
+<!-- B: stessa d in lime su nero -->
+<div><div class="c"><svg width="640" height="640" viewBox="0 0 1080 1080">
+  <defs><radialGradient id="bg" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#22222B"/><stop offset="1" stop-color="#0B0B10"/></radialGradient></defs>
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+  <g transform="translate(470 610)">
+    <circle r="196" fill="none" stroke="#C8FF2E" stroke-width="132"/>
+    <circle r="196" fill="none" stroke="#FF5B4A" stroke-width="132" stroke-dasharray="308 1232" transform="rotate(200)"/>
+  </g>
+  <rect x="600" y="210" width="132" height="598" rx="10" fill="#C8FF2E"/>
+</svg></div><div class="lab">B · Nero</div></div>
+<!-- C: tre barre che salgono, l'ultima con il punto corallo del dato -->
+<div><div class="c"><svg width="640" height="640" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#C8FF2E"/>
+  <rect x="270" y="560" width="150" height="270" rx="12" fill="#0B0B10"/>
+  <rect x="465" y="420" width="150" height="410" rx="12" fill="#0B0B10"/>
+  <rect x="660" y="300" width="150" height="530" rx="12" fill="#0B0B10"/>
+  <circle cx="735" cy="205" r="62" fill="#FF5B4A"/>
+</svg></div><div class="lab">C · Barre</div></div>
+</div></body></html>

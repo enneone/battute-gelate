@@ -34,6 +34,14 @@ body { background: ${BRAND.bg}; color: ${BRAND.ink}; position: relative; font-fa
 .brand .n { font-family: "Geist"; font-size: 24px; color: ${BRAND.grigio}; letter-spacing: 2px; }
 .src { position: absolute; left: 70px; right: 70px; bottom: 96px; font-family: "Geist"; font-size: 22px; color: ${BRAND.grigio}; letter-spacing: 1px; z-index: 30; line-height: 1.4; }
 .ser { font-family: "Serif"; font-style: italic; font-weight: 400; color: ${BRAND.lime}; text-transform: none; letter-spacing: -1px; }
+#hk { position: absolute; top: 196px; left: 70px; right: 70px; z-index: 20; }
+#hk .k { font-family: "Geist"; font-weight: 700; font-size: 26px; letter-spacing: 5px; color: ${BRAND.lime}; margin-bottom: 18px; }
+#hk .t { font-family: "Shoulders"; font-weight: 700; font-size: 118px; line-height: .9; text-transform: uppercase; letter-spacing: -1px; }
+#hk .t .ser { font-size: 134px; }
+#dim { position: absolute; inset: 0; z-index: 44; background: rgba(11,11,16,.72); backdrop-filter: blur(10px); opacity: 0; pointer-events: none; }
+#qq { position: absolute; left: 70px; right: 70px; top: 660px; z-index: 45; font-family: "Shoulders"; font-weight: 700; font-size: 150px; line-height: .88; text-transform: uppercase; opacity: 0; }
+#qq .ser { font-size: 168px; }
+#qq2 { position: absolute; left: 74px; top: 1010px; z-index: 45; font-family: "Geist"; font-weight: 700; font-size: 40px; background: #F4F4F6; color: #0B0B10; padding: 16px 26px; border-radius: 14px; opacity: 0; }
 #end { position: absolute; inset: 0; z-index: 50; background: ${BRAND.bg}; display: none; flex-direction: column; justify-content: center; padding: 0 90px; gap: 40px; }
 #end .a { font-family: "Shoulders"; font-weight: 700; font-size: 150px; line-height: .9; text-transform: uppercase; }
 #end .b { font-family: "Outfit"; font-size: 48px; color: ${BRAND.grigio}; line-height: 1.2; }
@@ -46,8 +54,28 @@ function base(reel, handle) {
   b.insertAdjacentHTML('beforeend', `
     <div class="brand"><div class="w"><div class="g"><i style="height:40%"></i><i style="height:70%"></i><i style="height:100%"></i></div>${BRAND.nome}</div><div class="n">N.${String(reel.numero || 1).padStart(2, '0')}</div></div>
     <div class="src">${reel.fonte ? 'FONTE: ' + reel.fonte : ''}</div>
-    <div id="vig"></div><div id="grain"></div>
+    <div id="vig"></div><div id="grain"></div><div id="dim"></div><div id="qq"></div><div id="qq2"></div>
     <div id="end"><div class="a">${reel.fine_titolo || 'Ogni giorno<br>un <span class="ser">dato</span><br>che non sapevi'}</div><div class="b">${reel.fine || ''}</div><div class="c">SEGUI ${handle.toUpperCase()}</div></div>`);
+}
+const hl = (s) => String(s).replace(/\*([^*]+)\*/g, '<span class="ser">$1</span>');
+// titolo d'apertura (kicker + righe con parola accentata) creato dentro #hk
+function hookBlock(reel) {
+  document.body.insertAdjacentHTML('beforeend', `<div id="hk"><div class="k">${reel.kicker || ''}</div><div class="t">${(reel.hook || []).map(hl).join('<br>')}</div></div>`);
+  if (reel.hook_size) document.querySelector('#hk .t').style.fontSize = reel.hook_size + 'px';
+}
+function hookAnim(t, outAt) { // ingresso a scatto morbido e uscita verso l'alto
+  const el = $('hk'); if (!el) return;
+  const o = outAt ? easeIO((t - outAt) / 0.5) : 0;
+  el.style.opacity = 1 - o; el.style.transform = `translateY(${-o * 120}px) scale(${1 + 0.035 * Math.sin(cl(t / 0.35) * Math.PI)})`; el.style.transformOrigin = '0 0';
+}
+// domanda finale che chiede un commento
+function domanda(t, start, reel) {
+  const q = $('qq'), q2 = $('qq2'), d = $('dim');
+  if (!reel.domanda) return;
+  if (!q.innerHTML) { q.innerHTML = reel.domanda.map(hl).join('<br>'); q2.textContent = reel.domanda2 || ''; }
+  const p = (t - start) / 0.45;
+  d.style.opacity = cl(p); q.style.opacity = cl(p * 2); q.style.transform = `translateY(${(1 - ease(p)) * 60}px)`;
+  q2.style.opacity = cl((p - 0.6) * 2); q2.style.transform = `scale(${back(p - 0.6)})`;
 }
 function endCard(t, start) {
   const e = $('end'); if (t < start) { e.style.display = 'none'; return false; }

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<script src="base.js"></script>
+<style>
+  /* COUNTDOWN: top 10 dal decimo al primo. Ogni voce entra in grande al centro, poi si sistema nella lista. */
+  #list { position: absolute; left: 70px; right: 70px; top: 690px; z-index: 10; }
+  .it { position: absolute; left: 0; right: 0; height: 84px; display: flex; align-items: center; gap: 22px; padding: 0 26px; border-radius: 18px;
+    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); transform-origin: 50% 50%; }
+  .it .r { width: 74px; font-family: "Geist"; font-weight: 700; font-size: 34px; color: #8B8B99; }
+  .it .tx { flex: 1; min-width: 0; }
+  .it .n { font-family: "Shoulders"; font-weight: 700; font-size: 44px; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1; }
+  .it .s { font-family: "Geist"; font-size: 20px; color: #8B8B99; letter-spacing: 2px; margin-top: 6px; text-transform: uppercase; }
+  .it .sc { width: 96px; height: 70px; border-radius: 14px; display: grid; place-items: center; font-family: "Geist"; font-weight: 700; font-size: 38px; background: #F4F4F6; color: #0B0B10; }
+  .it.gold { background: linear-gradient(90deg, rgba(200,255,46,.22), rgba(200,255,46,.06)); border-color: rgba(200,255,46,.6); box-shadow: 0 0 60px rgba(200,255,46,.25); }
+  .it.gold .r { color: #C8FF2E; }
+  .it .sc.top { background: #C8FF2E; box-shadow: 0 0 30px rgba(200,255,46,.6); }
+  #big { position: absolute; left: 50px; right: 50px; top: 820px; z-index: 30; text-align: center; pointer-events: none; padding: 50px 0 60px; border-radius: 40px; background: rgba(11,11,16,.82); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,.1); }
+  #big .r { font-family: "Geist"; font-weight: 700; font-size: 60px; color: #C8FF2E; }
+  #big .n { font-family: "Shoulders"; font-weight: 700; font-size: 150px; line-height: .9; text-transform: uppercase; padding: 0 60px; }
+  #big .sc { display: inline-block; margin-top: 30px; font-family: "Geist"; font-weight: 700; font-size: 90px; background: #F4F4F6; color: #0B0B10; padding: 10px 34px; border-radius: 20px; }
+  #note { position: absolute; left: 70px; right: 70px; top: 1630px; z-index: 22; font-family: "Outfit"; font-weight: 700; font-size: 42px; line-height: 1.15; opacity: 0; }
+  #note .ser { font-size: 50px; }
+</style>
+</head>
+<body>
+  <div id="list"></div>
+  <div id="big"><div class="r"></div><div class="n"></div><div class="sc"></div></div>
+  <div id="note"></div>
+<script>
+let R, ENDS = 0, T = {}, IT = [];
+const ROWH = 92, STEP = 1.05;
+
+function setup(reel, handle) {
+  R = reel; base(reel, handle); hookBlock(reel);
+  IT = reel.voci; // in ordine dal primo al decimo
+  const n = IT.length, best = Math.max(...IT.map(x => x.v));
+  $('list').innerHTML = IT.map((it, i) => `<div class="it${i === 0 ? ' gold' : ''}" style="top:${i * ROWH}px"><div class="r">#${i + 1}</div>
+    <div class="tx"><div class="n">${it.n}</div><div class="s">${it.s || ''}</div></div><div class="sc${it.v === best ? ' top' : ''}">${it.v}</div></div>`).join('');
+  T.start = 1.0; T.end = T.start + n * STEP; T.note = T.end + 0.6; T.q = T.note + 2.8; ENDS = T.q + 2.6;
+  const s = [{ t: 0.02, k: 'hit' }];
+  for (let k = 0; k < n; k++) { const t0 = T.start + k * STEP; s.push({ t: t0, k: 'whoosh' }, { t: t0 + 0.12, k: k === n - 1 ? 'hit' : 'n' + Math.min(7, k) }); }
+  s.push({ t: T.end - STEP + 0.3, k: 'ding' }, { t: T.q, k: 'whoosh' }, { t: ENDS, k: 'whoosh' });
+  $('note').innerHTML = hl(reel.nota || '');
+  return { duration: ENDS + END_LEN, sounds: s };
+}
+
+function setTime(t) {
+  if (endCard(t, ENDS)) return;
+  const n = IT.length;
+  hookAnim(t, 0);
+  // voce corrente (dalla decima alla prima)
+  const k = Math.floor((t - T.start) / STEP), idx = n - 1 - k, lt = (t - T.start) - k * STEP;
+  const big = $('big');
+  if (t >= T.start && k < n) {
+    const it = IT[idx], inP = ease(lt / 0.25), outP = easeIO((lt - 0.62) / 0.3);
+    big.style.display = 'block';
+    big.querySelector('.r').textContent = '#' + (idx + 1);
+    big.querySelector('.n').textContent = it.n; big.querySelector('.n').style.fontSize = (it.n.length > 16 ? 110 : 150) + 'px';
+    big.querySelector('.sc').textContent = it.v;
+    big.querySelector('.sc').style.background = idx === 0 ? '#C8FF2E' : '#F4F4F6';
+    const last = idx === 0, hold = last ? 0 : outP;
+    big.style.opacity = inP * (1 - hold); big.style.transform = `scale(${(0.85 + 0.15 * back(lt / 0.3)) * (1 - 0.3 * hold)}) translateY(${hold * 200}px)`;
+    if (last) big.style.opacity = inP * (1 - easeIO((lt - 1.4) / 0.4));
+  } else big.style.display = t >= T.start && k >= n && t < T.end + 1.6 ? 'block' : 'none';
+  if (k >= n) { const lt2 = t - T.end; big.style.opacity = 1 - easeIO((lt2 + STEP - 1.4) / 0.4); }
+  // lista: ogni voce appare quando il suo "grande" si chiude
+  const els = $('list').children;
+  for (let i = 0; i < n; i++) {
+    const kk = n - 1 - i, appear = T.start + kk * STEP + 0.7 + (i === 0 ? 1.0 : 0), p = (t - appear) / 0.35;
+    const el = els[i]; el.style.opacity = cl(p * 3);
+    el.style.transform = `translateY(${(1 - ease(p)) * 40}px) scale(${i === 0 ? 1 + 0.04 * Math.sin(cl(p) * Math.PI) : 1})`;
+  }
+  if (t >= T.end + 0.4) for (const el of els) el.style.opacity = 1;
+  $('list').style.opacity = 1;
+  const np = (t - T.note) / 0.4, nt = $('note'); nt.style.opacity = cl(np * 2); nt.style.transform = `translateY(${(1 - ease(np)) * 30}px)`;
+  domanda(t, T.q, R);
+}
+window.setup = setup; window.setTime = setTime;
+</script>
+</body>
+</html>

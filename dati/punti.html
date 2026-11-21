@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<script src="base.js"></script>
+<style>
+  /* PUNTI: ogni pallino vale N persone/copie. Si riempie, si confronta con altri, poi una mini classifica. */
+  #cv { position: absolute; left: 0; top: 0; z-index: 5; }
+  #cnt { position: absolute; left: 70px; right: 70px; top: 610px; z-index: 20; display: flex; align-items: baseline; gap: 18px; }
+  #cnt .v { font-family: "Geist"; font-weight: 700; font-size: 92px; letter-spacing: -4px; color: #C8FF2E; }
+  #cnt .u { font-family: "Outfit"; font-weight: 700; font-size: 40px; color: #F4F4F6; }
+  #leg { position: absolute; left: 70px; right: 70px; top: 1500px; z-index: 20; font-family: "Geist"; font-size: 24px; color: #8B8B99; letter-spacing: 2px; }
+  #msg { position: absolute; left: 70px; right: 70px; top: 1560px; z-index: 22; font-family: "Outfit"; font-weight: 700; font-size: 50px; line-height: 1.12; }
+  #msg .ser { font-size: 60px; }
+  #rk { position: absolute; left: 70px; right: 70px; top: 220px; z-index: 22; opacity: 0; }
+  #rk .h { font-family: "Shoulders"; font-weight: 700; font-size: 110px; line-height: .9; text-transform: uppercase; margin-bottom: 50px; }
+  #rk .h .ser { font-size: 126px; }
+  .row { display: flex; align-items: center; height: 150px; gap: 20px; }
+  .row .pos { width: 70px; font-family: "Geist"; font-weight: 700; font-size: 34px; color: #8B8B99; }
+  .row .f { width: 80px; font-size: 64px; font-family: "Noto Color Emoji"; text-align: center; }
+  .row .bw { flex: 1; position: relative; height: 108px; }
+  .row .b { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 14px; background: linear-gradient(90deg, #2C2C36, #3A3A46); }
+  .row .n { position: absolute; left: 22px; top: 50%; transform: translateY(-50%); font-family: "Shoulders"; font-weight: 700; font-size: 54px; text-transform: uppercase; white-space: nowrap; }
+  .row .v { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); font-family: "Geist"; font-weight: 700; font-size: 30px; white-space: nowrap; }
+  .row.me .b { background: linear-gradient(90deg, #9BD10F, #C8FF2E); box-shadow: 0 0 60px rgba(200,255,46,.45); }
+  .row.me .n { color: #0B0B10; } .row.me .v { color: #C8FF2E; }
+  .row.me .pos { color: #C8FF2E; }
+</style>
+</head>
+<body>
+  <canvas id="cv" width="1080" height="1920"></canvas>
+  <div id="cnt"><span class="v"></span><span class="u"></span></div>
+  <div id="leg"></div><div id="msg"></div>
+  <div id="rk"><div class="h"></div><div id="rows"></div></div>
+<script>
+let R, ENDS = 0, T = {}, N = 0, DOTS = [], G = [];
+const COLS = 13, CELL = 72, R0 = 25, GX = 540 - (COLS * CELL) / 2 + CELL / 2, GY = 760;
+
+function setup(reel, handle) {
+  R = reel; base(reel, handle); hookBlock(reel);
+  N = Math.round(reel.eroe.v / reel.unita);
+  // gruppi di confronto: occupano i pallini dall'inizio, uno dopo l'altro
+  let i0 = 0; G = reel.gruppi.map(g => { const n = Math.round(g.v / reel.unita), o = { ...g, from: i0, to: i0 + n }; i0 += n; return o; });
+  $('cnt').querySelector('.u').textContent = reel.eroe.unita_testo;
+  $('leg').textContent = `● = ${fmt(reel.unita)} ${reel.leggenda || ''}`;
+  $('rk').querySelector('.h').innerHTML = hl(reel.classifica_titolo);
+  const max = reel.classifica[0].v;
+  $('rows').innerHTML = reel.classifica.map((c, k) => `<div class="row${c.me ? ' me' : ''}"><div class="pos">${k + 1}°</div><div class="f">${c.f}</div>
+    <div class="bw"><div class="b" style="width:${c.v / max * 100}%"></div><div class="n">${c.n}</div><div class="v">${fmt(c.v / 1e6, 1)} mln</div></div></div>`).join('');
+  T.fill = 0.25; T.fillEnd = 2.4; T.hkOut = 2.9; T.g = 3.2; T.gStep = 1.5;
+  T.verdict = T.g + G.length * T.gStep; T.rk = T.verdict + 2.4; T.q = T.rk + 0.9 + reel.classifica.length * 0.28 + 2.2; ENDS = T.q + 2.6;
+  const s = [{ t: 0.02, k: 'hit' }];
+  for (let k = 0; k < 14; k++) s.push({ t: T.fill + k * 0.15, k: 'tick' });
+  s.push({ t: T.fillEnd, k: 'ding' });
+  G.forEach((g, k) => s.push({ t: T.g + k * T.gStep, k: 'whoosh' }, { t: T.g + k * T.gStep + 0.5, k: 'n' + (3 + k * 2) }));
+  s.push({ t: T.verdict, k: 'hit' }, { t: T.rk, k: 'whoosh' });
+  reel.classifica.forEach((c, k) => s.push({ t: T.rk + 0.9 + k * 0.28, k: c.me ? 'hit' : 'pop' }));
+  s.push({ t: T.q, k: 'whoosh' }, { t: ENDS, k: 'whoosh' });
+  return { duration: ENDS + END_LEN, sounds: s };
+}
+
+const cv = $('cv'), cx = cv.getContext('2d');
+function setTime(t) {
+  if (endCard(t, ENDS)) return;
+  cx.clearRect(0, 0, 1080, 1920);
+  hookAnim(t, 0);
+  const gridOut = easeIO((t - T.rk) / 0.6);
+  // pallini
+  cx.save(); cx.globalAlpha = 1 - gridOut; cx.translate(540, GY + 340); cx.scale(1 - gridOut * 0.15, 1 - gridOut * 0.15); cx.translate(-540, -(GY + 340));
+  const rows = Math.ceil(N / COLS);
+  for (let i = 0; i < Math.max(N, rows * COLS); i++) {
+    const c = i % COLS, r = Math.floor(i / COLS), x = GX + c * CELL, y = GY + r * CELL;
+    const d = (t - T.fill - (r + c * 0.35) * 0.11) / 0.35; // riempimento a onda
+    cx.beginPath(); cx.arc(x, y, R0, 0, 6.2832); cx.strokeStyle = 'rgba(255,255,255,.08)'; cx.lineWidth = 2; cx.stroke();
+    if (i >= N || d <= 0) continue;
+    let col = '#C8FF2E', glow = 'rgba(200,255,46,.6)';
+    const g = G.find(g => i >= g.from && i < g.to);
+    let gp = 0;
+    if (g) { const gi = G.indexOf(g); gp = cl((t - (T.g + gi * T.gStep) - (i - g.from) * 0.012) / 0.25); }
+    if (gp > 0) { col = g.col; glow = g.col; }
+    const extra = t >= T.verdict && !g ? 1 + 0.18 * Math.abs(Math.sin((t - T.verdict) * 5)) : 1;
+    cx.save(); cx.shadowColor = glow; cx.shadowBlur = 18;
+    cx.beginPath(); cx.arc(x, y, R0 * back(d) * extra * (gp > 0 && gp < 1 ? 1 + 0.25 * Math.sin(gp * Math.PI) : 1), 0, 6.2832);
+    cx.fillStyle = gp > 0 ? col : col; cx.globalAlpha = (1 - gridOut) * (t >= T.verdict && g ? 0.55 : 1); cx.fill(); cx.restore();
+  }
+  // etichette dei gruppi a destra della loro ultima riga
+  G.forEach((g, gi) => {
+    const p = (t - (T.g + gi * T.gStep)) / 0.35; if (p <= 0) return;
+    const r = Math.floor((g.to - 1) / COLS), y = GY + r * CELL;
+    cx.globalAlpha = cl(p * 3) * (1 - gridOut);
+    cx.fillStyle = '#0B0B10'; cx.beginPath(); cx.roundRect(GX - 30, y - 30, 0, 0, 8);
+    
+  });
+  cx.restore();
+  // contatore
+  const v = R.eroe.v * easeIO((t - T.fill) / (T.fillEnd - T.fill));
+  const cn = $('cnt'); cn.querySelector('.v').textContent = fmt(Math.round(v / 1e5) * 1e5);
+  cn.style.opacity = 1 - gridOut; $('leg').style.opacity = 1 - gridOut;
+  // messaggi
+  const m = $('msg'); let txt = '';
+  const gi = G.findIndex((g, k) => t >= T.g + k * T.gStep && t < T.g + (k + 1) * T.gStep);
+  if (t >= T.verdict) txt = R.verdetto; else if (gi >= 0) txt = G[gi].testo; else if (t >= T.fillEnd) txt = R.eroe.testo;
+  m.innerHTML = hl(txt); m.style.opacity = (1 - gridOut) * cl(((t - T.fillEnd) * 4));
+  if (gi >= 0) { const p = (t - (T.g + gi * T.gStep)) / 0.3; m.style.transform = `translateY(${(1 - ease(p)) * 30}px)`; }
+  else if (t >= T.verdict) { const p = (t - T.verdict) / 0.3; m.style.transform = `scale(${back(p)})`; m.style.transformOrigin = '0 50%'; }
+  // classifica finale
+  const rk = $('rk'), rp = (t - T.rk - 0.3) / 0.5; rk.style.opacity = cl(rp * 2); $('hk').style.opacity = t >= T.rk ? 1 - cl((t - T.rk) * 4) : 1;
+  [...$('rows').children].forEach((el, k) => {
+    const p = (t - T.rk - 0.9 - k * 0.28) / 0.45; el.style.opacity = cl(p * 3);
+    el.style.transform = `translateX(${(1 - ease(p)) * -120}px) scale(${el.classList.contains('me') ? 1 + 0.05 * Math.sin(cl(p) * Math.PI) : 1})`;
+    el.querySelector('.b').style.transform = `scaleX(${ease(p)})`; el.querySelector('.b').style.transformOrigin = '0 50%';
+  });
+  domanda(t, T.q, R);
+}
+window.setup = setup; window.setTime = setTime;
+</script>
+</body>
+</html>

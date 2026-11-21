@@ -38,7 +38,12 @@ if __name__ == "__main__":
     with sync_playwright() as pw:
         b = pw.chromium.launch(executable_path="/usr/bin/google-chrome")
         page = b.new_page(viewport={"width": 1080, "height": 1920})
-        if mode == "reel":
+        if mode == "copertine":
+            (OUT / "copertine").mkdir(exist_ok=True)
+            for i in ([int(a) for a in args] or range(len(DATA["reel"]))):
+                r = dict(DATA["reel"][i], template="copertina"); load(page, r)
+                page.screenshot(path=str(OUT / "copertine" / f"{r['id']}.jpg"), type="jpeg", quality=92)
+        elif mode == "reel":
             for i in ([int(a) for a in args] or range(len(DATA["reel"]))): render_reel(page, DATA["reel"][i])
         else:
             reel = DATA["reel"][int(args[0])]; load(page, reel)

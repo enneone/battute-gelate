@@ -28,7 +28,6 @@
 <script>
 let R, ENDS = 0, T = {}, MAXV = 1;
 const FLOOR = 1500, HOR = 1500, BW = 230;
-const hl = (s) => s.replace(/\*([^*]+)\*/g, '<span class="ser">$1</span>');
 const money = (v) => v >= 1e9 ? fmt(v / 1e9, v % 1e9 ? 2 : 0).replace(/,00$/, '') + ' mld $' : fmt(v / 1e6) + ' mln $';
 
 function setup(reel, handle) {
