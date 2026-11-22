@@ -34,10 +34,12 @@
 - Prossimo rifornimento: dal 29/11. Prima analisi vera dei Reel di dati appena escono i primi (22-23/11).
 
 ## 22 novembre 2026 (pomeriggio): nuovo marchio Che Numeri
-- Su richiesta dell'utente: nome **Che Numeri** (@chenumeri), logo con la scritta minuscola "che numeri!" in Bricolage Grotesque (scelto tra varie proposte), foto profilo `output/che-numeri-foto-arancio.png`.
+- Su richiesta dell'utente: nome **Che Numeri** (@che_numeri), logo con la scritta minuscola "che numeri!" in Bricolage Grotesque (scelto tra varie proposte), foto profilo `output/che-numeri-foto-arancio.png`.
 - Colori: tre temi alternati post dopo post (carta, arancio, nero) al posto di nero e lime. Fonti per la scelta: palette Pinterest 2026 (Persimmon, Cool Blue) e Pantone 2026 Cloud Dancer. Orari: 12:30 carta, 15:00 nero (pressa), 18:30 carta, 21:15 arancio; l'hype sempre nero.
 - Copertine nuove: etichetta dell'argomento, icona grande, numero e titolo, così il tema si capisce dalla griglia.
 - Nuovo formato **sfida** alle 18:30 (Italia contro Germania, Spagna, Francia, Grecia) con dati già verificati in sessione (OCSE stipendi 2024 e ore 2025, Eurostat casa 2025, luce 1° sem. 2026, NEET 2025, inflazione ottobre 2026).
 - Domanda finale: l'etichetta "Scrivi…" non copre più le parole (prima succedeva in 14 Reel su 28, tutte le presse comprese).
 - Calendario rifatto: 23/11 S01, 24/11 S04, 25/11 S02, 26/11 S03 alle 18:30; D05, D08, D11 e D14 spostati al 29/11-1/12; il 28/11 D21 alle 18:30 e D20 (hype, nero) alle 21:15. D02 delle 12:30 di oggi è uscito ancora col vecchio marchio.
 - Aggiornato anche il testo del controllo automatico del mattino (nome, 4 Reel al giorno, sfida, analisi ogni giorno).
+- Nome utente definitivo indicato dall'utente: **@che_numeri** (nella chiusura di ogni video). Tutti i Reel ancora da pubblicare rifatti con questo nome.
+- Nuovo formato **spiegone** (template `spiegone`), sul modello del Reel di @fuoriditarget indicato dall'utente (McDonald's e "Mamma ho perso l'aereo", 33.238 riproduzioni). Primo: SP01 Black Friday (Altroconsumo, indagine ottobre 2026 su 2.017 italiani, via Affaritaliani 12/11/2026: 83% vuole comprare, budget medio 246 €, solo l'1,4% sa cosa deve mostrare un vero sconto; 35% nel 2025 ha comprato cose non previste o sforato il budget), il 26/11 alle 21:15. D15 (ore lavorate) spostato al 30/11 alle 21:15.

@@ -1,5 +1,5 @@
 {
- "handle": "@chenumeri",
+ "handle": "@che_numeri",
  "reel": [
   {
    "id": "D01-stipendi-europa",
@@ -2581,6 +2581,54 @@
    "icona": "🇮🇹🇬🇷",
    "copertina_numero": "",
    "copertina_titolo": "Italia contro *Grecia*"
+  },
+  {
+   "id": "SP01-black-friday",
+   "template": "spiegone",
+   "fps": 60,
+   "tema": "arancio",
+   "numero": 26,
+   "icona": "🛍️",
+   "badge": "3 NUMERI",
+   "hook": [
+    "Black Friday: così",
+    "ti fanno *spendere di più*"
+   ],
+   "punti": [
+    {
+     "n": "83%",
+     "t": "Lo fanno tutti",
+     "d": "degli italiani vuole comprare qualcosa venerdì 27. E se lo fanno tutti, sembra un affare."
+    },
+    {
+     "n": "35%",
+     "t": "Compri più del previsto",
+     "d": "l'anno scorso ha preso cose che non aveva in programma o ha sforato il budget."
+    },
+    {
+     "n": "1,4%",
+     "t": "Il vero sconto chi lo sa?",
+     "d": "sa cosa deve mostrare un vero sconto: anche il prezzo più basso degli ultimi 30 giorni."
+    }
+   ],
+   "risultato": {
+    "frase": "Budget medio: *246 euro*",
+    "k": "BUDGET MEDIO 2026",
+    "v": "246 €",
+    "s": "a testa, per il Black Friday"
+   },
+   "domanda": [
+    "Quanto spendi",
+    "al *Black Friday?*"
+   ],
+   "domanda2": "Scrivi la cifra 👇",
+   "fonte": "ALTROCONSUMO, INDAGINE DI OTTOBRE 2026 SU 2.017 ITALIANI DI 18-74 ANNI (VIA AFFARITALIANI, 12/11/2026) · IL 35% SI RIFERISCE AL BLACK FRIDAY 2025",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "Venerdì 27 è Black Friday: l'83% degli italiani vuole comprare qualcosa, con un budget medio di 246 euro 🛍️ Ma solo l'1,4% sa cosa deve mostrare un vero sconto: anche il prezzo più basso degli ultimi 30 giorni. Tu quanto spendi?",
+   "hashtag": "#blackfriday #sconti",
+   "argomento": "Black Friday",
+   "copertina_numero": "",
+   "copertina_titolo": "Così ti fanno *spendere di più*"
   }
  ]
 }

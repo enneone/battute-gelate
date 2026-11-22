@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<script src="base.js"></script>
+<style>
+  /* SPIEGONE: un tema caldo spiegato in 3 punti, ognuno con un numero. Ispirato ai Reel "la ricetta è questa: 1, 2, 3".
+     Una carta per punto, grande al centro; quando arriva la successiva la precedente si stringe in una riga in alto. Poi il risultato. */
+  #ico { position: absolute; left: 0; right: 0; top: 760px; z-index: 14; text-align: center; font-family: "Noto Color Emoji"; font-size: 330px; line-height: 1; }
+  #badge { position: absolute; left: 0; right: 0; top: 1170px; z-index: 15; text-align: center; }
+  #badge span { display: inline-block; font-family: "Geist"; font-weight: 700; font-size: 44px; letter-spacing: 6px; padding: 18px 32px 16px; border-radius: 99px; background: var(--ink); color: var(--bg); }
+  #rows { position: absolute; left: 70px; right: 70px; top: 640px; z-index: 16; }
+  .row { position: absolute; left: 0; right: 0; height: 104px; display: flex; align-items: center; gap: 24px; padding: 0 28px; border-radius: 22px; background: rgba(255,255,255,.07); opacity: 0; }
+  .row .i { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font-family: "Geist"; font-weight: 700; font-size: 34px; background: var(--ink); color: var(--bg); flex: none; }
+  .row .n { font-family: "Shoulders"; font-weight: 700; font-size: 70px; line-height: 1; color: var(--hi); flex: none; min-width: 190px; }
+  .row .t { font-family: "Outfit"; font-weight: 700; font-size: 38px; line-height: 1.05; text-transform: uppercase; }
+  .card { position: absolute; left: 70px; right: 70px; top: 900px; z-index: 18; padding: 54px 56px 60px; border-radius: 40px; background: var(--ink); color: var(--bg); opacity: 0; }
+  .card .i { font-family: "Geist"; font-weight: 700; font-size: 40px; letter-spacing: 4px; opacity: .7; }
+  .card .n { font-family: "Shoulders"; font-weight: 700; font-size: 250px; line-height: .86; margin-top: 10px; color: var(--hi); white-space: nowrap; }
+  .card .t { font-family: "Outfit"; font-weight: 700; font-size: 62px; line-height: 1.02; text-transform: uppercase; margin-top: 18px; }
+  .card .d { font-family: "Outfit"; font-weight: 400; font-size: 42px; line-height: 1.22; margin-top: 18px; opacity: .85; }
+  #res { position: absolute; left: 70px; right: 70px; top: 1060px; z-index: 18; text-align: center; opacity: 0; }
+  #res .k { font-family: "Geist"; font-weight: 700; font-size: 40px; letter-spacing: 6px; color: var(--mute); }
+  #res .v { font-family: "Shoulders"; font-weight: 700; font-size: 230px; line-height: .9; margin-top: 16px; }
+  #res .v small { font-size: .4em; margin-left: 10px; }
+  #res .s { font-family: "Outfit"; font-weight: 700; font-size: 46px; text-transform: uppercase; margin-top: 14px; }
+</style>
+</head>
+<body>
+  <div id="ico"></div><div id="badge"><span></span></div>
+  <div id="rows"></div>
+  <div id="cards"></div>
+  <div id="res"><div class="k"></div><div class="v"></div><div class="s"></div></div>
+<script>
+let R, ENDS = 0, T = {}, P = [];
+const PD = 3.9, ROWH = 122;
+
+function setup(reel, handle) {
+  P = reel.punti;
+  // le frasi in alto: "1. titolo", "2. titolo", "3. titolo", poi il risultato
+  reel = Object.assign({}, reel, { frasi: P.map((p, i) => `${i + 1}. ${p.frase || '*' + p.t + '*'}`).concat(reel.risultato ? [reel.risultato.frase] : []) });
+  R = reel;
+  base(reel, handle); hookBlock(reel);
+  $('ico').textContent = reel.icona || '';
+  $('badge').querySelector('span').textContent = reel.badge || `${P.length} NUMERI`;
+  $('rows').innerHTML = P.map((p, i) => `<div class="row" style="top:${i * ROWH}px"><div class="i">${i + 1}</div><div class="n">${p.n}</div><div class="t">${p.t}</div></div>`).join('');
+  $('cards').innerHTML = P.map((p, i) => `<div class="card" id="c${i}"><div class="i">${i + 1} DI ${P.length}</div><div class="n">${p.n}</div><div class="t">${p.t}</div><div class="d">${p.d}</div></div>`).join('');
+  // ogni carta sta sotto le righe dei punti gia' visti
+  P.forEach((p, i) => { $('c' + i).style.top = (640 + i * ROWH + 30) + 'px'; });
+  // il numero grande non deve uscire dalla carta
+  P.forEach((p, i) => { const el = $('c' + i).querySelector('.n'); let fs = 250; while (el.scrollWidth > el.clientWidth && fs > 120) { fs -= 10; el.style.fontSize = fs + 'px'; } });
+  if (reel.risultato) { $('res').querySelector('.k').textContent = reel.risultato.k || 'RISULTATO'; const v = String(reel.risultato.v).split(' '); $('res').querySelector('.v').innerHTML = v.shift() + (v.length ? `<small>${v.join(' ')}</small>` : ''); $('res').querySelector('.s').textContent = reel.risultato.s || ''; }
+  T.p0 = 2.7; T.res = T.p0 + P.length * PD; T.q = T.res + (reel.risultato ? 2.8 : 0.2); ENDS = T.q + 2.6;
+  setFrasi(P.map((p, i) => T.p0 + i * PD).concat(reel.risultato ? [T.res] : []));
+  const s = [{ t: 0.05, k: 'hit' }, { t: 0.5, k: 'pop' }];
+  P.forEach((p, i) => { const t0 = T.p0 + i * PD; s.push({ t: t0, k: 'whoosh' }, { t: t0 + 0.35, k: 'impact' }, { t: t0 + 0.9, k: 'n' + (2 + i * 2) }); });
+  if (reel.risultato) s.push({ t: T.res, k: 'whoosh' }, { t: T.res + 0.4, k: 'ding' });
+  s.push({ t: T.q, k: 'whoosh' }, { t: ENDS, k: 'whoosh' });
+  return { duration: ENDS + END_LEN, sounds: s };
+}
+
+function setTime(t) {
+  if (endCard(t, ENDS)) return;
+  hookAnim(t, T.q);
+  // intro: icona e "3 NUMERI"
+  const ip = back(t / 0.5), io = easeIO((t - T.p0 + 0.3) / 0.4);
+  $('ico').style.opacity = cl(t * 4) * (1 - io); $('ico').style.transform = `scale(${0.4 + 0.6 * ip}) rotate(${(1 - cl(t / 0.6)) * -20 + Math.sin(t * 3) * 3}deg)`;
+  const bp = back((t - 0.6) / 0.4);
+  $('badge').style.opacity = cl((t - 0.6) * 4) * (1 - io); $('badge').style.transform = `scale(${bp})`;
+  // carte: entrano da destra, poi si stringono nella riga in alto
+  P.forEach((p, i) => {
+    const t0 = T.p0 + i * PD, inP = ease((t - t0) / 0.45), outP = easeIO((t - t0 - PD + 0.35) / 0.4);
+    const c = $('c' + i), last = i === P.length - 1, endP = last ? easeIO((t - T.res) / 0.4) : outP;
+    c.style.opacity = t < t0 ? 0 : cl(inP * 2) * (1 - endP);
+    c.style.transform = `translateX(${(1 - inP) * 700}px) translateY(${-endP * 260}px) scale(${1 - 0.25 * endP}) rotate(${(1 - inP) * 6}deg)`;
+    const r = $('rows').children[i], rp = ease((t - t0 - PD + 0.15) / 0.4);
+    const rowShow = last ? ease((t - T.res + 0.05) / 0.4) : rp;
+    r.style.opacity = cl(rowShow * 2); r.style.transform = `translateY(${(1 - rowShow) * 40}px)`;
+  });
+  // risultato
+  const rp = ease((t - T.res - 0.25) / 0.5);
+  $('res').style.opacity = cl(rp * 2); $('res').style.transform = `translateY(${(1 - rp) * 80}px) scale(${0.9 + 0.1 * back((t - T.res - 0.25) / 0.5)})`;
+  $('res').style.top = (640 + P.length * ROWH + 60) + 'px';
+  domanda(t, T.q, R);
+}
+window.setup = setup; window.setTime = setTime;
+</script>
+</body>
+</html>

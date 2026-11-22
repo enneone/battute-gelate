@@ -1,11 +1,11 @@
 # Che Numeri — regole per il rifornimento automatico
 
-Pagina Instagram faceless **Che Numeri** (@chenumeri): **dati e confronti animati sui temi del momento**, sfide "Italia contro…" e la pressa idraulica, per un pubblico italiano ampio. Stesso account dell'ex Dati alla mano ed ex @battutegelate: in Metricool il brand si chiama ancora "Battute Gelate" (**blogId 7845959**, fuso Europe/Rome). Non pubblicare mai su altri brand.
+Pagina Instagram faceless **Che Numeri** (@che_numeri): **dati e confronti animati sui temi del momento**, sfide "Italia contro…" e la pressa idraulica, per un pubblico italiano ampio. Stesso account dell'ex Dati alla mano ed ex @battutegelate: in Metricool il brand si chiama ancora "Battute Gelate" (**blogId 7845959**, fuso Europe/Rome). Non pubblicare mai su altri brand.
 
 Il livello deve sembrare quello di una redazione con grafici, motion designer e fact-checker: dati veri, grafica curata, niente testi tagliati o sovrapposti. Tutto si fa in codice, **senza strumenti a pagamento** (niente Higgsfield, ElevenLabs o simili: l'utente ha scelto la strada gratuita).
 
 ## Marchio
-- Nome **Che Numeri**, handle `@chenumeri` (campo `handle` in `contenuti.json`, compare nella chiusura). Logo: la scritta minuscola "che numeri!" in Bricolage Grotesque (`fp_cn.html`, foto profilo in `output/che-numeri-foto-arancio.png`).
+- Nome **Che Numeri**, handle `@che_numeri` (campo `handle` in `contenuti.json`, compare nella chiusura). Logo: la scritta minuscola "che numeri!" in Bricolage Grotesque (`fp_cn.html`, foto profilo in `output/che-numeri-foto-arancio.png`).
 - **Tre temi di colore** (campo `tema` di ogni Reel), definiti in `base.js`: `carta` (bianco carta #F2EFE8, testo nero, accento arancio #FF4A1C, Italia in blu #2F5BFF), `arancio` (sfondo #FF4A1C, testo nero, accento crema, Italia in blu) e `nero` (#121212, testo crema, accento arancio). I template sono scritti con i colori vecchi: `recolor()` in `base.js` li traduce, quindi non serve toccarli.
 - **Il profilo non deve sembrare tutto uguale**: lo sfondo cambia da un post all'altro. Tema per orario: **12:30 carta, 15:00 nero (pressa), 18:30 carta, 21:15 arancio**. Due post vicini non hanno mai lo stesso sfondo. Il template `hype` usa sempre `nero`: mettilo alle 21:15 al posto dell'arancio.
 
@@ -13,7 +13,7 @@ Il livello deve sembrare quello di una redazione con grafici, motion designer e 
 - **4 Reel al giorno: 12:30 dati, 15:00 pressa, 18:30 sfida, 21:15 dati.**
 - **15:00 è sempre la pressa** (template `pressa`): è il format che finora ha tenuto di più (1.399 visualizzazioni e 63,9% oltre i 3 secondi il 21/11).
 - **18:30 è la sfida** (template `sfida`, vedi sotto). Se non hai una sfida con dati verificati, metti un Reel di dati.
-- 12:30 e 21:15 sono Reel di dati sui temi del momento.
+- 12:30 e 21:15 sono Reel di dati sui temi del momento. **Almeno 3 volte a settimana il 21:15 è uno spiegone** (vedi sotto): è il formato che l'utente ha indicato come riferimento.
 - Riempi sempre fino a 6 giorni da oggi: **non devono mai esserci giorni vuoti.** Se la ricerca non trova abbastanza temi verificati, usa temi sempreverdi (stipendi, prezzi, città, sport, consumi) oppure una pressa in più, ma non lasciare slot vuoti.
 - I post con `draft: true` o con contenuti vecchi di Battute Gelate (giochi, battute, emoji, pressa, plinko, gara) non contano come coperti: aggiornali con `updateScheduledPost` mettendo il nuovo Reel e `draft: false`, oppure lasciali in bozza e crea post nuovi negli slot giusti.
 
@@ -34,6 +34,12 @@ Il livello deve sembrare quello di una redazione con grafici, motion designer e 
 - Gancio sempre diverso (`hook`): "Il panettone resiste alla *pressa?*", "Indovina cosa *resiste*", "5 oggetti contro una *pressa*". Le `frasi` si generano da sole con i nomi degli oggetti.
 - Domanda finale: "Cosa mettiamo sotto la *pressa?*". Leggi i commenti dei giorni prima: se qualcuno propone un oggetto e il template non lo ha, annotalo in `dati/analisi.md` come idea (aggiungere un oggetto richiede di disegnarlo in `pressa.html`).
 - Nella pressa non ci sono dati, quindi niente `fonte`.
+
+## Lo spiegone (21:15, almeno 3 volte a settimana)
+- Riferimento indicato dall'utente: il Reel di @fuoriditarget sul menù di Natale di McDonald's "Mamma ho perso l'aereo" (21/11/2026, 33.238 riproduzioni, 58 commenti). Struttura: **una notizia di consumo del momento** (un brand, un prodotto, un evento come Black Friday, Natale, saldi, Sanremo) → **"la ricetta è questa": 3 punti numerati** che spiegano il meccanismo → **risultato** concreto (quanto paghi, quanto spendi) → domanda personale ("lo prendi o resisti?").
+- Template `spiegone`: `icona`, `badge` ("3 NUMERI"), `hook`, `punti` (3 voci con `n` il numero grande, `t` il titolo di 3-5 parole, `d` la spiegazione di massimo 20 parole), `risultato` (`frase` per i sottotitoli, `k` etichetta, `v` valore con unità separata da spazio, `s` riga sotto). Le frasi in alto si generano da sole ("1. Lo fanno tutti").
+- Ogni punto ha un numero verificato con la fonte, come negli altri Reel. Esempio: SP01 Black Friday (Altroconsumo 2026).
+- Copertina: `argomento` col tema (BLACK FRIDAY, NATALE, MCDONALD'S), `icona`, `copertina_numero` vuoto, titolo tipo "Così ti fanno *spendere di più*".
 
 ## La sfida (slot delle 18:30)
 - Template `sfida`: due contendenti (`a` e `b`, con `n` nome, `f` bandiera o emoji, `art` con l'articolo, es. "la Germania") e 4-6 `round`. Ogni round: `frase` (la domanda, es. "Chi guadagna *di più?*"), valori `a` e `b`, `vince` ("alto" o "basso"), `unita`, `dec`. Il punteggio, il vincitore e la frase finale si calcolano da soli.
@@ -76,6 +82,7 @@ Copia la struttura di un esempio già presente in `dati/contenuti.json` e cambia
 | `countdown` | top 10 dal decimo al primo | D05 voti Metacritic |
 | `barre` | classifica completa fino a 20 voci (squadre, città, marchi) | D06 Serie A stipendi |
 | `sfida` | A contro B in 4-6 round con punteggio | S01 Italia contro Germania |
+| `spiegone` | un tema caldo spiegato in 3 punti con un numero ciascuno, poi il risultato | SP01 Black Friday |
 | `pressa` | la pressa idraulica, ogni giorno alle 15:00 | P01 |
 
 Mai lo stesso template due volte nello stesso giorno. Nomi lunghi: accorciali (es. "Zelda: Ocarina of Time") e controlla che non escano dallo spazio.
