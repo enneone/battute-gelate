@@ -53,3 +53,4 @@
   - 28/11: 12:30 D19 · 15:00 P07 · 18:30 D21 · 21:15 D20
   - 29/11: 12:30 D05 · 21:15 D11 — 30/11: 12:30 D08 · 21:15 D15 — 1/12: 12:30 D14 (gli altri slot li riempie il rifornimento automatico)
 - Countdown: il riquadro del primo classificato usava ancora il verde lime (colore impostato da JavaScript, che `recolor()` non traduce): ora usa `var(--top)`. Regola: nei template i colori impostati da JavaScript vanno scritti come variabili CSS (`var(--top)`, `var(--ink)`, `var(--foc)`).
+- 22/11 pomeriggio, su richiesta dell'utente: spiegone in più su GTA 6 (SP02, tema nero, sfondo disegnato "vice", icone per punto, nessuna immagine ufficiale per scelta dell'utente) programmato oggi alle 20:00. Fonti: GamesRadar 14/10/2026, TechCrunch 5/12/2023, Take-Two 20/11/2026 e Q2 FY27.
