@@ -32,7 +32,7 @@ const money = (v) => v >= 1e9 ? fmt(v / 1e9, v % 1e9 ? 2 : 0).replace(/,00$/, ''
 function setup(reel, handle) {
   R = reel; base(reel, handle); hookBlock(reel);
   $('kick').textContent = reel.kicker; $('title').innerHTML = reel.titolo; { const el = $('title'); let fs = 250; el.style.whiteSpace = 'nowrap'; while (el.scrollWidth > 960 && fs > 90) { fs -= 6; el.style.fontSize = fs + 'px'; } } $('lbl').innerHTML = hl(reel.etichetta);
-  $('q').innerHTML = reel.domanda.map(hl).join('<br>'); $('q2').textContent = reel.domanda2;
+  $('q').innerHTML = reel.domanda.map(hl).join('<br>'); $('q2').textContent = reel.domanda2; fitDomanda($('q'), $('q2'), 1020);
   const s = [];
   T.count = 0.15; T.countEnd = 2.3; T.out = 3.0; T.bars = 3.4; T.hero = T.bars + 1.6; T.heroEnd = T.hero + 1.6;
   T.c1 = T.heroEnd + 0.6; T.q = T.c1 + 2.8; ENDS = T.q + 2.6;

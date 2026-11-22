@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face { font-family: "Shoulders"; src: url("fonts/BigShoulders-Bold.ttf"); font-weight: 700; }
+@font-face { font-family: "Geist"; src: url("fonts/GeistMono-Bold.ttf"); font-weight: 700; }
+@font-face { font-family: "Serif"; src: url("fonts/InstrumentSerif-Italic.ttf"); font-style: italic; }
+@font-face { font-family: "Outfit"; src: url("fonts/Outfit-Bold.ttf"); font-weight: 700; }
+@font-face { font-family: "Outfit"; src: url("fonts/Outfit-Regular.ttf"); font-weight: 400; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 1240px; background: #1A1A1A; color: #EEE; font-family: "Outfit"; padding: 48px; }
+h1 { font-family: "Shoulders"; font-size: 64px; text-transform: uppercase; letter-spacing: 1px; }
+h2 { font-family: "Geist"; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; color: #9A9A9A; margin: 40px 0 16px; }
+.sub { font-size: 22px; color: #BDBDBD; margin-top: 8px; }
+.grid { display: grid; grid-template-columns: repeat(3, 360px); gap: 6px; }
+.row { display: grid; grid-template-columns: repeat(4, 270px); gap: 16px; }
+.t { position: relative; width: 360px; height: 480px; overflow: hidden; padding: 26px 26px 22px; display: flex; flex-direction: column; }
+.row .t { width: 270px; height: 360px; padding: 20px; }
+.pill { align-self: flex-start; font-family: "Geist"; font-weight: 700; font-size: 17px; letter-spacing: 2px; padding: 8px 14px 7px; border-radius: 99px; text-transform: uppercase; }
+.emo { position: absolute; right: 18px; top: 64px; font-family: "Noto Color Emoji"; font-size: 120px; line-height: 1; transform: rotate(8deg); filter: drop-shadow(0 14px 18px rgba(0,0,0,.28)); }
+.row .emo { font-size: 86px; top: 52px; right: 14px; }
+.num { margin-top: auto; font-family: "Shoulders"; font-weight: 700; font-size: 112px; line-height: .86; letter-spacing: -1px; }
+.row .num { font-size: 80px; }
+.num small { font-size: .42em; margin-left: 4px; }
+.tit { font-family: "Outfit"; font-weight: 700; font-size: 31px; line-height: 1.05; margin-top: 12px; text-transform: uppercase; }
+.row .tit { font-size: 23px; }
+.tit i { font-family: "Serif"; font-style: italic; font-weight: 400; text-transform: none; font-size: 1.18em; }
+.wm { margin-top: 16px; font-family: "Geist"; font-weight: 700; font-size: 14px; letter-spacing: 2px; opacity: .7; display: flex; align-items: center; gap: 8px; }
+.wm b { width: 14px; height: 14px; border-radius: 4px; display: inline-block; }
+.lab { font-family: "Geist"; font-size: 15px; letter-spacing: 2px; color: #BDBDBD; margin-top: 10px; text-transform: uppercase; }
+.sw { display: flex; gap: 6px; margin-top: 8px; }
+.sw span { width: 40px; height: 22px; border-radius: 5px; border: 1px solid rgba(255,255,255,.2); }
+/* temi */
+.carta { background: #F2EFE8; color: #121212; } .carta .pill { background: #121212; color: #F2EFE8; } .carta .tit i { color: #FF4A1C; } .carta .wm b { background: #FF4A1C; }
+.arancio { background: #FF4A1C; color: #121212; } .arancio .pill { background: #121212; color: #FF4A1C; } .arancio .tit i { color: #FFF4EA; } .arancio .wm b { background: #121212; }
+.nero { background: #121212; color: #F2EFE8; } .nero .pill { background: #FF4A1C; color: #121212; } .nero .tit i { color: #FF4A1C; } .nero .num { color: #F2EFE8; } .nero .wm b { background: #FF4A1C; }
+.blu { background: #2F5BFF; color: #FFFFFF; } .blu .pill { background: #FFE14D; color: #0E1A4D; } .blu .tit i { color: #FFE14D; } .blu .wm b { background: #FFE14D; }
+.teal { background: #0E3B3E; color: #EAF6F2; } .teal .pill { background: #D4FF3A; color: #0E3B3E; } .teal .tit i { color: #D4FF3A; } .teal .wm b { background: #D4FF3A; }
+.prugna { background: #2B0F24; color: #F6EAF0; } .prugna .pill { background: #D4FF3A; color: #2B0F24; } .prugna .tit i { color: #FF6A3D; } .prugna .wm b { background: #D4FF3A; }
+.attuale { background: #0B0B10; color: #F4F4F6; } .attuale .pill { background: #C8FF2E; color: #0B0B10; } .attuale .tit i { color: #C8FF2E; } .attuale .wm b { background: #C8FF2E; }
+.note { font-size: 20px; color: #CFCFCF; line-height: 1.4; margin-top: 18px; max-width: 1100px; }
+</style>
+</head>
+<body>
+  <h1>Proposta: carta, arancio, nero</h1>
+  <div class="sub">Tre sfondi che si alternano post dopo post · arancio "Persimmon" e bianco carta "Cloud Dancer" sono tra i colori del 2026</div>
+  <h2>Come apparirebbe la griglia del profilo</h2>
+  <div class="grid" id="g"></div>
+  <div class="note">Ogni copertina dice subito l'argomento: etichetta in alto (AFFITTI, SERIE A, GTA 6…), icona grande, numero e due parole. La pressa ha sempre lo sfondo nero, i dati alternano carta e arancio, così due post vicini non sono mai uguali.</div>
+  <h2>Altre palette (stessa copertina)</h2>
+  <div class="row" id="r"></div>
+<script>
+const T = [
+  ['carta', '🏠', 'Affitti', '22,5<small>€/m²</small>', 'Milano costa <i>5 volte</i> Caltanissetta'],
+  ['nero', '💥', 'La pressa', 'VS', 'Il vecchio cellulare <i>resiste?</i>'],
+  ['arancio', '🎮', 'GTA 6', '3,79<small>mld $</small>', 'Incassati <i>al lancio</i>'],
+  ['arancio', '⚽', 'Serie A', '75.214', 'Lo stadio <i>più pieno</i>'],
+  ['carta', '⚡', 'Bollette', '31,4<small>cent</small>', 'La luce costa più <i>che in Francia</i>'],
+  ['nero', '🎄', 'La pressa', 'VS', 'Il panettone <i>resiste?</i>'],
+  ['carta', '📺', 'X Factor', '918<small>mila</small>', 'Il live <i>più visto</i>'],
+  ['arancio', '📱', 'iPhone 18 Pro', '1.489<small>€</small>', 'In Italia costa <i>di più</i>'],
+  ['carta', '⏱️', 'Lavoro', '1.716<small>ore</small>', 'Lavoriamo più <i>dei tedeschi</i>'],
+];
+const tile = (th, e, p, n, t, nm) => `<div class="t ${th}"><div class="pill">${p}</div><div class="emo">${e}</div><div class="num">${n}</div><div class="tit">${t}</div><div class="wm"><b></b>${nm}</div></div>`;
+document.getElementById('g').innerHTML = T.map(x => tile(...x, 'NOME PAGINA')).join('');
+const P = [['attuale', 'Attuale: nero e lime', ['#0B0B10', '#C8FF2E', '#F4F4F6']], ['blu', 'Cobalto e giallo', ['#2F5BFF', '#FFE14D', '#FFFFFF']], ['teal', 'Teal e wasabi', ['#0E3B3E', '#D4FF3A', '#EAF6F2']], ['prugna', 'Prugna e wasabi', ['#2B0F24', '#D4FF3A', '#FF6A3D']]];
+document.getElementById('r').innerHTML = P.map(([th, lab, sw]) => `<div>${tile(th, '🏠', 'Affitti', '22,5<small>€/m²</small>', 'Milano costa <i>5 volte</i> Caltanissetta', 'NOME PAGINA')}<div class="lab">${lab}</div><div class="sw">${sw.map(c => `<span style="background:${c}"></span>`).join('')}</div></div>`).join('');
+</script>
+</body>
+</html>

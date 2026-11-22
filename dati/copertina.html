@@ -4,31 +4,44 @@
 <meta charset="utf-8">
 <script src="base.js"></script>
 <style>
-  /* Copertina del Reel: tutto il testo nella zona 3:4 visibile nella griglia del profilo (y 240-1680) */
-  #ck { position: absolute; left: 80px; right: 80px; top: 380px; font-family: "Geist"; font-weight: 700; font-size: 30px; letter-spacing: 5px; color: #C8FF2E; z-index: 20; }
-  #ct { position: absolute; left: 76px; right: 76px; top: 450px; font-family: "Shoulders"; font-weight: 700; font-size: 170px; line-height: .88; text-transform: uppercase; z-index: 20; }
-  #ct .ser { font-size: 190px; }
-  #cn { position: absolute; left: 80px; top: 1440px; font-family: "Geist"; font-weight: 700; font-size: 120px; color: #C8FF2E; letter-spacing: -4px; z-index: 20; }
-  #cm { position: absolute; right: 80px; top: 1460px; z-index: 20; }
-  .brand, .src { display: none !important; }
-  body.vice { background: linear-gradient(180deg, #0B0614 0%, #2A0838 55%, #5A0F44 100%); }
-  body.vice #ck { color: #FFB36B; } body.vice #cn { color: #FFB36B; } body.vice #ct .ser { color: #FF6FB0; }
-  #big0 { position: absolute; right: -120px; bottom: 120px; font-family: "Shoulders"; font-weight: 700; font-size: 900px; line-height: .8; color: rgba(255,255,255,.035); z-index: 1; }
+  /* Copertina: l'argomento si capisce dalla miniatura. Etichetta in alto, icona grande, numero, titolo.
+     Tutto sta nella zona 3:4 che la griglia del profilo mostra (y 240-1680). Sfondo dal tema del Reel. */
+  .brand, .src, #vig { display: none !important; }
+  #pill { position: absolute; left: 80px; top: 330px; z-index: 20; font-family: "Geist"; font-weight: 700; font-size: 46px; letter-spacing: 5px; text-transform: uppercase;
+    background: var(--ink); color: var(--bg); padding: 18px 30px 16px; border-radius: 99px; }
+  #ico { position: absolute; right: 70px; top: 300px; z-index: 15; font-family: "Noto Color Emoji"; font-size: 400px; line-height: 1; transform: rotate(9deg); filter: drop-shadow(0 30px 40px rgba(0,0,0,.28)); }
+  #box { position: absolute; left: 80px; right: 80px; bottom: 400px; z-index: 20; }
+  #num { font-family: "Shoulders"; font-weight: 700; font-size: 330px; line-height: .84; letter-spacing: -4px; white-space: nowrap; }
+  #num small { font-size: .38em; letter-spacing: 0; margin-left: 14px; }
+  #tit { font-family: "Outfit"; font-weight: 700; font-size: 92px; line-height: 1.02; text-transform: uppercase; margin-top: 30px; }
+  #tit .ser { font-size: 1.16em; letter-spacing: -1px; }
+  #tit.solo { font-family: "Shoulders"; font-size: 190px; line-height: .88; }
+  #wm { position: absolute; left: 80px; bottom: 300px; z-index: 20; font-family: "Brico"; font-weight: 700; font-size: 58px; letter-spacing: -2px; }
+  #wm b { color: var(--hi); }
 </style>
 </head>
 <body>
-  <div id="big0"></div><div id="ck"></div><div id="ct"></div><div id="cn"></div>
-  <svg id="cm" width="130" height="130" viewBox="0 0 1080 1080"><rect width="1080" height="1080" rx="240" fill="#C8FF2E"/>
-    <g transform="translate(70 0)"><g transform="translate(470 610)"><circle r="196" fill="none" stroke="#0B0B10" stroke-width="132"/><circle r="196" fill="none" stroke="#FF5B4A" stroke-width="132" stroke-dasharray="308 1232" transform="rotate(200)"/></g>
-    <path d="M600 218 a8 8 0 0 1 8 -8 h116 a8 8 0 0 1 8 8 v654 h-132 z" fill="#0B0B10"/></g></svg>
+  <div id="pill"></div><div id="ico"></div>
+  <div id="box"><div id="num"></div><div id="tit"></div></div>
+  <div id="wm">che numeri<b>!</b></div>
 <script>
 function setup(reel, handle) {
-  base(reel, handle); if (reel.copertina_tema) document.body.classList.add(reel.copertina_tema);
-  $('ck').textContent = reel.copertina_kicker || reel.kicker || '';
-  $('ct').innerHTML = (reel.copertina || reel.hook).map(hl).join('<br>');
-  if (reel.copertina_size) $('ct').style.fontSize = reel.copertina_size + 'px';
-  $('cn').textContent = reel.copertina_numero || '';
-  $('big0').textContent = 'N.' + String(reel.numero || 1).padStart(2, '0');
+  base(reel, handle);
+  $('pill').textContent = reel.argomento || '';
+  $('ico').textContent = reel.icona || '';
+  // piu' icone (es. due bandiere): piu' piccole e affiancate
+  const nIco = [...new Intl.Segmenter('it', { granularity: 'grapheme' }).segment(reel.icona || '')].length;
+  if (nIco > 1) { $('ico').style.fontSize = (nIco > 2 ? 170 : 230) + 'px'; $('ico').style.letterSpacing = '10px'; }
+  const n = String(reel.copertina_numero || '').trim();
+  if (n) {
+    const parts = n.split(' '), big = parts.shift();
+    $('num').innerHTML = big + (parts.length ? `<small>${parts.join(' ')}</small>` : '');
+    const el = $('num'); let fs = 330; while (el.scrollWidth > 920 && fs > 150) { fs -= 10; el.style.fontSize = fs + 'px'; }
+  } else $('tit').classList.add('solo');
+  $('tit').innerHTML = hl(reel.copertina_titolo || (reel.copertina || []).join(' '));
+  // il titolo resta al massimo su 3 righe
+  const t = $('tit'); let fs = parseFloat(getComputedStyle(t).fontSize);
+  while (t.offsetHeight > fs * 3.2 && fs > 50) { fs -= 4; t.style.fontSize = fs + 'px'; }
   return { duration: 0, sounds: [] };
 }
 window.setup = setup; window.setTime = () => {};

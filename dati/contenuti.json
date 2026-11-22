@@ -1,5 +1,5 @@
 {
- "handle": "@datiallamano",
+ "handle": "@chenumeri",
  "reel": [
   {
    "id": "D01-stipendi-europa",
@@ -80,7 +80,7 @@
     "l'Italia",
     "sotto la *Spagna*"
    ],
-   "copertina_numero": "$ 51.019",
+   "copertina_numero": "51.019 $",
    "domanda": [
     "In quale paese",
     "ti *trasferiresti?*"
@@ -90,7 +90,11 @@
     "Ecco gli stipendi medi in Europa",
     "Spagna e Francia *ci superano*",
     "Il Lussemburgo: *quasi il doppio*"
-   ]
+   ],
+   "tema": "arancio",
+   "argomento": "Stipendi",
+   "icona": "💶",
+   "copertina_titolo": "L'Italia sotto la *Spagna*"
   },
   {
    "id": "D02-gta6-lancio",
@@ -149,7 +153,11 @@
     "Prima, i record da battere",
     "Poi è arrivato *GTA VI*",
     "*3 volte* il weekend di Avengers"
-   ]
+   ],
+   "tema": "nero",
+   "argomento": "GTA 6",
+   "icona": "🎮",
+   "copertina_titolo": "Il lancio più *ricco*"
   },
   {
    "id": "D03-gta6-copie",
@@ -245,7 +253,11 @@
     "Più tutto il *Belgio*",
     "Non basta: ne *avanzano* ancora",
     "Sarebbe il *6°* paese dell'UE"
-   ]
+   ],
+   "tema": "carta",
+   "argomento": "GTA 6",
+   "icona": "🎮",
+   "copertina_titolo": "Copie vendute: come un *paese*"
   },
   {
    "id": "D04-uscita-di-casa",
@@ -353,7 +365,11 @@
     "Ecco il resto d'Europa",
     "La media UE: *26 anni*",
     "Quasi *9 anni* più dei finlandesi"
-   ]
+   ],
+   "tema": "carta",
+   "argomento": "Casa",
+   "icona": "🏡",
+   "copertina_titolo": "Quando si esce di *casa*"
   },
   {
    "id": "D05-gta6-voti",
@@ -438,7 +454,11 @@
     "Ecco il primo *GTA*",
     "E al primo posto...",
     "Pari merito con *Zelda*, ma davanti"
-   ]
+   ],
+   "tema": "carta",
+   "argomento": "GTA 6",
+   "icona": "🏆",
+   "copertina_titolo": "Il voto più alto di *sempre*"
   },
   {
    "id": "D06-serie-a-stipendi",
@@ -549,12 +569,16 @@
     "chi paga",
     "di *più*"
    ],
-   "copertina_numero": "145,8 MLN",
+   "copertina_numero": "145,8 MLN €",
    "frasi": [
     "Gli stipendi 2026/27 in Serie A",
     "In cima, *Inter e Juve*",
     "In tutto: *1,2 miliardi* l'anno"
-   ]
+   ],
+   "tema": "arancio",
+   "argomento": "Serie A",
+   "icona": "⚽",
+   "copertina_titolo": "Chi paga di più *gli stipendi*"
   },
   {
    "id": "D07-affitti-citta",
@@ -655,7 +679,11 @@
     "Media italiana: *14,6 euro*",
     "In fondo *Caltanissetta*: 4,9"
    ],
-   "numero": 7
+   "numero": 7,
+   "tema": "carta",
+   "argomento": "Affitti",
+   "icona": "🏠",
+   "copertina_titolo": "Le città più *care*"
   },
   {
    "id": "D08-marvel-top10",
@@ -748,7 +776,11 @@
     2,
     1,
     "fine"
-   ]
+   ],
+   "tema": "carta",
+   "argomento": "Marvel",
+   "icona": "🦸",
+   "copertina_titolo": "I Marvel più *visti*"
   },
   {
    "id": "D09-luce-europa",
@@ -837,7 +869,11 @@
     "Noi *31,4*: sopra Francia e Spagna",
     "In Germania però costa di più"
    ],
-   "numero": 9
+   "numero": 9,
+   "tema": "arancio",
+   "argomento": "Bollette",
+   "icona": "⚡",
+   "copertina_titolo": "La luce costa più che in *Francia*"
   },
   {
    "id": "D10-neet-europa",
@@ -946,7 +982,11 @@
     "Italia *quarta* dal fondo",
     "Ma nel 2015 era al *25,7%*"
    ],
-   "numero": 10
+   "numero": 10,
+   "tema": "carta",
+   "argomento": "Giovani",
+   "icona": "🎓",
+   "copertina_titolo": "Né studio né *lavoro*"
   },
   {
    "id": "D11-serie-a-spettatori",
@@ -1063,7 +1103,11 @@
     "Media del campionato: *29mila*",
     "Ultima la *Lazio*: 10mila"
    ],
-   "numero": 11
+   "numero": 11,
+   "tema": "arancio",
+   "argomento": "Serie A",
+   "icona": "🏟️",
+   "copertina_titolo": "Gli stadi più *pieni*"
   },
   {
    "id": "D12-xfactor-ascolti",
@@ -1116,7 +1160,7 @@
     "il live",
     "più *visto*"
    ],
-   "copertina_numero": "918MILA",
+   "copertina_numero": "918 MILA",
    "copertina_tema": "vice",
    "frasi": [
     "Spettatori di ogni live",
@@ -1131,7 +1175,11 @@
     1,
     "fine",
     "fine"
-   ]
+   ],
+   "tema": "arancio",
+   "argomento": "X Factor",
+   "icona": "🎤",
+   "copertina_titolo": "Il live più *visto*"
   },
   {
    "id": "D13-rincari-ottobre",
@@ -1208,7 +1256,11 @@
     "Verdura e legumi: *+12,7%*",
     "Il carrello: *+2,3%*"
    ],
-   "numero": 13
+   "numero": 13,
+   "tema": "carta",
+   "argomento": "Spesa",
+   "icona": "🛒",
+   "copertina_titolo": "Cosa è *rincarato*"
   },
   {
    "id": "D14-console-record",
@@ -1299,7 +1351,11 @@
     8,
     2,
     1
-   ]
+   ],
+   "tema": "carta",
+   "argomento": "Console",
+   "icona": "🕹️",
+   "copertina_titolo": "Le più vendute di *sempre*"
   },
   {
    "id": "D15-ore-lavorate",
@@ -1400,7 +1456,11 @@
     "Germania",
     "Italia",
     "Grecia"
-   ]
+   ],
+   "tema": "arancio",
+   "argomento": "Lavoro",
+   "icona": "⏱️",
+   "copertina_titolo": "Chi lavora di *più*"
   },
   {
    "id": "D16-iphone-prezzi",
@@ -1489,7 +1549,11 @@
     "Germania",
     "Italia",
     "fine"
-   ]
+   ],
+   "tema": "carta",
+   "argomento": "iPhone 18 Pro",
+   "icona": "📱",
+   "copertina_titolo": "Quanto costa in *Europa*"
   },
   {
    "id": "D17-gas-europa",
@@ -1578,7 +1642,11 @@
     "Italia appena sopra: *11,4*",
     "Ma è il calo *più forte*"
    ],
-   "numero": 17
+   "numero": 17,
+   "tema": "carta",
+   "argomento": "Bollette",
+   "icona": "🔥",
+   "copertina_titolo": "Il gas *scende*"
   },
   {
    "id": "D18-film-italia-2026",
@@ -1655,7 +1723,11 @@
     "Primo *The Odyssey*",
     "Zalone *secondo*, Spider-Man terzo"
    ],
-   "numero": 18
+   "numero": 18,
+   "tema": "arancio",
+   "argomento": "Cinema",
+   "icona": "🎬",
+   "copertina_titolo": "I film più visti del *2026*"
   },
   {
    "id": "D19-skipass",
@@ -1758,7 +1830,11 @@
     "Cortina",
     "Dolomiti",
     "fine"
-   ]
+   ],
+   "tema": "carta",
+   "argomento": "Sci",
+   "icona": "⛷️",
+   "copertina_titolo": "Quanto costa *sciare*"
   },
   {
    "id": "D20-spiderman-record",
@@ -1817,7 +1893,11 @@
     "Poi *Infinity War*",
     "Ora *Brand New Day*: 2,52 miliardi"
    ],
-   "numero": 20
+   "numero": 20,
+   "tema": "nero",
+   "argomento": "Spider-Man",
+   "icona": "🎬",
+   "copertina_titolo": "Il film più visto del *2026*"
   },
   {
    "id": "D21-inflazione-europa",
@@ -1916,7 +1996,11 @@
     "Italia: *5,6%*",
     "Un anno fa: *1,3%*"
    ],
-   "numero": 21
+   "numero": 21,
+   "tema": "carta",
+   "argomento": "Prezzi",
+   "icona": "📈",
+   "copertina_titolo": "L'Italia *corre*"
   },
   {
    "id": "P01-pressa-tech",
@@ -1947,8 +2031,12 @@
     "Cosa resiste",
     "alla *pressa?*"
    ],
-   "copertina_numero": "5 PROVE",
-   "copertina_kicker": "LA PRESSA"
+   "copertina_numero": "",
+   "copertina_kicker": "LA PRESSA",
+   "tema": "nero",
+   "argomento": "La pressa",
+   "icona": "📱",
+   "copertina_titolo": "Cosa *resiste?*"
   },
   {
    "id": "P02-pressa-natale",
@@ -1979,8 +2067,12 @@
     "Il panettone",
     "resiste alla *pressa?*"
    ],
-   "copertina_numero": "5 PROVE",
-   "copertina_kicker": "LA PRESSA"
+   "copertina_numero": "",
+   "copertina_kicker": "LA PRESSA",
+   "tema": "nero",
+   "argomento": "La pressa",
+   "icona": "🎄",
+   "copertina_titolo": "Il panettone *resiste?*"
   },
   {
    "id": "P03-pressa-frutta",
@@ -2011,8 +2103,12 @@
     "Anguria",
     "contro *pressa*"
    ],
-   "copertina_numero": "5 PROVE",
-   "copertina_kicker": "LA PRESSA"
+   "copertina_numero": "",
+   "copertina_kicker": "LA PRESSA",
+   "tema": "nero",
+   "argomento": "La pressa",
+   "icona": "🍉",
+   "copertina_titolo": "Anguria contro *pressa*"
   },
   {
    "id": "P04-pressa-uovo",
@@ -2043,8 +2139,12 @@
     "Indovina cosa",
     "*resiste*"
    ],
-   "copertina_numero": "5 PROVE",
-   "copertina_kicker": "LA PRESSA"
+   "copertina_numero": "",
+   "copertina_kicker": "LA PRESSA",
+   "tema": "nero",
+   "argomento": "La pressa",
+   "icona": "🥚",
+   "copertina_titolo": "Indovina cosa *resiste*"
   },
   {
    "id": "P05-pressa-smartphone",
@@ -2075,8 +2175,12 @@
     "Smartphone",
     "contro *pressa*"
    ],
-   "copertina_numero": "5 PROVE",
-   "copertina_kicker": "LA PRESSA"
+   "copertina_numero": "",
+   "copertina_kicker": "LA PRESSA",
+   "tema": "nero",
+   "argomento": "La pressa",
+   "icona": "📱",
+   "copertina_titolo": "Smartphone contro *pressa*"
   },
   {
    "id": "P06-pressa-budino",
@@ -2107,8 +2211,12 @@
     "Il budino",
     "*resiste?*"
    ],
-   "copertina_numero": "5 PROVE",
-   "copertina_kicker": "LA PRESSA"
+   "copertina_numero": "",
+   "copertina_kicker": "LA PRESSA",
+   "tema": "nero",
+   "argomento": "La pressa",
+   "icona": "🍮",
+   "copertina_titolo": "Il budino *resiste?*"
   },
   {
    "id": "P07-pressa-mix",
@@ -2139,8 +2247,340 @@
     "5 oggetti",
     "contro una *pressa*"
    ],
-   "copertina_numero": "5 PROVE",
-   "copertina_kicker": "LA PRESSA"
+   "copertina_numero": "",
+   "copertina_kicker": "LA PRESSA",
+   "tema": "nero",
+   "argomento": "La pressa",
+   "icona": "💥",
+   "copertina_titolo": "5 oggetti contro la *pressa*"
+  },
+  {
+   "id": "S01-italia-germania",
+   "template": "sfida",
+   "fps": 60,
+   "tema": "carta",
+   "numero": 22,
+   "a": {
+    "n": "Italia",
+    "f": "🇮🇹",
+    "art": "l'Italia"
+   },
+   "b": {
+    "n": "Germania",
+    "f": "🇩🇪",
+    "art": "la Germania"
+   },
+   "hook": [
+    "Italia contro Germania:",
+    "*6 round*"
+   ],
+   "round": [
+    {
+     "frase": "Chi guadagna *di più?*",
+     "a": 51019,
+     "b": 69433,
+     "vince": "alto",
+     "unita": "$",
+     "dec": 0
+    },
+    {
+     "frase": "Chi lavora *meno ore?*",
+     "a": 1716,
+     "b": 1332,
+     "vince": "basso",
+     "unita": "ore",
+     "dec": 0
+    },
+    {
+     "frase": "Chi esce prima *di casa?*",
+     "a": 30.2,
+     "b": 24.1,
+     "vince": "basso",
+     "unita": "anni",
+     "dec": 1
+    },
+    {
+     "frase": "Chi paga meno *la luce?*",
+     "a": 31.4,
+     "b": 36.2,
+     "vince": "basso",
+     "unita": "cent",
+     "dec": 1
+    },
+    {
+     "frase": "Meno giovani *senza lavoro?*",
+     "a": 13.3,
+     "b": 9.5,
+     "vince": "basso",
+     "unita": "%",
+     "dec": 1
+    },
+    {
+     "frase": "Prezzi saliti *di meno?*",
+     "a": 5.6,
+     "b": 2.9,
+     "vince": "basso",
+     "unita": "%",
+     "dec": 1
+    }
+   ],
+   "domanda": [
+    "Dove vivresti",
+    "*meglio?*"
+   ],
+   "domanda2": "Scrivi ITALIA o GERMANIA 👇",
+   "fonte": "OCSE: STIPENDI MEDI 2024 ($ A PARITÀ DI POTERE D'ACQUISTO), ORE LAVORATE 2025 · EUROSTAT: ETÀ DI USCITA DI CASA 2025, LUCE FAMIGLIE 1° SEM. 2026, NEET 15-29 ANNI 2025, INFLAZIONE OTTOBRE 2026",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "Italia contro Germania in 6 round: stipendi, ore di lavoro, casa, luce, giovani e prezzi 🇮🇹🇩🇪 Prova a indovinare il risultato prima della fine. Dove vivresti meglio?",
+   "hashtag": "#italia #germania",
+   "argomento": "Sfida",
+   "icona": "🇮🇹🇩🇪",
+   "copertina_numero": "",
+   "copertina_titolo": "Italia contro *Germania*"
+  },
+  {
+   "id": "S02-italia-spagna",
+   "template": "sfida",
+   "fps": 60,
+   "tema": "carta",
+   "numero": 23,
+   "a": {
+    "n": "Italia",
+    "f": "🇮🇹",
+    "art": "l'Italia"
+   },
+   "b": {
+    "n": "Spagna",
+    "f": "🇪🇸",
+    "art": "la Spagna"
+   },
+   "hook": [
+    "Italia contro Spagna:",
+    "*6 round*"
+   ],
+   "round": [
+    {
+     "frase": "Chi guadagna *di più?*",
+     "a": 51019,
+     "b": 54564,
+     "vince": "alto",
+     "unita": "$",
+     "dec": 0
+    },
+    {
+     "frase": "Chi lavora *meno ore?*",
+     "a": 1716,
+     "b": 1633,
+     "vince": "basso",
+     "unita": "ore",
+     "dec": 0
+    },
+    {
+     "frase": "Chi esce prima *di casa?*",
+     "a": 30.2,
+     "b": 30.2,
+     "vince": "basso",
+     "unita": "anni",
+     "dec": 1
+    },
+    {
+     "frase": "Chi paga meno *la luce?*",
+     "a": 31.4,
+     "b": 25.1,
+     "vince": "basso",
+     "unita": "cent",
+     "dec": 1
+    },
+    {
+     "frase": "Meno giovani *senza lavoro?*",
+     "a": 13.3,
+     "b": 11.5,
+     "vince": "basso",
+     "unita": "%",
+     "dec": 1
+    },
+    {
+     "frase": "Prezzi saliti *di meno?*",
+     "a": 5.6,
+     "b": 4.9,
+     "vince": "basso",
+     "unita": "%",
+     "dec": 1
+    }
+   ],
+   "domanda": [
+    "Dove vivresti",
+    "*meglio?*"
+   ],
+   "domanda2": "Scrivi ITALIA o SPAGNA 👇",
+   "fonte": "OCSE: STIPENDI MEDI 2024 ($ A PARITÀ DI POTERE D'ACQUISTO), ORE LAVORATE 2025 · EUROSTAT: ETÀ DI USCITA DI CASA 2025, LUCE FAMIGLIE 1° SEM. 2026, NEET 15-29 ANNI 2025, INFLAZIONE OTTOBRE 2026 · NEET SPAGNA: DEFINIZIONE DIVERSA",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "Italia contro Spagna in 6 round: stipendi, ore di lavoro, casa, luce, giovani e prezzi 🇮🇹🇪🇸 Un round finisce pari, gli altri guardali tu. Dove vivresti meglio?",
+   "hashtag": "#italia #spagna",
+   "argomento": "Sfida",
+   "icona": "🇮🇹🇪🇸",
+   "copertina_numero": "",
+   "copertina_titolo": "Italia contro *Spagna*"
+  },
+  {
+   "id": "S03-italia-francia",
+   "template": "sfida",
+   "fps": 60,
+   "tema": "carta",
+   "numero": 24,
+   "a": {
+    "n": "Italia",
+    "f": "🇮🇹",
+    "art": "l'Italia"
+   },
+   "b": {
+    "n": "Francia",
+    "f": "🇫🇷",
+    "art": "la Francia"
+   },
+   "hook": [
+    "Italia contro Francia:",
+    "*6 round*"
+   ],
+   "round": [
+    {
+     "frase": "Chi guadagna *di più?*",
+     "a": 51019,
+     "b": 60608,
+     "vince": "alto",
+     "unita": "$",
+     "dec": 0
+    },
+    {
+     "frase": "Chi lavora *meno ore?*",
+     "a": 1716,
+     "b": 1498,
+     "vince": "basso",
+     "unita": "ore",
+     "dec": 0
+    },
+    {
+     "frase": "Chi esce prima *di casa?*",
+     "a": 30.2,
+     "b": 23.8,
+     "vince": "basso",
+     "unita": "anni",
+     "dec": 1
+    },
+    {
+     "frase": "Chi paga meno *la luce?*",
+     "a": 31.4,
+     "b": 24.9,
+     "vince": "basso",
+     "unita": "cent",
+     "dec": 1
+    },
+    {
+     "frase": "Meno giovani *senza lavoro?*",
+     "a": 13.3,
+     "b": 12.9,
+     "vince": "basso",
+     "unita": "%",
+     "dec": 1
+    },
+    {
+     "frase": "Prezzi saliti *di meno?*",
+     "a": 5.6,
+     "b": 3.7,
+     "vince": "basso",
+     "unita": "%",
+     "dec": 1
+    }
+   ],
+   "domanda": [
+    "Dove vivresti",
+    "*meglio?*"
+   ],
+   "domanda2": "Scrivi ITALIA o FRANCIA 👇",
+   "fonte": "OCSE: STIPENDI MEDI 2024 ($ A PARITÀ DI POTERE D'ACQUISTO), ORE LAVORATE 2025 · EUROSTAT: ETÀ DI USCITA DI CASA 2025, LUCE FAMIGLIE 1° SEM. 2026, NEET 15-29 ANNI 2025, INFLAZIONE OTTOBRE 2026 · NEET FRANCIA: DEFINIZIONE DIVERSA",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "Italia contro Francia in 6 round: stipendi, ore di lavoro, casa, luce, giovani e prezzi 🇮🇹🇫🇷 Quanti round vinciamo secondo te? Scrivilo prima di guardare. Dove vivresti meglio?",
+   "hashtag": "#italia #francia",
+   "argomento": "Sfida",
+   "icona": "🇮🇹🇫🇷",
+   "copertina_numero": "",
+   "copertina_titolo": "Italia contro *Francia*"
+  },
+  {
+   "id": "S04-italia-grecia",
+   "template": "sfida",
+   "fps": 60,
+   "tema": "carta",
+   "numero": 25,
+   "a": {
+    "n": "Italia",
+    "f": "🇮🇹",
+    "art": "l'Italia"
+   },
+   "b": {
+    "n": "Grecia",
+    "f": "🇬🇷",
+    "art": "la Grecia"
+   },
+   "hook": [
+    "Italia contro Grecia:",
+    "*5 round*"
+   ],
+   "round": [
+    {
+     "frase": "Chi guadagna *di più?*",
+     "a": 51019,
+     "b": 32257,
+     "vince": "alto",
+     "unita": "$",
+     "dec": 0
+    },
+    {
+     "frase": "Chi lavora *meno ore?*",
+     "a": 1716,
+     "b": 1874,
+     "vince": "basso",
+     "unita": "ore",
+     "dec": 0
+    },
+    {
+     "frase": "Chi esce prima *di casa?*",
+     "a": 30.2,
+     "b": 30.9,
+     "vince": "basso",
+     "unita": "anni",
+     "dec": 1
+    },
+    {
+     "frase": "Meno giovani *senza lavoro?*",
+     "a": 13.3,
+     "b": 13.6,
+     "vince": "basso",
+     "unita": "%",
+     "dec": 1
+    },
+    {
+     "frase": "Prezzi saliti *di meno?*",
+     "a": 5.6,
+     "b": 5.7,
+     "vince": "basso",
+     "unita": "%",
+     "dec": 1
+    }
+   ],
+   "domanda": [
+    "Dove vivresti",
+    "*meglio?*"
+   ],
+   "domanda2": "Scrivi ITALIA o GRECIA 👇",
+   "fonte": "OCSE: STIPENDI MEDI 2024 ($ A PARITÀ DI POTERE D'ACQUISTO), ORE LAVORATE 2025 · EUROSTAT: ETÀ DI USCITA DI CASA 2025, NEET 15-29 ANNI 2025, INFLAZIONE OTTOBRE 2026",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "Italia contro Grecia in 5 round: stipendi, ore di lavoro, casa, giovani e prezzi 🇮🇹🇬🇷 Stavolta come finisce? Dove vivresti meglio?",
+   "hashtag": "#italia #grecia",
+   "argomento": "Sfida",
+   "icona": "🇮🇹🇬🇷",
+   "copertina_numero": "",
+   "copertina_titolo": "Italia contro *Grecia*"
   }
  ]
 }

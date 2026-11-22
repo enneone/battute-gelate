@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<script src="base.js"></script>
+<style>
+  /* SFIDA: A contro B in piu' round. In ogni round due barre salgono, chi vince prende un punto. Alla fine il risultato. */
+  #sb { position: absolute; left: 60px; right: 60px; top: 610px; height: 190px; z-index: 18; display: grid; grid-template-columns: 1fr 120px 1fr; align-items: center; opacity: 0; }
+  .side { display: flex; align-items: center; gap: 22px; }
+  .side.b { flex-direction: row-reverse; }
+  .side .f { font-family: "Noto Color Emoji"; font-size: 110px; line-height: 1; }
+  .side .nm { font-family: "Shoulders"; font-weight: 700; font-size: 54px; text-transform: uppercase; line-height: .9; }
+  .side .sc { font-family: "Shoulders"; font-weight: 700; font-size: 170px; line-height: .8; margin-left: auto; }
+  .side.b .sc { margin-left: 0; margin-right: auto; }
+  .side.a .sc { color: var(--foc); } .side.b .sc { color: var(--top); }
+  #sb .mid { text-align: center; font-family: "Shoulders"; font-weight: 700; font-size: 110px; color: var(--mute); }
+  #arena { position: absolute; left: 0; right: 0; top: 860px; height: 760px; z-index: 12; }
+  .bar { position: absolute; bottom: 90px; width: 330px; transform-origin: 50% 100%; border-radius: 22px 22px 6px 6px; }
+  .bar.a { left: 150px; background: var(--foc); } .bar.b { right: 150px; background: var(--top); }
+  .val { position: absolute; width: 420px; text-align: center; font-family: "Shoulders"; font-weight: 700; font-size: 96px; line-height: 1; white-space: nowrap; }
+  .val small { font-size: .45em; margin-left: 8px; }
+  .val.a { left: 105px; } .val.b { right: 105px; }
+  .ok { position: absolute; width: 120px; height: 120px; border-radius: 50%; display: grid; place-items: center; font-family: "Outfit"; font-weight: 700; font-size: 80px; background: var(--ink); color: var(--bg); opacity: 0; }
+  .lbl { position: absolute; bottom: 0; width: 330px; text-align: center; font-family: "Noto Color Emoji"; font-size: 64px; line-height: 1; }
+  .lbl.a { left: 150px; } .lbl.b { right: 150px; }
+  #floor { position: absolute; left: 90px; right: 90px; bottom: 86px; height: 4px; background: var(--ink); opacity: .2; border-radius: 2px; }
+  #vs { position: absolute; left: 0; right: 0; top: 980px; z-index: 16; display: flex; justify-content: center; align-items: center; gap: 60px; }
+  #vs .f { font-family: "Noto Color Emoji"; font-size: 230px; line-height: 1; }
+  #vs .x { font-family: "Shoulders"; font-weight: 700; font-size: 200px; }
+  #stamp { position: absolute; left: 60px; right: 60px; top: 920px; z-index: 22; text-align: center; opacity: 0; }
+  #stamp .w { display: inline-block; font-family: "Shoulders"; font-weight: 700; font-size: 120px; line-height: .9; text-transform: uppercase; padding: 34px 44px 26px; border-radius: 30px; background: var(--ink); color: var(--bg); transform: rotate(-4deg); }
+  #stamp .w .ser { color: var(--hi); font-size: 1.1em; }
+  #stamp .r { font-family: "Shoulders"; font-weight: 700; font-size: 260px; line-height: 1; margin-top: 30px; }
+</style>
+</head>
+<body>
+  <div id="vs"><span class="f" id="vfa"></span><span class="x">VS</span><span class="f" id="vfb"></span></div>
+  <div id="sb">
+    <div class="side a"><span class="f" id="fa"></span><span class="nm" id="na"></span><span class="sc" id="sa">0</span></div>
+    <div class="mid">–</div>
+    <div class="side b"><span class="f" id="fb"></span><span class="nm" id="nb"></span><span class="sc" id="sbb">0</span></div>
+  </div>
+  <div id="arena">
+    <div id="floor"></div>
+    <div class="bar a" id="ba"></div><div class="bar b" id="bb"></div>
+    <div class="val a" id="va"></div><div class="val b" id="vb"></div>
+    <div class="ok" id="oa">✓</div><div class="ok" id="ob">✓</div>
+    <div class="lbl a" id="la"></div><div class="lbl b" id="lb"></div>
+  </div>
+  <div id="stamp"><div class="w" id="sw"></div><div class="r" id="sr"></div></div>
+<script>
+let R, ENDS = 0, T = {}, RN = [], RES = [];
+const RD = 2.05, HMAX = 470;
+const vfmt = (v, r) => fmt(v, r.dec || 0) + (r.unita ? `<small>${r.unita}</small>` : '');
+
+function setup(reel, handle) {
+  R = reel;
+  RN = reel.round;
+  // il vincitore di ogni round: "alto" vince chi ha di piu', "basso" chi ha di meno
+  let sa = 0, sb = 0;
+  RES = RN.map(r => { const w = r.a === r.b ? 0 : ((r.vince === 'basso') === (r.a < r.b) ? 1 : 2); if (w === 1) sa++; if (w === 2) sb++; return { w, sa, sb }; });
+  const fin = sa === sb ? 'Finisce *pari*' : `Vince ${sa > sb ? reel.a.art || reel.a.n : reel.b.art || reel.b.n}`;
+  // frasi: il gancio, poi una frase per round, poi il risultato
+  reel = Object.assign({}, reel, { frasi: RN.map(r => r.frase).concat([`${fin.replace(/\*/g, '')}: *${Math.max(sa, sb)}-${Math.min(sa, sb)}*`]) });
+  R = reel;
+  base(reel, handle); hookBlock(reel);
+  for (const [k, s] of [['a', reel.a], ['b', reel.b]]) { $('f' + k).textContent = s.f; $('n' + k).textContent = s.n; $('l' + k).textContent = s.f; $('vf' + k).textContent = s.f; }
+  $('sw').innerHTML = hl(sa === sb ? 'Finisce *pari*' : `Vince *${sa > sb ? (reel.a.art || reel.a.n) : (reel.b.art || reel.b.n)}*`);
+  $('sr').textContent = `${sa} – ${sb}`;
+  T.sb = 2.3; T.r0 = 2.6; T.fin = T.r0 + RN.length * RD + 0.1; T.q = T.fin + 2.7; ENDS = T.q + 2.6;
+  setFrasi(RN.map((r, k) => T.r0 + k * RD).concat([T.fin]));
+  const s = [{ t: 0.05, k: 'whoosh' }, { t: 0.55, k: 'hit' }, { t: T.sb, k: 'whoosh' }];
+  RN.forEach((r, k) => { const t0 = T.r0 + k * RD; s.push({ t: t0 + 0.3, k: 'riser' }, { t: t0 + 1.2, k: RES[k].w ? 'ding' : 'tick' }); });
+  s.push({ t: T.fin, k: 'impact' }, { t: T.q, k: 'whoosh' }, { t: ENDS, k: 'whoosh' });
+  return { duration: ENDS + END_LEN, sounds: s };
+}
+
+function setTime(t) {
+  if (endCard(t, ENDS)) return;
+  hookAnim(t, T.q);
+  // intro: due bandiere e VS
+  const vi = cl(t / 0.4), vo = easeIO((t - T.sb + 0.2) / 0.4);
+  $('vs').style.opacity = vi * (1 - vo);
+  $('vfa').style.transform = `translateX(${(1 - ease(t / 0.45)) * -500}px)`; $('vfb').style.transform = `translateX(${(1 - ease(t / 0.45)) * 500}px)`;
+  $('vs').querySelector('.x').style.transform = `scale(${back((t - 0.45) / 0.35)})`;
+  // tabellone
+  const sp = ease((t - T.sb) / 0.4); $('sb').style.opacity = sp; $('sb').style.transform = `translateY(${(1 - sp) * -40}px)`;
+  // round in corso
+  const k = Math.min(RN.length - 1, Math.max(0, Math.floor((t - T.r0) / RD))), lt = t - T.r0 - k * RD, r = RN[k];
+  const on = t >= T.r0 && t < T.fin;
+  const mx = Math.max(r.a, r.b) || 1, grow = easeIO((lt - 0.3) / 0.75), out = easeIO((lt - (RD - 0.3)) / 0.3);
+  const last = k === RN.length - 1;
+  const fade = on ? (last ? 1 - easeIO((t - T.fin + 0.1) / 0.3) : 1 - out) : (t >= T.fin ? 0 : 0);
+  $('arena').style.opacity = t < T.r0 ? 0 : (t >= T.fin ? 1 - easeIO((t - T.fin) / 0.3) : (last ? 1 : 1 - out * 0.0));
+  for (const [s, v] of [['a', r.a], ['b', r.b]]) {
+    const h = HMAX * (v / mx) * grow, bar = $('b' + s);
+    bar.style.height = Math.max(0, h) + 'px';
+    const val = $('v' + s); val.innerHTML = vfmt(lerp(0, v, grow), r); val.style.bottom = (90 + h + 24) + 'px'; val.style.opacity = cl(grow * 3) * (on ? (last ? 1 : 1 - out) : 1);
+    bar.style.opacity = on && !last ? 1 - out : 1;
+  }
+  // verdetto: il vincitore si accende, l'altro si spegne
+  const vp = (lt - 1.2) / 0.25, res = RES[k];
+  for (const [s, idx] of [['a', 1], ['b', 2]]) {
+    const win = res.w === idx, lose = res.w && !win;
+    const dim = lose ? 1 - 0.65 * cl(vp) : 1;
+    $('b' + s).style.filter = lose ? `saturate(${1 - 0.8 * cl(vp)})` : 'none';
+    $('b' + s).style.opacity = (on && !last ? 1 - out : 1) * dim;
+    const ok = $('o' + s); ok.style.opacity = win ? cl(vp * 2) * (on && !last ? 1 - out : 1) : 0;
+    ok.style.transform = `scale(${win ? back(vp) : 0})`;
+    const h = HMAX * ((s === 'a' ? r.a : r.b) / mx) * grow;
+    ok.style.bottom = (90 + h / 2 - 60) + 'px'; ok.style[s === 'a' ? 'left' : 'right'] = '255px';
+  }
+  // punteggio: sale quando arriva il verdetto
+  let sa = 0, sb = 0;
+  RN.forEach((_, j) => { if (t >= T.r0 + j * RD + 1.2) { sa = RES[j].sa; sb = RES[j].sb; } });
+  if (t < T.r0 + 1.2) { sa = 0; sb = 0; }
+  const pa = $('sa'), pb = $('sbb');
+  if (pa.textContent !== String(sa)) pa.textContent = sa; if (pb.textContent !== String(sb)) pb.textContent = sb;
+  const bump = (j) => { const tt = t - (T.r0 + j * RD + 1.2); return tt >= 0 && tt < 0.35 ? 1 + 0.35 * Math.sin(tt / 0.35 * Math.PI) : 1; };
+  pa.style.transform = `scale(${on && res.w === 1 ? bump(k) : 1})`; pb.style.transform = `scale(${on && res.w === 2 ? bump(k) : 1})`;
+  // finale
+  const fp = (t - T.fin) / 0.4;
+  $('stamp').style.opacity = cl(fp * 2); $('stamp').style.transform = `scale(${t >= T.fin ? 0.7 + 0.3 * back(fp) : 0.7})`;
+  domanda(t, T.q, R);
+}
+window.setup = setup; window.setTime = setTime;
+</script>
+</body>
+</html>

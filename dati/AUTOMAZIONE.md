@@ -1,13 +1,19 @@
-# Dati alla mano — regole per il rifornimento automatico
+# Che Numeri — regole per il rifornimento automatico
 
-Pagina Instagram faceless di **dati e confronti animati sui temi del momento**, per un pubblico italiano ampio. Stesso account dell'ex @battutegelate: in Metricool il brand si chiama ancora "Battute Gelate" (**blogId 7845959**, fuso Europe/Rome). Non pubblicare mai su altri brand.
+Pagina Instagram faceless **Che Numeri** (@chenumeri): **dati e confronti animati sui temi del momento**, sfide "Italia contro…" e la pressa idraulica, per un pubblico italiano ampio. Stesso account dell'ex Dati alla mano ed ex @battutegelate: in Metricool il brand si chiama ancora "Battute Gelate" (**blogId 7845959**, fuso Europe/Rome). Non pubblicare mai su altri brand.
 
 Il livello deve sembrare quello di una redazione con grafici, motion designer e fact-checker: dati veri, grafica curata, niente testi tagliati o sovrapposti. Tutto si fa in codice, **senza strumenti a pagamento** (niente Higgsfield, ElevenLabs o simili: l'utente ha scelto la strada gratuita).
 
+## Marchio
+- Nome **Che Numeri**, handle `@chenumeri` (campo `handle` in `contenuti.json`, compare nella chiusura). Logo: la scritta minuscola "che numeri!" in Bricolage Grotesque (`fp_cn.html`, foto profilo in `output/che-numeri-foto-arancio.png`).
+- **Tre temi di colore** (campo `tema` di ogni Reel), definiti in `base.js`: `carta` (bianco carta #F2EFE8, testo nero, accento arancio #FF4A1C, Italia in blu #2F5BFF), `arancio` (sfondo #FF4A1C, testo nero, accento crema, Italia in blu) e `nero` (#121212, testo crema, accento arancio). I template sono scritti con i colori vecchi: `recolor()` in `base.js` li traduce, quindi non serve toccarli.
+- **Il profilo non deve sembrare tutto uguale**: lo sfondo cambia da un post all'altro. Tema per orario: **12:30 carta, 15:00 nero (pressa), 18:30 carta, 21:15 arancio**. Due post vicini non hanno mai lo stesso sfondo. Il template `hype` usa sempre `nero`: mettilo alle 21:15 al posto dell'arancio.
+
 ## Cadenza
-- **4 Reel al giorno: 12:30, 15:00, 18:30, 21:15.**
+- **4 Reel al giorno: 12:30 dati, 15:00 pressa, 18:30 sfida, 21:15 dati.**
 - **15:00 è sempre la pressa** (template `pressa`): è il format che finora ha tenuto di più (1.399 visualizzazioni e 63,9% oltre i 3 secondi il 21/11).
-- Gli altri tre slot sono Reel di dati sui temi del momento.
+- **18:30 è la sfida** (template `sfida`, vedi sotto). Se non hai una sfida con dati verificati, metti un Reel di dati.
+- 12:30 e 21:15 sono Reel di dati sui temi del momento.
 - Riempi sempre fino a 6 giorni da oggi: **non devono mai esserci giorni vuoti.** Se la ricerca non trova abbastanza temi verificati, usa temi sempreverdi (stipendi, prezzi, città, sport, consumi) oppure una pressa in più, ma non lasciare slot vuoti.
 - I post con `draft: true` o con contenuti vecchi di Battute Gelate (giochi, battute, emoji, pressa, plinko, gara) non contano come coperti: aggiornali con `updateScheduledPost` mettendo il nuovo Reel e `draft: false`, oppure lasciali in bozza e crea post nuovi negli slot giusti.
 
@@ -29,6 +35,13 @@ Il livello deve sembrare quello di una redazione con grafici, motion designer e 
 - Domanda finale: "Cosa mettiamo sotto la *pressa?*". Leggi i commenti dei giorni prima: se qualcuno propone un oggetto e il template non lo ha, annotalo in `dati/analisi.md` come idea (aggiungere un oggetto richiede di disegnarlo in `pressa.html`).
 - Nella pressa non ci sono dati, quindi niente `fonte`.
 
+## La sfida (slot delle 18:30)
+- Template `sfida`: due contendenti (`a` e `b`, con `n` nome, `f` bandiera o emoji, `art` con l'articolo, es. "la Germania") e 4-6 `round`. Ogni round: `frase` (la domanda, es. "Chi guadagna *di più?*"), valori `a` e `b`, `vince` ("alto" o "basso"), `unita`, `dec`. Il punteggio, il vincitore e la frase finale si calcolano da soli.
+- Usa dati già verificati e confrontabili (stessa fonte e stesso anno per i due lati). Formula che funziona: **Italia contro un altro paese** (stipendi OCSE, ore lavorate, età di uscita di casa, luce, NEET, inflazione). Altre idee: Milano contro Roma, PS5 contro Switch, Inter contro Milan, due città per affitti e servizi.
+- Alterna sfide che l'Italia perde e sfide che vince (S04 Italia-Grecia 5-0): solo sconfitte stancano.
+- Copertina: `argomento` "Sfida", `icona` con le due bandiere, `copertina_numero` vuoto, `copertina_titolo` "Italia contro *Germania*".
+- Domanda finale: "Dove vivresti *meglio?*", `domanda2` "Scrivi ITALIA o GERMANIA 👇".
+
 ## Scelta dei temi
 1. **Temi caldi prima di tutto.** Cerca sul web di cosa si parla in Italia in questi giorni (uscite di giochi, film e serie, X Factor, Sanremo, calcio, Black Friday, Natale, saldi, bollette, prezzi, notizie economiche). Su un tema molto caldo puoi fare una serie da 2-3 Reel con angoli diversi (come GTA VI: incasso, copie, voti).
 2. **Pubblici diversi ogni giorno.** Nello stesso giorno mai due Reel per lo stesso pubblico. Ruota tra: gaming, TV e musica, soldi e lavoro, casa e giovani, calcio, cibo e prezzi, viaggi, tecnologia.
@@ -44,7 +57,7 @@ Il livello deve sembrare quello di una redazione con grafici, motion designer e 
 
 ## Gancio, frasi e struttura (comunicazione chiara)
 - **Una sola frase alla volta sullo schermo.** In alto compare prima il gancio (`hook`), poi le `frasi`, una dopo l'altra, parola per parola, come sottotitoli che raccontano il dato. Niente titoli fissi, niente righe di testo piccole sparse.
-- `hook`: 1-2 righe, massimo 8-9 parole in tutto, con un numero concreto o un contrasto ("In Italia si esce di casa a *30 anni*"). La parola tra asterischi esce in corsivo verde.
+- `hook`: 1-2 righe, massimo 8-9 parole in tutto, con un numero concreto o un contrasto ("In Italia si esce di casa a *30 anni*"). La parola tra asterischi esce in corsivo nel colore d'accento.
 - `frasi`: 3-4 frasi (per `punti` anche 4), **massimo 6-7 parole l'una**, una idea per frase, nell'ordine in cui il grafico mostra le cose. Esempio stipendi: ["Ecco gli stipendi medi in Europa", "Spagna e Francia *ci superano*", "Il Lussemburgo: *quasi il doppio*"].
 - Il grafico deve muoversi già durante il gancio: il primo fotogramma ha sempre il gancio più un elemento visivo.
 - Chiudi con una **domanda che chiede un commento** (`domanda`, `domanda2`).
@@ -62,6 +75,8 @@ Copia la struttura di un esempio già presente in `dati/contenuti.json` e cambia
 | `asse` | valori sulla stessa scala (età, ore, prezzi), con media e distacco | D04 uscita di casa |
 | `countdown` | top 10 dal decimo al primo | D05 voti Metacritic |
 | `barre` | classifica completa fino a 20 voci (squadre, città, marchi) | D06 Serie A stipendi |
+| `sfida` | A contro B in 4-6 round con punteggio | S01 Italia contro Germania |
+| `pressa` | la pressa idraulica, ogni giorno alle 15:00 | P01 |
 
 Mai lo stesso template due volte nello stesso giorno. Nomi lunghi: accorciali (es. "Zelda: Ocarina of Time") e controlla che non escano dallo spazio.
 
@@ -73,7 +88,12 @@ Mai lo stesso template due volte nello stesso giorno. Nomi lunghi: accorciali (e
 Dopo aver scritto le frasi, controlla i tempi: ogni frase deve restare almeno 1,5 secondi.
 
 ## Copertine
-Ogni Reel ha `copertina` (2-4 righe brevi, una parola tra asterischi), `copertina_numero` (il dato forte, es. "30,2 ANNI") e, per gaming e intrattenimento, `"copertina_tema": "vice"`. Il testo sta tutto nella zona che la griglia del profilo mostra.
+**L'argomento si deve capire dalla miniatura.** La copertina (`copertina.html`) usa lo stesso `tema` del Reel e mostra:
+- `argomento`: etichetta in alto, 1-2 parole (AFFITTI, SERIE A, GTA 6, BOLLETTE, LA PRESSA, SFIDA);
+- `icona`: un'emoji grande che dice il tema (🏠 affitti, ⚽ calcio, 🎮 videogiochi, ⚡ luce, 🛒 spesa, 🎬 cinema, 📱 telefoni; due bandiere per le sfide);
+- `copertina_numero`: il dato forte, numero e unità separati da uno spazio ("22,5 €/M²", "918 MILA"); vuoto per pressa e sfide, così il titolo diventa grande;
+- `copertina_titolo`: 3-6 parole, una tra asterischi ("Le città più *care*").
+Mai loghi di marchi, solo emoji. Tutto sta nella zona 3:4 che la griglia del profilo mostra.
 
 ## Comandi
 ```

@@ -91,7 +91,7 @@ function drawObj(o, sq, t) { // sq: 0 intatto, 1 schiacciato
   else if (k === 'lattina') { const g = cx.createLinearGradient(CX - w * .3, 0, CX + w * .3, 0); g.addColorStop(0, '#6E8F0E'); g.addColorStop(.35, '#E4FF8A'); g.addColorStop(.6, '#C8FF2E'); g.addColorStop(1, '#4F6608');
     cx.fillStyle = g; cx.beginPath(); cx.roundRect(CX - w * 0.3, y - h / 2, w * 0.6, h, 22); cx.fill();
     metal(CX - w * 0.3, y - h / 2, w * 0.6, 24, 10, true); metal(CX - w * 0.3, y + h / 2 - 20, w * 0.6, 20, 10, true);
-    cx.fillStyle = '#0B0B10'; cx.font = `700 ${Math.max(18, 44 * (1 - sq * .8))}px Shoulders`; cx.textAlign = 'center'; cx.fillText('DATI', CX, y + 14); }
+    cx.fillStyle = '#0B0B10'; cx.font = `700 ${Math.max(18, 44 * (1 - sq * .8))}px Shoulders`; cx.textAlign = 'center'; cx.fillText('CHE!', CX, y + 14); }
   else if (k === 'cellulare') { metal(CX - w * 0.24, y - h / 2, w * 0.48, h, 30, true);
     cx.fillStyle = '#9FC97A'; cx.fillRect(CX - w * 0.16, y - h * 0.36, w * 0.32, h * 0.26); cx.fillStyle = 'rgba(0,0,0,.35)';
     for (let r = 0; r < 4; r++) for (let c = 0; c < 3; c++) { cx.beginPath(); cx.roundRect(CX - w * 0.16 + c * w * 0.115, y + h * 0.0 + r * h * 0.1, w * 0.09, h * 0.07, 6); cx.fill(); }
