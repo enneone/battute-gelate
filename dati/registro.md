@@ -43,3 +43,13 @@
 - Aggiornato anche il testo del controllo automatico del mattino (nome, 4 Reel al giorno, sfida, analisi ogni giorno).
 - Nome utente definitivo indicato dall'utente: **@che_numeri** (nella chiusura di ogni video). Tutti i Reel ancora da pubblicare rifatti con questo nome.
 - Nuovo formato **spiegone** (template `spiegone`), sul modello del Reel di @fuoriditarget indicato dall'utente (McDonald's e "Mamma ho perso l'aereo", 33.238 riproduzioni). Primo: SP01 Black Friday (Altroconsumo, indagine ottobre 2026 su 2.017 italiani, via Affaritaliani 12/11/2026: 83% vuole comprare, budget medio 246 €, solo l'1,4% sa cosa deve mostrare un vero sconto; 35% nel 2025 ha comprato cose non previste o sforato il budget), il 26/11 alle 21:15. D15 (ore lavorate) spostato al 30/11 alle 21:15.
+- Calendario finale su Metricool (tutti i video rifatti con marchio Che Numeri e @che_numeri; commit e03f51e, c02f1df, cbb03a3, fcaee94):
+  - 22/11: 15:00 P01 · 18:30 D03 · 21:15 D01
+  - 23/11: 12:30 D04 · 15:00 P02 · 18:30 S01 Italia-Germania · 21:15 D06
+  - 24/11: 12:30 D07 · 15:00 P03 · 18:30 S04 Italia-Grecia · 21:15 D09
+  - 25/11: 12:30 D10 · 15:00 P04 · 18:30 S02 Italia-Spagna · 21:15 D12
+  - 26/11: 12:30 D13 · 15:00 P05 · 18:30 S03 Italia-Francia · 21:15 SP01 Black Friday
+  - 27/11: 12:30 D16 · 15:00 P06 · 18:30 D17 · 21:15 D18
+  - 28/11: 12:30 D19 · 15:00 P07 · 18:30 D21 · 21:15 D20
+  - 29/11: 12:30 D05 · 21:15 D11 — 30/11: 12:30 D08 · 21:15 D15 — 1/12: 12:30 D14 (gli altri slot li riempie il rifornimento automatico)
+- Countdown: il riquadro del primo classificato usava ancora il verde lime (colore impostato da JavaScript, che `recolor()` non traduce): ora usa `var(--top)`. Regola: nei template i colori impostati da JavaScript vanno scritti come variabili CSS (`var(--top)`, `var(--ink)`, `var(--foc)`).

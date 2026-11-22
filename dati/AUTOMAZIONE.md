@@ -6,7 +6,7 @@ Il livello deve sembrare quello di una redazione con grafici, motion designer e 
 
 ## Marchio
 - Nome **Che Numeri**, handle `@che_numeri` (campo `handle` in `contenuti.json`, compare nella chiusura). Logo: la scritta minuscola "che numeri!" in Bricolage Grotesque (`fp_cn.html`, foto profilo in `output/che-numeri-foto-arancio.png`).
-- **Tre temi di colore** (campo `tema` di ogni Reel), definiti in `base.js`: `carta` (bianco carta #F2EFE8, testo nero, accento arancio #FF4A1C, Italia in blu #2F5BFF), `arancio` (sfondo #FF4A1C, testo nero, accento crema, Italia in blu) e `nero` (#121212, testo crema, accento arancio). I template sono scritti con i colori vecchi: `recolor()` in `base.js` li traduce, quindi non serve toccarli.
+- **Tre temi di colore** (campo `tema` di ogni Reel), definiti in `base.js`: `carta` (bianco carta #F2EFE8, testo nero, accento arancio #FF4A1C, Italia in blu #2F5BFF), `arancio` (sfondo #FF4A1C, testo nero, accento crema, Italia in blu) e `nero` (#121212, testo crema, accento arancio). I template sono scritti con i colori vecchi: `recolor()` in `base.js` li traduce nei CSS e nel canvas. **I colori impostati da JavaScript su un elemento (`el.style.background = ...`) non vengono tradotti**: scrivili come variabili CSS (`var(--top)`, `var(--ink)`, `var(--foc)`, `var(--bg)`).
 - **Il profilo non deve sembrare tutto uguale**: lo sfondo cambia da un post all'altro. Tema per orario: **12:30 carta, 15:00 nero (pressa), 18:30 carta, 21:15 arancio**. Due post vicini non hanno mai lo stesso sfondo. Il template `hype` usa sempre `nero`: mettilo alle 21:15 al posto dell'arancio.
 
 ## Cadenza
