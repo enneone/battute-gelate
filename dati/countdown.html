@@ -63,7 +63,7 @@ function setTime(t) {
     big.querySelector('.r').textContent = '#' + (idx + 1);
     big.querySelector('.n').textContent = it.n; big.querySelector('.n').style.fontSize = (it.n.length > 16 ? 110 : 150) + 'px';
     big.querySelector('.sc').innerHTML = fmt(it.v) + (R.suffisso ? '<small style="font-size:.5em">' + R.suffisso + '</small>' : '');
-    big.querySelector('.sc').style.background = idx === 0 ? '#C8FF2E' : '#F4F4F6';
+    big.querySelector('.sc').style.background = idx === 0 ? 'var(--top)' : 'var(--ink)';
     const last = idx === 0, hold = last ? 0 : outP;
     big.style.opacity = inP * (1 - hold); big.style.transform = `scale(${(0.85 + 0.15 * back(lt / 0.3)) * (1 - 0.3 * hold)}) translateY(${hold * 200}px)`;
     if (last) big.style.opacity = inP * (1 - easeIO((lt - 1.4) / 0.4));
