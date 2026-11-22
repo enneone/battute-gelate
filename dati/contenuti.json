@@ -2629,6 +2629,64 @@
    "argomento": "Black Friday",
    "copertina_numero": "",
    "copertina_titolo": "Così ti fanno *spendere di più*"
+  },
+  {
+   "id": "SP02-gta6-numeri",
+   "template": "spiegone",
+   "fps": 60,
+   "tema": "nero",
+   "numero": 27,
+   "sfondo": "vice",
+   "icona": "🎮",
+   "badge": "4 NUMERI",
+   "hook": [
+    "GTA 6: i numeri",
+    "che *non tutti sanno*"
+   ],
+   "punti": [
+    {
+     "n": "13 ANNI",
+     "t": "L'attesa più lunga",
+     "emoji": "⏳",
+     "d": "tanti ne sono passati da GTA 5. Una prima versione, \"Project Americas\", esisteva già nel 2015."
+    },
+    {
+     "n": "85 MLN",
+     "t": "Il trailer dei record",
+     "emoji": "📺",
+     "d": "le visualizzazioni del primo trailer in 22 ore, a dicembre 2023: record di YouTube per un video non musicale."
+    },
+    {
+     "n": "SEGRETO",
+     "t": "Quanto è costato?",
+     "emoji": "🤫",
+     "d": "Rockstar non l'ha mai detto. Ha solo smentito le voci di un costo oltre 1,5 miliardi di dollari."
+    },
+    {
+     "n": "3,79 MLD $",
+     "t": "Incassati al lancio",
+     "emoji": "💵",
+     "d": "entro il giorno dell'uscita, prevendite incluse, con 32,5 milioni di copie vendute."
+    }
+   ],
+   "risultato": {
+    "frase": "Il record da battere: *235 milioni*",
+    "k": "IL RECORD DA BATTERE",
+    "v": "235 MLN",
+    "s": "le copie di GTA 5 vendute in 13 anni"
+   },
+   "domanda": [
+    "Quante ore ci hai",
+    "già *giocato?*"
+   ],
+   "domanda2": "Scrivi le ore 👇",
+   "fonte": "GAMESRADAR 14/10/2026 (ATTESA, PROJECT AMERICAS, COSTO) · TECHCRUNCH 5/12/2023 (TRAILER) · TAKE-TWO 20/11/2026 (INCASSI E COPIE FINO AL 19/11, PREVENDITE INCLUSE) · TAKE-TWO: GTA 5 AL 30/09/2026",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "GTA 6 è arrivato 13 anni dopo GTA 5 e il suo primo trailer ha fatto 85 milioni di visualizzazioni in 22 ore 🎮 Quanto è costato? Rockstar non l'ha mai detto, ma entro il lancio ha incassato 3,79 miliardi di dollari. Quante ore ci hai già giocato?",
+   "hashtag": "#gta6 #gtavi",
+   "argomento": "GTA 6",
+   "copertina_numero": "",
+   "copertina_titolo": "I numeri che *non tutti sanno*"
   }
  ]
 }

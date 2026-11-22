@@ -19,6 +19,13 @@
   .card .n { font-family: "Shoulders"; font-weight: 700; font-size: 250px; line-height: .86; margin-top: 10px; color: var(--hi); white-space: nowrap; }
   .card .t { font-family: "Outfit"; font-weight: 700; font-size: 62px; line-height: 1.02; text-transform: uppercase; margin-top: 18px; }
   .card .d { font-family: "Outfit"; font-weight: 400; font-size: 42px; line-height: 1.22; margin-top: 18px; opacity: .85; }
+  .card .em { position: absolute; right: 40px; top: -70px; font-family: "Noto Color Emoji"; font-size: 170px; line-height: 1; transform: rotate(10deg); filter: drop-shadow(0 16px 20px rgba(0,0,0,.35)); }
+  .card .ph { margin: -54px -56px 34px; height: 380px; border-radius: 40px 40px 0 0; overflow: hidden; position: relative; }
+  .card .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform-origin: 50% 50%; }
+  .card .ph .cr { position: absolute; right: 18px; bottom: 12px; font-family: "Geist"; font-size: 20px; color: #fff; opacity: .8; text-shadow: 0 1px 4px rgba(0,0,0,.8); }
+  /* sfondo "vice": tramonto sul mare con palme e skyline, disegnato in codice (nessuna immagine di terzi) */
+  #scene { position: absolute; left: 0; top: 0; z-index: 1; display: none; }
+  #veil { position: absolute; inset: 0; z-index: 2; display: none; background: linear-gradient(180deg, rgba(8,4,14,.92) 0%, rgba(8,4,14,.55) 30%, rgba(8,4,14,.15) 55%, rgba(8,4,14,.55) 85%, rgba(8,4,14,.9) 100%); }
   #res { position: absolute; left: 70px; right: 70px; top: 1060px; z-index: 18; text-align: center; opacity: 0; }
   #res .k { font-family: "Geist"; font-weight: 700; font-size: 40px; letter-spacing: 6px; color: var(--mute); }
   #res .v { font-family: "Shoulders"; font-weight: 700; font-size: 230px; line-height: .9; margin-top: 16px; }
@@ -27,6 +34,7 @@
 </style>
 </head>
 <body>
+  <canvas id="scene" width="1080" height="1920"></canvas><div id="veil"></div>
   <div id="ico"></div><div id="badge"><span></span></div>
   <div id="rows"></div>
   <div id="cards"></div>
@@ -44,12 +52,13 @@ function setup(reel, handle) {
   $('ico').textContent = reel.icona || '';
   $('badge').querySelector('span').textContent = reel.badge || `${P.length} NUMERI`;
   $('rows').innerHTML = P.map((p, i) => `<div class="row" style="top:${i * ROWH}px"><div class="i">${i + 1}</div><div class="n">${p.n}</div><div class="t">${p.t}</div></div>`).join('');
-  $('cards').innerHTML = P.map((p, i) => `<div class="card" id="c${i}"><div class="i">${i + 1} DI ${P.length}</div><div class="n">${p.n}</div><div class="t">${p.t}</div><div class="d">${p.d}</div></div>`).join('');
+  $('cards').innerHTML = P.map((p, i) => `<div class="card" id="c${i}">${p.foto ? `<div class="ph"><img src="${p.foto}">${p.credito ? `<div class="cr">${p.credito}</div>` : ''}</div>` : (p.emoji ? `<div class="em">${p.emoji}</div>` : '')}<div class="i">${i + 1} DI ${P.length}</div><div class="n">${p.n}</div><div class="t">${p.t}</div><div class="d">${p.d}</div></div>`).join('');
   // ogni carta sta sotto le righe dei punti gia' visti
   P.forEach((p, i) => { $('c' + i).style.top = (640 + i * ROWH + 30) + 'px'; });
   // il numero grande non deve uscire dalla carta
   P.forEach((p, i) => { const el = $('c' + i).querySelector('.n'); let fs = 250; while (el.scrollWidth > el.clientWidth && fs > 120) { fs -= 10; el.style.fontSize = fs + 'px'; } });
   if (reel.risultato) { $('res').querySelector('.k').textContent = reel.risultato.k || 'RISULTATO'; const v = String(reel.risultato.v).split(' '); $('res').querySelector('.v').innerHTML = v.shift() + (v.length ? `<small>${v.join(' ')}</small>` : ''); $('res').querySelector('.s').textContent = reel.risultato.s || ''; }
+  if (reel.sfondo === 'vice') { $('scene').style.display = 'block'; $('veil').style.display = 'block'; }
   T.p0 = 2.7; T.res = T.p0 + P.length * PD; T.q = T.res + (reel.risultato ? 2.8 : 0.2); ENDS = T.q + 2.6;
   setFrasi(P.map((p, i) => T.p0 + i * PD).concat(reel.risultato ? [T.res] : []));
   const s = [{ t: 0.05, k: 'hit' }, { t: 0.5, k: 'pop' }];
@@ -59,8 +68,45 @@ function setup(reel, handle) {
   return { duration: ENDS + END_LEN, sounds: s };
 }
 
+// tramonto stile anni '80 sulla costa: cielo, sole a strisce, skyline, mare, palme
+const SC = $('scene'), sx = SC.getContext('2d');
+function palm(x, y, h, lean, sway) {
+  sx.save(); sx.fillStyle = '#0B0612'; sx.strokeStyle = '#0B0612';
+  const tx = x + lean, ty = y - h;
+  sx.lineWidth = 26; sx.lineCap = 'round'; sx.beginPath(); sx.moveTo(x, y); sx.quadraticCurveTo(x + lean * 0.2, y - h * 0.6, tx, ty); sx.stroke();
+  for (let k = 0; k < 7; k++) {
+    const a = -Math.PI / 2 + (k - 3) * 0.48 + Math.sin(sway + k) * 0.05, L = 230 + (k % 2) * 40;
+    const ex = tx + Math.cos(a) * L * 1.15, ey = ty + Math.sin(a) * L * 0.55 + 90;
+    sx.lineWidth = 14; sx.beginPath(); sx.moveTo(tx, ty); sx.quadraticCurveTo(tx + Math.cos(a) * L * 0.6, ty + Math.sin(a) * L * 0.6 - 40, ex, ey); sx.stroke();
+    for (let j = 1; j < 9; j++) { const u = j / 9, px = tx + (ex - tx) * u, py = ty + (ey - ty) * u - Math.sin(u * Math.PI) * 50;
+      sx.beginPath(); sx.ellipse(px, py + 14, 34 * (1 - u * 0.6), 9, a + 1.2, 0, 6.28); sx.fill(); }
+  }
+  sx.restore();
+}
+function drawScene(t) {
+  const H = 1920, hz = 1240, dx = Math.sin(t * 0.25) * 12;
+  const g = sx.createLinearGradient(0, 0, 0, hz);
+  g.addColorStop(0, '#120720'); g.addColorStop(0.45, '#4A1340'); g.addColorStop(0.75, '#C2305A'); g.addColorStop(1, '#FF8A3D');
+  sx.fillStyle = g; sx.fillRect(0, 0, 1080, H);
+  // sole a strisce
+  const sy = hz - 60 + Math.sin(t * 0.3) * 6, r = 300;
+  sx.save(); sx.beginPath(); sx.arc(540 + dx, sy, r, Math.PI, 0); sx.closePath(); sx.clip();
+  const sg = sx.createLinearGradient(0, sy - r, 0, sy); sg.addColorStop(0, '#FFE6A8'); sg.addColorStop(1, '#FF5A3D'); sx.fillStyle = sg; sx.fillRect(0, sy - r, 1080, r);
+  sx.fillStyle = '#C2305A'; for (let k = 0; k < 7; k++) { const yy = sy - 120 + k * 22 + ((t * 30) % 22); sx.fillRect(0, yy, 1080, 4 + k * 2.2); }
+  sx.restore();
+  // skyline
+  const rnd = rng(7); sx.fillStyle = '#1A0A24';
+  let x = -40 + dx * 0.5; while (x < 1100) { const w = 40 + rnd() * 70, h = 60 + rnd() * (rnd() > 0.8 ? 330 : 170); sx.fillRect(x, hz - h, w, h); x += w + 4 + rnd() * 10; }
+  sx.fillStyle = 'rgba(255,200,120,.55)'; const r2 = rng(3); for (let k = 0; k < 90; k++) { const wx = r2() * 1080, wy = hz - 20 - r2() * 200; if (r2() > 0.5) sx.fillRect(wx, wy, 5, 7); }
+  // mare con riflessi
+  const sea = sx.createLinearGradient(0, hz, 0, H); sea.addColorStop(0, '#5A1840'); sea.addColorStop(1, '#0B0612'); sx.fillStyle = sea; sx.fillRect(0, hz, 1080, H - hz);
+  for (let k = 0; k < 26; k++) { const yy = hz + 10 + k * k * 1.1, w = 300 - k * 9 + Math.sin(t * 2 + k) * 30; sx.fillStyle = `rgba(255,170,90,${0.5 - k * 0.018})`; sx.fillRect(540 + dx - w / 2 + Math.sin(t * 1.5 + k * 0.7) * 20, yy, w, 3); }
+  // palme in primo piano
+  palm(90, 1960, 900, 120, t); palm(990, 1960, 760, -110, t + 1.7); palm(210, 1960, 520, 60, t + 0.8);
+}
 function setTime(t) {
   if (endCard(t, ENDS)) return;
+  if (R.sfondo === 'vice') drawScene(t);
   hookAnim(t, T.q);
   // intro: icona e "3 NUMERI"
   const ip = back(t / 0.5), io = easeIO((t - T.p0 + 0.3) / 0.4);
@@ -73,6 +119,7 @@ function setTime(t) {
     const c = $('c' + i), last = i === P.length - 1, endP = last ? easeIO((t - T.res) / 0.4) : outP;
     c.style.opacity = t < t0 ? 0 : cl(inP * 2) * (1 - endP);
     c.style.transform = `translateX(${(1 - inP) * 700}px) translateY(${-endP * 260}px) scale(${1 - 0.25 * endP}) rotate(${(1 - inP) * 6}deg)`;
+    const im = c.querySelector('.ph img'); if (im) im.style.transform = `scale(${1.08 + 0.08 * cl((t - t0) / PD)}) translateX(${-cl((t - t0) / PD) * 20}px)`;
     const r = $('rows').children[i], rp = ease((t - t0 - PD + 0.15) / 0.4);
     const rowShow = last ? ease((t - T.res + 0.05) / 0.4) : rp;
     r.style.opacity = cl(rowShow * 2); r.style.transform = `translateY(${(1 - rowShow) * 40}px)`;
