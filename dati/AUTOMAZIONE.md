@@ -4,6 +4,8 @@ Pagina Instagram faceless di **dati e confronti animati sui temi del momento**, 
 
 Il livello deve sembrare quello di una redazione con grafici, motion designer e fact-checker: dati veri, grafica curata, niente testi tagliati o sovrapposti. Tutto si fa in codice, **senza strumenti a pagamento** (niente Higgsfield, ElevenLabs o simili: l'utente ha scelto la strada gratuita).
 
+> **Nota del 22 novembre 2026 (valida solo per il rifornimento di oggi):** i template stanno per essere rifatti (testi divisi in frasi brevi, suoni nuovi, musica di sottofondo). Oggi fai solo la parte di ricerca: scegli i temi, verifica i dati e scrivi i Reel in `dati/contenuti.json` per tutti gli slot vuoti fino a 6 giorni da oggi, poi commit e push. **Non renderizzare e non programmare nulla in Metricool:** video e programmazione li fa la sessione principale con i template nuovi. Per ogni Reel aggiungi anche il campo `frasi`: 3-5 frasi brevissime (massimo 6-7 parole l'una) che raccontano il dato passo per passo, dalla prima all'ultima, una idea per frase. Esempio: ["Ecco quanto si guadagna in Europa", "L'Italia è sotto la Spagna", "Il Lussemburgo quasi il doppio"].
+
 ## Cadenza
 - **3 Reel al giorno: 12:30, 18:30, 21:15.**
 - Riempi sempre fino a 6 giorni da oggi.
