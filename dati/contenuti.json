@@ -555,6 +555,1333 @@
     "In cima, *Inter e Juve*",
     "In tutto: *1,2 miliardi* l'anno"
    ]
+  },
+  {
+   "id": "D07-affitti-citta",
+   "template": "barre",
+   "fps": 60,
+   "kicker": "AFFITTI · OTTOBRE 2026 · €/M² AL MESE",
+   "hook": [
+    "A Milano l'affitto costa",
+    "*quasi 5 volte* Caltanissetta"
+   ],
+   "voci": [
+    {
+     "n": "Milano",
+     "v": 22.5
+    },
+    {
+     "n": "Firenze",
+     "v": 21.4
+    },
+    {
+     "n": "Venezia",
+     "v": 20.1
+    },
+    {
+     "n": "Roma",
+     "v": 19.2
+    },
+    {
+     "n": "Bologna",
+     "v": 16.7
+    },
+    {
+     "n": "Bolzano",
+     "v": 16.3
+    },
+    {
+     "n": "Como",
+     "v": 15.6
+    },
+    {
+     "n": "Napoli",
+     "v": 14.7
+    },
+    {
+     "n": "Cagliari",
+     "v": 14.2
+    },
+    {
+     "n": "Padova",
+     "v": 14.1
+    },
+    {
+     "n": "Torino",
+     "v": 13.4
+    },
+    {
+     "n": "Verona",
+     "v": 12.7
+    },
+    {
+     "n": "Bari",
+     "v": 12.5
+    },
+    {
+     "n": "Genova",
+     "v": 10.4
+    },
+    {
+     "n": "Palermo",
+     "v": 9.4
+    },
+    {
+     "n": "Caltanissetta",
+     "v": 4.9
+    }
+   ],
+   "suffisso": " €",
+   "evidenzia_top": 1,
+   "messaggio": "La media italiana è *14,6 euro* al m², il 2,3% in più di un anno fa.",
+   "domanda": [
+    "Quanto paghi",
+    "di *affitto?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "IDEALISTA, CANONE MEDIO RICHIESTO, OTTOBRE 2026 (03/11/2026) · EURO AL M² AL MESE, PREZZI DEGLI ANNUNCI",
+   "fine": "Seguici per i numeri che parlano di noi.",
+   "didascalia": "A Milano l'affitto medio richiesto è 22,5 euro al metro quadro, a Caltanissetta 4,9 🏠 La media italiana è 14,6. Tu quanto paghi di affitto?",
+   "hashtag": "#affitti #casa",
+   "copertina": [
+    "Affitti:",
+    "le città",
+    "più *care*"
+   ],
+   "copertina_numero": "22,5 €/M²",
+   "frasi": [
+    "Affitto medio al metro quadro",
+    "In cima *Milano*: 22,5 euro",
+    "Media italiana: *14,6 euro*",
+    "In fondo *Caltanissetta*: 4,9"
+   ],
+   "numero": 7
+  },
+  {
+   "id": "D08-marvel-top10",
+   "template": "countdown",
+   "fps": 60,
+   "kicker": "MARVEL · INCASSI MONDIALI · MILIONI DI $",
+   "hook": [
+    "Avengers: Doomsday",
+    "deve battere *2,94 miliardi*"
+   ],
+   "voci": [
+    {
+     "n": "Avengers: Endgame",
+     "s": "2019",
+     "v": 2943
+    },
+    {
+     "n": "Spider-Man: Brand New Day",
+     "s": "2026",
+     "v": 2524
+    },
+    {
+     "n": "Avengers: Infinity War",
+     "s": "2018",
+     "v": 2048
+    },
+    {
+     "n": "Spider-Man: No Way Home",
+     "s": "2021",
+     "v": 1921
+    },
+    {
+     "n": "The Avengers",
+     "s": "2012",
+     "v": 1515
+    },
+    {
+     "n": "Avengers: Age of Ultron",
+     "s": "2015",
+     "v": 1395
+    },
+    {
+     "n": "Deadpool & Wolverine",
+     "s": "2024",
+     "v": 1338
+    },
+    {
+     "n": "Black Panther",
+     "s": "2018",
+     "v": 1334
+    },
+    {
+     "n": "Iron Man 3",
+     "s": "2013",
+     "v": 1215
+    },
+    {
+     "n": "Captain America: Civil War",
+     "s": "2016",
+     "v": 1152
+    }
+   ],
+   "nota": "*Avengers: Doomsday* esce in Italia il 16 dicembre. Il record da battere è quello di Endgame.",
+   "domanda": [
+    "Batterà",
+    "*Endgame?*"
+   ],
+   "domanda2": "Scrivi SÌ o NO 👇",
+   "fonte": "THE NUMBERS E BOX OFFICE MOJO (BRAND NEW DAY), INCASSI MONDIALI AL 22/11/2026 · MILIONI DI DOLLARI, RIEDIZIONI INCLUSE · USCITA ITALIA DOOMSDAY: 16/12/2026",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "Avengers: Endgame ha incassato 2,94 miliardi di dollari: è ancora il Marvel più visto di sempre 🎬 Spider-Man: Brand New Day quest'anno è arrivato a 2,52. Doomsday riuscirà a batterlo?",
+   "hashtag": "#marvel #avengers",
+   "copertina": [
+    "I Marvel",
+    "più visti",
+    "di *sempre*"
+   ],
+   "copertina_numero": "2,94 MLD $",
+   "copertina_tema": "vice",
+   "frasi": [
+    "I Marvel più visti di sempre",
+    "Spider-Man quest'anno: *2,52 miliardi*",
+    "In testa resta *Endgame*",
+    "Doomsday esce il *16 dicembre*"
+   ],
+   "numero": 8
+  },
+  {
+   "id": "D09-luce-europa",
+   "template": "asse",
+   "fps": 60,
+   "kicker": "LUCE · FAMIGLIE · 1° SEMESTRE 2026",
+   "hook": [
+    "La luce in Italia",
+    "costa più che in *Francia*"
+   ],
+   "min": 10,
+   "max": 40,
+   "passo": 5,
+   "unita": "cent",
+   "voci": [
+    {
+     "n": "Ungheria",
+     "f": "🇭🇺",
+     "v": 11.4
+    },
+    {
+     "n": "Francia",
+     "f": "🇫🇷",
+     "v": 24.9
+    },
+    {
+     "n": "Spagna",
+     "f": "🇪🇸",
+     "v": 25.1
+    },
+    {
+     "n": "Svezia",
+     "f": "🇸🇪",
+     "v": 30.6
+    },
+    {
+     "n": "Italia",
+     "f": "🇮🇹",
+     "v": 31.4,
+     "focus": true
+    },
+    {
+     "n": "Austria",
+     "f": "🇦🇹",
+     "v": 32.6
+    },
+    {
+     "n": "Belgio",
+     "f": "🇧🇪",
+     "v": 35.8
+    },
+    {
+     "n": "Germania",
+     "f": "🇩🇪",
+     "v": 36.2
+    },
+    {
+     "n": "Irlanda",
+     "f": "🇮🇪",
+     "v": 38.7
+    }
+   ],
+   "media": {
+    "label": "MEDIA UE",
+    "v": 28.3
+   },
+   "messaggio": "In sei mesi da noi la luce è salita del *5,9%*, nella UE è scesa del 2,2%.",
+   "domanda": [
+    "Quanto hai pagato",
+    "l'ultima *bolletta?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "EUROSTAT, PREZZO ELETTRICITÀ FAMIGLIE, 1° SEM. 2026, TASSE INCLUSE (VIA EURONEWS) · CENTESIMI DI EURO PER KWH",
+   "fine": "Seguici per i numeri che parlano di noi.",
+   "didascalia": "In Italia la luce costa 31,4 centesimi al kWh, più della media UE (28,3) e di Francia e Spagna ⚡ E in sei mesi è salita del 5,9%. Quanto hai pagato l'ultima bolletta?",
+   "hashtag": "#bollette #luce",
+   "copertina": [
+    "Luce:",
+    "quanto la",
+    "*paghiamo*"
+   ],
+   "copertina_numero": "31,4 CENT",
+   "frasi": [
+    "Ecco quanto paga una famiglia",
+    "Media UE: *28,3 centesimi*",
+    "Noi *31,4*: sopra Francia e Spagna",
+    "In Germania però costa di più"
+   ],
+   "numero": 9
+  },
+  {
+   "id": "D10-neet-europa",
+   "template": "asse",
+   "fps": 60,
+   "kicker": "GIOVANI 15-29 ANNI · NEET · 2025",
+   "hook": [
+    "13 giovani su 100",
+    "non studiano e *non lavorano*"
+   ],
+   "min": 4,
+   "max": 20,
+   "passo": 2,
+   "unita": "punti",
+   "voci": [
+    {
+     "n": "Paesi Bassi",
+     "f": "🇳🇱",
+     "v": 5.3
+    },
+    {
+     "n": "Svezia",
+     "f": "🇸🇪",
+     "v": 5.9
+    },
+    {
+     "n": "Portogallo",
+     "f": "🇵🇹",
+     "v": 8.0
+    },
+    {
+     "n": "Germania",
+     "f": "🇩🇪",
+     "v": 9.5
+    },
+    {
+     "n": "Belgio",
+     "f": "🇧🇪",
+     "v": 9.8
+    },
+    {
+     "n": "Austria",
+     "f": "🇦🇹",
+     "v": 10.3
+    },
+    {
+     "n": "Croazia",
+     "f": "🇭🇷",
+     "v": 10.8
+    },
+    {
+     "n": "Spagna",
+     "f": "🇪🇸",
+     "v": 11.5
+    },
+    {
+     "n": "Francia",
+     "f": "🇫🇷",
+     "v": 12.9
+    },
+    {
+     "n": "Italia",
+     "f": "🇮🇹",
+     "v": 13.3,
+     "focus": true
+    },
+    {
+     "n": "Grecia",
+     "f": "🇬🇷",
+     "v": 13.6
+    },
+    {
+     "n": "Bulgaria",
+     "f": "🇧🇬",
+     "v": 13.8
+    },
+    {
+     "n": "Romania",
+     "f": "🇷🇴",
+     "v": 19.2
+    }
+   ],
+   "media": {
+    "label": "MEDIA UE",
+    "v": 11.0
+   },
+   "messaggio": "Nel 2015 eravamo al *25,7%*: nessun paese UE è migliorato quanto noi.",
+   "domanda": [
+    "Tu a 20 anni",
+    "studiavi o *lavoravi?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "EUROSTAT, GIOVANI 15-29 ANNI CHE NON STUDIANO E NON LAVORANO (NEET), 2025 · % · FRANCIA E SPAGNA: DEFINIZIONE DIVERSA",
+   "fine": "Seguici per i numeri che parlano di noi.",
+   "didascalia": "In Italia il 13,3% dei giovani tra 15 e 29 anni non studia e non lavora: quarti peggiori in UE 📉 Ma nel 2015 eravamo al 25,7%. Tu a 20 anni studiavi o lavoravi?",
+   "hashtag": "#giovani #lavoro",
+   "copertina": [
+    "Giovani che",
+    "non studiano",
+    "e non *lavorano*"
+   ],
+   "copertina_numero": "13,3%",
+   "frasi": [
+    "Ecco i NEET in Europa",
+    "Media UE: *11%*",
+    "Italia *quarta* dal fondo",
+    "Ma nel 2015 era al *25,7%*"
+   ],
+   "numero": 10
+  },
+  {
+   "id": "D11-serie-a-spettatori",
+   "template": "barre",
+   "fps": 60,
+   "kicker": "SERIE A 2026/27 · SPETTATORI MEDI · MIGLIAIA",
+   "hook": [
+    "Lazio prima in classifica",
+    "ma *ultima* per spettatori"
+   ],
+   "voci": [
+    {
+     "n": "Inter",
+     "v": 75.2
+    },
+    {
+     "n": "Milan",
+     "v": 74.5
+    },
+    {
+     "n": "Roma",
+     "v": 65.7
+    },
+    {
+     "n": "Napoli",
+     "v": 45.1
+    },
+    {
+     "n": "Juventus",
+     "v": 41.0
+    },
+    {
+     "n": "Genoa",
+     "v": 30.7
+    },
+    {
+     "n": "Bologna",
+     "v": 27.6
+    },
+    {
+     "n": "Lecce",
+     "v": 26.2
+    },
+    {
+     "n": "Udinese",
+     "v": 23.6
+    },
+    {
+     "n": "Fiorentina",
+     "v": 22.1
+    },
+    {
+     "n": "Atalanta",
+     "v": 21.3
+    },
+    {
+     "n": "Torino",
+     "v": 21.1
+    },
+    {
+     "n": "Cagliari",
+     "v": 16.1
+    },
+    {
+     "n": "Parma",
+     "v": 15.9
+    },
+    {
+     "n": "Sassuolo",
+     "v": 15.2
+    },
+    {
+     "n": "Frosinone",
+     "v": 13.9
+    },
+    {
+     "n": "Como",
+     "v": 11.5
+    },
+    {
+     "n": "Monza",
+     "v": 11.2
+    },
+    {
+     "n": "Venezia",
+     "v": 11.2
+    },
+    {
+     "n": "Lazio",
+     "v": 10.1
+    }
+   ],
+   "suffisso": " mila",
+   "evidenzia_top": 2,
+   "messaggio": "I tifosi della Lazio stanno protestando contro il presidente *Lotito*.",
+   "domanda": [
+    "Quando sei andato",
+    "allo *stadio?*"
+   ],
+   "domanda2": "Scrivi la tua squadra 👇",
+   "fonte": "TRANSFERMARKT, MEDIA SPETTATORI SERIE A 2026/27 DOPO 11 GIORNATE (21/11/2026) · BIGLIETTI VENDUTI, NON PRESENZE EFFETTIVE",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "La Lazio è prima in classifica ma ha la media spettatori più bassa della Serie A: 10.060 a partita ⚽ L'Inter è a 75.214. Quando sei andato allo stadio l'ultima volta?",
+   "hashtag": "#seriea #lazio",
+   "copertina": [
+    "Serie A:",
+    "gli stadi",
+    "più *pieni*"
+   ],
+   "copertina_numero": "75.214",
+   "frasi": [
+    "Spettatori medi in Serie A",
+    "In cima *Inter e Milan*",
+    "Media del campionato: *29mila*",
+    "Ultima la *Lazio*: 10mila"
+   ],
+   "numero": 11
+  },
+  {
+   "id": "D12-xfactor-ascolti",
+   "template": "countdown",
+   "fps": 60,
+   "kicker": "X FACTOR 2026 · SPETTATORI · MIGLIAIA",
+   "hook": [
+    "X Factor: il live",
+    "più visto è il *primo*"
+   ],
+   "voci": [
+    {
+     "n": "Live 1",
+     "s": "22 ottobre",
+     "v": 918
+    },
+    {
+     "n": "Live 2",
+     "s": "29 ottobre",
+     "v": 844
+    },
+    {
+     "n": "Live 5 · inediti",
+     "s": "19 novembre",
+     "v": 835
+    },
+    {
+     "n": "Live 3",
+     "s": "5 novembre",
+     "v": 833
+    },
+    {
+     "n": "Live 4",
+     "s": "12 novembre",
+     "v": 831
+    }
+   ],
+   "nota": "Il quinto live ha fatto *+14%* rispetto allo stesso live del 2025.",
+   "domanda": [
+    "Chi deve",
+    "*vincere?*"
+   ],
+   "domanda2": "Scrivi il nome 👇",
+   "fonte": "SKY, TOTAL AUDIENCE PRIMA SERATA DEI LIVE DI X FACTOR 2026 (VIA ANSA, SKY TG24, BICCY, TVSERIAL) · MIGLIAIA DI SPETTATORI",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "Il primo live di X Factor 2026 ha fatto 918mila spettatori, il più visto finora 📺 Il quinto, quello degli inediti, +14% sul 2025. Chi deve vincere?",
+   "hashtag": "#xfactor #xf2026",
+   "copertina": [
+    "X Factor:",
+    "il live",
+    "più *visto*"
+   ],
+   "copertina_numero": "918MILA",
+   "copertina_tema": "vice",
+   "frasi": [
+    "Spettatori di ogni live",
+    "Il primo: *918mila*",
+    "Gli inediti: *+14%* sul 2025",
+    "Giovedì la *semifinale*"
+   ],
+   "numero": 12
+  },
+  {
+   "id": "D13-rincari-ottobre",
+   "template": "barre",
+   "fps": 60,
+   "kicker": "PREZZI · OTTOBRE 2026 · RISPETTO A UN ANNO FA",
+   "hook": [
+    "La verdura costa",
+    "il *12,7%* in più"
+   ],
+   "voci": [
+    {
+     "n": "Casa, acqua, luce, gas",
+     "v": 19.2
+    },
+    {
+     "n": "Verdura e legumi",
+     "v": 12.7
+    },
+    {
+     "n": "Trasporti",
+     "v": 9.4
+    },
+    {
+     "n": "Alimentari freschi",
+     "v": 7.5
+    },
+    {
+     "n": "Inflazione generale",
+     "v": 5.5
+    },
+    {
+     "n": "Telefono e internet",
+     "v": 4.3
+    },
+    {
+     "n": "Frutta",
+     "v": 4.2
+    },
+    {
+     "n": "Cibo e bevande",
+     "v": 2.7
+    },
+    {
+     "n": "Pesce",
+     "v": 2.4
+    },
+    {
+     "n": "Carrello della spesa",
+     "v": 2.3
+    }
+   ],
+   "suffisso": "%",
+   "evidenzia_top": 2,
+   "messaggio": "L'inflazione generale è al *5,5%*: poco sopra il livello di agosto 2023.",
+   "domanda": [
+    "Cosa ti è aumentato",
+    "di più al *supermercato?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "ISTAT, PREZZI AL CONSUMO, OTTOBRE 2026, DATI DEFINITIVI (17/11/2026) · VARIAZIONE SU OTTOBRE 2025 · INFLAZIONE GENERALE: INDICE NIC",
+   "fine": "Seguici per i numeri che parlano di noi.",
+   "didascalia": "Verdura e legumi costano il 12,7% in più di un anno fa, casa e bollette il 19,2% 🛒 L'inflazione di ottobre è al 5,5%. Cosa ti è aumentato di più al supermercato?",
+   "hashtag": "#prezzi #spesa",
+   "copertina": [
+    "Cosa è",
+    "*rincarato*",
+    "in un anno"
+   ],
+   "copertina_numero": "+12,7%",
+   "frasi": [
+    "Cosa è rincarato in un anno",
+    "Casa e bollette: *+19,2%*",
+    "Verdura e legumi: *+12,7%*",
+    "Il carrello: *+2,3%*"
+   ],
+   "numero": 13
+  },
+  {
+   "id": "D14-console-record",
+   "template": "countdown",
+   "fps": 60,
+   "kicker": "CONSOLE PIÙ VENDUTE · MILIONI DI UNITÀ",
+   "hook": [
+    "Switch a *meno di 3 milioni*",
+    "dal record della PS2"
+   ],
+   "voci": [
+    {
+     "n": "PlayStation 2",
+     "s": "Sony",
+     "v": 160
+    },
+    {
+     "n": "Nintendo Switch",
+     "s": "Nintendo",
+     "v": 157
+    },
+    {
+     "n": "Nintendo DS",
+     "s": "Nintendo",
+     "v": 154
+    },
+    {
+     "n": "Game Boy",
+     "s": "Nintendo · con Color",
+     "v": 119
+    },
+    {
+     "n": "PlayStation 4",
+     "s": "Sony",
+     "v": 117
+    },
+    {
+     "n": "PlayStation",
+     "s": "Sony",
+     "v": 102
+    },
+    {
+     "n": "Wii",
+     "s": "Nintendo",
+     "v": 102
+    },
+    {
+     "n": "PlayStation 5",
+     "s": "Sony",
+     "v": 98
+    },
+    {
+     "n": "PlayStation 3",
+     "s": "Sony",
+     "v": 87
+    },
+    {
+     "n": "Xbox 360",
+     "s": "Microsoft · stima",
+     "v": 84
+    }
+   ],
+   "nota": "Alla Switch mancano *2,8 milioni* per la PS2. La Switch 2 è già a 26,35 milioni.",
+   "domanda": [
+    "La tua",
+    "*preferita?*"
+   ],
+   "domanda2": "Scrivi il numero in classifica 👇",
+   "fonte": "NINTENDO E SONY, DATI UFFICIALI AL 30/09/2026 · WIKIPEDIA PER PS2, PS1, PS3, PS4, XBOX 360 · UNITÀ SPEDITE, ARROTONDATE",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "La Switch è a 157,2 milioni di console: alla PS2 (160) mancano meno di 3 milioni 🎮 E la Switch 2 è già a 26,35. Qual è la tua preferita della top 10?",
+   "hashtag": "#nintendo #playstation",
+   "copertina": [
+    "Le console",
+    "più vendute",
+    "di *sempre*"
+   ],
+   "copertina_numero": "160 MLN",
+   "copertina_tema": "vice",
+   "frasi": [
+    "Le console più vendute di sempre",
+    "PS5 ottava: *98 milioni*",
+    "Switch a *157 milioni*",
+    "Il record resta della *PS2*"
+   ],
+   "numero": 14
+  },
+  {
+   "id": "D15-ore-lavorate",
+   "template": "classifica3d",
+   "fps": 60,
+   "hook": [
+    "Lavoriamo *384 ore*",
+    "più dei tedeschi"
+   ],
+   "sottotitolo": "ORE LAVORATE IN UN ANNO · <b>2025</b>",
+   "suffisso": " h",
+   "voci": [
+    {
+     "n": "Germania",
+     "f": "🇩🇪",
+     "v": 1332
+    },
+    {
+     "n": "Paesi Bassi",
+     "f": "🇳🇱",
+     "v": 1436
+    },
+    {
+     "n": "Francia",
+     "f": "🇫🇷",
+     "v": 1498
+    },
+    {
+     "n": "Regno Unito",
+     "f": "🇬🇧",
+     "v": 1533
+    },
+    {
+     "n": "Giappone",
+     "f": "🇯🇵",
+     "v": 1598
+    },
+    {
+     "n": "Spagna",
+     "f": "🇪🇸",
+     "v": 1633
+    },
+    {
+     "n": "Italia",
+     "f": "🇮🇹",
+     "v": 1716,
+     "focus": true
+    },
+    {
+     "n": "Polonia",
+     "f": "🇵🇱",
+     "v": 1776
+    },
+    {
+     "n": "Stati Uniti",
+     "f": "🇺🇸",
+     "v": 1800
+    },
+    {
+     "n": "Corea del Sud",
+     "f": "🇰🇷",
+     "v": 1833
+    },
+    {
+     "n": "Grecia",
+     "f": "🇬🇷",
+     "v": 1874
+    },
+    {
+     "n": "Messico",
+     "f": "🇲🇽",
+     "v": 2205
+    }
+   ],
+   "nota": "Contano anche i part-time: in Germania e Olanda sono *molto diffusi*.",
+   "domanda": [
+    "Quante ore",
+    "lavori a *settimana?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "OCSE, ORE EFFETTIVAMENTE LAVORATE PER LAVORATORE, 2025 · STIME, METODI NAZIONALI DIVERSI",
+   "fine": "Seguici per i numeri che parlano di noi.",
+   "didascalia": "Un lavoratore italiano fa in media 1.716 ore l'anno, 384 più di un tedesco ⏱️ In Grecia 1.874, in Messico 2.205. Tu quante ore lavori a settimana?",
+   "hashtag": "#lavoro #europa",
+   "copertina": [
+    "Chi lavora",
+    "*di più*",
+    "in un anno"
+   ],
+   "copertina_numero": "1.716 ORE",
+   "frasi": [
+    "Ore lavorate in un anno",
+    "Germania: *1.332*",
+    "Italia: *1.716*",
+    "In Grecia *ancora di più*"
+   ],
+   "numero": 15
+  },
+  {
+   "id": "D16-iphone-prezzi",
+   "template": "classifica3d",
+   "fps": 60,
+   "hook": [
+    "L'iPhone 18 Pro costa",
+    "*40 euro* più che in Germania"
+   ],
+   "sottotitolo": "PREZZO DI LISTINO · <b>NOVEMBRE 2026</b>",
+   "suffisso": " €",
+   "voci": [
+    {
+     "n": "USA",
+     "f": "🇺🇸",
+     "v": 1091
+    },
+    {
+     "n": "Regno Unito",
+     "f": "🇬🇧",
+     "v": 1432
+    },
+    {
+     "n": "Germania",
+     "f": "🇩🇪",
+     "v": 1449
+    },
+    {
+     "n": "Spagna",
+     "f": "🇪🇸",
+     "v": 1469
+    },
+    {
+     "n": "Francia",
+     "f": "🇫🇷",
+     "v": 1479
+    },
+    {
+     "n": "Paesi Bassi",
+     "f": "🇳🇱",
+     "v": 1479
+    },
+    {
+     "n": "Irlanda",
+     "f": "🇮🇪",
+     "v": 1489
+    },
+    {
+     "n": "Italia",
+     "f": "🇮🇹",
+     "v": 1489,
+     "focus": true
+    },
+    {
+     "n": "Portogallo",
+     "f": "🇵🇹",
+     "v": 1499
+    }
+   ],
+   "nota": "Negli Stati Uniti costa 1.199 dollari, ma *tasse escluse*.",
+   "domanda": [
+    "Lo compreresti",
+    "al *Black Friday?*"
+   ],
+   "domanda2": "Scrivi SÌ o NO 👇",
+   "fonte": "APPLE.COM, PREZZO DI PARTENZA IPHONE 18 PRO AL 22/11/2026 · USA E UK CONVERTITI CON CAMBIO BCE DEL 20/11/2026 · USA TASSE ESCLUSE",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "In Italia l'iPhone 18 Pro parte da 1.489 euro, in Germania da 1.449 📱 Negli USA 1.199 dollari, ma tasse escluse. Lo compreresti al Black Friday?",
+   "hashtag": "#iphone #blackfriday",
+   "copertina": [
+    "iPhone 18 Pro:",
+    "dove costa",
+    "*meno*"
+   ],
+   "copertina_numero": "1.489 €",
+   "copertina_tema": "vice",
+   "frasi": [
+    "Prezzo dell'iPhone 18 Pro",
+    "Germania: *1.449 euro*",
+    "Italia: *1.489*",
+    "USA *1.091*, ma tasse escluse"
+   ],
+   "numero": 16
+  },
+  {
+   "id": "D17-gas-europa",
+   "template": "asse",
+   "fps": 60,
+   "kicker": "GAS · FAMIGLIE · 1° SEMESTRE 2026",
+   "hook": [
+    "Il gas in Italia",
+    "è sceso del *23%*"
+   ],
+   "min": 0,
+   "max": 24,
+   "passo": 4,
+   "unita": "cent",
+   "voci": [
+    {
+     "n": "Ungheria",
+     "f": "🇭🇺",
+     "v": 3.3
+    },
+    {
+     "n": "Spagna",
+     "f": "🇪🇸",
+     "v": 7.9
+    },
+    {
+     "n": "Italia",
+     "f": "🇮🇹",
+     "v": 11.4,
+     "focus": true
+    },
+    {
+     "n": "Germania",
+     "f": "🇩🇪",
+     "v": 11.6
+    },
+    {
+     "n": "Austria",
+     "f": "🇦🇹",
+     "v": 12.4
+    },
+    {
+     "n": "Portogallo",
+     "f": "🇵🇹",
+     "v": 12.6
+    },
+    {
+     "n": "Francia",
+     "f": "🇫🇷",
+     "v": 13.5
+    },
+    {
+     "n": "Paesi Bassi",
+     "f": "🇳🇱",
+     "v": 16.2
+    },
+    {
+     "n": "Svezia",
+     "f": "🇸🇪",
+     "v": 22.0
+    }
+   ],
+   "media": {
+    "label": "MEDIA UE",
+    "v": 11.0
+   },
+   "messaggio": "In sei mesi da noi il gas è sceso del *23,2%*: il calo più forte della UE.",
+   "domanda": [
+    "La tua bolletta",
+    "è *scesa?*"
+   ],
+   "domanda2": "Scrivi SÌ o NO 👇",
+   "fonte": "EUROSTAT, PREZZO GAS FAMIGLIE, 1° SEM. 2026, TASSE INCLUSE (VIA EURONEWS) · CENTESIMI PER KWH · CALO RISPETTO AL 2° SEM. 2025",
+   "fine": "Seguici per i numeri che parlano di noi.",
+   "didascalia": "Nel primo semestre 2026 il gas per le famiglie italiane è sceso del 23,2%, il calo più forte della UE 🔥 Oggi paghiamo 11,4 centesimi al kWh, la media UE è 11. La tua bolletta è scesa?",
+   "hashtag": "#bollette #gas",
+   "copertina": [
+    "Gas:",
+    "l'Italia",
+    "*scende*"
+   ],
+   "copertina_numero": "-23,2%",
+   "frasi": [
+    "Ecco quanto paga una famiglia",
+    "Media UE: *11 centesimi*",
+    "Italia appena sopra: *11,4*",
+    "Ma è il calo *più forte*"
+   ],
+   "numero": 17
+  },
+  {
+   "id": "D18-film-italia-2026",
+   "template": "barre",
+   "fps": 60,
+   "kicker": "CINEMA · INCASSI IN ITALIA NEL 2026 · MILIONI DI $",
+   "hook": [
+    "Al cinema nel 2026",
+    "vince *The Odyssey*"
+   ],
+   "voci": [
+    {
+     "n": "The Odyssey",
+     "v": 67.7
+    },
+    {
+     "n": "Buen Camino",
+     "v": 46.3
+    },
+    {
+     "n": "Spider-Man: Brand New Day",
+     "v": 39.2
+    },
+    {
+     "n": "Il diavolo veste Prada 2",
+     "v": 34.5
+    },
+    {
+     "n": "Michael",
+     "v": 28.9
+    },
+    {
+     "n": "Super Mario Galaxy",
+     "v": 15.4
+    },
+    {
+     "n": "Cime tempestose",
+     "v": 12.9
+    },
+    {
+     "n": "Oceania",
+     "v": 11.9
+    },
+    {
+     "n": "Toy Story 5",
+     "v": 10.7
+    },
+    {
+     "n": "Avatar: Fuoco e cenere",
+     "v": 9.9
+    }
+   ],
+   "suffisso": " mln $",
+   "evidenzia_top": 1,
+   "messaggio": "Contando anche dicembre 2025, *Buen Camino* di Zalone arriva a 88,6 milioni.",
+   "domanda": [
+    "Quale hai visto",
+    "al *cinema?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "BOX OFFICE MOJO, INCASSI IN ITALIA NELL'ANNO 2026, AL 22/11/2026 · MILIONI DI DOLLARI",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "The Odyssey è il film che ha incassato di più in Italia nel 2026: 67,7 milioni di dollari 🎬 Secondo Zalone, terzo Spider-Man. Tu quale hai visto al cinema?",
+   "hashtag": "#cinema #film",
+   "copertina": [
+    "I film",
+    "più visti",
+    "del *2026*"
+   ],
+   "copertina_numero": "67,7 MLN $",
+   "copertina_tema": "vice",
+   "frasi": [
+    "Incassi in Italia nel 2026",
+    "Primo *The Odyssey*",
+    "Zalone *secondo*, Spider-Man terzo"
+   ],
+   "numero": 18
+  },
+  {
+   "id": "D19-skipass",
+   "template": "classifica3d",
+   "fps": 60,
+   "hook": [
+    "Un giorno sugli sci",
+    "costa fino a *89 euro*"
+   ],
+   "sottotitolo": "SKIPASS GIORNALIERO ADULTO · <b>2026/27</b>",
+   "suffisso": " €",
+   "voci": [
+    {
+     "n": "Champorcher",
+     "f": "⛷️",
+     "v": 36
+    },
+    {
+     "n": "Limone",
+     "f": "⛷️",
+     "v": 48
+    },
+    {
+     "n": "Bardonecchia",
+     "f": "⛷️",
+     "v": 52
+    },
+    {
+     "n": "Friuli VG",
+     "f": "⛷️",
+     "v": 55
+    },
+    {
+     "n": "Madesimo",
+     "f": "⛷️",
+     "v": 59
+    },
+    {
+     "n": "Via Lattea",
+     "f": "⛷️",
+     "v": 60
+    },
+    {
+     "n": "Bormio",
+     "f": "⛷️",
+     "v": 65
+    },
+    {
+     "n": "Courmayeur",
+     "f": "⛷️",
+     "v": 75
+    },
+    {
+     "n": "Alta Badia",
+     "f": "⛷️",
+     "v": 83
+    },
+    {
+     "n": "Cortina",
+     "f": "⛷️",
+     "v": 84,
+     "focus": true
+    },
+    {
+     "n": "Cervinia",
+     "f": "⛷️",
+     "v": 88
+    },
+    {
+     "n": "Dolomiti Superski",
+     "f": "⛷️",
+     "v": 89
+    }
+   ],
+   "nota": "Nel 2021/22 la media era *52 euro*, oggi è 70: +33%.",
+   "domanda": [
+    "Dove vai",
+    "a *sciare?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "ALTROCONSUMO, SKIPASS GIORNALIERO ADULTO ALTA STAGIONE 2026/27 (18/11/2026) · PREZZI ALLA CASSA · DOLOMITI SUPERSKI VENETO",
+   "fine": "Seguici per i numeri che parlano di noi.",
+   "didascalia": "Quest'inverno un giorno sugli sci costa fino a 89 euro, a Cortina 84 ⛷️ Cinque stagioni fa la media era 52 euro, oggi 70. Dove vai a sciare?",
+   "hashtag": "#sci #montagna",
+   "copertina": [
+    "Skipass:",
+    "quanto costa",
+    "*sciare*"
+   ],
+   "copertina_numero": "89 €",
+   "frasi": [
+    "Skipass giornaliero quest'inverno",
+    "Cortina: *84 euro*",
+    "In cima le *Dolomiti*: 89",
+    "*+33%* in cinque stagioni"
+   ],
+   "numero": 19
+  },
+  {
+   "id": "D20-spiderman-record",
+   "template": "hype",
+   "fps": 60,
+   "kicker": "IL FILM PIÙ VISTO DEL 2026",
+   "titolo": "SPIDER-MAN",
+   "valore": 2523728253,
+   "etichetta": "incassati *nel mondo*",
+   "confronti": [
+    {
+     "n": "No Way Home",
+     "sub": "Spider-Man · 2021",
+     "v": 1921206586
+    },
+    {
+     "n": "Infinity War",
+     "sub": "Avengers · 2018",
+     "v": 2048158241
+    },
+    {
+     "n": "Brand New Day",
+     "sub": "Spider-Man · 2026",
+     "v": 2523728253
+    }
+   ],
+   "volte": [
+    [
+     "1,2",
+     "Infinity War"
+    ],
+    [
+     "1,3",
+     "No Way Home"
+    ]
+   ],
+   "domanda": [
+    "L'hai visto",
+    "al *cinema?*"
+   ],
+   "domanda2": "Scrivi SÌ o NO 👇",
+   "fonte": "BOX OFFICE MOJO, INCASSI MONDIALI AL 22/11/2026 · THE NUMBERS (NO WAY HOME, INFINITY WAR)",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "Spider-Man: Brand New Day ha incassato 2,52 miliardi di dollari: è il film più visto del 2026 🕷️ Più di No Way Home e di Avengers: Infinity War. L'hai visto al cinema?",
+   "hashtag": "#spiderman #marvel",
+   "copertina": [
+    "Spider-Man:",
+    "il film",
+    "più *visto*",
+    "del 2026"
+   ],
+   "copertina_numero": "2,52 MLD $",
+   "copertina_tema": "vice",
+   "frasi": [
+    "Prima, il record di *No Way Home*",
+    "Poi *Infinity War*",
+    "Ora *Brand New Day*: 2,52 miliardi"
+   ],
+   "numero": 20
+  },
+  {
+   "id": "D21-inflazione-europa",
+   "template": "asse",
+   "fps": 60,
+   "kicker": "INFLAZIONE · OTTOBRE 2026 · SU UN ANNO PRIMA",
+   "hook": [
+    "Prezzi: l'Italia corre",
+    "più dell'*Europa*"
+   ],
+   "min": 0,
+   "max": 8,
+   "passo": 1,
+   "unita": "punti",
+   "voci": [
+    {
+     "n": "Svezia",
+     "f": "🇸🇪",
+     "v": 0.6
+    },
+    {
+     "n": "Germania",
+     "f": "🇩🇪",
+     "v": 2.9
+    },
+    {
+     "n": "Paesi Bassi",
+     "f": "🇳🇱",
+     "v": 3.3
+    },
+    {
+     "n": "Francia",
+     "f": "🇫🇷",
+     "v": 3.7
+    },
+    {
+     "n": "Spagna",
+     "f": "🇪🇸",
+     "v": 4.9
+    },
+    {
+     "n": "Belgio",
+     "f": "🇧🇪",
+     "v": 5.2
+    },
+    {
+     "n": "Italia",
+     "f": "🇮🇹",
+     "v": 5.6,
+     "focus": true
+    },
+    {
+     "n": "Grecia",
+     "f": "🇬🇷",
+     "v": 5.7
+    },
+    {
+     "n": "Bulgaria",
+     "f": "🇧🇬",
+     "v": 5.9
+    },
+    {
+     "n": "Lituania",
+     "f": "🇱🇹",
+     "v": 6.1
+    },
+    {
+     "n": "Romania",
+     "f": "🇷🇴",
+     "v": 7.0
+    }
+   ],
+   "media": {
+    "label": "EUROZONA",
+    "v": 4.0
+   },
+   "messaggio": "Un anno fa l'Italia era all'*1,3%*. Ora è al 5,6%.",
+   "domanda": [
+    "Il tuo stipendio",
+    "è salito *così?*"
+   ],
+   "domanda2": "Scrivi SÌ o NO 👇",
+   "fonte": "EUROSTAT, INFLAZIONE ARMONIZZATA (HICP) SU BASE ANNUA, OTTOBRE 2026 (18/11/2026) · %",
+   "fine": "Seguici per i numeri che parlano di noi.",
+   "didascalia": "A ottobre i prezzi in Italia sono saliti del 5,6% in un anno, contro il 4% dell'Eurozona 📈 Un anno fa eravamo all'1,3%. Il tuo stipendio è salito così?",
+   "hashtag": "#inflazione #prezzi",
+   "copertina": [
+    "Prezzi:",
+    "l'Italia",
+    "*corre*"
+   ],
+   "copertina_numero": "5,6%",
+   "frasi": [
+    "L'inflazione di ottobre in Europa",
+    "Eurozona: *4%*",
+    "Italia: *5,6%*",
+    "Un anno fa: *1,3%*"
+   ],
+   "numero": 21
   }
  ]
 }
