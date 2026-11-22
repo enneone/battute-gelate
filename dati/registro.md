@@ -19,3 +19,16 @@
 - Da ricontrollare prima del render: D11 (Transfermarkt si aggiorna dopo ogni giornata), D16 (prezzi Apple possono cambiare col Black Friday), D18/D20 (incassi in aggiornamento).
 - Scartati perché non verificabili oggi: tredicesima 2026 (stime non ancora uscite, quelle trovate erano del 2025), spesa di Natale per paese (nessuna indagine 2026 con dati per paese), Hunger Games (weekend non ancora definitivo). I template `punti` e `hype` non reggono percentuali o valori non in dollari: per Black Friday e regali di Natale servirebbe un template adatto.
 - Statistiche ultimi 14 giorni (contenuti vecchi Battute Gelate, i Reel dati non sono ancora usciti): migliore la pressa idraulica del 21/11 (1.399 visualizzazioni, 63,9% oltre i 3 secondi); quasi zero condivisioni, salvataggi e commenti su tutto. Lezione applicata: movimento forte dal primo fotogramma e gancio con un numero; domande finali facili da commentare (SÌ/NO, la tua squadra, il tuo affitto).
+
+## 22 novembre 2026 (mezzogiorno): render e programmazione 24-28/11
+- Renderizzati D07-D21 e P03-P07 (60 fps, musica e suoni). Controllati i fotogrammi di tutti i Reel.
+- Corretti i template prima del render: la 4ª frase non compariva in 13 Reel (ora `asse` e `barre` ne mostrano 4; `countdown` e `classifica3d` legano ogni frase a una voce con `frasi_at`); suffisso del countdown che andava a capo; nel countdown la riga del primo si sovrapponeva al secondo per un attimo; barre che si adattano al numero di voci (righe più alte, nomi lunghi rimpiccioliti, spazio per l'etichetta del valore); scala di `asse` abbassata sotto il gancio; in `classifica3d` etichette del focus e del primo non più sovrapposte quando sono vicine.
+- D11: tolta dal gancio e dalla didascalia "Lazio prima in classifica" (dopo la 12ª giornata può cambiare prima del 25/11); nuovo gancio "Inter 75mila a partita, la Lazio 10mila". D19: "+33% in cinque stagioni" confermato da Teleborsa 18/11/2026 (dati Altroconsumo).
+- Programmati su Metricool (blogId 7845959), 4 al giorno, nessuna bozza rimasta:
+  - 24/11: 12:30 D07 affitti · 15:00 P03 pressa frutta · 18:30 D08 Marvel · 21:15 D09 luce
+  - 25/11: 12:30 D10 NEET · 15:00 P04 pressa uovo · 18:30 D11 stadi Serie A · 21:15 D12 X Factor
+  - 26/11: 12:30 D13 rincari · 15:00 P05 pressa smartphone · 18:30 D14 console · 21:15 D15 ore lavorate
+  - 27/11: 12:30 D16 iPhone · 15:00 P06 pressa budino · 18:30 D17 gas · 21:15 D18 film 2026
+  - 28/11: 12:30 D19 skipass · 15:00 P07 pressa mix · 18:30 D20 Spider-Man · 21:15 D21 inflazione
+- Video dal commit ff6aaaa (24/11) e 4d27b07 (dal D11 in poi).
+- Prossimo rifornimento: dal 29/11. Prima analisi vera dei Reel di dati appena escono i primi (22-23/11).
