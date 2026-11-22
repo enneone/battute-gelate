@@ -741,7 +741,8 @@
     "In testa resta *Endgame*",
     "Doomsday esce il *16 dicembre*"
    ],
-   "numero": 8
+   "numero": 8,
+   "suffisso": " mln $"
   },
   {
    "id": "D09-luce-europa",
@@ -1117,7 +1118,8 @@
     "Gli inediti: *+14%* sul 2025",
     "Giovedì la *semifinale*"
    ],
-   "numero": 12
+   "numero": 12,
+   "suffisso": "mila"
   },
   {
    "id": "D13-rincari-ottobre",
@@ -1280,7 +1282,8 @@
     "Switch a *157 milioni*",
     "Il record resta della *PS2*"
    ],
-   "numero": 14
+   "numero": 14,
+   "suffisso": " mln"
   },
   {
    "id": "D15-ore-lavorate",
@@ -1882,6 +1885,230 @@
     "Un anno fa: *1,3%*"
    ],
    "numero": 21
+  },
+  {
+   "id": "P01-pressa-tech",
+   "template": "pressa",
+   "numero": 22,
+   "fps": 60,
+   "hook": [
+    "Cosa resiste alla",
+    "*pressa idraulica*?"
+   ],
+   "oggetti": [
+    "uovo",
+    "telefono",
+    "pallina",
+    "lattina",
+    "cellulare"
+   ],
+   "domanda": [
+    "Cosa mettiamo",
+    "sotto la *pressa?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "",
+   "fine": "Seguici: ogni giorno una nuova prova.",
+   "didascalia": "Uovo, smartphone, pallina antistress, lattina… e poi il vecchio cellulare 💥 Cosa mettiamo sotto la pressa la prossima volta? Scrivilo nei commenti 👇",
+   "hashtag": "#pressaidraulica #satisfying",
+   "copertina": [
+    "Cosa resiste",
+    "alla *pressa?*"
+   ],
+   "copertina_numero": "5 PROVE",
+   "copertina_kicker": "LA PRESSA"
+  },
+  {
+   "id": "P02-pressa-natale",
+   "template": "pressa",
+   "numero": 23,
+   "fps": 60,
+   "hook": [
+    "Il panettone resiste",
+    "alla *pressa?*"
+   ],
+   "oggetti": [
+    "pomodoro",
+    "panettone",
+    "budino",
+    "pallina_natale",
+    "cellulare"
+   ],
+   "domanda": [
+    "Cosa mettiamo",
+    "sotto la *pressa?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "",
+   "fine": "Seguici: ogni giorno una nuova prova.",
+   "didascalia": "Edizione Natale: pomodoro, panettone, budino e pallina dell'albero 🎄 E poi il vecchio cellulare… Cosa mettiamo sotto la pressa la prossima volta?",
+   "hashtag": "#pressaidraulica #satisfying",
+   "copertina": [
+    "Il panettone",
+    "resiste alla *pressa?*"
+   ],
+   "copertina_numero": "5 PROVE",
+   "copertina_kicker": "LA PRESSA"
+  },
+  {
+   "id": "P03-pressa-frutta",
+   "template": "pressa",
+   "numero": 24,
+   "fps": 60,
+   "hook": [
+    "Anguria contro",
+    "*pressa idraulica*"
+   ],
+   "oggetti": [
+    "anguria",
+    "lattina",
+    "pallina",
+    "telefono",
+    "cellulare"
+   ],
+   "domanda": [
+    "Cosa mettiamo",
+    "sotto la *pressa?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "",
+   "fine": "Seguici: ogni giorno una nuova prova.",
+   "didascalia": "Anguria, lattina, pallina antistress, smartphone… e il boss finale 💥 Cosa mettiamo sotto la pressa domani?",
+   "hashtag": "#pressaidraulica #satisfying",
+   "copertina": [
+    "Anguria",
+    "contro *pressa*"
+   ],
+   "copertina_numero": "5 PROVE",
+   "copertina_kicker": "LA PRESSA"
+  },
+  {
+   "id": "P04-pressa-uovo",
+   "template": "pressa",
+   "numero": 25,
+   "fps": 60,
+   "hook": [
+    "Indovina cosa",
+    "*resiste*"
+   ],
+   "oggetti": [
+    "uovo",
+    "pallina_natale",
+    "panettone",
+    "budino",
+    "cellulare"
+   ],
+   "domanda": [
+    "Cosa mettiamo",
+    "sotto la *pressa?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "",
+   "fine": "Seguici: ogni giorno una nuova prova.",
+   "didascalia": "Quanti ne hai indovinati prima del verdetto? 👀 E il vecchio cellulare vince ancora… Cosa mettiamo sotto la pressa?",
+   "hashtag": "#pressaidraulica #satisfying",
+   "copertina": [
+    "Indovina cosa",
+    "*resiste*"
+   ],
+   "copertina_numero": "5 PROVE",
+   "copertina_kicker": "LA PRESSA"
+  },
+  {
+   "id": "P05-pressa-smartphone",
+   "template": "pressa",
+   "numero": 26,
+   "fps": 60,
+   "hook": [
+    "Lo smartphone",
+    "contro la *pressa*"
+   ],
+   "oggetti": [
+    "pomodoro",
+    "telefono",
+    "lattina",
+    "pallina",
+    "cellulare"
+   ],
+   "domanda": [
+    "Cosa mettiamo",
+    "sotto la *pressa?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "",
+   "fine": "Seguici: ogni giorno una nuova prova.",
+   "didascalia": "Smartphone nuovo contro cellulare vecchio: chi vince sotto la pressa? 📱💥 Scrivi cosa vuoi vedere la prossima volta",
+   "hashtag": "#pressaidraulica #satisfying",
+   "copertina": [
+    "Smartphone",
+    "contro *pressa*"
+   ],
+   "copertina_numero": "5 PROVE",
+   "copertina_kicker": "LA PRESSA"
+  },
+  {
+   "id": "P06-pressa-budino",
+   "template": "pressa",
+   "numero": 27,
+   "fps": 60,
+   "hook": [
+    "Il budino resiste",
+    "alla *pressa?*"
+   ],
+   "oggetti": [
+    "anguria",
+    "budino",
+    "uovo",
+    "panettone",
+    "cellulare"
+   ],
+   "domanda": [
+    "Cosa mettiamo",
+    "sotto la *pressa?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "",
+   "fine": "Seguici: ogni giorno una nuova prova.",
+   "didascalia": "Il budino resiste o no? Scrivilo prima del verdetto 👇 E poi arriva il boss finale…",
+   "hashtag": "#pressaidraulica #satisfying",
+   "copertina": [
+    "Il budino",
+    "*resiste?*"
+   ],
+   "copertina_numero": "5 PROVE",
+   "copertina_kicker": "LA PRESSA"
+  },
+  {
+   "id": "P07-pressa-mix",
+   "template": "pressa",
+   "numero": 28,
+   "fps": 60,
+   "hook": [
+    "5 oggetti contro",
+    "una *pressa*"
+   ],
+   "oggetti": [
+    "pallina_natale",
+    "lattina",
+    "pomodoro",
+    "pallina",
+    "cellulare"
+   ],
+   "domanda": [
+    "Cosa mettiamo",
+    "sotto la *pressa?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "",
+   "fine": "Seguici: ogni giorno una nuova prova.",
+   "didascalia": "5 oggetti contro una pressa idraulica: quanti ne hai indovinati? 💥 Cosa mettiamo sotto la prossima volta?",
+   "hashtag": "#pressaidraulica #satisfying",
+   "copertina": [
+    "5 oggetti",
+    "contro una *pressa*"
+   ],
+   "copertina_numero": "5 PROVE",
+   "copertina_kicker": "LA PRESSA"
   }
  ]
 }

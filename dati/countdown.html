@@ -12,7 +12,7 @@
   .it .tx { flex: 1; min-width: 0; }
   .it .n { font-family: "Shoulders"; font-weight: 700; font-size: 44px; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1; }
   .it .s { font-family: "Geist"; font-size: 20px; color: #8B8B99; letter-spacing: 2px; margin-top: 6px; text-transform: uppercase; }
-  .it .sc { width: 96px; height: 70px; border-radius: 14px; display: grid; place-items: center; font-family: "Geist"; font-weight: 700; font-size: 38px; background: #F4F4F6; color: #0B0B10; }
+  .it .sc { min-width: 96px; padding: 0 16px; height: 70px; white-space: nowrap; border-radius: 14px; display: grid; place-items: center; font-family: "Geist"; font-weight: 700; font-size: 38px; background: #F4F4F6; color: #0B0B10; }
   .it.gold { background: linear-gradient(90deg, rgba(200,255,46,.22), rgba(200,255,46,.06)); border-color: rgba(200,255,46,.6); box-shadow: 0 0 60px rgba(200,255,46,.25); }
   .it.gold .r { color: #C8FF2E; }
   .it .sc.top { background: #C8FF2E; box-shadow: 0 0 30px rgba(200,255,46,.6); }
@@ -36,7 +36,7 @@ function setup(reel, handle) {
   IT = reel.voci; // in ordine dal primo al decimo
   const n = IT.length, best = Math.max(...IT.map(x => x.v));
   $('list').innerHTML = IT.map((it, i) => `<div class="it${i === 0 ? ' gold' : ''}" style="top:${i * ROWH}px"><div class="r">#${i + 1}</div>
-    <div class="tx"><div class="n">${it.n}</div><div class="s">${it.s || ''}</div></div><div class="sc${it.v === best ? ' top' : ''}">${it.v}</div></div>`).join('');
+    <div class="tx"><div class="n">${it.n}</div><div class="s">${it.s || ''}</div></div><div class="sc${it.v === best ? ' top' : ''}">${fmt(it.v)}${reel.suffisso ? '<small style="font-size:.55em">' + reel.suffisso + '</small>' : ''}</div></div>`).join('');
   T.start = 1.2; T.end = T.start + n * STEP; T.note = T.end + 0.6; T.q = T.note + 2.6; ENDS = T.q + 2.6;
   setFrasi([T.start + 3 * STEP, T.start + (n - 1) * STEP, T.note]);
   const s = [{ t: 0.02, k: 'hit' }];
@@ -57,7 +57,7 @@ function setTime(t) {
     big.style.display = 'block';
     big.querySelector('.r').textContent = '#' + (idx + 1);
     big.querySelector('.n').textContent = it.n; big.querySelector('.n').style.fontSize = (it.n.length > 16 ? 110 : 150) + 'px';
-    big.querySelector('.sc').textContent = it.v;
+    big.querySelector('.sc').innerHTML = fmt(it.v) + (R.suffisso ? '<small style="font-size:.5em">' + R.suffisso + '</small>' : '');
     big.querySelector('.sc').style.background = idx === 0 ? '#C8FF2E' : '#F4F4F6';
     const last = idx === 0, hold = last ? 0 : outP;
     big.style.opacity = inP * (1 - hold); big.style.transform = `scale(${(0.85 + 0.15 * back(lt / 0.3)) * (1 - 0.3 * hold)}) translateY(${hold * 200}px)`;

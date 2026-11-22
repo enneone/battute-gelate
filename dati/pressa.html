@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<script src="base.js"></script>
+<style>
+  /* LA PRESSA: oggetti sotto una pressa idraulica, uno alla volta. Chi guarda indovina se resistono. */
+  #cv { position: absolute; left: 0; top: 0; z-index: 5; }
+</style>
+</head>
+<body>
+  <canvas id="cv" width="1080" height="1920"></canvas>
+<script>
+const BASE = 1450, REST = 700, PL_W = 700, PL_H = 104, CX = 540;
+let R, O = [], ENDS = 0, T = {};
+// Oggetti: h altezza, col colore dei pezzi, mode = cosa succede (splat, molla, piatto, vetro, resiste)
+const KIND = {
+  uovo: { h: 280, col: '#FFD93D', mode: 'splat', nome: 'Un uovo' },
+  anguria: { h: 300, col: '#FF4F6A', mode: 'splat', nome: "Un'anguria" },
+  pomodoro: { h: 250, col: '#FF3B30', mode: 'splat', nome: 'Un pomodoro' },
+  pallina: { h: 270, col: '#FF5B4A', mode: 'molla', nome: 'Una pallina antistress' },
+  budino: { h: 250, col: '#C8742B', mode: 'molla', nome: 'Un budino' },
+  telefono: { h: 360, col: '#7FA0FF', mode: 'vetro', nome: 'Uno smartphone' },
+  panettone: { h: 300, col: '#E8B04A', mode: 'splat', nome: 'Un panettone' },
+  pallina_natale: { h: 260, col: '#FF3B30', mode: 'vetro', nome: 'Una pallina di Natale' },
+  lattina: { h: 330, col: '#C8FF2E', mode: 'piatto', nome: 'Una lattina' },
+  cellulare: { h: 300, col: '#9AA0B4', mode: 'resiste', nome: 'Il vecchio cellulare' }
+};
+
+function setup(reel, handle) {
+  R = reel; base(reel, handle);
+  if (!reel.frasi) reel.frasi = reel.oggetti.map((k, i) => (KIND[k].mode === 'resiste' ? 'E infine... *' + KIND[k].nome.toLowerCase() + '*' : `${i + 1}. *${KIND[k].nome}*`));
+  hookBlock(reel);
+  let t = 0.25; const s = [{ t: 0.02, k: 'hit' }];
+  reel.oggetti.forEach((k, i) => {
+    const K = KIND[k], fin = K.mode === 'resiste';
+    const o = { i, k, ...K, start: t, down: t + (i === 0 ? 1.9 : 1.0) };
+    o.contact = o.down + 0.7; o.crush = o.contact + 0.28; o.up = o.crush + 0.4; o.end = fin ? o.contact + 2.6 : o.up + 0.6;
+    O.push(o);
+    s.push({ t: o.start + 0.25, k: 'pop' }, { t: o.down, k: 'riser' });
+    if (K.mode === 'splat') s.push({ t: o.contact + 0.1, k: 'impact' }, { t: o.contact + 0.12, k: 'hit' });
+    else if (K.mode === 'vetro') s.push({ t: o.contact + 0.08, k: 'ding' }, { t: o.contact + 0.1, k: 'impact' }, { t: o.contact + 0.1, k: 'hit' });
+    else if (K.mode === 'piatto') s.push({ t: o.contact + 0.05, k: 'impact' }, { t: o.contact + 0.25, k: 'hit' });
+    else if (K.mode === 'molla') s.push({ t: o.contact + 0.1, k: 'buzz' }, { t: o.up + 0.1, k: 'n4' }, { t: o.up + 0.22, k: 'n6' });
+    else s.push({ t: o.contact, k: 'hit' }, { t: o.contact + 0.6, k: 'buzz' }, { t: o.contact + 1.0, k: 'impact' }, { t: o.contact + 1.02, k: 'hit' });
+    t = o.end;
+  });
+  T.q = t + 0.2; ENDS = T.q + 2.6;
+  setFrasi(O.map((o, i) => i === 0 ? o.start + 1.5 : o.start));
+  s.push({ t: T.q, k: 'whoosh' }, { t: ENDS, k: 'whoosh' });
+  return { duration: ENDS + END_LEN, sounds: s };
+}
+
+const cv = $('cv'), cx = cv.getContext('2d');
+function metal(x, y, w, h, r, light) {
+  const g = cx.createLinearGradient(x, y, x, y + h);
+  if (light) { g.addColorStop(0, '#9AA0B4'); g.addColorStop(0.5, '#4B5064'); g.addColorStop(1, '#23252F'); }
+  else { g.addColorStop(0, '#3A3C48'); g.addColorStop(1, '#15161C'); }
+  cx.fillStyle = g; cx.beginPath(); cx.roundRect(x, y, w, h, r); cx.fill();
+  cx.strokeStyle = 'rgba(255,255,255,.18)'; cx.lineWidth = 2; cx.stroke();
+}
+function hazard(x, y, w, h) {
+  cx.save(); cx.beginPath(); cx.roundRect(x, y, w, h, 6); cx.clip();
+  cx.fillStyle = '#C8FF2E'; cx.fillRect(x, y, w, h); cx.fillStyle = '#0B0B10';
+  for (let k = -h; k < w; k += 48) { cx.beginPath(); cx.moveTo(x + k, y + h); cx.lineTo(x + k + 24, y + h); cx.lineTo(x + k + 24 + h, y); cx.lineTo(x + k + h, y); cx.fill(); }
+  cx.restore();
+}
+function glossy(x, y, rx, ry, col, glow) {
+  cx.save(); cx.shadowColor = col; cx.shadowBlur = glow || 30; cx.beginPath(); cx.ellipse(x, y, rx, ry, 0, 0, 6.2832); cx.fillStyle = col; cx.fill(); cx.restore();
+  const g = cx.createRadialGradient(x - rx * .35, y - ry * .45, 2, x, y, Math.max(rx, ry));
+  g.addColorStop(0, 'rgba(255,255,255,.8)'); g.addColorStop(.3, 'rgba(255,255,255,.08)'); g.addColorStop(1, 'rgba(0,0,0,.35)');
+  cx.beginPath(); cx.ellipse(x, y, rx, ry, 0, 0, 6.2832); cx.fillStyle = g; cx.fill();
+}
+function drawObj(o, sq, t) { // sq: 0 intatto, 1 schiacciato
+  const h = o.h * (1 - sq * 0.86), w = o.h * (1 + sq * 1.2), y = BASE - h / 2, k = o.k;
+  if (k === 'uovo') glossy(CX, y, w * 0.38, h * 0.5, '#F4EFE6', 20);
+  else if (k === 'anguria') { glossy(CX, y, w * 0.55, h * 0.5, '#2FA84F'); cx.strokeStyle = 'rgba(10,60,20,.55)'; cx.lineWidth = 10;
+    for (let q = -2; q <= 2; q++) { cx.beginPath(); cx.ellipse(CX + q * w * 0.12, y, w * 0.06, h * 0.48, 0, 0, 6.2832); cx.stroke(); } }
+  else if (k === 'pallina' || k === 'pomodoro') { glossy(CX, y, w * 0.5, h * 0.5, o.col);
+    if (k === 'pomodoro') { cx.fillStyle = '#2FA84F'; cx.beginPath(); cx.ellipse(CX, y - h * 0.5, 40, 14, 0, 0, 6.2832); cx.fill(); } }
+  else if (k === 'pallina_natale') { glossy(CX, y + h * 0.05, w * 0.45, h * 0.45, o.col, 50); metal(CX - 34, y - h * 0.5 - 10, 68, 44, 8, true); }
+  else if (k === 'budino') { cx.save(); cx.shadowColor = o.col; cx.shadowBlur = 30; cx.fillStyle = o.col; cx.beginPath();
+    cx.moveTo(CX - w * 0.32, y - h / 2); cx.lineTo(CX + w * 0.32, y - h / 2); cx.lineTo(CX + w * 0.5, y + h / 2); cx.lineTo(CX - w * 0.5, y + h / 2); cx.closePath(); cx.fill(); cx.restore();
+    cx.fillStyle = '#5A2E0E'; cx.beginPath(); cx.ellipse(CX, y - h / 2, w * 0.32, 22 * (1 - sq * .7), 0, 0, 6.2832); cx.fill(); }
+  else if (k === 'panettone') { const g = cx.createLinearGradient(0, y - h / 2, 0, y + h / 2); g.addColorStop(0, '#B8742A'); g.addColorStop(1, '#6B3E12');
+    cx.fillStyle = g; cx.beginPath(); cx.ellipse(CX, y - h * 0.12, w * 0.48, h * 0.4, 0, Math.PI, 0); cx.lineTo(CX + w * 0.44, y + h / 2); cx.lineTo(CX - w * 0.44, y + h / 2); cx.closePath(); cx.fill();
+    cx.fillStyle = '#C8FF2E'; cx.fillRect(CX - w * 0.45, y + h * 0.1, w * 0.9, h * 0.4); cx.fillStyle = '#0B0B10'; cx.font = `700 ${Math.max(20, 46 * (1 - sq))}px Shoulders`; cx.textAlign = 'center'; cx.fillText('PANETTONE', CX, y + h * 0.36); }
+  else if (k === 'telefono') { cx.save(); cx.shadowColor = '#7FA0FF'; cx.shadowBlur = 30; cx.fillStyle = '#10142E'; cx.beginPath(); cx.roundRect(CX - w * 0.25, y - h / 2, w * 0.5, h, 34); cx.fill(); cx.restore();
+    const g = cx.createLinearGradient(CX - w * .2, y - h / 2, CX + w * .2, y + h / 2); g.addColorStop(0, '#2F55FF'); g.addColorStop(1, '#FF5B4A');
+    cx.fillStyle = g; cx.beginPath(); cx.roundRect(CX - w * 0.21, y - h / 2 + 18, w * 0.42, h - 36, 24); cx.fill(); }
+  else if (k === 'lattina') { const g = cx.createLinearGradient(CX - w * .3, 0, CX + w * .3, 0); g.addColorStop(0, '#6E8F0E'); g.addColorStop(.35, '#E4FF8A'); g.addColorStop(.6, '#C8FF2E'); g.addColorStop(1, '#4F6608');
+    cx.fillStyle = g; cx.beginPath(); cx.roundRect(CX - w * 0.3, y - h / 2, w * 0.6, h, 22); cx.fill();
+    metal(CX - w * 0.3, y - h / 2, w * 0.6, 24, 10, true); metal(CX - w * 0.3, y + h / 2 - 20, w * 0.6, 20, 10, true);
+    cx.fillStyle = '#0B0B10'; cx.font = `700 ${Math.max(18, 44 * (1 - sq * .8))}px Shoulders`; cx.textAlign = 'center'; cx.fillText('DATI', CX, y + 14); }
+  else if (k === 'cellulare') { metal(CX - w * 0.24, y - h / 2, w * 0.48, h, 30, true);
+    cx.fillStyle = '#9FC97A'; cx.fillRect(CX - w * 0.16, y - h * 0.36, w * 0.32, h * 0.26); cx.fillStyle = 'rgba(0,0,0,.35)';
+    for (let r = 0; r < 4; r++) for (let c = 0; c < 3; c++) { cx.beginPath(); cx.roundRect(CX - w * 0.16 + c * w * 0.115, y + h * 0.0 + r * h * 0.1, w * 0.09, h * 0.07, 6); cx.fill(); }
+    metal(CX + w * 0.12, y - h / 2 - 50, 22, 60, 8, true); }
+}
+function bits(o, p, n, shards) { // pezzi che volano
+  const r = rng(o.i * 13 + 5); cx.fillStyle = o.col;
+  for (let q = 0; q < n; q++) {
+    const a = Math.PI + r() * Math.PI, v = 500 + r() * 1200, sz = 8 + r() * 22, sx = r() < .5 ? -1 : 1;
+    const x = CX + Math.cos(a) * v * p * sx, y = BASE - 40 + Math.sin(a) * v * p * 0.9 + 1700 * p * p;
+    if (y > BASE + 10) continue;
+    cx.globalAlpha = Math.max(0, 1 - p * 1.3);
+    if (shards) { cx.save(); cx.translate(x, y); cx.rotate(p * 9 + q); cx.beginPath(); cx.moveTo(0, -sz); cx.lineTo(sz * .6, sz); cx.lineTo(-sz * .6, sz * .4); cx.closePath(); cx.fill(); cx.restore(); }
+    else { cx.beginPath(); cx.arc(x, y, sz * (1 - p * .4), 0, 6.2832); cx.fill(); }
+  }
+  cx.globalAlpha = 1;
+}
+
+function setTime(t) {
+  if (endCard(t, ENDS)) return;
+  cx.clearRect(0, 0, 1080, 1920);
+  const o = O.find(x => t >= x.start && t < x.end) || (t < O[0].start ? O[0] : O[O.length - 1]);
+  const fin = o.mode === 'resiste';
+  // luce dall'alto
+  const sp = cx.createRadialGradient(CX, 520, 50, CX, 1100, 900); sp.addColorStop(0, 'rgba(200,255,46,.10)'); sp.addColorStop(1, 'rgba(200,255,46,0)');
+  cx.fillStyle = sp; cx.fillRect(0, 300, 1080, 1500);
+  // posizione della piastra
+  const contactY = BASE - o.h, crushY = BASE - o.h * (o.mode === 'molla' ? 0.5 : o.mode === 'piatto' ? 0.12 : 0.14) - PL_H;
+  let py = REST;
+  if (t >= o.down && t < o.contact) py = REST + (contactY - PL_H - REST) * Math.pow((t - o.down) / (o.contact - o.down), 2.2);
+  else if (t >= o.contact) {
+    if (fin) py = contactY - PL_H + (t < o.contact + 1.0 ? Math.sin((t - o.contact) * 70) * 5 : 0) - (t >= o.contact + 1.0 ? 90 * back((t - o.contact - 1.0) / 0.4) : 0);
+    else if (t < o.crush) py = contactY - PL_H + (crushY - contactY + PL_H) * ease((t - o.contact) / (o.crush - o.contact));
+    else if (t < o.up) py = crushY;
+    else py = crushY + (REST - crushY) * easeIO((t - o.up) / 0.55);
+  }
+  const shake = (t >= o.contact && t < o.contact + 0.35) ? Math.sin(t * 90) * 14 * (1 - (t - o.contact) / 0.35) : 0;
+  cx.save(); cx.translate(shake, 0);
+  // telaio
+  metal(100, 560, 76, 1000, 14, false); metal(904, 560, 76, 1000, 14, false); metal(70, 520, 940, 96, 20, true);
+  metal(CX - 480, BASE, 960, 130, 20, true); hazard(CX - 460, BASE + 94, 920, 22);
+  // indicatore di pressione sulla colonna sinistra
+  const pr = t >= o.down ? cl((py - REST) / (contactY - PL_H - REST + 1)) : 0;
+  cx.fillStyle = 'rgba(0,0,0,.5)'; cx.fillRect(122, 700, 32, 700);
+  cx.save(); cx.shadowColor = '#C8FF2E'; cx.shadowBlur = 20; cx.fillStyle = pr > 0.9 ? '#FF5B4A' : '#C8FF2E'; cx.fillRect(122, 1400 - 700 * pr, 32, 700 * pr); cx.restore();
+  // oggetto
+  let sq = 0;
+  if (!fin && t >= o.contact) sq = cl(((py + PL_H) - contactY) / o.h);
+  const dropP = cl((t - o.start) / 0.35);
+  if (t >= o.start) {
+  cx.save(); cx.translate(0, (1 - ease(dropP)) * -760);
+  const broken = (o.mode === 'splat' || o.mode === 'vetro') && t >= o.contact + 0.1;
+  if (broken) {
+    const p = (t - o.contact - 0.1) / 1.2;
+    if (o.mode === 'splat') { cx.fillStyle = o.col; cx.globalAlpha = .9; cx.beginPath(); cx.ellipse(CX, BASE - 6, 200 + 140 * ease(p * 3), 16, 0, 0, 6.2832); cx.fill(); cx.globalAlpha = 1; }
+    bits(o, p, o.mode === 'vetro' ? 60 : 46, o.mode === 'vetro');
+  } else if (o.mode === 'molla' && t >= o.up) { const p = t - o.up; drawObj(o, Math.max(-0.15, sq * Math.exp(-p * 5) * Math.cos(p * 24)), t); }
+  else drawObj(o, sq, t);
+  cx.restore();
+  }
+  // pistone e piastra
+  const pg = cx.createLinearGradient(CX - 64, 0, CX + 64, 0);
+  pg.addColorStop(0, '#4B5064'); pg.addColorStop(0.35, '#F4F4F6'); pg.addColorStop(0.6, '#9AA0B4'); pg.addColorStop(1, '#23252F');
+  cx.fillStyle = pg; cx.fillRect(CX - 64, 610, 128, py - 600);
+  metal(CX - PL_W / 2, py, PL_W, PL_H, 16, true); hazard(CX - PL_W / 2 + 18, py + PL_H - 30, PL_W - 36, 20);
+  // la pressa si rompe contro il vecchio cellulare
+  if (fin && t >= o.contact + 0.9) {
+    const p = (t - o.contact - 0.9);
+    cx.strokeStyle = '#F4F4F6'; cx.lineWidth = 6; cx.lineCap = 'round'; const r = rng(4);
+    for (let q = 0; q < 7; q++) { let x = CX - 300 + r() * 600, y = py + PL_H; cx.beginPath(); cx.moveTo(x, y);
+      for (let st = 0; st < 4; st++) { x += (r() - .5) * 110; y -= 20 + r() * 30; cx.lineTo(x, y); } cx.globalAlpha = cl(p * 6); cx.stroke(); }
+    cx.globalAlpha = 1;
+    // scintille
+    const rr = rng(9); cx.fillStyle = '#FFD93D';
+    for (let q = 0; q < 50; q++) { const a = rr() * 6.28, v = 300 + rr() * 900, x = CX + Math.cos(a) * v * p, y = py + PL_H + Math.sin(a) * v * p * .5 + 900 * p * p;
+      cx.globalAlpha = Math.max(0, 1 - p * 1.5); cx.fillRect(x, y, 6, 6); }
+    cx.globalAlpha = 1;
+  }
+  cx.restore();
+  // timbro del verdetto
+  const vt = o.mode === 'resiste' ? o.contact + 1.0 : o.contact + 0.25;
+  if (t >= vt && t < (fin ? o.end + 0.2 : o.end - 0.15)) {
+    const p = (t - vt) / 0.3, txt = fin ? 'LA PRESSA SI È ROTTA' : (o.mode === 'molla' ? 'RESISTE' : 'DISTRUTTO');
+    const col = fin || o.mode === 'molla' ? '#C8FF2E' : '#FF5B4A';
+    cx.save(); cx.translate(CX, fin ? 1640 : 1650); cx.rotate(-0.05); cx.scale(1.6 - 0.6 * back(p), 1.6 - 0.6 * back(p)); cx.globalAlpha = cl(p * 3);
+    cx.font = `700 ${fin ? 72 : 96}px Shoulders`; cx.textAlign = 'center'; const w = cx.measureText(txt).width + 60;
+    cx.fillStyle = col; cx.beginPath(); cx.roundRect(-w / 2, -84, w, 112, 18); cx.fill();
+    cx.fillStyle = '#0B0B10'; cx.fillText(txt, 0, 4); cx.restore();
+  }
+  $('flashAll') && ($('flashAll').style.opacity = 0);
+  hookAnim(t, T.q);
+  domanda(t, T.q, R);
+}
+window.setup = setup; window.setTime = setTime;
+</script>
+</body>
+</html>

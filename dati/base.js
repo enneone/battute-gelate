@@ -98,10 +98,10 @@ function hookAnim(t, hideAt) {
     const visible = i === cur || (nx && t >= nx && t < nx + 0.22 && i === cur - 1);
     ln.style.display = visible ? 'block' : 'none';
     if (!visible) return;
-    const outP = nx ? ease((t - nx) / 0.22) : 0;
+    const outP = nx ? ease((t - nx) / 0.15) : 0;
     ln.style.opacity = 1 - outP; ln.style.transform = `translateY(${-outP * 40}px)`;
     ln.querySelectorAll('.w').forEach((w, k) => {
-      const p = st === 0 && i === 0 ? 1 : (t - st - k * 0.045) / 0.32;
+      const p = st === 0 && i === 0 ? 1 : (t - st - 0.14 - k * 0.045) / 0.32;
       w.style.opacity = cl(p * 2.5); w.style.transform = `translateY(${(1 - ease(p)) * 50}px)`;
     });
   });

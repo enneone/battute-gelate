@@ -4,12 +4,30 @@ Pagina Instagram faceless di **dati e confronti animati sui temi del momento**, 
 
 Il livello deve sembrare quello di una redazione con grafici, motion designer e fact-checker: dati veri, grafica curata, niente testi tagliati o sovrapposti. Tutto si fa in codice, **senza strumenti a pagamento** (niente Higgsfield, ElevenLabs o simili: l'utente ha scelto la strada gratuita).
 
-> **Nota del 22 novembre 2026 (valida solo per il rifornimento di oggi):** i template stanno per essere rifatti (testi divisi in frasi brevi, suoni nuovi, musica di sottofondo). Oggi fai solo la parte di ricerca: scegli i temi, verifica i dati e scrivi i Reel in `dati/contenuti.json` per tutti gli slot vuoti fino a 6 giorni da oggi, poi commit e push. **Non renderizzare e non programmare nulla in Metricool:** video e programmazione li fa la sessione principale con i template nuovi. Per ogni Reel aggiungi anche il campo `frasi`: 3-5 frasi brevissime (massimo 6-7 parole l'una) che raccontano il dato passo per passo, dalla prima all'ultima, una idea per frase. Esempio: ["Ecco quanto si guadagna in Europa", "L'Italia è sotto la Spagna", "Il Lussemburgo quasi il doppio"].
-
 ## Cadenza
-- **3 Reel al giorno: 12:30, 18:30, 21:15.**
-- Riempi sempre fino a 6 giorni da oggi.
+- **4 Reel al giorno: 12:30, 15:00, 18:30, 21:15.**
+- **15:00 è sempre la pressa** (template `pressa`): è il format che finora ha tenuto di più (1.399 visualizzazioni e 63,9% oltre i 3 secondi il 21/11).
+- Gli altri tre slot sono Reel di dati sui temi del momento.
+- Riempi sempre fino a 6 giorni da oggi: **non devono mai esserci giorni vuoti.** Se la ricerca non trova abbastanza temi verificati, usa temi sempreverdi (stipendi, prezzi, città, sport, consumi) oppure una pressa in più, ma non lasciare slot vuoti.
 - I post con `draft: true` o con contenuti vecchi di Battute Gelate (giochi, battute, emoji, pressa, plinko, gara) non contano come coperti: aggiornali con `updateScheduledPost` mettendo il nuovo Reel e `draft: false`, oppure lasciali in bozza e crea post nuovi negli slot giusti.
+
+## Analisi automatica (ogni mattina, prima di scegliere i temi)
+1. Leggi da Metricool le statistiche dei Reel degli ultimi 14 giorni (getAnalyticsDataByMetrics, metriche IGRE02, IGRE03, IGRE11 copertura, IGRE23 visualizzazioni, IGRE21 condivisioni, IGRE12 salvataggi, IGRE07 commenti, IGRE24 tempo medio di visione, IGRE28 percentuale oltre i 3 secondi).
+2. Collega ogni Reel al suo id in `contenuti.json` (dalla didascalia) e quindi al **template** e al **pubblico/tema**.
+3. Calcola per template e per tema: visualizzazioni medie, mediana, percentuale oltre i 3 secondi, tempo medio, condivisioni + salvataggi + commenti ogni 1.000 visualizzazioni.
+4. Aggiorna `dati/analisi.md`: tabella per template, tabella per tema, i 3 Reel migliori e i 3 peggiori con il motivo probabile (gancio, tema, durata).
+5. Decidi il mix dei prossimi giorni in base ai numeri:
+   - un template o tema con visualizzazioni almeno il **doppio della mediana** sale a 2 slot al giorno (oppure diventa una serie);
+   - uno sotto la **metà della mediana** per 4 uscite di fila esce dal piano per una settimana;
+   - se un Reel supera di 3 volte la mediana, fai entro 2 giorni un seguito sullo stesso tema con un angolo nuovo.
+   Scrivi le decisioni in fondo a `dati/analisi.md` e nel registro.
+
+## La pressa (slot delle 15:00)
+- Template `pressa`, campo `oggetti`: 4 oggetti più il finale `cellulare` (il "boss finale" che rompe la pressa, è un appuntamento fisso). Oggetti disponibili: uovo, anguria, pomodoro, pallina (resiste), budino (resiste), telefono, panettone, pallina_natale, lattina.
+- Mai la stessa sequenza di oggetti due volte; alterna quelli che resistono e quelli che si rompono.
+- Gancio sempre diverso (`hook`): "Il panettone resiste alla *pressa?*", "Indovina cosa *resiste*", "5 oggetti contro una *pressa*". Le `frasi` si generano da sole con i nomi degli oggetti.
+- Domanda finale: "Cosa mettiamo sotto la *pressa?*". Leggi i commenti dei giorni prima: se qualcuno propone un oggetto e il template non lo ha, annotalo in `dati/analisi.md` come idea (aggiungere un oggetto richiede di disegnarlo in `pressa.html`).
+- Nella pressa non ci sono dati, quindi niente `fonte`.
 
 ## Scelta dei temi
 1. **Temi caldi prima di tutto.** Cerca sul web di cosa si parla in Italia in questi giorni (uscite di giochi, film e serie, X Factor, Sanremo, calcio, Black Friday, Natale, saldi, bollette, prezzi, notizie economiche). Su un tema molto caldo puoi fare una serie da 2-3 Reel con angoli diversi (come GTA VI: incasso, copie, voti).
