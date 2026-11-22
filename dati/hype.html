@@ -23,7 +23,6 @@
 <body>
   <canvas id="cv" width="1080" height="1920"></canvas>
   <div id="kick"></div><div id="title"></div><div id="big"></div><div id="lbl"></div>
-  <div id="c1" class="call"></div><div id="c2" class="call"></div>
   <div id="q"></div><div id="q2"></div>
 <script>
 let R, ENDS = 0, T = {}, MAXV = 1;
@@ -31,16 +30,17 @@ const FLOOR = 1500, HOR = 1500, BW = 230;
 const money = (v) => v >= 1e9 ? fmt(v / 1e9, v % 1e9 ? 2 : 0).replace(/,00$/, '') + ' mld $' : fmt(v / 1e6) + ' mln $';
 
 function setup(reel, handle) {
-  R = reel; base(reel, handle);
+  R = reel; base(reel, handle); hookBlock(reel);
   $('kick').textContent = reel.kicker; $('title').innerHTML = reel.titolo; $('lbl').innerHTML = hl(reel.etichetta);
   $('q').innerHTML = reel.domanda.map(hl).join('<br>'); $('q2').textContent = reel.domanda2;
   const s = [];
   T.count = 0.15; T.countEnd = 2.3; T.out = 3.0; T.bars = 3.4; T.hero = T.bars + 1.6; T.heroEnd = T.hero + 1.6;
-  T.c1 = T.heroEnd + 0.3; T.c2 = T.c1 + 0.9; T.q = T.c2 + 1.6; ENDS = T.q + 2.6;
+  T.c1 = T.heroEnd + 0.6; T.q = T.c1 + 2.8; ENDS = T.q + 2.6;
+  setFrasi([T.bars, T.hero + 0.9, T.c1]);
   for (let k = 0; k < 18; k++) s.push({ t: T.count + k * 0.12, k: 'tick' });
   s.push({ t: 0.02, k: 'hit' }, { t: T.countEnd, k: 'hit' }, { t: T.out, k: 'whoosh' });
   reel.confronti.forEach((c, i) => s.push({ t: T.bars + i * 0.55, k: 'n' + (2 + i * 2) }));
-  s.push({ t: T.hero, k: 'hiss' }, { t: T.hero + 1.0, k: 'hit' }, { t: T.hero + 1.05, k: 'crunch' }, { t: T.c1, k: 'pop' }, { t: T.c2, k: 'pop' }, { t: T.q, k: 'whoosh' }, { t: ENDS, k: 'whoosh' });
+  s.push({ t: T.hero, k: 'hiss' }, { t: T.hero + 1.0, k: 'hit' }, { t: T.hero + 1.05, k: 'crunch' }, { t: T.q, k: 'whoosh' }, { t: ENDS, k: 'whoosh' });
   MAXV = Math.max(...reel.confronti.map(c => c.v));
   return { duration: ENDS + END_LEN, sounds: s };
 }
@@ -92,7 +92,7 @@ function setTime(t) {
   const k0 = 820 / R.confronti[n - 2].v * 0.62; // scala iniziale: la seconda barra arriva a metà schermo circa
   const heroP = easeIO((t - T.hero) / 1.35);
   const heroH = R.confronti[n - 1].v * k0 * heroP;
-  const need = FLOOR - 330, S = Math.min(1, need / Math.max(need, heroH * 1.0) ) ;
+  const need = FLOOR - 480, S = Math.min(1, need / Math.max(need, heroH * 1.0) ) ;
   const shakeY = t >= T.hero + 1.0 && t < T.hero + 1.4 ? Math.sin(t * 80) * 12 * (1 - (t - T.hero - 1.0) / 0.4) : 0;
   cx.save(); cx.translate(0, shakeY);
   R.confronti.forEach((c, i) => {
@@ -110,12 +110,7 @@ function setTime(t) {
   });
   cx.restore();
   // fase 3: i "volte" che fanno impressione
-  [['c1', T.c1, R.volte[0]], ['c2', T.c2, R.volte[1]]].forEach(([id, st, v], i) => {
-    const el = $(id), p = (t - st) / 0.35; el.innerHTML = `<b>×${v[0]}</b>${v[1]}`;
-    el.style.left = '70px'; el.style.top = (560 + i * 130) + 'px';
-    el.style.opacity = t >= T.q ? 1 - cl((t - T.q) * 4) : cl(p * 3); el.style.transform = `scale(${back(p)}) rotate(${i ? 2 : -2}deg)`; el.style.transformOrigin = '0 50%';
-  });
-  // fase 4: domanda finale per i commenti
+  hookAnim(t, T.q);
   const qp = (t - T.q) / 0.45;
   $('q').style.opacity = cl(qp * 2); $('q').style.transform = `translateY(${(1 - ease(qp)) * 60}px)`;
   $('q2').style.opacity = cl((qp - 0.6) * 2); $('q2').style.transform = `scale(${back(qp - 0.6)})`;

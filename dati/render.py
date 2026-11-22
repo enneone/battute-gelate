@@ -4,7 +4,8 @@ import json, subprocess, sys
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 sys.path.insert(0, str(Path(__file__).parent.parent))
-import render as R0  # effetti sonori del progetto principale
+import render as R0  # cartella di lavoro del progetto principale
+import audio
 
 ROOT = Path(__file__).parent
 OUT = ROOT / "output"; (OUT / "reel").mkdir(parents=True, exist_ok=True)
@@ -14,14 +15,18 @@ R0.SFX["hit"] = [a + b for a, b in zip(R0.SFX["slam"], R0.SFX["ding"] + [0.0] * 
 
 
 def load(page, reel):
-    page.goto((ROOT / f"{reel['template']}.html").as_uri()); page.evaluate("document.fonts.ready")
+    page.goto((ROOT / f"{reel['template']}.html").as_uri()); page.evaluate("window.FONTS_READY"); page.evaluate("document.fonts.ready")
     page.wait_for_timeout(150)
     return page.evaluate("([r, h]) => setup(r, h)", [reel, DATA["handle"]])
 
 
 def render_reel(page, reel):
     info = load(page, reel); dur = info["duration"]
-    wav = OUT / "reel" / f"{reel['id']}.wav"; R0.make_audio(wav, dur, info["sounds"])
+    wav = OUT / "reel" / f"{reel['id']}.wav"
+    fr = [x for x in (page.evaluate("window.FR_T || []") or []) if x and x > 0]
+    sounds = info["sounds"] + [{"t": x, "k": "swish"} for x in fr]
+    ends = page.evaluate("typeof ENDS !== 'undefined' ? ENDS : null")
+    audio.make_audio(wav, dur, sounds, open_at=(fr[0] if fr else 2.4), close_at=ends)
     ff = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "image2pipe", "-framerate", str(reel.get("fps", FPS)), "-c:v", "mjpeg", "-i", "-",
                            "-i", str(wav), "-c:v", "libx264", "-preset", "veryfast", "-crf", "17", "-pix_fmt", "yuv420p", "-c:a", "aac",
                            "-b:a", "160k", "-shortest", "-movflags", "+faststart", str(OUT / "reel" / f"{reel['id']}.mp4")], stdin=subprocess.PIPE)

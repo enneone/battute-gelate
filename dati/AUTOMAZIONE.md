@@ -24,11 +24,14 @@ Il livello deve sembrare quello di una redazione con grafici, motion designer e 
 - Non piegare i dati: barre proporzionali, nessun asse tagliato, nessuna parola che esageri ("in 24 ore" se il dato è "fino al giorno del lancio" è un errore).
 - Se non trovi un dato verificato, **cambia tema**.
 
-## Gancio e struttura
-- **Il primo fotogramma deve già agganciare:** il titolo (`hook`, 2-3 righe brevi) con un numero concreto o un contrasto ("Finlandia: 21 anni. Italia: *30*."). La parola tra asterischi esce in corsivo verde.
+## Gancio, frasi e struttura (comunicazione chiara)
+- **Una sola frase alla volta sullo schermo.** In alto compare prima il gancio (`hook`), poi le `frasi`, una dopo l'altra, parola per parola, come sottotitoli che raccontano il dato. Niente titoli fissi, niente righe di testo piccole sparse.
+- `hook`: 1-2 righe, massimo 8-9 parole in tutto, con un numero concreto o un contrasto ("In Italia si esce di casa a *30 anni*"). La parola tra asterischi esce in corsivo verde.
+- `frasi`: 3-4 frasi (per `punti` anche 4), **massimo 6-7 parole l'una**, una idea per frase, nell'ordine in cui il grafico mostra le cose. Esempio stipendi: ["Ecco gli stipendi medi in Europa", "Spagna e Francia *ci superano*", "Il Lussemburgo: *quasi il doppio*"].
+- Il grafico deve muoversi già durante il gancio: il primo fotogramma ha sempre il gancio più un elemento visivo.
+- Chiudi con una **domanda che chiede un commento** (`domanda`, `domanda2`).
+- Audio: musica elettronica di sottofondo e suoni vengono generati da `dati/audio.py` in automatico durante il render (non serve fare niente).
 - Durata 14-20 secondi, 60 fps (`"fps": 60`).
-- Chiudi con una **domanda che chiede un commento** (`domanda`, `domanda2`), tipo "Tu a che età sei uscito di casa?".
-- Il `kicker` (riga piccola sopra il titolo) dice tema e fonte in breve: "EUROSTAT · DATI 2025".
 
 ## Template disponibili (in `dati/`)
 Copia la struttura di un esempio già presente in `dati/contenuti.json` e cambia solo i contenuti.
@@ -36,7 +39,7 @@ Copia la struttura di un esempio già presente in `dati/contenuti.json` e cambia
 | Template | Quando usarlo | Esempio |
 |---|---|---|
 | `classifica3d` | 8-12 paesi o voci da confrontare, con una voce in evidenza (`focus`) | D01 stipendi in Europa |
-| `hype` | un numero enorme in apertura e 2-3 confronti, l'ultimo "rompe" il grafico; stile neon (adatto a gaming e intrattenimento) | D02 GTA VI incasso |
+| `hype` | un numero enorme in apertura (`titolo`, `valore`, `etichetta`, `kicker`) e 3 confronti, l'ultimo "rompe" il grafico; stile neon (gaming e intrattenimento). Qui il gancio è il titolo con il contatore: niente `hook`, solo `frasi` | D02 GTA VI incasso |
 | `punti` | "se ogni X fosse una persona": pallini che si riempiono, gruppi di confronto, poi mini classifica | D03 GTA VI copie |
 | `asse` | valori sulla stessa scala (età, ore, prezzi), con media e distacco | D04 uscita di casa |
 | `countdown` | top 10 dal decimo al primo | D05 voti Metacritic |

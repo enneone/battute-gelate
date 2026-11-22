@@ -12,7 +12,6 @@
 </head>
 <body>
   <canvas id="cv" width="1080" height="1920"></canvas>
-  <div id="msg"></div>
 <script>
 let R, ENDS = 0, T = {}, IT = [];
 const X0 = 330, X1 = 990, TOP = 610, ROWH = 64;
@@ -21,11 +20,12 @@ const sx = (v) => X0 + (v - R.min) / (R.max - R.min) * (X1 - X0);
 function setup(reel, handle) {
   R = reel; base(reel, handle); hookBlock(reel);
   IT = reel.voci.slice().sort((a, b) => a.v - b.v);
-  T.start = 0.5; T.step = 0.32; T.avg = T.start + IT.length * T.step + 0.4; T.gap = T.avg + 1.3; T.msg = T.gap + 0.6; T.q = T.msg + 3.0; ENDS = T.q + 2.6;
+  T.start = 0.6; T.step = 0.3; T.avg = T.start + IT.length * T.step + 0.4; T.gap = T.avg + 1.9; T.msg = T.gap; T.q = T.gap + 2.6; ENDS = T.q + 2.6;
+  setFrasi([2.6, T.avg, T.gap]);
   const s = [{ t: 0.02, k: 'hit' }];
   IT.forEach((it, i) => s.push({ t: T.start + i * T.step + 0.25, k: it.focus ? 'hit' : 'n' + Math.min(7, Math.floor(i * 8 / IT.length)) }));
   s.push({ t: T.avg, k: 'whoosh' }, { t: T.gap, k: 'ding' }, { t: T.q, k: 'whoosh' }, { t: ENDS, k: 'whoosh' });
-  $('msg').innerHTML = hl(reel.messaggio);
+  
   return { duration: ENDS + END_LEN, sounds: s };
 }
 
@@ -33,7 +33,7 @@ const cv = $('cv'), cx = cv.getContext('2d');
 function setTime(t) {
   if (endCard(t, ENDS)) return;
   cx.clearRect(0, 0, 1080, 1920);
-  hookAnim(t, 0);
+  hookAnim(t, T.q);
   const H = IT.length * ROWH, y0 = TOP;
   // scala in alto con le tacche
   cx.font = '24px Geist'; cx.textAlign = 'center'; cx.fillStyle = '#8B8B99';
@@ -60,7 +60,7 @@ function setTime(t) {
     cx.beginPath(); cx.arc(x, y, it.focus ? 20 : 15, 0, 6.2832); cx.fill(); cx.restore();
     // valore
     cx.font = `700 ${it.focus ? 32 : 26}px Geist`; cx.fillStyle = col; cx.textAlign = x > X1 - 120 ? 'right' : 'left';
-    cx.fillText(fmt(it.v * cl(p), 1), x > X1 - 120 ? x - 30 : x + 28, y + 10);
+    cx.fillText(fmt(lerp(R.min, it.v, easeIO(p)), 1), x > X1 - 120 ? x - 30 : x + 28, y + 10);
     cx.globalAlpha = 1;
   });
   // linea della media
@@ -83,7 +83,7 @@ function setTime(t) {
     cx.globalAlpha = cl(gp * 2); cx.font = '700 44px Geist'; cx.fillStyle = '#FF5B4A'; cx.textAlign = 'center';
     cx.textAlign = 'right'; cx.fillText(`+${fmt(b.v - a.v, 1)} ${R.unita || ''}`, xa - 24, ya + 16); cx.globalAlpha = 1;
   }
-  const m = $('msg'), mp = (t - T.msg) / 0.4; m.style.opacity = cl(mp * 2); m.style.transform = `translateY(${(1 - ease(mp)) * 30}px)`;
+  
   domanda(t, T.q, R);
 }
 window.setup = setup; window.setTime = setTime;

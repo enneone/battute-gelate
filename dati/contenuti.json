@@ -6,9 +6,8 @@
    "template": "classifica3d",
    "numero": 1,
    "hook": [
-    "L'Italia",
-    "guadagna meno",
-    "della *Spagna*"
+    "L'Italia guadagna",
+    "meno della *Spagna*"
    ],
    "sottotitolo": "STIPENDIO MEDIO ANNUO · <b>2024</b>",
    "prefisso": "$ ",
@@ -86,7 +85,12 @@
     "In quale paese",
     "ti *trasferiresti?*"
    ],
-   "domanda2": "Scrivilo nei commenti 👇"
+   "domanda2": "Scrivilo nei commenti 👇",
+   "frasi": [
+    "Ecco gli stipendi medi in Europa",
+    "Spagna e Francia *ci superano*",
+    "Il Lussemburgo: *quasi il doppio*"
+   ]
   },
   {
    "id": "D02-gta6-lancio",
@@ -140,7 +144,12 @@
     "di sempre"
    ],
    "copertina_numero": "3,79 MLD $",
-   "copertina_tema": "vice"
+   "copertina_tema": "vice",
+   "frasi": [
+    "Prima, i record da battere",
+    "Poi è arrivato *GTA VI*",
+    "*3 volte* il weekend di Avengers"
+   ]
   },
   {
    "id": "D03-gta6-copie",
@@ -149,9 +158,8 @@
    "fps": 60,
    "kicker": "GTA VI · COPIE VENDUTE AL LANCIO",
    "hook": [
-    "Se ogni copia",
-    "di GTA 6 fosse",
-    "una *persona*..."
+    "Se ogni copia di GTA 6",
+    "fosse una *persona*..."
    ],
    "eroe": {
     "v": 32500000,
@@ -231,7 +239,13 @@
     "*paese*"
    ],
    "copertina_numero": "32,5 MLN",
-   "copertina_tema": "vice"
+   "copertina_tema": "vice",
+   "frasi": [
+    "Tutta l'*Olanda*: 18 milioni",
+    "Più tutto il *Belgio*",
+    "Non basta: ne *avanzano* ancora",
+    "Sarebbe il *6°* paese dell'UE"
+   ]
   },
   {
    "id": "D04-uscita-di-casa",
@@ -240,10 +254,9 @@
    "fps": 60,
    "kicker": "A CHE ETÀ SI ESCE DI CASA · EUROSTAT 2025",
    "hook": [
-    "Finlandia: 21 anni.",
-    "Italia: *30*."
+    "In Italia si esce",
+    "di casa a *30 anni*"
    ],
-   "hook_size": 124,
    "min": 20,
    "max": 32,
    "passo": 2,
@@ -335,7 +348,12 @@
     "si esce",
     "di *casa*"
    ],
-   "copertina_numero": "30,2 ANNI"
+   "copertina_numero": "30,2 ANNI",
+   "frasi": [
+    "Ecco il resto d'Europa",
+    "La media UE: *26 anni*",
+    "Quasi *9 anni* più dei finlandesi"
+   ]
   },
   {
    "id": "D05-gta6-voti",
@@ -344,11 +362,9 @@
    "fps": 60,
    "kicker": "METACRITIC · NOVEMBRE 2026",
    "hook": [
-    "I 10 giochi con",
-    "il voto più alto",
-    "*di sempre*"
+    "I 10 giochi con il voto",
+    "più alto *di sempre*"
    ],
-   "hook_size": 112,
    "voci": [
     {
      "n": "Grand Theft Auto VI",
@@ -417,7 +433,12 @@
     "di *sempre*"
    ],
    "copertina_numero": "99/100",
-   "copertina_tema": "vice"
+   "copertina_tema": "vice",
+   "frasi": [
+    "Ecco il primo *GTA*",
+    "E al primo posto...",
+    "Pari merito con *Zelda*, ma davanti"
+   ]
   },
   {
    "id": "D06-serie-a-stipendi",
@@ -427,10 +448,8 @@
    "kicker": "SERIE A · STIPENDI 2026/27 · LORDI",
    "hook": [
     "Inter e Juve pagano",
-    "*quasi 10 volte*",
-    "il Frosinone"
+    "*quasi 10 volte* il Frosinone"
    ],
-   "hook_size": 112,
    "voci": [
     {
      "n": "Inter",
@@ -530,7 +549,12 @@
     "chi paga",
     "di *più*"
    ],
-   "copertina_numero": "145,8 MLN"
+   "copertina_numero": "145,8 MLN",
+   "frasi": [
+    "Gli stipendi 2026/27 in Serie A",
+    "In cima, *Inter e Juve*",
+    "In tutto: *1,2 miliardi* l'anno"
+   ]
   }
  ]
 }

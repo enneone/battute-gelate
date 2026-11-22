@@ -38,6 +38,12 @@ body { background: ${BRAND.bg}; color: ${BRAND.ink}; position: relative; font-fa
 #hk .k { font-family: "Geist"; font-weight: 700; font-size: 26px; letter-spacing: 5px; color: ${BRAND.lime}; margin-bottom: 18px; }
 #hk .t { font-family: "Shoulders"; font-weight: 700; font-size: 118px; line-height: .9; text-transform: uppercase; letter-spacing: -1px; }
 #hk .t .ser { font-size: 134px; }
+#cap { position: absolute; top: 210px; left: 70px; right: 70px; z-index: 20; font-family: "Shoulders"; font-weight: 700; font-size: 112px; line-height: .92; text-transform: uppercase; letter-spacing: -1px; }
+#cap .ln { position: absolute; left: 0; right: 0; top: 0; }
+#cap .w { display: inline-block; margin-right: .22em; will-change: transform; }
+#cap .ser { font-size: 1.14em; }
+#cap.big { font-size: 128px; }
+.src { opacity: .75; }
 #dim { position: absolute; inset: 0; z-index: 44; background: rgba(11,11,16,.72); backdrop-filter: blur(10px); opacity: 0; pointer-events: none; }
 #qq { position: absolute; left: 70px; right: 70px; top: 660px; z-index: 45; font-family: "Shoulders"; font-weight: 700; font-size: 150px; line-height: .88; text-transform: uppercase; opacity: 0; }
 #qq .ser { font-size: 168px; }
@@ -48,6 +54,8 @@ body { background: ${BRAND.bg}; color: ${BRAND.ink}; position: relative; font-fa
 #end .c { align-self: flex-start; font-family: "Geist"; font-weight: 700; font-size: 38px; background: ${BRAND.lime}; color: #0B0B10; padding: 22px 34px; border-radius: 16px; }
 </style>`);
 
+// carica subito i font, cosi' le misure dei testi sono giuste
+window.FONTS_READY = Promise.all(['700 100px Shoulders', '700 40px Geist', '400 40px Geist', 'italic 100px Serif', '700 40px Outfit', '400 40px Outfit', '40px "Noto Color Emoji"'].map(f => document.fonts.load(f, 'Aàè1')));
 function base(reel, handle) {
   const b = document.body;
   b.insertAdjacentHTML('afterbegin', '<div id="amb"></div>');
@@ -58,15 +66,45 @@ function base(reel, handle) {
     <div id="end"><div class="a">${reel.fine_titolo || 'Ogni giorno<br>un <span class="ser">dato</span><br>che non sapevi'}</div><div class="b">${reel.fine || ''}</div><div class="c">SEGUI ${handle.toUpperCase()}</div></div>`);
 }
 const hl = (s) => String(s).replace(/\*([^*]+)\*/g, '<span class="ser">$1</span>');
-// titolo d'apertura (kicker + righe con parola accentata) creato dentro #hk
+// FRASI: una frase alla volta in alto, parola per parola, come un sottotitolo che racconta il dato.
+// La prima e' il gancio (reel.hook), le altre sono reel.frasi; i tempi li decide il template con setFrasi([...]).
+let FR = [], FR_T = [];
 function hookBlock(reel) {
-  document.body.insertAdjacentHTML('beforeend', `<div id="hk"><div class="k">${reel.kicker || ''}</div><div class="t">${(reel.hook || []).map(hl).join('<br>')}</div></div>`);
-  if (reel.hook_size) document.querySelector('#hk .t').style.fontSize = reel.hook_size + 'px';
+  const hook = (reel.hook || []).join(' ');
+  FR = [hook].concat(reel.frasi || []);
+  document.body.insertAdjacentHTML('beforeend', `<div id="cap"></div>`);
+  $('cap').innerHTML = FR.map((f, i) => `<div class="ln" data-i="${i}">${String(f).split(/\s+/).map(w => {
+    const acc = /^\*.*\*[.,!?:]*$/.test(w) || /^\*/.test(w) || /\*[.,!?:]*$/.test(w);
+    return `<span class="w${acc ? ' ser' : ''}">${w.replace(/\*/g, '')}</span>`; }).join('')}</div>`).join('');
+  // le parole di un accento su piu' parole (*quasi 10 volte*) restano tutte in corsivo
+  $('cap').querySelectorAll('.ln').forEach((ln, i) => { let on = false; const raw = String(FR[i]).split(/\s+/);
+    ln.querySelectorAll('.w').forEach((w, k) => { const r = raw[k] || ''; if (r.startsWith('*')) on = true; if (on) w.classList.add('ser'); if (/\*[.,!?:]*$/.test(r)) on = false; }); });
+  // ogni frase si adatta: il gancio al massimo ~3 righe, le altre ~2 righe
+  $('cap').querySelectorAll('.ln').forEach((ln, i) => {
+    ln.style.display = 'block'; let fs = i === 0 ? 124 : 104; ln.style.fontSize = fs + 'px';
+    while (ln.offsetHeight > (i === 0 ? 370 : 215) && fs > 56) { fs -= 4; ln.style.fontSize = fs + 'px'; }
+    ln.style.display = 'none';
+  });
+  FR_T = [0];
+  window.FR_T = FR_T;
 }
-function hookAnim(t, outAt) { // ingresso a scatto morbido e uscita verso l'alto
-  const el = $('hk'); if (!el) return;
-  const o = outAt ? easeIO((t - outAt) / 0.5) : 0;
-  el.style.opacity = 1 - o; el.style.transform = `translateY(${-o * 120}px) scale(${1 + 0.035 * Math.sin(cl(t / 0.35) * Math.PI)})`; el.style.transformOrigin = '0 0';
+function setFrasi(times) { FR_T = [FR[0] ? 0 : -1].concat(times).slice(0, FR.length); window.FR_T = FR_T; }
+function hookAnim(t, hideAt) {
+  const cap = $('cap'); if (!cap) return;
+  let cur = -1; FR_T.forEach((ti, i) => { if (ti >= 0 && t >= ti) cur = i; });
+  if (hideAt && t >= hideAt) cur = -1;
+  cap.querySelectorAll('.ln').forEach((ln, i) => {
+    const st = FR_T[i], nx = FR_T.slice(i + 1).find(x => x > st);
+    const visible = i === cur || (nx && t >= nx && t < nx + 0.22 && i === cur - 1);
+    ln.style.display = visible ? 'block' : 'none';
+    if (!visible) return;
+    const outP = nx ? ease((t - nx) / 0.22) : 0;
+    ln.style.opacity = 1 - outP; ln.style.transform = `translateY(${-outP * 40}px)`;
+    ln.querySelectorAll('.w').forEach((w, k) => {
+      const p = st === 0 && i === 0 ? 1 : (t - st - k * 0.045) / 0.32;
+      w.style.opacity = cl(p * 2.5); w.style.transform = `translateY(${(1 - ease(p)) * 50}px)`;
+    });
+  });
 }
 // domanda finale che chiede un commento
 function domanda(t, start, reel) {

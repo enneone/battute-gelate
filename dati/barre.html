@@ -22,7 +22,6 @@
 </head>
 <body>
   <div id="tab"></div>
-  <div id="cl"></div>
 <script>
 let R, ENDS = 0, T = {}, IT = [];
 const ROWH = 46;
@@ -34,17 +33,17 @@ function setup(reel, handle) {
   $('tab').innerHTML = IT.map((it, i) => `<div class="rw${i < (reel.evidenzia_top || 1) ? ' top' : ''}${i === n - 1 ? ' low' : ''}" style="top:${i * ROWH}px">
     <div class="p">${i + 1}</div><div class="n">${it.n}</div><div class="bw"><div class="b" style="width:${it.v / max * 76}%"></div>
     <div class="v" style="left:${it.v / max * 76}%">${fmt(it.v, 1)}${reel.suffisso || ''}</div></div></div>`).join('');
-  T.start = 0.7; T.step = 0.2; T.end = T.start + n * T.step + 0.5; T.cl = T.end + 0.4; T.q = T.cl + 3.2; ENDS = T.q + 2.6;
+  T.start = 0.6; T.step = 0.2; T.end = T.start + n * T.step + 0.5; T.cl = T.end + 1.8; T.q = T.cl + 2.6; ENDS = T.q + 2.6;
+  setFrasi([2.6, T.end, T.cl]);
   const s = [{ t: 0.02, k: 'hit' }];
   for (let i = 0; i < n; i++) s.push({ t: T.start + i * T.step, k: i === n - 1 ? 'hit' : (i % 2 ? 'tick' : 'pop') });
   s.push({ t: T.cl, k: 'ding' }, { t: T.q, k: 'whoosh' }, { t: ENDS, k: 'whoosh' });
-  $('cl').innerHTML = hl(reel.messaggio);
   return { duration: ENDS + END_LEN, sounds: s };
 }
 
 function setTime(t) {
   if (endCard(t, ENDS)) return;
-  hookAnim(t, 0);
+  hookAnim(t, T.q);
   const els = $('tab').children, n = IT.length;
   for (let i = 0; i < n; i++) {
     const order = n - 1 - i, p = (t - T.start - order * T.step) / 0.5, el = els[i];
@@ -53,7 +52,6 @@ function setTime(t) {
     const v = el.querySelector('.v'); v.style.opacity = cl((p - 0.6) * 4);
     if (i === 0) el.style.transform += ` scale(${1 + 0.05 * Math.sin(cl(p) * Math.PI)})`;
   }
-  const c = $('cl'), cp = (t - T.cl) / 0.4; c.style.opacity = cl(cp * 2); c.style.transform = `translateY(${(1 - ease(cp)) * 30}px)`;
   domanda(t, T.q, R);
 }
 window.setup = setup; window.setTime = setTime;

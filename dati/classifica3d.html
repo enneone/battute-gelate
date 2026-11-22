@@ -16,16 +16,14 @@
 </head>
 <body>
   <canvas id="cv" width="1080" height="1920"></canvas>
-  <div id="hook"></div>
   <div id="sub"></div>
-  <div id="note"></div>
 <script>
 let R, C = [], ENDS = 0, T_Q = 0, T0 = 2.6, STEP = 0.78, RISE = 0.6, T_ZOOM = 0, T_HOLD = 0, FOCUS = -1, MAXV = 1;
 const FLOOR = 1560, GAP = 210, W = 132, DX = 44, DY = 30, HMAX = 900;
 
 function setup(reel, handle) {
   R = reel; base(reel, handle);
-  $('hook').innerHTML = reel.hook.map(hl).join('<br>');
+  hookBlock(reel);
   $('sub').innerHTML = reel.sottotitolo;
   const items = reel.voci.slice().sort((a, b) => a.v - b.v);
   MAXV = items[items.length - 1].v;
@@ -40,6 +38,7 @@ function setup(reel, handle) {
   });
   T_ZOOM = t + 0.2; T_HOLD = T_ZOOM + 1.1;
   sounds.push({ t: T_ZOOM, k: 'whoosh' }, { t: T_HOLD - 0.1, k: 'hit' });
+  setFrasi([T0, T0 + (FOCUS + 1) * STEP + 0.3, T_HOLD]);
   T_Q = T_HOLD + (reel.tenuta || 2.8); ENDS = T_Q + (reel.domanda ? 2.6 : 0);
   sounds.push({ t: T_Q, k: 'whoosh' }, { t: ENDS, k: 'whoosh' });
   return { duration: ENDS + END_LEN, sounds };
@@ -102,10 +101,7 @@ function setTime(t) {
   }
   cx.restore();
   // testi
-  const hk = $('hook');
-  hk.style.transform = `translateY(${-ease((t - T0) / 0.6) * 20}px) scale(${1 + 0.04 * Math.sin(cl(t / 0.35) * Math.PI)})`; hk.style.transformOrigin = '0 0';
-  const nt = $('note'), np = (t - T_HOLD) / 0.4;
-  nt.innerHTML = hl(R.nota || ''); nt.style.opacity = cl(np * 2); nt.style.transform = `translateY(${(1 - ease(np)) * 40}px)`;
+  hookAnim(t);
   domanda(t, T_Q, R);
 }
 window.setup = setup; window.setTime = setTime;

@@ -12,7 +12,7 @@
   #leg { position: absolute; left: 70px; right: 70px; top: 1500px; z-index: 20; font-family: "Geist"; font-size: 24px; color: #8B8B99; letter-spacing: 2px; }
   #msg { position: absolute; left: 70px; right: 70px; top: 1560px; z-index: 22; font-family: "Outfit"; font-weight: 700; font-size: 50px; line-height: 1.12; }
   #msg .ser { font-size: 60px; }
-  #rk { position: absolute; left: 70px; right: 70px; top: 220px; z-index: 22; opacity: 0; }
+  #rk { position: absolute; left: 70px; right: 70px; top: 480px; z-index: 22; opacity: 0; }
   #rk .h { font-family: "Shoulders"; font-weight: 700; font-size: 110px; line-height: .9; text-transform: uppercase; margin-bottom: 50px; }
   #rk .h .ser { font-size: 126px; }
   .row { display: flex; align-items: center; height: 150px; gap: 20px; }
@@ -30,7 +30,7 @@
 <body>
   <canvas id="cv" width="1080" height="1920"></canvas>
   <div id="cnt"><span class="v"></span><span class="u"></span></div>
-  <div id="leg"></div><div id="msg"></div>
+  <div id="leg"></div>
   <div id="rk"><div class="h"></div><div id="rows"></div></div>
 <script>
 let R, ENDS = 0, T = {}, N = 0, DOTS = [], G = [];
@@ -43,12 +43,13 @@ function setup(reel, handle) {
   let i0 = 0; G = reel.gruppi.map(g => { const n = Math.round(g.v / reel.unita), o = { ...g, from: i0, to: i0 + n }; i0 += n; return o; });
   $('cnt').querySelector('.u').textContent = reel.eroe.unita_testo;
   $('leg').textContent = `● = ${fmt(reel.unita)} ${reel.leggenda || ''}`;
-  $('rk').querySelector('.h').innerHTML = hl(reel.classifica_titolo);
+  $('rk').querySelector('.h').style.display = 'none';
   const max = reel.classifica[0].v;
   $('rows').innerHTML = reel.classifica.map((c, k) => `<div class="row${c.me ? ' me' : ''}"><div class="pos">${k + 1}°</div><div class="f">${c.f}</div>
     <div class="bw"><div class="b" style="width:${c.v / max * 100}%"></div><div class="n">${c.n}</div><div class="v">${fmt(c.v / 1e6, 1)} mln</div></div></div>`).join('');
-  T.fill = 0.25; T.fillEnd = 2.4; T.hkOut = 2.9; T.g = 3.2; T.gStep = 1.5;
-  T.verdict = T.g + G.length * T.gStep; T.rk = T.verdict + 2.4; T.q = T.rk + 0.9 + reel.classifica.length * 0.28 + 2.2; ENDS = T.q + 2.6;
+  T.fill = 0.25; T.fillEnd = 2.4; T.hkOut = 2.9; T.g = 2.8; T.gStep = 1.9;
+  T.verdict = T.g + G.length * T.gStep; T.rk = T.verdict + 2.2;
+  setFrasi([T.g, T.g + T.gStep, T.verdict, T.rk]); T.q = T.rk + 0.9 + reel.classifica.length * 0.28 + 2.2; ENDS = T.q + 2.6;
   const s = [{ t: 0.02, k: 'hit' }];
   for (let k = 0; k < 14; k++) s.push({ t: T.fill + k * 0.15, k: 'tick' });
   s.push({ t: T.fillEnd, k: 'ding' });
@@ -63,7 +64,7 @@ const cv = $('cv'), cx = cv.getContext('2d');
 function setTime(t) {
   if (endCard(t, ENDS)) return;
   cx.clearRect(0, 0, 1080, 1920);
-  hookAnim(t, 0);
+  hookAnim(t, T.q);
   const gridOut = easeIO((t - T.rk) / 0.6);
   // pallini
   cx.save(); cx.globalAlpha = 1 - gridOut; cx.translate(540, GY + 340); cx.scale(1 - gridOut * 0.15, 1 - gridOut * 0.15); cx.translate(-540, -(GY + 340));
@@ -96,15 +97,8 @@ function setTime(t) {
   const v = R.eroe.v * easeIO((t - T.fill) / (T.fillEnd - T.fill));
   const cn = $('cnt'); cn.querySelector('.v').textContent = fmt(Math.round(v / 1e5) * 1e5);
   cn.style.opacity = 1 - gridOut; $('leg').style.opacity = 1 - gridOut;
-  // messaggi
-  const m = $('msg'); let txt = '';
-  const gi = G.findIndex((g, k) => t >= T.g + k * T.gStep && t < T.g + (k + 1) * T.gStep);
-  if (t >= T.verdict) txt = R.verdetto; else if (gi >= 0) txt = G[gi].testo; else if (t >= T.fillEnd) txt = R.eroe.testo;
-  m.innerHTML = hl(txt); m.style.opacity = (1 - gridOut) * cl(((t - T.fillEnd) * 4));
-  if (gi >= 0) { const p = (t - (T.g + gi * T.gStep)) / 0.3; m.style.transform = `translateY(${(1 - ease(p)) * 30}px)`; }
-  else if (t >= T.verdict) { const p = (t - T.verdict) / 0.3; m.style.transform = `scale(${back(p)})`; m.style.transformOrigin = '0 50%'; }
   // classifica finale
-  const rk = $('rk'), rp = (t - T.rk - 0.3) / 0.5; rk.style.opacity = cl(rp * 2); $('hk').style.opacity = t >= T.rk ? 1 - cl((t - T.rk) * 4) : 1;
+  const rk = $('rk'), rp = (t - T.rk - 0.3) / 0.5; rk.style.opacity = cl(rp * 2);
   [...$('rows').children].forEach((el, k) => {
     const p = (t - T.rk - 0.9 - k * 0.28) / 0.45; el.style.opacity = cl(p * 3);
     el.style.transform = `translateX(${(1 - ease(p)) * -120}px) scale(${el.classList.contains('me') ? 1 + 0.05 * Math.sin(cl(p) * Math.PI) : 1})`;

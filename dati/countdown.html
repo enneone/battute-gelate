@@ -27,7 +27,6 @@
 <body>
   <div id="list"></div>
   <div id="big"><div class="r"></div><div class="n"></div><div class="sc"></div></div>
-  <div id="note"></div>
 <script>
 let R, ENDS = 0, T = {}, IT = [];
 const ROWH = 92, STEP = 1.05;
@@ -38,18 +37,18 @@ function setup(reel, handle) {
   const n = IT.length, best = Math.max(...IT.map(x => x.v));
   $('list').innerHTML = IT.map((it, i) => `<div class="it${i === 0 ? ' gold' : ''}" style="top:${i * ROWH}px"><div class="r">#${i + 1}</div>
     <div class="tx"><div class="n">${it.n}</div><div class="s">${it.s || ''}</div></div><div class="sc${it.v === best ? ' top' : ''}">${it.v}</div></div>`).join('');
-  T.start = 1.0; T.end = T.start + n * STEP; T.note = T.end + 0.6; T.q = T.note + 2.8; ENDS = T.q + 2.6;
+  T.start = 1.2; T.end = T.start + n * STEP; T.note = T.end + 0.6; T.q = T.note + 2.6; ENDS = T.q + 2.6;
+  setFrasi([T.start + 3 * STEP, T.start + (n - 1) * STEP, T.note]);
   const s = [{ t: 0.02, k: 'hit' }];
   for (let k = 0; k < n; k++) { const t0 = T.start + k * STEP; s.push({ t: t0, k: 'whoosh' }, { t: t0 + 0.12, k: k === n - 1 ? 'hit' : 'n' + Math.min(7, k) }); }
   s.push({ t: T.end - STEP + 0.3, k: 'ding' }, { t: T.q, k: 'whoosh' }, { t: ENDS, k: 'whoosh' });
-  $('note').innerHTML = hl(reel.nota || '');
   return { duration: ENDS + END_LEN, sounds: s };
 }
 
 function setTime(t) {
   if (endCard(t, ENDS)) return;
   const n = IT.length;
-  hookAnim(t, 0);
+  hookAnim(t, T.q);
   // voce corrente (dalla decima alla prima)
   const k = Math.floor((t - T.start) / STEP), idx = n - 1 - k, lt = (t - T.start) - k * STEP;
   const big = $('big');
@@ -74,7 +73,6 @@ function setTime(t) {
   }
   if (t >= T.end + 0.4) for (const el of els) el.style.opacity = 1;
   $('list').style.opacity = 1;
-  const np = (t - T.note) / 0.4, nt = $('note'); nt.style.opacity = cl(np * 2); nt.style.transform = `translateY(${(1 - ease(np)) * 30}px)`;
   domanda(t, T.q, R);
 }
 window.setup = setup; window.setTime = setTime;
