@@ -26,6 +26,8 @@
   /* sfondo "vice": tramonto sul mare con palme e skyline, disegnato in codice (nessuna immagine di terzi) */
   #scene { position: absolute; left: 0; top: 0; z-index: 1; display: none; }
   #veil { position: absolute; inset: 0; z-index: 2; display: none; background: linear-gradient(180deg, rgba(8,4,14,.92) 0%, rgba(8,4,14,.55) 30%, rgba(8,4,14,.15) 55%, rgba(8,4,14,.55) 85%, rgba(8,4,14,.9) 100%); }
+  body.vice .row { background: rgba(12,6,18,.82); backdrop-filter: blur(6px); }
+  body.vice #res { padding: 26px 0 30px; border-radius: 32px; background: rgba(12,6,18,.72); backdrop-filter: blur(8px); }
   #res { position: absolute; left: 70px; right: 70px; top: 1060px; z-index: 18; text-align: center; opacity: 0; }
   #res .k { font-family: "Geist"; font-weight: 700; font-size: 40px; letter-spacing: 6px; color: var(--mute); }
   #res .v { font-family: "Shoulders"; font-weight: 700; font-size: 230px; line-height: .9; margin-top: 16px; }
@@ -58,7 +60,7 @@ function setup(reel, handle) {
   // il numero grande non deve uscire dalla carta
   P.forEach((p, i) => { const el = $('c' + i).querySelector('.n'); let fs = 250; while (el.scrollWidth > el.clientWidth && fs > 120) { fs -= 10; el.style.fontSize = fs + 'px'; } });
   if (reel.risultato) { $('res').querySelector('.k').textContent = reel.risultato.k || 'RISULTATO'; const v = String(reel.risultato.v).split(' '); $('res').querySelector('.v').innerHTML = v.shift() + (v.length ? `<small>${v.join(' ')}</small>` : ''); $('res').querySelector('.s').textContent = reel.risultato.s || ''; }
-  if (reel.sfondo === 'vice') { $('scene').style.display = 'block'; $('veil').style.display = 'block'; }
+  if (reel.sfondo === 'vice') { $('scene').style.display = 'block'; $('veil').style.display = 'block'; document.body.classList.add('vice'); }
   T.p0 = 2.7; T.res = T.p0 + P.length * PD; T.q = T.res + (reel.risultato ? 2.8 : 0.2); ENDS = T.q + 2.6;
   setFrasi(P.map((p, i) => T.p0 + i * PD).concat(reel.risultato ? [T.res] : []));
   const s = [{ t: 0.05, k: 'hit' }, { t: 0.5, k: 'pop' }];

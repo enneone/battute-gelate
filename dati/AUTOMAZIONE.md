@@ -38,7 +38,8 @@ Il livello deve sembrare quello di una redazione con grafici, motion designer e 
 ## Lo spiegone (21:15, almeno 3 volte a settimana)
 - Riferimento indicato dall'utente: il Reel di @fuoriditarget sul menù di Natale di McDonald's "Mamma ho perso l'aereo" (21/11/2026, 33.238 riproduzioni, 58 commenti). Struttura: **una notizia di consumo del momento** (un brand, un prodotto, un evento come Black Friday, Natale, saldi, Sanremo) → **"la ricetta è questa": 3 punti numerati** che spiegano il meccanismo → **risultato** concreto (quanto paghi, quanto spendi) → domanda personale ("lo prendi o resisti?").
 - Template `spiegone`: `icona`, `badge` ("3 NUMERI"), `hook`, `punti` (3 voci con `n` il numero grande, `t` il titolo di 3-5 parole, `d` la spiegazione di massimo 20 parole), `risultato` (`frase` per i sottotitoli, `k` etichetta, `v` valore con unità separata da spazio, `s` riga sotto). Le frasi in alto si generano da sole ("1. Lo fanno tutti").
-- Ogni punto ha un numero verificato con la fonte, come negli altri Reel. Esempio: SP01 Black Friday (Altroconsumo 2026).
+- Ogni punto ha un numero verificato con la fonte, come negli altri Reel. Esempio: SP01 Black Friday (Altroconsumo 2026), SP02 GTA 6.
+- **Immagini di contesto**: ogni punto ha un'`emoji` grande che dice di cosa parla (⏳ tempo, 📺 trailer, 💵 soldi). Per gaming e intrattenimento usa `"sfondo": "vice"` (tramonto sul mare con palme e skyline, disegnato in codice). **Niente immagini di terzi** (screenshot ufficiali, foto di giornali): l'utente ha scelto così il 22/11. Il campo `foto` per punto esiste (`dati/media/<file>`, con `credito`), ma usalo solo con immagini nostre o che l'utente fornisce.
 - Copertina: `argomento` col tema (BLACK FRIDAY, NATALE, MCDONALD'S), `icona`, `copertina_numero` vuoto, titolo tipo "Così ti fanno *spendere di più*".
 
 ## La sfida (slot delle 18:30)
