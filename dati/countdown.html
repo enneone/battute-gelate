@@ -36,9 +36,14 @@ function setup(reel, handle) {
   IT = reel.voci; // in ordine dal primo al decimo
   const n = IT.length, best = Math.max(...IT.map(x => x.v));
   $('list').innerHTML = IT.map((it, i) => `<div class="it${i === 0 ? ' gold' : ''}" style="top:${i * ROWH}px"><div class="r">#${i + 1}</div>
-    <div class="tx"><div class="n">${it.n}</div><div class="s">${it.s || ''}</div></div><div class="sc${it.v === best ? ' top' : ''}">${fmt(it.v)}${reel.suffisso ? '<small style="font-size:.55em">' + reel.suffisso + '</small>' : ''}</div></div>`).join('');
-  T.start = 1.2; T.end = T.start + n * STEP; T.note = T.end + 0.6; T.q = T.note + 2.6; ENDS = T.q + 2.6;
-  setFrasi([T.start + 3 * STEP, T.start + (n - 1) * STEP, T.note]);
+    <div class="tx"><div class="n">${it.n}</div><div class="s">${it.s || ''}</div></div><div class="sc${it.v === best ? ' top' : ''}"><span>${fmt(it.v)}${reel.suffisso ? '<small style="font-size:.55em">' + reel.suffisso + '</small>' : ''}</span></div></div>`).join('');
+  T.start = 1.2; T.end = T.start + n * STEP; T.note = T.end + 0.6;
+  // ogni frase compare quando esce la posizione indicata in frasi_at (1 = primo), "fine" dopo la classifica
+  const at = reel.frasi_at || [n - Math.max(1, Math.floor(n * 0.3)), 1, 'fine', 'fine'];
+  let tf = T.note, nF = 0;
+  const times = at.slice(0, (reel.frasi || []).length).map(a => { if (a === 'fine') { const r = tf; tf += 2.3; nF++; return r; } return T.start + (n - a) * STEP + 0.15; });
+  T.q = T.note + 2.6 + Math.max(0, nF - 1) * 2.3; ENDS = T.q + 2.6;
+  setFrasi(times);
   const s = [{ t: 0.02, k: 'hit' }];
   for (let k = 0; k < n; k++) { const t0 = T.start + k * STEP; s.push({ t: t0, k: 'whoosh' }, { t: t0 + 0.12, k: k === n - 1 ? 'hit' : 'n' + Math.min(7, k) }); }
   s.push({ t: T.end - STEP + 0.3, k: 'ding' }, { t: T.q, k: 'whoosh' }, { t: ENDS, k: 'whoosh' });
@@ -71,7 +76,7 @@ function setTime(t) {
     const el = els[i]; el.style.opacity = cl(p * 3);
     el.style.transform = `translateY(${(1 - ease(p)) * 40}px) scale(${i === 0 ? 1 + 0.04 * Math.sin(cl(p) * Math.PI) : 1})`;
   }
-  if (t >= T.end + 0.4) for (const el of els) el.style.opacity = 1;
+  if (t >= T.end + 1.1) for (const el of els) el.style.opacity = 1;
   $('list').style.opacity = 1;
   domanda(t, T.q, R);
 }

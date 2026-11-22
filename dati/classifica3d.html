@@ -38,8 +38,12 @@ function setup(reel, handle) {
   });
   T_ZOOM = t + 0.2; T_HOLD = T_ZOOM + 1.1;
   sounds.push({ t: T_ZOOM, k: 'whoosh' }, { t: T_HOLD - 0.1, k: 'hit' });
-  setFrasi([T0, T0 + (FOCUS + 1) * STEP + 0.3, T_HOLD]);
-  T_Q = T_HOLD + (reel.tenuta || 2.8); ENDS = T_Q + (reel.domanda ? 2.6 : 0);
+  let nF = 0;
+  if (reel.frasi_at) {
+    let tf = T_HOLD;
+    setFrasi(reel.frasi_at.map(a => { if (a === 'fine') { const r = tf; tf += 2.3; nF++; return r; } const k = items.findIndex(x => x.n === a); return T0 + k * STEP + 0.25; }));
+  } else setFrasi([T0, T0 + (FOCUS + 1) * STEP + 0.3, T_HOLD]);
+  T_Q = T_HOLD + (reel.tenuta || 2.8) + Math.max(0, nF - 1) * 2.3; ENDS = T_Q + (reel.domanda ? 2.6 : 0);
   sounds.push({ t: T_Q, k: 'whoosh' }, { t: ENDS, k: 'whoosh' });
   return { duration: ENDS + END_LEN, sounds };
 }
@@ -94,7 +98,8 @@ function setTime(t) {
     cx.globalAlpha = a * za; cx.textAlign = 'center';
     const fz = key ? lerp(1, 1 / S * 0.95, z) : 1;
     cx.fillStyle = col === 'lime' ? '#C8FF2E' : col === 'corallo' ? '#FF5B4A' : '#F4F4F6';
-    cx.font = `700 ${(R.font_valore || 40) * fz}px Geist`; cx.fillText((R.prefisso || '') + fmt(val) + (R.suffisso || ''), c.x + DX / 2, FLOOR - h - DY - 26 * fz);
+    cx.font = `700 ${(R.font_valore || 40) * fz}px Geist`; const lift = c.focus && FOCUS === n - 2 ? 82 * fz * z : 0; // se il focus è accanto al primo, la sua etichetta sale per non sovrapporsi
+    cx.fillText((R.prefisso || '') + fmt(val) + (R.suffisso || ''), c.x + DX / 2, FLOOR - h - DY - 26 * fz - lift);
     cx.globalAlpha = a; cx.font = `${76 * lerp(1, 1.6, z)}px "Noto Color Emoji"`; cx.fillText(c.f, c.x, FLOOR + 96 * lerp(1, 1.6, z)); cx.globalAlpha = a * za;
     cx.fillStyle = c.focus ? '#FF5B4A' : '#F4F4F6'; cx.font = `700 ${38 * (key ? lerp(1, 0.72 / S, z) : 1)}px Shoulders`; cx.textAlign = c.top && z > 0 ? "right" : "center"; cx.fillText(c.n.toUpperCase(), c.x + (c.top ? lerp(0, W / 2 + DX, z) : 0), FLOOR + 150 * lerp(1, 2.0, z));
     cx.globalAlpha = 1;

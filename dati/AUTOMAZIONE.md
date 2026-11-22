@@ -65,6 +65,13 @@ Copia la struttura di un esempio già presente in `dati/contenuti.json` e cambia
 
 Mai lo stesso template due volte nello stesso giorno. Nomi lunghi: accorciali (es. "Zelda: Ocarina of Time") e controlla che non escano dallo spazio.
 
+**Quando compare ogni frase** (controlla sempre che tutte le frasi si vedano):
+- `asse` e `barre`: fino a 4 frasi. 1ª mentre il grafico entra, 2ª a grafico completo (media o primo in classifica), 3ª sul distacco / chiusura, 4ª dopo (un confronto in più, "ma nel 2015…").
+- `countdown`: usa `frasi_at` con la posizione in classifica a cui legare ogni frase (es. `[8, 2, 1, "fine"]`: la frase 1 esce con l'ottavo, la 2 con il secondo, la 3 con il primo, la 4 a classifica finita). Lascia almeno una posizione di distanza tra due frasi.
+- `classifica3d`: usa `frasi_at` con il **nome** della voce a cui legare ogni frase (es. `["Germania", "Italia", "Grecia"]`) oppure `"fine"` per la vista d'insieme finale. Non ripetere nelle frasi il `sottotitolo`, che è già sullo schermo.
+- `hype`: 3 frasi. `punti`: 4 frasi.
+Dopo aver scritto le frasi, controlla i tempi: ogni frase deve restare almeno 1,5 secondi.
+
 ## Copertine
 Ogni Reel ha `copertina` (2-4 righe brevi, una parola tra asterischi), `copertina_numero` (il dato forte, es. "30,2 ANNI") e, per gaming e intrattenimento, `"copertina_tema": "vice"`. Il testo sta tutto nella zona che la griglia del profilo mostra.
 

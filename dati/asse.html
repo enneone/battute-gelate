@@ -14,14 +14,16 @@
   <canvas id="cv" width="1080" height="1920"></canvas>
 <script>
 let R, ENDS = 0, T = {}, IT = [];
-const X0 = 330, X1 = 990, TOP = 610, ROWH = 64;
+const X0 = 330, X1 = 990, TOP = 690, ROWH = 64;
 const sx = (v) => X0 + (v - R.min) / (R.max - R.min) * (X1 - X0);
 
 function setup(reel, handle) {
   R = reel; base(reel, handle); hookBlock(reel);
   IT = reel.voci.slice().sort((a, b) => a.v - b.v);
-  T.start = 0.6; T.step = 0.3; T.avg = T.start + IT.length * T.step + 0.4; T.gap = T.avg + 1.9; T.msg = T.gap; T.q = T.gap + 2.6; ENDS = T.q + 2.6;
-  setFrasi([2.6, T.avg, T.gap]);
+  T.start = 0.6; T.step = 0.3; T.avg = Math.max(T.start + IT.length * T.step + 0.4, 4.7); T.gap = T.avg + 1.9; T.msg = T.gap; T.q = T.gap + 2.6;
+  T.f4 = T.gap + 2.3; if ((reel.frasi || []).length > 3) T.q = T.f4 + 2.4;
+  ENDS = T.q + 2.6;
+  setFrasi([2.6, T.avg, T.gap, T.f4]);
   const s = [{ t: 0.02, k: 'hit' }];
   IT.forEach((it, i) => s.push({ t: T.start + i * T.step + 0.25, k: it.focus ? 'hit' : 'n' + Math.min(7, Math.floor(i * 8 / IT.length)) }));
   s.push({ t: T.avg, k: 'whoosh' }, { t: T.gap, k: 'ding' }, { t: T.q, k: 'whoosh' }, { t: ENDS, k: 'whoosh' });

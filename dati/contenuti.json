@@ -742,7 +742,13 @@
     "Doomsday esce il *16 dicembre*"
    ],
    "numero": 8,
-   "suffisso": " mln $"
+   "suffisso": " mln $",
+   "frasi_at": [
+    8,
+    2,
+    1,
+    "fine"
+   ]
   },
   {
    "id": "D09-luce-europa",
@@ -1119,7 +1125,13 @@
     "Giovedì la *semifinale*"
    ],
    "numero": 12,
-   "suffisso": "mila"
+   "suffisso": "mila",
+   "frasi_at": [
+    4,
+    1,
+    "fine",
+    "fine"
+   ]
   },
   {
    "id": "D13-rincari-ottobre",
@@ -1132,7 +1144,7 @@
    ],
    "voci": [
     {
-     "n": "Casa, acqua, luce, gas",
+     "n": "Casa e bollette",
      "v": 19.2
     },
     {
@@ -1152,7 +1164,7 @@
      "v": 5.5
     },
     {
-     "n": "Telefono e internet",
+     "n": "Telefonia",
      "v": 4.3
     },
     {
@@ -1168,7 +1180,7 @@
      "v": 2.4
     },
     {
-     "n": "Carrello della spesa",
+     "n": "Carrello spesa",
      "v": 2.3
     }
    ],
@@ -1277,13 +1289,17 @@
    "copertina_numero": "160 MLN",
    "copertina_tema": "vice",
    "frasi": [
-    "Le console più vendute di sempre",
     "PS5 ottava: *98 milioni*",
     "Switch a *157 milioni*",
     "Il record resta della *PS2*"
    ],
    "numero": 14,
-   "suffisso": " mln"
+   "suffisso": " mln",
+   "frasi_at": [
+    8,
+    2,
+    1
+   ]
   },
   {
    "id": "D15-ore-lavorate",
@@ -1375,12 +1391,16 @@
    ],
    "copertina_numero": "1.716 ORE",
    "frasi": [
-    "Ore lavorate in un anno",
     "Germania: *1.332*",
     "Italia: *1.716*",
     "In Grecia *ancora di più*"
    ],
-   "numero": 15
+   "numero": 15,
+   "frasi_at": [
+    "Germania",
+    "Italia",
+    "Grecia"
+   ]
   },
   {
    "id": "D16-iphone-prezzi",
@@ -1458,12 +1478,18 @@
    "copertina_numero": "1.489 €",
    "copertina_tema": "vice",
    "frasi": [
-    "Prezzo dell'iPhone 18 Pro",
+    "USA *1.091 euro*, tasse escluse",
     "Germania: *1.449 euro*",
     "Italia: *1.489*",
-    "USA *1.091*, ma tasse escluse"
+    "Solo in *Portogallo* costa di più"
    ],
-   "numero": 16
+   "numero": 16,
+   "frasi_at": [
+    "USA",
+    "Germania",
+    "Italia",
+    "fine"
+   ]
   },
   {
    "id": "D17-gas-europa",
@@ -1577,7 +1603,7 @@
      "v": 39.2
     },
     {
-     "n": "Il diavolo veste Prada 2",
+     "n": "Diavolo veste Prada 2",
      "v": 34.5
     },
     {
@@ -1699,7 +1725,7 @@
      "v": 88
     },
     {
-     "n": "Dolomiti Superski",
+     "n": "Dolomiti",
      "f": "⛷️",
      "v": 89
     }
@@ -1721,12 +1747,18 @@
    ],
    "copertina_numero": "89 €",
    "frasi": [
-    "Skipass giornaliero quest'inverno",
+    "Si parte da *36 euro*",
     "Cortina: *84 euro*",
     "In cima le *Dolomiti*: 89",
     "*+33%* in cinque stagioni"
    ],
-   "numero": 19
+   "numero": 19,
+   "frasi_at": [
+    "Champorcher",
+    "Cortina",
+    "Dolomiti",
+    "fine"
+   ]
   },
   {
    "id": "D20-spiderman-record",

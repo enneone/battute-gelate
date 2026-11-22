@@ -6,12 +6,12 @@
 <style>
   /* BARRE: classifica completa a barre orizzontali, svelata dal fondo verso l'alto, con primi e ultimo evidenziati */
   #tab { position: absolute; left: 70px; right: 70px; top: 640px; z-index: 10; }
-  .rw { position: absolute; left: 0; right: 0; height: 44px; display: flex; align-items: center; gap: 14px; }
-  .rw .p { width: 46px; font-family: "Geist"; font-weight: 700; font-size: 22px; color: #8B8B99; text-align: right; }
-  .rw .n { width: 190px; font-family: "Shoulders"; font-weight: 700; font-size: 34px; text-transform: uppercase; white-space: nowrap; }
-  .rw .bw { flex: 1; height: 30px; position: relative; }
+  .rw { position: absolute; left: 0; right: 0; height: calc(var(--rh, 46px) - 2px); display: flex; align-items: center; gap: 14px; }
+  .rw .p { width: 52px; font-family: "Geist"; font-weight: 700; font-size: var(--fv, 22px); color: #8B8B99; text-align: right; }
+  .rw .n { width: auto; font-family: "Shoulders"; font-weight: 700; font-size: var(--fn, 34px); text-transform: uppercase; white-space: nowrap; }
+  .rw .bw { flex: 1; height: var(--bh, 30px); position: relative; }
   .rw .b { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 8px; background: linear-gradient(90deg, #2C2C36, #4A4A58); transform-origin: 0 50%; }
-  .rw .v { position: absolute; top: 50%; transform: translateY(-50%); font-family: "Geist"; font-weight: 700; font-size: 22px; white-space: nowrap; padding-left: 12px; }
+  .rw .v { position: absolute; top: 50%; transform: translateY(-50%); font-family: "Geist"; font-weight: 700; font-size: var(--fv, 22px); white-space: nowrap; padding-left: 12px; }
   .rw.top .b { background: linear-gradient(90deg, #8FBF10, #C8FF2E); box-shadow: 0 0 30px rgba(200,255,46,.35); }
   .rw.top .n, .rw.top .v, .rw.top .p { color: #C8FF2E; }
   .rw.low .b { background: linear-gradient(90deg, #A8301F, #FF5B4A); box-shadow: 0 0 30px rgba(255,91,74,.35); }
@@ -24,17 +24,35 @@
   <div id="tab"></div>
 <script>
 let R, ENDS = 0, T = {}, IT = [];
-const ROWH = 46;
+let ROWH = 46;
 
 function setup(reel, handle) {
   R = reel; base(reel, handle); hookBlock(reel);
   IT = reel.voci.slice().sort((a, b) => b.v - a.v);
   const max = IT[0].v, n = IT.length;
+  // righe più alte quando le voci sono poche, così il grafico riempie lo spazio
+  ROWH = Math.min(84, Math.floor(900 / n));
+  const k = ROWH / 46;
+  document.documentElement.style.setProperty('--rh', ROWH + 'px');
+  document.documentElement.style.setProperty('--fn', Math.min(52, Math.round(34 * k)) + 'px');
+  document.documentElement.style.setProperty('--fv', Math.min(34, Math.round(22 * k)) + 'px');
+  document.documentElement.style.setProperty('--bh', Math.round(30 * Math.min(k, 1.6)) + 'px');
   $('tab').innerHTML = IT.map((it, i) => `<div class="rw${i < (reel.evidenzia_top || 1) ? ' top' : ''}${i === n - 1 ? ' low' : ''}" style="top:${i * ROWH}px">
-    <div class="p">${i + 1}</div><div class="n">${it.n}</div><div class="bw"><div class="b" style="width:${it.v / max * 76}%"></div>
-    <div class="v" style="left:${it.v / max * 76}%">${fmt(it.v, 1)}${reel.suffisso || ''}</div></div></div>`).join('');
-  T.start = 0.6; T.step = 0.2; T.end = T.start + n * T.step + 0.5; T.cl = T.end + 1.8; T.q = T.cl + 2.6; ENDS = T.q + 2.6;
-  setFrasi([2.6, T.end, T.cl]);
+    <div class="p">${i + 1}</div><div class="n">${it.n}</div><div class="bw"><div class="b" style="width:${it.v / max * 72}%"></div>
+    <div class="v" style="left:${it.v / max * 72}%">${fmt(it.v, 1)}${reel.suffisso || ''}</div></div></div>`).join('');
+  // colonna dei nomi larga quanto il nome più lungo
+  const ns = [...$('tab').querySelectorAll('.n')], wmax = Math.max(...ns.map(e => e.scrollWidth));
+  const WN = 360, sc = Math.min(1, WN / wmax);
+  ns.forEach(e => { if (sc < 1) e.style.fontSize = (parseFloat(getComputedStyle(e).fontSize) * sc) + 'px'; e.style.width = Math.min(WN, wmax * sc) + 6 + 'px'; });
+  // la barra più lunga lascia sempre spazio all'etichetta del valore
+  const rows = [...$('tab').children], bwW = rows[0].querySelector('.bw').clientWidth;
+  const vW = Math.max(...rows.map(r => r.querySelector('.v').scrollWidth));
+  const pct = Math.min(80, (bwW - vW - 8) / bwW * 100);
+  rows.forEach((r, i) => { const w = IT[i].v / max * pct; r.querySelector('.b').style.width = w + '%'; r.querySelector('.v').style.left = w + '%'; });
+  T.start = 0.6; T.step = n > 12 ? 0.2 : 0.3; T.end = Math.max(T.start + n * T.step + 0.5, 4.6); T.cl = T.end + 1.8; T.q = T.cl + 2.6;
+  T.f4 = T.cl + 2.3; if ((reel.frasi || []).length > 3) T.q = T.f4 + 2.4;
+  ENDS = T.q + 2.6;
+  setFrasi([2.6, T.end, T.cl, T.f4]);
   const s = [{ t: 0.02, k: 'hit' }];
   for (let i = 0; i < n; i++) s.push({ t: T.start + i * T.step, k: i === n - 1 ? 'hit' : (i % 2 ? 'tick' : 'pop') });
   s.push({ t: T.cl, k: 'ding' }, { t: T.q, k: 'whoosh' }, { t: ENDS, k: 'whoosh' });
