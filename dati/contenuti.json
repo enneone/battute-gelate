@@ -2687,6 +2687,78 @@
    "argomento": "GTA 6",
    "copertina_numero": "",
    "copertina_titolo": "I numeri che *non tutti sanno*"
+  },
+  {
+   "id": "P08-pressa-resiste",
+   "template": "pressa",
+   "numero": 29,
+   "fps": 60,
+   "hook": [
+    "Chi resiste",
+    "*più a lungo?*"
+   ],
+   "oggetti": [
+    "anguria",
+    "pallina",
+    "pomodoro",
+    "budino",
+    "cellulare"
+   ],
+   "domanda": [
+    "Cosa mettiamo",
+    "sotto la *pressa?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "",
+   "fine": "Seguici: ogni giorno una nuova prova.",
+   "didascalia": "Anguria, pallina antistress, pomodoro, budino… e il vecchio cellulare 💥 Chi pensavi che resistesse? Cosa mettiamo sotto la pressa la prossima volta?",
+   "hashtag": "#pressaidraulica #satisfying",
+   "copertina": [
+    "Chi resiste",
+    "*più a lungo?*"
+   ],
+   "copertina_numero": "",
+   "copertina_kicker": "LA PRESSA",
+   "tema": "nero",
+   "argomento": "La pressa",
+   "icona": "🍉",
+   "copertina_titolo": "Chi resiste *di più?*"
+  },
+  {
+   "id": "P09-pressa-nessuno",
+   "template": "pressa",
+   "numero": 30,
+   "fps": 60,
+   "hook": [
+    "Qualcuno",
+    "si *salva?*"
+   ],
+   "oggetti": [
+    "panettone",
+    "lattina",
+    "uovo",
+    "telefono",
+    "cellulare"
+   ],
+   "domanda": [
+    "Cosa mettiamo",
+    "sotto la *pressa?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "",
+   "fine": "Seguici: ogni giorno una nuova prova.",
+   "didascalia": "Panettone, lattina, uovo, smartphone… e poi il vecchio cellulare 💥 Quanti ne hai indovinati? Cosa mettiamo sotto la pressa?",
+   "hashtag": "#pressaidraulica #satisfying",
+   "copertina": [
+    "Qualcuno",
+    "si *salva?*"
+   ],
+   "copertina_numero": "",
+   "copertina_kicker": "LA PRESSA",
+   "tema": "carta",
+   "argomento": "La pressa",
+   "icona": "🥚",
+   "copertina_titolo": "Qualcuno si *salva?*"
   }
  ]
 }

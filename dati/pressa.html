@@ -29,7 +29,7 @@ const KIND = {
 
 function setup(reel, handle) {
   R = reel; base(reel, handle);
-  if (!reel.frasi) reel.frasi = reel.oggetti.map((k, i) => (KIND[k].mode === 'resiste' ? 'E infine... *' + KIND[k].nome.toLowerCase() + '*' : `${i + 1}. *${KIND[k].nome}*`));
+  if (!reel.frasi) reel.frasi = reel.oggetti.map((k, i) => (i === reel.oggetti.length - 1 ? 'E infine... *' + KIND[k].nome.toLowerCase() + '*' : `${i + 1}. *${KIND[k].nome}*`));
   hookBlock(reel);
   let t = 0.25; const s = [{ t: 0.02, k: 'hit' }];
   reel.oggetti.forEach((k, i) => {
