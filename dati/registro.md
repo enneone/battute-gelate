@@ -54,3 +54,9 @@
   - 29/11: 12:30 D05 · 21:15 D11 — 30/11: 12:30 D08 · 21:15 D15 — 1/12: 12:30 D14 (gli altri slot li riempie il rifornimento automatico)
 - Countdown: il riquadro del primo classificato usava ancora il verde lime (colore impostato da JavaScript, che `recolor()` non traduce): ora usa `var(--top)`. Regola: nei template i colori impostati da JavaScript vanno scritti come variabili CSS (`var(--top)`, `var(--ink)`, `var(--foc)`).
 - 22/11 pomeriggio, su richiesta dell'utente: spiegone in più su GTA 6 (SP02, tema nero, sfondo disegnato "vice", icone per punto, nessuna immagine ufficiale per scelta dell'utente) programmato oggi alle 20:00. Fonti: GamesRadar 14/10/2026, TechCrunch 5/12/2023, Take-Two 20/11/2026 e Q2 FY27.
+
+## 23/11/2026 (controllo automatico del mattino)
+- Post del 22/11 (D02, P01, D03, SP02, D01) tutti pubblicati, nessuno in errore; quelli di oggi in attesa. Nessuna riprogrammazione.
+- Analisi 14 giorni (dettagli in `analisi.md`): mediana 152 visualizzazioni; pressa P01 1.513 (67,9% oltre 3 s), quasi 10 volte la mediana; i 3 Reel su GTA 6 dello stesso giorno 141-230; D01 stipendi 114 (18,3% oltre 3 s).
+- Cambiato in base ai dati: **pressa a 2 slot al giorno**. Programmati P08 "Chi resiste più a lungo?" (29/11 15:00, nero) e P09 "Qualcuno si salva?" (29/11 18:30, carta, seconda pressa al posto della sfida). Template `pressa` corretto ("E infine…" solo sull'ultimo oggetto). Mai più di un Reel sullo stesso tema caldo nello stesso giorno.
+- Video dal commit a7fd43c. Calendario pieno fino al 29/11 (4 Reel al giorno); 30/11 e 1/12 parziali, li completa il prossimo rifornimento.
