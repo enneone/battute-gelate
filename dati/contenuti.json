@@ -2759,6 +2759,150 @@
    "argomento": "La pressa",
    "icona": "🥚",
    "copertina_titolo": "Qualcuno si *salva?*"
+  },
+  {
+   "id": "P10-pressa-chi-si-rompe",
+   "template": "pressa",
+   "numero": 31,
+   "fps": 60,
+   "hook": [
+    "Indovina chi",
+    "*si rompe*"
+   ],
+   "oggetti": [
+    "uovo",
+    "pallina",
+    "anguria",
+    "budino",
+    "cellulare"
+   ],
+   "domanda": [
+    "Cosa mettiamo",
+    "sotto la *pressa?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "",
+   "fine": "Seguici: ogni giorno una nuova prova.",
+   "didascalia": "Uovo, pallina antistress, anguria, budino… e il vecchio cellulare 💥 Scrivi chi pensi che resista PRIMA del verdetto 👇 Cosa mettiamo sotto la pressa la prossima volta?",
+   "hashtag": "#pressaidraulica #satisfying",
+   "copertina": [
+    "Indovina chi",
+    "*si rompe*"
+   ],
+   "copertina_numero": "",
+   "copertina_kicker": "LA PRESSA",
+   "tema": "nero",
+   "argomento": "La pressa",
+   "icona": "🍉",
+   "copertina_titolo": "Indovina chi *si rompe*"
+  },
+  {
+   "id": "P11-pressa-almeno-uno",
+   "template": "pressa",
+   "numero": 32,
+   "fps": 60,
+   "hook": [
+    "Ne resiste",
+    "*almeno uno?*"
+   ],
+   "oggetti": [
+    "lattina",
+    "budino",
+    "pallina_natale",
+    "pallina",
+    "cellulare"
+   ],
+   "domanda": [
+    "Cosa mettiamo",
+    "sotto la *pressa?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "",
+   "fine": "Seguici: ogni giorno una nuova prova.",
+   "didascalia": "Lattina, budino, pallina dell'albero, pallina antistress… e il vecchio cellulare 💥 Quanti ne avevi indovinati? Cosa mettiamo sotto la pressa la prossima volta?",
+   "hashtag": "#pressaidraulica #satisfying",
+   "copertina": [
+    "Ne resiste",
+    "*almeno uno?*"
+   ],
+   "copertina_numero": "",
+   "copertina_kicker": "LA PRESSA",
+   "tema": "carta",
+   "argomento": "La pressa",
+   "icona": "🥫",
+   "copertina_titolo": "Ne resiste *almeno uno?*"
+  },
+  {
+   "id": "P12-pressa-scommessa",
+   "template": "pressa",
+   "numero": 33,
+   "fps": 60,
+   "hook": [
+    "Fai la tua",
+    "*scommessa*"
+   ],
+   "oggetti": [
+    "telefono",
+    "budino",
+    "panettone",
+    "pallina",
+    "cellulare"
+   ],
+   "domanda": [
+    "Cosa mettiamo",
+    "sotto la *pressa?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "",
+   "fine": "Seguici: ogni giorno una nuova prova.",
+   "didascalia": "Smartphone, budino, panettone, pallina antistress… e il vecchio cellulare 💥 Su chi avevi scommesso? Cosa mettiamo sotto la pressa la prossima volta?",
+   "hashtag": "#pressaidraulica #satisfying",
+   "copertina": [
+    "Fai la tua",
+    "*scommessa*"
+   ],
+   "copertina_numero": "",
+   "copertina_kicker": "LA PRESSA",
+   "tema": "nero",
+   "argomento": "La pressa",
+   "icona": "📱",
+   "copertina_titolo": "Fai la tua *scommessa*"
+  },
+  {
+   "id": "P13-pressa-fino-alla-fine",
+   "template": "pressa",
+   "numero": 34,
+   "fps": 60,
+   "hook": [
+    "Chi arriva",
+    "*fino alla fine?*"
+   ],
+   "oggetti": [
+    "pomodoro",
+    "pallina_natale",
+    "budino",
+    "telefono",
+    "cellulare"
+   ],
+   "domanda": [
+    "Cosa mettiamo",
+    "sotto la *pressa?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "",
+   "fine": "Seguici: ogni giorno una nuova prova.",
+   "didascalia": "Pomodoro, pallina dell'albero, budino, smartphone… e il vecchio cellulare 💥 Chi pensavi che arrivasse in fondo? Cosa mettiamo sotto la pressa la prossima volta?",
+   "hashtag": "#pressaidraulica #satisfying",
+   "copertina": [
+    "Chi arriva",
+    "*fino alla fine?*"
+   ],
+   "copertina_numero": "",
+   "copertina_kicker": "LA PRESSA",
+   "tema": "carta",
+   "argomento": "La pressa",
+   "icona": "🍅",
+   "copertina_titolo": "Chi arriva *fino alla fine?*"
   }
  ]
 }

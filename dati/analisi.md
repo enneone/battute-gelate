@@ -30,3 +30,39 @@ Primo giorno con il marchio Che Numeri (22/11): 5 Reel usciti, nessuno in errore
 - Corretto il template `pressa`: "E infine…" ora compare solo sull'ultimo oggetto (prima usciva su ogni oggetto che resiste, anche a metà video, es. P01).
 - Nessun template sotto la metà della mediana per 4 uscite di fila: nessuno esce dal piano. Nessun Reel di dati sopra 3 volte la mediana: nessun seguito obbligato.
 - Da tenere d'occhio: classifica3d (18,3% oltre 3 s); prossima verifica dopo D15 e D16. Mai più di un Reel sullo stesso tema caldo nello stesso giorno.
+
+## 24 novembre 2026 (analisi automatica, ultimi 14 giorni)
+33 Reel nel periodo (10/11-23/11), mediana **144** visualizzazioni. Post del 23/11 letti dopo circa 14-22 ore.
+
+| Reel (23/11) | Template | Tema/pubblico | Visualizz. | Copertura | >3 s | Tempo medio | Cond.+salv.+comm. |
+|---|---|---|---|---|---|---|---|
+| P02 pressa Natale | pressa | pressa | 147 | 140 | **54,7%** | 6,5 s | 0 |
+| D04 uscita di casa | asse | casa e giovani | 140 | 120 | 45,8% | 5,6 s | 0 |
+| S01 Italia-Germania | sfida | soldi e lavoro | 136 | 126 | 40,0% | 6,0 s | 0 |
+| D06 Serie A stipendi | barre | calcio | 115 | 112 | 36,8% | 4,4 s | 0 |
+
+Aggiornati i Reel del 22/11: P01 1.517, D03 454 (era 230: è cresciuto il secondo giorno, 3,2 volte la mediana), SP02 155, D02 141, D01 116.
+
+**Per template** (Reel Che Numeri, 22-23/11):
+| Template | Uscite | Media | Mediana | >3 s medio | Tempo medio |
+|---|---|---|---|---|---|
+| pressa (con 21/11) | 3 | 1.021 | 1.399 | 62,1% | 8,5 s |
+| punti | 1 | 454 | 454 | 46,3% | 8,5 s |
+| spiegone | 1 | 155 | 155 | 33,3% | 5,4 s |
+| hype | 1 | 141 | 141 | 52,5% | 6,9 s |
+| asse | 1 | 140 | 140 | 45,8% | 5,6 s |
+| sfida | 1 | 136 | 136 | 40,0% | 6,0 s |
+| classifica3d | 1 | 116 | 116 | 18,9% | 3,8 s |
+| barre | 1 | 115 | 115 | 36,8% | 4,4 s |
+
+**Per tema**: gaming 3 Reel, media 250 (trainata da D03); casa e giovani 140; soldi e lavoro 126 (2 Reel); calcio 115.
+
+- Migliori: P01 pressa (1.517, 67,8% oltre 3 s), D03 GTA 6 copie (454: pallini "se ogni copia fosse una persona", tema caldo), P02 pressa (147 ma 54,7% oltre 3 s, la migliore tenuta del 23/11).
+- Peggiori: D06 Serie A (115, 36,8%: classifica a barre lunga, apertura senza movimento forte), D01 stipendi (116, 18,9%), S01 sfida (136: primo test, nella media).
+- **Pressa instabile**: P02 si è fermata a 147 contro 1.399-1.517 delle due precedenti. Il gancio "Il panettone resiste alla pressa?" e l'apertura col pomodoro sembrano meno forti di "Cosa resiste?" con l'uovo. Resta comunque il formato con la tenuta più alta (54-68% oltre 3 s).
+- Condivisioni, salvataggi e commenti ancora a zero: nessuna proposta di oggetti per la pressa nei commenti.
+
+### Decisioni (24/11)
+- Pressa confermata a 2 slot (media 7 volte la mediana), ma con ganci "a scommessa" più vicini a P01 ("Indovina chi si rompe", "Ne resiste almeno uno?", "Fai la tua scommessa", "Chi arriva fino alla fine?") e un oggetto che si rompe in apertura (uovo, lattina, telefono, pomodoro). Da verificare con P03-P09: se 3 presse di fila restano sotto 300, la seconda pressa delle 18:30 torna sfida o dati.
+- **D03 (punti) sopra 3 volte la mediana**: seguito entro 2 giorni sullo stesso tema con angolo nuovo: **D05 (GTA 6, voti Metacritic) anticipato dal 29/11 al 26/11 alle 12:30**, scambiato con D13 (rincari, ora 29/11 12:30; così il 26/11 non ha due Reel sui consumi insieme a SP01 Black Friday). Prossimo test del template `punti` su un tema diverso nel primo slot dati libero (dal 1/12).
+- Nessun template sotto la metà della mediana (72) per 4 uscite di fila. classifica3d resta sotto osservazione (18,9% oltre 3 s); prossime uscite D15 e D16.
