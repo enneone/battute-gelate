@@ -60,3 +60,10 @@
 - Analisi 14 giorni (dettagli in `analisi.md`): mediana 152 visualizzazioni; pressa P01 1.513 (67,9% oltre 3 s), quasi 10 volte la mediana; i 3 Reel su GTA 6 dello stesso giorno 141-230; D01 stipendi 114 (18,3% oltre 3 s).
 - Cambiato in base ai dati: **pressa a 2 slot al giorno**. Programmati P08 "Chi resiste più a lungo?" (29/11 15:00, nero) e P09 "Qualcuno si salva?" (29/11 18:30, carta, seconda pressa al posto della sfida). Template `pressa` corretto ("E infine…" solo sull'ultimo oggetto). Mai più di un Reel sullo stesso tema caldo nello stesso giorno.
 - Video dal commit a7fd43c. Calendario pieno fino al 29/11 (4 Reel al giorno); 30/11 e 1/12 parziali, li completa il prossimo rifornimento.
+
+## 24/11/2026 (controllo automatico del mattino)
+- Post del 23/11 (D04, P02, S01, D06) tutti pubblicati, nessuno in errore; quelli di oggi in attesa. Nessuna riprogrammazione.
+- Analisi 14 giorni (dettagli in `analisi.md`): mediana 144 visualizzazioni. P01 pressa 1.517; D03 GTA 6 copie salita a 454 (3,2 volte la mediana); P02 pressa Natale solo 147 (ma 54,7% oltre 3 s, la migliore tenuta del 23/11); S01 sfida 136, D04 140, D06 115.
+- Cambiato in base ai dati: **D05 (GTA 6 voti) anticipato al 26/11 12:30** come seguito di D03 entro 2 giorni, scambiato con D13 (rincari, ora 29/11 12:30). Pressa confermata a 2 slot ma con ganci "a scommessa" e un oggetto che si rompe in apertura; se 3 presse di fila restano sotto 300, la seconda pressa torna sfida o dati.
+- Programmati (video dal commit b65e9db): 30/11 15:00 P10 "Indovina chi si rompe" (nero) · 30/11 18:30 P11 "Ne resiste almeno uno?" (carta) · 1/12 15:00 P12 "Fai la tua scommessa" (nero) · 1/12 18:30 P13 "Chi arriva fino alla fine?" (carta).
+- Calendario pieno fino al 30/11 (4 Reel al giorno). 1/12: manca solo il 21:15 (spiegone, lo fa il prossimo rifornimento).
