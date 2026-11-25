@@ -67,3 +67,9 @@
 - Cambiato in base ai dati: **D05 (GTA 6 voti) anticipato al 26/11 12:30** come seguito di D03 entro 2 giorni, scambiato con D13 (rincari, ora 29/11 12:30). Pressa confermata a 2 slot ma con ganci "a scommessa" e un oggetto che si rompe in apertura; se 3 presse di fila restano sotto 300, la seconda pressa torna sfida o dati.
 - Programmati (video dal commit b65e9db): 30/11 15:00 P10 "Indovina chi si rompe" (nero) · 30/11 18:30 P11 "Ne resiste almeno uno?" (carta) · 1/12 15:00 P12 "Fai la tua scommessa" (nero) · 1/12 18:30 P13 "Chi arriva fino alla fine?" (carta).
 - Calendario pieno fino al 30/11 (4 Reel al giorno). 1/12: manca solo il 21:15 (spiegone, lo fa il prossimo rifornimento).
+
+## 25/11/2026 (controllo automatico del mattino)
+- Post del 24/11 (D07, P03, S04, D09) tutti pubblicati, nessuno in errore; quelli di oggi (D10, P04, S02, D12) in attesa. Nessuna riprogrammazione.
+- Analisi 14 giorni (dettagli in `analisi.md`): mediana 142. P03 pressa 136 ma 72,4% oltre 3 s (tenuta record); S04 124, D07 121, D09 luce 104 (il più basso). Seconda pressa di fila sotto 300: se anche P04 resta sotto, dal 2/12 la seconda pressa delle 18:30 torna sfida o dati.
+- Programmato (video dal commit 938ea3c): 1/12 21:15 **SP03 spiegone regali di Natale** (arancio; mUp Research per Facile.it, 2.012 interviste, 28/10-1/11/2026: 6 regali a testa contro 7 nel 2025, 4,6 milioni già comprati a inizio novembre, 5,1 milioni aspettano la tredicesima, budget 316 €).
+- Calendario pieno fino al 1/12 (4 Reel al giorno). Prossimo rifornimento: dal 2/12.
