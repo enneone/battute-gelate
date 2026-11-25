@@ -2903,6 +2903,57 @@
    "argomento": "La pressa",
    "icona": "🍅",
    "copertina_titolo": "Chi arriva *fino alla fine?*"
+  },
+  {
+   "id": "SP03-regali-natale",
+   "template": "spiegone",
+   "fps": 60,
+   "tema": "arancio",
+   "numero": 35,
+   "icona": "🎁",
+   "badge": "3 NUMERI",
+   "hook": [
+    "Regali di Natale:",
+    "quest'anno *ne facciamo meno*"
+   ],
+   "punti": [
+    {
+     "n": "6",
+     "t": "Un regalo in meno",
+     "d": "regali a testa in media nel 2026. Nel 2025 erano 7: colpa dei prezzi saliti.",
+     "emoji": "🎁"
+    },
+    {
+     "n": "4,6 mln",
+     "t": "C'è chi è già pronto",
+     "d": "di italiani avevano già comprato i regali a inizio novembre. Quasi l'11% ha iniziato ad agosto.",
+     "emoji": "🛍️"
+    },
+    {
+     "n": "5,1 mln",
+     "t": "Si aspetta la tredicesima",
+     "d": "di italiani dovranno aspettare la tredicesima per pagare i regali di Natale.",
+     "emoji": "💶"
+    }
+   ],
+   "risultato": {
+    "frase": "Budget medio: *316 euro*",
+    "k": "BUDGET REGALI 2026",
+    "v": "316 €",
+    "s": "a testa, solo per i regali"
+   },
+   "domanda": [
+    "Quanti regali fai",
+    "*quest'anno?*"
+   ],
+   "domanda2": "Scrivi il numero 👇",
+   "fonte": "MUP RESEARCH PER FACILE.IT, 2.012 INTERVISTE A 18-74ENNI, 28/10-1/11/2026 (COMUNICATO DEL 10/11/2026)",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "Quest'anno gli italiani fanno in media 6 regali di Natale, uno in meno del 2025 🎁 Budget medio 316 euro, e 5,1 milioni dovranno aspettare la tredicesima per pagarli. Tu quanti regali fai quest'anno?",
+   "hashtag": "#natale #regalidinatale",
+   "argomento": "Natale",
+   "copertina_numero": "",
+   "copertina_titolo": "Regali di Natale: *ne facciamo meno*"
   }
  ]
 }

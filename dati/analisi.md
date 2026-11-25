@@ -66,3 +66,40 @@ Aggiornati i Reel del 22/11: P01 1.517, D03 454 (era 230: è cresciuto il second
 - Pressa confermata a 2 slot (media 7 volte la mediana), ma con ganci "a scommessa" più vicini a P01 ("Indovina chi si rompe", "Ne resiste almeno uno?", "Fai la tua scommessa", "Chi arriva fino alla fine?") e un oggetto che si rompe in apertura (uovo, lattina, telefono, pomodoro). Da verificare con P03-P09: se 3 presse di fila restano sotto 300, la seconda pressa delle 18:30 torna sfida o dati.
 - **D03 (punti) sopra 3 volte la mediana**: seguito entro 2 giorni sullo stesso tema con angolo nuovo: **D05 (GTA 6, voti Metacritic) anticipato dal 29/11 al 26/11 alle 12:30**, scambiato con D13 (rincari, ora 29/11 12:30; così il 26/11 non ha due Reel sui consumi insieme a SP01 Black Friday). Prossimo test del template `punti` su un tema diverso nel primo slot dati libero (dal 1/12).
 - Nessun template sotto la metà della mediana (72) per 4 uscite di fila. classifica3d resta sotto osservazione (18,9% oltre 3 s); prossime uscite D15 e D16.
+
+## 25 novembre 2026 (analisi automatica, ultimi 14 giorni)
+35 Reel nel periodo (11/11-24/11), mediana **142** visualizzazioni. Post del 24/11 letti dopo circa 12-22 ore.
+
+| Reel (24/11) | Template | Tema/pubblico | Visualizz. | Copertura | >3 s | Tempo medio | Cond.+salv.+comm. |
+|---|---|---|---|---|---|---|---|
+| P03 pressa | pressa | pressa | 136 | 130 | **72,4%** | 8,8 s | 0 |
+| S04 Italia-Grecia | sfida | soldi e lavoro | 124 | 108 | 38,7% | 5,6 s | 0 |
+| D07 affitti città | barre | casa e giovani | 121 | 106 | 37,7% | 4,4 s | 0 |
+| D09 luce Europa | asse | bollette | 104 | 86 | 27,9% | 4,1 s | 0 |
+
+Aggiornati: P01 1.519, D03 457, SP02 158, P02 148, D04 143, D02 142, S01 137, D06 122, D01 117.
+
+**Per template** (Reel Che Numeri, 22-24/11):
+| Template | Uscite | Media | Mediana | >3 s medio |
+|---|---|---|---|---|
+| pressa (con 21/11) | 4 | 801 | 774 | 64,8% |
+| punti | 1 | 457 | 457 | 46,4% |
+| spiegone | 1 | 158 | 158 | 33,8% |
+| asse | 2 | 124 | 124 | 36,7% |
+| hype | 1 | 142 | 142 | 52,0% |
+| sfida | 2 | 131 | 131 | 39,6% |
+| barre | 2 | 122 | 122 | 38,2% |
+| classifica3d | 1 | 117 | 117 | 19,6% |
+
+**Per tema**: gaming 3 Reel, media 252; casa e giovani 2, media 132; soldi e lavoro 3, media 126; calcio 122; bollette 104.
+
+- Migliori: P01 pressa (1.519), D03 GTA 6 copie (457), P03 pressa (136 visualizzazioni ma **72,4% oltre 3 s**, la tenuta più alta di sempre).
+- Peggiori: D09 luce (104, 27,9%: tema bollette con apertura su numeri piccoli in centesimi), D01 stipendi (117, 19,6%), D07 affitti (121).
+- **Pressa: seconda uscita di fila sotto 300** (P02 148, P03 136). La tenuta resta altissima (55-72%), quindi il problema è la distribuzione, non il video. Se anche P04 (oggi) resta sotto 300, scatta la regola: la seconda pressa delle 18:30 dal 2/12 torna sfida o dati.
+- Condivisioni, salvataggi e commenti: 1 salvataggio in tutto. Nessun oggetto proposto nei commenti.
+
+### Decisioni (25/11)
+- Nessun template al doppio della mediana nell'ultima settimana tranne la pressa (media gonfiata da P01). Nessun nuovo seguito obbligato (nessun Reel nuovo sopra 3 volte la mediana).
+- Nessun template sotto la metà della mediana (71) per 4 uscite di fila.
+- Spiegone del 1/12 21:15 su un tema di consumo del momento con domanda personale (regali di Natale): verifichiamo se lo spiegone su un tema "di tutti" rende più di quello su GTA (SP02, 158).
+- Domani controllare P04: se sotto 300, togliere la seconda pressa dalle 18:30 nei giorni non ancora programmati (dal 2/12).
