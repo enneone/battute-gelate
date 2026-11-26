@@ -73,3 +73,14 @@
 - Analisi 14 giorni (dettagli in `analisi.md`): mediana 142. P03 pressa 136 ma 72,4% oltre 3 s (tenuta record); S04 124, D07 121, D09 luce 104 (il più basso). Seconda pressa di fila sotto 300: se anche P04 resta sotto, dal 2/12 la seconda pressa delle 18:30 torna sfida o dati.
 - Programmato (video dal commit 938ea3c): 1/12 21:15 **SP03 spiegone regali di Natale** (arancio; mUp Research per Facile.it, 2.012 interviste, 28/10-1/11/2026: 6 regali a testa contro 7 nel 2025, 4,6 milioni già comprati a inizio novembre, 5,1 milioni aspettano la tredicesima, budget 316 €).
 - Calendario pieno fino al 1/12 (4 Reel al giorno). Prossimo rifornimento: dal 2/12.
+
+## 26/11/2026 (controllo automatico del mattino)
+- Post del 25/11 (D10, P04, S02, D12) tutti pubblicati, nessuno in errore; quelli di oggi (D05, P05, S03, SP01) in attesa. Nessuna riprogrammazione.
+- Analisi 14 giorni (dettagli in `analisi.md`): mediana 139. S02 Italia-Spagna 155 (47,8% oltre 3 s, la sfida migliore), P04 pressa 150 (66,9%), D10 NEET 129, D12 X Factor 14 dopo poche ore (tema TV debole, da ricontrollare).
+- Cambiato in base ai dati: **terza pressa di fila sotto 300 → dal 2/12 la seconda pressa delle 18:30 torna sfida.** Test del template `punti` fuori dal gaming (D22). Template `punti`: il contatore mostra il valore esatto a fine riempimento.
+- Programmati (video dal commit e101221), tutti il 2/12:
+  - 12:30 **D22 italiani all'estero** (punti, carta, pubblico casa e giovani): Migrantes RIM 2026, 6.630.284 iscritti AIRE al 1/1/2026 (3,1 milioni nel 2006); Eurostat popolazione regioni 1/1/2025: sarebbero la 2ª regione dopo la Lombardia.
+  - 15:00 **P14 pressa** "Scommetti su chi si salva" (nero): lattina, anguria, pallina dell'albero, pallina antistress, cellulare.
+  - 18:30 **S05 Italia-Portogallo** (sfida, carta, 1-5): solo Eurostat (uscita di casa 2025, NEET 2025, luce e gas famiglie 1° sem. 2026, inflazione ottobre 2026, livello dei prezzi 2025).
+  - 21:15 **SP04 spiegone ristoranti** (arancio, pubblico cibo e prezzi): TradeLab 1° sem. 2026 via Ristoranti Web/Vinetur (+3,2% locali sopra 35 €, settore -0,6%, fascia media -2/3%, 52% delle visite a cena, pizzerie +0,6%).
+- Calendario pieno fino al 2/12 (4 Reel al giorno). Prossimo rifornimento: dal 3/12.
