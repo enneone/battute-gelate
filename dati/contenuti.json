@@ -2954,6 +2954,275 @@
    "argomento": "Natale",
    "copertina_numero": "",
    "copertina_titolo": "Regali di Natale: *ne facciamo meno*"
+  },
+  {
+   "id": "D22-italiani-estero",
+   "template": "punti",
+   "numero": 36,
+   "fps": 60,
+   "tema": "carta",
+   "kicker": "ITALIANI ALL'ESTERO · ISCRITTI AIRE 2026",
+   "hook": [
+    "Gli italiani all'estero",
+    "sono *6,6 milioni*"
+   ],
+   "eroe": {
+    "v": 6630284,
+    "unita_testo": "italiani all'estero",
+    "testo": "*6,6 milioni* di italiani vivono fuori dall'Italia."
+   },
+   "unita": 60000,
+   "leggenda": "PERSONE",
+   "gruppi": [
+    {
+     "n": "Nel 2006",
+     "f": "📅",
+     "v": 3100000,
+     "col": "#F4F4F6",
+     "testo": "Nel 2006 erano *3,1 milioni*."
+    },
+    {
+     "n": "Dal 2006",
+     "f": "✈️",
+     "v": 3530284,
+     "col": "#FF5B4A",
+     "testo": "In vent'anni se ne sono aggiunti *3,5 milioni*."
+    }
+   ],
+   "verdetto": "In vent'anni sono *più che raddoppiati*.",
+   "classifica_titolo": "Sarebbero la *2ª* regione d'Italia",
+   "classifica": [
+    {
+     "n": "Lombardia",
+     "f": "🏙️",
+     "v": 10033918
+    },
+    {
+     "n": "Italiani all'estero",
+     "f": "✈️",
+     "v": 6630284,
+     "me": true
+    },
+    {
+     "n": "Lazio",
+     "f": "🏛️",
+     "v": 5709178
+    },
+    {
+     "n": "Campania",
+     "f": "🌋",
+     "v": 5582337
+    },
+    {
+     "n": "Veneto",
+     "f": "🚤",
+     "v": 4853472
+    },
+    {
+     "n": "Sicilia",
+     "f": "🍋",
+     "v": 4787390
+    },
+    {
+     "n": "Emilia-Romagna",
+     "f": "🍝",
+     "v": 4461998
+    }
+   ],
+   "domanda": [
+    "Andresti a vivere",
+    "*all'estero?*"
+   ],
+   "domanda2": "Scrivi SÌ o NO 👇",
+   "fonte": "FONDAZIONE MIGRANTES, RAPPORTO ITALIANI NEL MONDO 2026 (ISCRITTI AIRE AL 1/1/2026) · EUROSTAT, POPOLAZIONE DELLE REGIONI AL 1/1/2025",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "Gli italiani che vivono all'estero sono 6.630.284: nel 2006 erano poco più di 3,1 milioni ✈️ Se fossero una regione, sarebbero la seconda d'Italia dopo la Lombardia, davanti al Lazio. Tu andresti a vivere all'estero?",
+   "hashtag": "#italianiallestero #lavoro",
+   "copertina": [
+    "Se fossero",
+    "una *regione*"
+   ],
+   "copertina_numero": "6,6 MLN",
+   "frasi": [
+    "Nel 2006 erano *3,1 milioni*",
+    "Poi altri *3,5 milioni*",
+    "Più che *raddoppiati*",
+    "Più del *Lazio* intero"
+   ],
+   "argomento": "Estero",
+   "icona": "✈️",
+   "copertina_titolo": "Italiani all'estero: come una *regione*"
+  },
+  {
+   "id": "P14-pressa-scommetti",
+   "template": "pressa",
+   "numero": 37,
+   "fps": 60,
+   "tema": "nero",
+   "hook": [
+    "Scommetti su",
+    "chi *si salva*"
+   ],
+   "oggetti": [
+    "lattina",
+    "anguria",
+    "pallina_natale",
+    "pallina",
+    "cellulare"
+   ],
+   "domanda": [
+    "Cosa mettiamo",
+    "sotto la *pressa?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "",
+   "fine": "Seguici: ogni giorno una nuova prova.",
+   "didascalia": "Lattina, anguria, pallina dell'albero, pallina antistress… e il vecchio cellulare 💥 Su chi avevi scommesso? Cosa mettiamo sotto la pressa la prossima volta?",
+   "hashtag": "#pressaidraulica #satisfying",
+   "copertina": [
+    "Scommetti su",
+    "chi *si salva*"
+   ],
+   "copertina_numero": "",
+   "copertina_kicker": "LA PRESSA",
+   "argomento": "La pressa",
+   "icona": "🥫",
+   "copertina_titolo": "Scommetti su chi *si salva*"
+  },
+  {
+   "id": "S05-italia-portogallo",
+   "template": "sfida",
+   "fps": 60,
+   "tema": "carta",
+   "numero": 38,
+   "a": {
+    "n": "Italia",
+    "f": "🇮🇹",
+    "art": "l'Italia"
+   },
+   "b": {
+    "n": "Portogallo",
+    "f": "🇵🇹",
+    "art": "il Portogallo"
+   },
+   "hook": [
+    "Italia contro Portogallo:",
+    "*6 round*"
+   ],
+   "round": [
+    {
+     "frase": "Chi esce prima *di casa?*",
+     "a": 30.2,
+     "b": 28.8,
+     "vince": "basso",
+     "unita": "anni",
+     "dec": 1
+    },
+    {
+     "frase": "Meno giovani *senza lavoro?*",
+     "a": 13.3,
+     "b": 8.0,
+     "vince": "basso",
+     "unita": "%",
+     "dec": 1
+    },
+    {
+     "frase": "Chi paga meno *la luce?*",
+     "a": 31.4,
+     "b": 23.7,
+     "vince": "basso",
+     "unita": "cent",
+     "dec": 1
+    },
+    {
+     "frase": "Chi paga meno *il gas?*",
+     "a": 11.4,
+     "b": 12.6,
+     "vince": "basso",
+     "unita": "cent",
+     "dec": 1
+    },
+    {
+     "frase": "Prezzi saliti *di meno?*",
+     "a": 5.6,
+     "b": 3.9,
+     "vince": "basso",
+     "unita": "%",
+     "dec": 1
+    },
+    {
+     "frase": "Dove la vita *costa meno?*",
+     "a": 98,
+     "b": 85.3,
+     "vince": "basso",
+     "unita": "su 100",
+     "dec": 1
+    }
+   ],
+   "domanda": [
+    "Dove vivresti",
+    "*meglio?*"
+   ],
+   "domanda2": "Scrivi ITALIA o PORTOGALLO 👇",
+   "fonte": "EUROSTAT: ETÀ DI USCITA DI CASA 2025, NEET 15-29 ANNI 2025, LUCE E GAS PER FAMIGLIE 1° SEM. 2026 (CENT/KWH, TASSE INCLUSE), INFLAZIONE OTTOBRE 2026, LIVELLO DEI PREZZI 2025 (UE=100)",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "Italia contro Portogallo in 6 round: casa, giovani, luce, gas, prezzi e costo della vita 🇮🇹🇵🇹 Lì la luce costa 23,7 centesimi al kWh, da noi 31,4. Dove vivresti meglio?",
+   "hashtag": "#italia #portogallo",
+   "argomento": "Sfida",
+   "icona": "🇮🇹🇵🇹",
+   "copertina_numero": "",
+   "copertina_titolo": "Italia contro *Portogallo*"
+  },
+  {
+   "id": "SP04-ristoranti",
+   "template": "spiegone",
+   "fps": 60,
+   "tema": "arancio",
+   "numero": 39,
+   "icona": "🍽️",
+   "badge": "3 NUMERI",
+   "hook": [
+    "Ristoranti: vince",
+    "chi *costa di più*"
+   ],
+   "punti": [
+    {
+     "n": "+3,2%",
+     "t": "I locali cari crescono",
+     "d": "visite in più nei ristoranti con conto medio sopra 35 euro. Il settore intero: -0,6%.",
+     "emoji": "📈"
+    },
+    {
+     "n": "-3%",
+     "t": "Soffre la fascia media",
+     "d": "al massimo: i ristoranti di fascia media e bassa hanno perso tra il 2 e il 3% delle visite.",
+     "emoji": "📉"
+    },
+    {
+     "n": "52%",
+     "t": "Tutto si gioca a cena",
+     "d": "delle visite nei ristoranti cari è a cena. E i primi piatti ordinati crescono del 13%.",
+     "emoji": "🌙"
+    }
+   ],
+   "risultato": {
+    "frase": "E la pizzeria? *Tiene*",
+    "k": "PIZZERIE, 1° SEMESTRE 2026",
+    "v": "+0,6 %",
+    "s": "visite, mentre il settore cala"
+   },
+   "domanda": [
+    "Pizzeria o",
+    "*ristorante?*"
+   ],
+   "domanda2": "Scrivi PIZZA o RISTORANTE 👇",
+   "fonte": "TRADELAB, CONSUMI FUORI CASA 1° SEMESTRE 2026 (VIA RISTORANTI WEB E VINETUR, 22/11/2026)",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "Nei primi sei mesi del 2026 i ristoranti con un conto medio sopra i 35 euro hanno avuto il 3,2% di clienti in più, mentre il settore è sceso dello 0,6% 🍽️ La fascia media perde il 2-3%, le pizzerie tengono. Tu pizzeria o ristorante?",
+   "hashtag": "#ristoranti #cibo",
+   "argomento": "Ristoranti",
+   "copertina_numero": "",
+   "copertina_titolo": "Ristoranti: vince chi *costa di più*"
   }
  ]
 }

@@ -103,3 +103,42 @@ Aggiornati: P01 1.519, D03 457, SP02 158, P02 148, D04 143, D02 142, S01 137, D0
 - Nessun template sotto la metà della mediana (71) per 4 uscite di fila.
 - Spiegone del 1/12 21:15 su un tema di consumo del momento con domanda personale (regali di Natale): verifichiamo se lo spiegone su un tema "di tutti" rende più di quello su GTA (SP02, 158).
 - Domani controllare P04: se sotto 300, togliere la seconda pressa dalle 18:30 nei giorni non ancora programmati (dal 2/12).
+
+## 26 novembre 2026 (analisi automatica, ultimi 14 giorni)
+37 Reel nel periodo (12/11-25/11), mediana **139** visualizzazioni. Post del 25/11 letti dopo circa 12-21 ore (D12 dopo meno di 12 ore).
+
+| Reel (25/11) | Template | Tema/pubblico | Visualizz. | Copertura | >3 s | Tempo medio | Cond.+salv.+comm. |
+|---|---|---|---|---|---|---|---|
+| S02 Italia-Spagna | sfida | soldi e lavoro | **155** | 135 | 47,8% | 8,2 s | 0 |
+| P04 pressa | pressa | pressa | 150 | 128 | **66,9%** | 10,3 s | 0 |
+| D10 NEET | asse | casa e giovani | 129 | 119 | 46,6% | 5,5 s | 0 |
+| D12 X Factor | barre | TV e musica | 14 | 11 | 27,3% | 3,3 s | 0 |
+
+Aggiornati: P01 1.519, D03 462, SP02 158, P02 148, D04 143, D02 142, S01 137, P03 137, S04 128, D07 121, D06 122, D09 122, D01 117.
+
+**Per template** (Reel Che Numeri, 22-25/11):
+| Template | Uscite | Media | Mediana | >3 s medio |
+|---|---|---|---|---|
+| pressa (con 21/11) | 5 | 671 | 150 | 65,1% |
+| punti | 1 | 462 | 462 | 46,5% |
+| spiegone | 1 | 158 | 158 | 33,8% |
+| sfida | 3 | 140 | 137 | 42,2% |
+| hype | 1 | 142 | 142 | 52,0% |
+| asse | 3 | 131 | 129 | 39,9% |
+| barre | 3 | 86 | 121 | 34,4% |
+| classifica3d | 1 | 117 | 117 | 19,6% |
+
+**Per tema**: gaming 3 Reel, media 254; casa e giovani 3, media 131; soldi e lavoro 4 (sfide comprese), media 134; bollette 122; calcio 122; TV e musica 14 (dato parziale).
+
+- Migliori: P01 pressa (1.519), D03 GTA 6 copie (462), S02 Italia-Spagna (155, 47,8% oltre 3 s e 8,2 s di tempo medio: la sfida migliore finora).
+- Peggiori: D12 X Factor (14 dopo poche ore: da ricontrollare domani, ma tema TV finora il più debole), D01 stipendi (117, 19,6%), D07 affitti (121).
+- **Pressa: terza uscita di fila sotto 300** (P02 148, P03 137, P04 150), con tenuta sempre altissima (55-72%). Scatta la regola del 25/11.
+- Condivisioni, salvataggi e commenti: ancora quasi zero. Nessun oggetto proposto nei commenti.
+
+### Decisioni (26/11)
+- **Seconda pressa delle 18:30 tolta dai giorni non ancora programmati** (dal 2/12): alle 18:30 torna la sfida. Le seconde presse già programmate (29/11, 30/11, 1/12) restano; se P05-P07 restano sotto 300, valutare di sostituire quelle del 30/11 e 1/12 con una sfida.
+- La sfida sale (S02 155, sopra la mediana, e la tenuta migliore tra i Reel di dati): nuova sfida S05 Italia-Portogallo il 2/12 con soli dati Eurostat (stessa fonte e stesso periodo per i due lati).
+- **Test del template `punti` su un tema diverso dal gaming** (decisione del 24/11): D22 italiani all'estero il 2/12 alle 12:30 ("se fossero una regione sarebbero la 2ª d'Italia").
+- Spiegone su un tema di cibo e prezzi (SP04 ristoranti, 2/12 21:15) per avere tre spiegoni nella settimana 30/11-6/12 insieme a SP03.
+- Template `punti`: il contatore ora mostra il valore esatto a fine riempimento (prima arrotondava ai 100 mila).
+- Nessun template sotto la metà della mediana (70) per 4 uscite di fila. Nessun Reel nuovo sopra 3 volte la mediana.

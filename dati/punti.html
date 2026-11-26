@@ -95,7 +95,7 @@ function setTime(t) {
   cx.restore();
   // contatore
   const v = R.eroe.v * easeIO((t - T.fill) / (T.fillEnd - T.fill));
-  const cn = $('cnt'); cn.querySelector('.v').textContent = fmt(Math.round(v / 1e5) * 1e5);
+  const cn = $('cnt'); cn.querySelector('.v').textContent = fmt(v >= R.eroe.v ? R.eroe.v : Math.round(v / 1e5) * 1e5);
   cn.style.opacity = 1 - gridOut; $('leg').style.opacity = 1 - gridOut;
   // classifica finale
   const rk = $('rk'), rp = (t - T.rk - 0.3) / 0.5; rk.style.opacity = cl(rp * 2);
