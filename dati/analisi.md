@@ -142,3 +142,44 @@ Aggiornati: P01 1.519, D03 462, SP02 158, P02 148, D04 143, D02 142, S01 137, P0
 - Spiegone su un tema di cibo e prezzi (SP04 ristoranti, 2/12 21:15) per avere tre spiegoni nella settimana 30/11-6/12 insieme a SP03.
 - Template `punti`: il contatore ora mostra il valore esatto a fine riempimento (prima arrotondava ai 100 mila).
 - Nessun template sotto la metà della mediana (70) per 4 uscite di fila. Nessun Reel nuovo sopra 3 volte la mediana.
+
+## 27 novembre 2026 (analisi automatica, ultimi 14 giorni)
+39 Reel nel periodo (13/11-26/11), mediana **138** visualizzazioni. Post del 26/11 letti dopo circa 12-22 ore (SP01 dopo poche ore: 12, dato parziale).
+
+| Reel (26/11) | Template | Tema/pubblico | Visualizz. | Copertura | >3 s | Tempo medio | Cond.+salv.+comm. |
+|---|---|---|---|---|---|---|---|
+| P05 pressa | pressa | pressa | **152** | 138 | **71,5%** | 10,2 s | 0 |
+| D05 GTA 6 voti | countdown | gaming | 128 | 118 | 30,5% | 4,5 s | 0 |
+| S03 Italia-Francia | sfida | soldi e lavoro | 123 | 110 | 42,7% | 6,7 s | 0 |
+| SP01 Black Friday | spiegone | consumi | 12 | 12 | 0% | 1,0 s | 0 (parziale) |
+
+Aggiornati: P01 1.519, D03 462, SP02 158, S02 155, P04 150, P02 148, D04 143, D02 142, S01 137, P03 137, D10 129, S04 128, D06 122, D09 122, D07 121, D01 117, **D12 X Factor 58** (era 14).
+
+**Per template** (Reel Che Numeri, 21-26/11; SP01 escluso perché parziale):
+| Template | Uscite | Media | Mediana | >3 s medio |
+|---|---|---|---|---|
+| pressa (con 21/11) | 6 | 584 | 151 | 66,2% |
+| punti | 1 | 462 | 462 | 46,5% |
+| spiegone | 1 | 158 | 158 | 33,8% |
+| hype | 1 | 142 | 142 | 52,0% |
+| sfida | 4 | 136 | 133 | 42,4% |
+| asse | 3 | 131 | 129 | 39,2% |
+| countdown | 1 | 128 | 128 | 30,5% |
+| classifica3d | 1 | 117 | 117 | 19,6% |
+| barre | 3 | 100 | 121 | 33,9% |
+
+**Per tema**: gaming 4 Reel, media 223 (senza D03: 143); soldi e lavoro 5 (sfide comprese), media 132; casa e giovani 3, media 131; calcio 122; bollette 122; TV e musica 58.
+
+- Migliori: P01 pressa (1.519), D03 GTA 6 copie (462), P05 pressa (152, **71,5% oltre 3 s** e 10,2 s di tempo medio: la tenuta resta da record).
+- Peggiori: D12 X Factor (58, 33,3%: sotto la metà della mediana, tema TV), D05 GTA 6 voti (128, 30,5%: quarto Reel su GTA in 5 giorni, classifica lenta all'inizio), D01 stipendi (117, 19,6%).
+- Pressa: quarta uscita di fila tra 137 e 152 (P02-P05). Mai sotto la metà della mediana, tenuta sempre 55-72%: resta fissa alle 15:00.
+- Condivisioni, salvataggi e commenti: ancora zero (1 salvataggio su P01). Nessun oggetto proposto nei commenti.
+
+### Decisioni (27/11)
+- Nessun template al doppio della mediana nelle uscite recenti, nessun Reel nuovo sopra 3 volte la mediana: nessun seguito obbligato.
+- Nessun template sotto la metà della mediana (69) per 4 uscite di fila. **Tema TV (D12, 58) sotto la metà della mediana alla prima uscita**: niente TV fino alla finale di X Factor, poi un solo test.
+- **Gaming in pausa per qualche giorno** (4 Reel su GTA dal 22 al 26/11, gli ultimi in calo): D14 console resta il 1/12, poi nessun altro gaming fino a nuovi dati.
+- Sfida: dopo il 1-5 del Portogallo (2/12), il 3/12 **Italia-Romania finisce 3-3** (primo pareggio: punteggio che si rovescia fino all'ultimo round, per spingere i commenti).
+- Nuovo tema viaggi con D23 vacanze (asse, Italia evidenziata) e terzo spiegone della settimana su un tema di tutti, i negozi sotto casa (SP05), per confrontarlo con SP02 (gaming) e SP01/SP03/SP04 (consumi).
+- Seconde presse delle 18:30 già programmate (29/11, 30/11, 1/12): restano; se P06-P07 restano sotto 300, il prossimo rifornimento sostituisce quelle del 30/11 e 1/12 con una sfida o dati.
+- Countdown sotto osservazione (D05 30,5% oltre 3 s); prossime uscite D08 (30/11) e D14 (1/12).

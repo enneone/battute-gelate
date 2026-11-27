@@ -3223,6 +3223,290 @@
    "argomento": "Ristoranti",
    "copertina_numero": "",
    "copertina_titolo": "Ristoranti: vince chi *costa di più*"
+  },
+  {
+   "id": "D23-vacanze-europa",
+   "template": "asse",
+   "fps": 60,
+   "kicker": "UNA SETTIMANA DI VACANZA LONTANO DA CASA · 2025",
+   "hook": [
+    "1 italiano su 3",
+    "non può fare *una vacanza*"
+   ],
+   "min": 10,
+   "max": 65,
+   "passo": 10,
+   "unita": "punti",
+   "voci": [
+    {
+     "n": "Svezia",
+     "f": "🇸🇪",
+     "v": 12.4
+    },
+    {
+     "n": "Paesi Bassi",
+     "f": "🇳🇱",
+     "v": 12.8
+    },
+    {
+     "n": "Danimarca",
+     "f": "🇩🇰",
+     "v": 14.1
+    },
+    {
+     "n": "Austria",
+     "f": "🇦🇹",
+     "v": 17.8
+    },
+    {
+     "n": "Germania",
+     "f": "🇩🇪",
+     "v": 20.9
+    },
+    {
+     "n": "Francia",
+     "f": "🇫🇷",
+     "v": 23.2
+    },
+    {
+     "n": "Polonia",
+     "f": "🇵🇱",
+     "v": 24.5
+    },
+    {
+     "n": "Spagna",
+     "f": "🇪🇸",
+     "v": 32.2
+    },
+    {
+     "n": "Portogallo",
+     "f": "🇵🇹",
+     "v": 33.1
+    },
+    {
+     "n": "Italia",
+     "f": "🇮🇹",
+     "v": 35.7,
+     "focus": true
+    },
+    {
+     "n": "Bulgaria",
+     "f": "🇧🇬",
+     "v": 39.1
+    },
+    {
+     "n": "Grecia",
+     "f": "🇬🇷",
+     "v": 46.6
+    },
+    {
+     "n": "Romania",
+     "f": "🇷🇴",
+     "v": 61.4
+    }
+   ],
+   "media": {
+    "label": "MEDIA UE",
+    "v": 27.5
+   },
+   "messaggio": "In Svezia è il *12,4%*: noi siamo quinti peggiori in UE.",
+   "domanda": [
+    "Tu quest'anno",
+    "sei andato *in vacanza?*"
+   ],
+   "domanda2": "Scrivi SÌ o NO 👇",
+   "fonte": "EUROSTAT (EU-SILC), PERSONE CHE NON POSSONO PERMETTERSI UNA SETTIMANA DI VACANZA L'ANNO LONTANO DA CASA, 2025 · % DELLA POPOLAZIONE",
+   "fine": "Seguici per i numeri che parlano di noi.",
+   "didascalia": "Il 35,7% degli italiani non può permettersi una settimana di vacanza l'anno lontano da casa 🏖️ La media UE è 27,5%, in Svezia 12,4%: siamo quinti peggiori in Europa. Tu quest'anno sei andato in vacanza?",
+   "hashtag": "#vacanze #viaggi",
+   "copertina": [
+    "Chi non può",
+    "fare una",
+    "*vacanza*"
+   ],
+   "copertina_numero": "35,7%",
+   "frasi": [
+    "Chi non può pagarsi una vacanza",
+    "Media UE: *27,5%*",
+    "Italia: *più di 1 su 3*",
+    "In Svezia solo il *12,4%*"
+   ],
+   "numero": 40,
+   "tema": "carta",
+   "argomento": "Vacanze",
+   "icona": "🏖️",
+   "copertina_titolo": "Chi non può fare *una vacanza*"
+  },
+  {
+   "id": "P15-pressa-stavolta",
+   "template": "pressa",
+   "numero": 41,
+   "fps": 60,
+   "tema": "nero",
+   "hook": [
+    "Cosa resiste",
+    "*stavolta?*"
+   ],
+   "oggetti": [
+    "uovo",
+    "budino",
+    "lattina",
+    "pallina_natale",
+    "cellulare"
+   ],
+   "domanda": [
+    "Cosa mettiamo",
+    "sotto la *pressa?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "",
+   "fine": "Seguici: ogni giorno una nuova prova.",
+   "didascalia": "Uovo, budino, lattina, pallina dell'albero… e il vecchio cellulare 💥 Chi pensavi che resistesse? Cosa mettiamo sotto la pressa la prossima volta?",
+   "hashtag": "#pressaidraulica #satisfying",
+   "copertina": [
+    "Cosa resiste",
+    "*stavolta?*"
+   ],
+   "copertina_numero": "",
+   "copertina_kicker": "LA PRESSA",
+   "argomento": "La pressa",
+   "icona": "🥚",
+   "copertina_titolo": "Cosa resiste *stavolta?*"
+  },
+  {
+   "id": "S06-italia-romania",
+   "template": "sfida",
+   "fps": 60,
+   "tema": "carta",
+   "numero": 42,
+   "a": {
+    "n": "Italia",
+    "f": "🇮🇹",
+    "art": "l'Italia"
+   },
+   "b": {
+    "n": "Romania",
+    "f": "🇷🇴",
+    "art": "la Romania"
+   },
+   "hook": [
+    "Italia contro Romania:",
+    "*6 round*"
+   ],
+   "round": [
+    {
+     "frase": "Chi guadagna *di più?*",
+     "a": 28496,
+     "b": 22098,
+     "vince": "alto",
+     "unita": "€",
+     "dec": 0
+    },
+    {
+     "frase": "Chi esce prima *di casa?*",
+     "a": 30.2,
+     "b": 27.4,
+     "vince": "basso",
+     "unita": "anni",
+     "dec": 1
+    },
+    {
+     "frase": "Meno giovani *senza lavoro?*",
+     "a": 13.3,
+     "b": 19.2,
+     "vince": "basso",
+     "unita": "%",
+     "dec": 1
+    },
+    {
+     "frase": "Chi paga meno *la luce?*",
+     "a": 31.4,
+     "b": 28.4,
+     "vince": "basso",
+     "unita": "cent",
+     "dec": 1
+    },
+    {
+     "frase": "Chi paga meno *il gas?*",
+     "a": 11.4,
+     "b": 5.9,
+     "vince": "basso",
+     "unita": "cent",
+     "dec": 1
+    },
+    {
+     "frase": "Prezzi saliti *di meno?*",
+     "a": 5.6,
+     "b": 7.0,
+     "vince": "basso",
+     "unita": "%",
+     "dec": 1
+    }
+   ],
+   "domanda": [
+    "Dove vivresti",
+    "*meglio?*"
+   ],
+   "domanda2": "Scrivi ITALIA o ROMANIA 👇",
+   "fonte": "EUROSTAT: STIPENDIO NETTO ANNUO 2025 (SINGLE SENZA FIGLI, SALARIO MEDIO, IN PPS: PARITÀ DI POTERE D'ACQUISTO), ETÀ DI USCITA DI CASA 2025, NEET 15-29 ANNI 2025, LUCE E GAS PER FAMIGLIE 1° SEM. 2026 (CENT/KWH, TASSE INCLUSE), INFLAZIONE OTTOBRE 2026",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "Italia contro Romania in 6 round: stipendi, casa, giovani, luce, gas e prezzi 🇮🇹🇷🇴 Lì il gas costa 5,9 centesimi al kWh, da noi 11,4. Ma lo stipendio netto, a parità di potere d'acquisto, è più alto da noi. Come finisce secondo te? Dove vivresti meglio?",
+   "hashtag": "#italia #romania",
+   "argomento": "Sfida",
+   "icona": "🇮🇹🇷🇴",
+   "copertina_numero": "",
+   "copertina_titolo": "Italia contro *Romania*"
+  },
+  {
+   "id": "SP05-negozi",
+   "template": "spiegone",
+   "fps": 60,
+   "tema": "arancio",
+   "numero": 43,
+   "icona": "🏪",
+   "badge": "3 NUMERI",
+   "hook": [
+    "Negozi: quasi 3 chiusure",
+    "per ogni *apertura*"
+   ],
+   "punti": [
+    {
+     "n": "140 mila",
+     "t": "Attività sparite in 6 anni",
+     "d": "tra il 2019 e il 2025. Dentro ci sono 111 mila negozi e 24 mila bar.",
+     "emoji": "🏪"
+    },
+    {
+     "n": "1.000",
+     "t": "Comuni senza alimentari",
+     "d": "e oltre: in più di mille comuni non c'è più neanche un negozio di alimentari.",
+     "emoji": "🥖"
+    },
+    {
+     "n": "3 a 1",
+     "t": "Chiusure contro aperture",
+     "d": "o quasi: nel 2026, per ogni negozio che ha aperto, ne hanno chiusi quasi tre.",
+     "emoji": "🔒"
+    }
+   ],
+   "risultato": {
+    "frase": "E i soldi? *Escono dal quartiere*",
+    "k": "TOLTI ALLE ECONOMIE LOCALI, 2019-2025",
+    "v": "16,7 miliardi",
+    "s": "tra negozi chiusi e grandi piattaforme online"
+   },
+   "domanda": [
+    "Sotto casa tua",
+    "ha *chiuso qualcosa?*"
+   ],
+   "domanda2": "Scrivi cosa ha chiuso 👇",
+   "fonte": "CONFESERCENTI, ASSEMBLEA 2026 (VIA AGI, 14/10/2026) · STIME",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "Tra il 2019 e il 2025 in Italia sono sparite circa 140mila attività, tra cui 111mila negozi e 24mila bar 🏪 Oltre mille comuni non hanno più un negozio di alimentari e nel 2026 per ogni apertura ci sono state quasi tre chiusure. Sotto casa tua ha chiuso qualcosa?",
+   "hashtag": "#negozi #commercio",
+   "argomento": "Negozi",
+   "copertina_numero": "",
+   "copertina_titolo": "I negozi sotto casa *spariscono*"
   }
  ]
 }
