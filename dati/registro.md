@@ -84,3 +84,14 @@
   - 18:30 **S05 Italia-Portogallo** (sfida, carta, 1-5): solo Eurostat (uscita di casa 2025, NEET 2025, luce e gas famiglie 1° sem. 2026, inflazione ottobre 2026, livello dei prezzi 2025).
   - 21:15 **SP04 spiegone ristoranti** (arancio, pubblico cibo e prezzi): TradeLab 1° sem. 2026 via Ristoranti Web/Vinetur (+3,2% locali sopra 35 €, settore -0,6%, fascia media -2/3%, 52% delle visite a cena, pizzerie +0,6%).
 - Calendario pieno fino al 2/12 (4 Reel al giorno). Prossimo rifornimento: dal 3/12.
+
+## 27/11/2026 (controllo automatico del mattino)
+- Post del 26/11 (D05, P05, S03, SP01) tutti pubblicati, nessuno in errore; quelli di oggi (D16, P06, D17, D18) in attesa. Nessuna riprogrammazione.
+- Analisi 14 giorni (dettagli in `analisi.md`): mediana 138. P05 pressa 152 (71,5% oltre 3 s), D05 GTA 6 voti 128 (30,5%), S03 Italia-Francia 123; D12 X Factor salito solo a 58 (tema TV sotto la metà della mediana).
+- Cambiato in base ai dati: niente TV fino alla finale di X Factor; gaming in pausa dopo D14 (1/12); primo pareggio nella sfida (Italia-Romania 3-3) dopo il 1-5 del Portogallo; nuovo tema viaggi; terzo spiegone della settimana su un tema di tutti (negozi).
+- Programmati (video dal commit bd23f50), tutti il 3/12:
+  - 12:30 **D23 vacanze** (asse, carta, pubblico viaggi): Eurostat EU-SILC 2025, 35,7% degli italiani non può permettersi una settimana di vacanza (UE 27,5%, Svezia 12,4%, Romania 61,4%).
+  - 15:00 **P15 pressa** "Cosa resiste stavolta?" (nero): uovo, budino, lattina, pallina dell'albero, cellulare.
+  - 18:30 **S06 Italia-Romania** (sfida, carta, 3-3): solo Eurostat (stipendio netto 2025 in PPS, uscita di casa 2025, NEET 2025, luce e gas famiglie 1° sem. 2026, inflazione ottobre 2026).
+  - 21:15 **SP05 spiegone negozi** (arancio, pubblico città e consumi): Confesercenti, Assemblea 2026 via AGI 14/10/2026 (140 mila attività sparite 2019-2025, oltre mille comuni senza alimentari, quasi 3 chiusure per apertura nel 2026, 16,7 miliardi tolti alle economie locali).
+- Calendario pieno fino al 3/12 (4 Reel al giorno). Prossimo rifornimento: dal 4/12.
