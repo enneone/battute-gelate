@@ -95,3 +95,14 @@
   - 18:30 **S06 Italia-Romania** (sfida, carta, 3-3): solo Eurostat (stipendio netto 2025 in PPS, uscita di casa 2025, NEET 2025, luce e gas famiglie 1° sem. 2026, inflazione ottobre 2026).
   - 21:15 **SP05 spiegone negozi** (arancio, pubblico città e consumi): Confesercenti, Assemblea 2026 via AGI 14/10/2026 (140 mila attività sparite 2019-2025, oltre mille comuni senza alimentari, quasi 3 chiusure per apertura nel 2026, 16,7 miliardi tolti alle economie locali).
 - Calendario pieno fino al 3/12 (4 Reel al giorno). Prossimo rifornimento: dal 4/12.
+
+## 28/11/2026 (controllo automatico del mattino)
+- Post del 27/11 (D16, P06, D17, D18) tutti pubblicati, nessuno in errore; quelli di oggi (D19, P07, D21, D20) in attesa. Nessuna riprogrammazione.
+- Analisi 14 giorni (dettagli in `analisi.md`): mediana 139. D16 iPhone 173 (classifica3d, 46,1% oltre 3 s: il miglior Reel di dati dal 23/11), P06 pressa 140 (60,6%), D18 film 140 (15,9%), D17 gas 115. SP01 Black Friday fermo a 25 (4,8% oltre 3 s).
+- Cambiato in base ai dati: spiegone sotto osservazione (il 4/12 alle 21:15 va un Reel di dati, la settimana ha già 3 spiegoni); nuovo test classifica3d con un primato italiano; sfida vinta dall'Italia dopo 1-5 e 3-3; template `asse` con le etichette che non tagliano più la linea della media.
+- Programmati (video dal commit ad8ca23), tutti il 4/12:
+  - 12:30 **D24 auto** (classifica3d, carta, pubblico auto e città): Eurostat road_eqs_carhab 2025, Italia 709 auto ogni 1.000 abitanti, prima in UE (media UE 584, Germania 593, Lettonia 435).
+  - 15:00 **P16 pressa** "Quanti ne sopravvivono?" (nero): smartphone, pallina antistress, anguria, budino, cellulare.
+  - 18:30 **S07 Italia-Bulgaria** (sfida, carta, 4-2 per l'Italia): solo Eurostat (stipendio netto 2025 in PPS, uscita di casa 2025, speranza di vita 2024, NEET 2025, luce famiglie 1° sem. 2026, inflazione ottobre 2026).
+  - 21:15 **D25 prezzo del cibo** (asse, arancio, pubblico cibo e prezzi): Eurostat prc_ppp_ind 2024, Italia 104 (UE = 100), Germania 102,9, Spagna 94,6, Danimarca 119,3.
+- Calendario pieno fino al 4/12 (4 Reel al giorno). Prossimo rifornimento: dal 5/12.
