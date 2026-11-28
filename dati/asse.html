@@ -61,8 +61,12 @@ function setTime(t) {
     cx.save(); cx.shadowColor = col; cx.shadowBlur = it.focus ? 40 : 18; cx.fillStyle = col;
     cx.beginPath(); cx.arc(x, y, it.focus ? 20 : 15, 0, 6.2832); cx.fill(); cx.restore();
     // valore
-    cx.font = `700 ${it.focus ? 32 : 26}px Geist`; cx.fillStyle = col; cx.textAlign = x > X1 - 120 ? 'right' : 'left';
-    cx.fillText(fmt(lerp(R.min, it.v, easeIO(p)), 1), x > X1 - 120 ? x - 30 : x + 28, y + 10);
+    cx.font = `700 ${it.focus ? 32 : 26}px Geist`; cx.fillStyle = col;
+    const lab = fmt(lerp(R.min, it.v, easeIO(p)), 1), mx = R.media ? sx(R.media.v) : -1;
+    // a sinistra se tocca il bordo destro o se attraverserebbe la linea della media
+    const sinistra = x > X1 - 120 || (R.media && x < mx && x + 28 + cx.measureText(lab).width + 8 > mx);
+    cx.textAlign = sinistra ? 'right' : 'left';
+    cx.fillText(lab, sinistra ? x - 30 : x + 28, y + 10);
     cx.globalAlpha = 1;
   });
   // linea della media

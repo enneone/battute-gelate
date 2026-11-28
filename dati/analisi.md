@@ -183,3 +183,43 @@ Aggiornati: P01 1.519, D03 462, SP02 158, S02 155, P04 150, P02 148, D04 143, D0
 - Nuovo tema viaggi con D23 vacanze (asse, Italia evidenziata) e terzo spiegone della settimana su un tema di tutti, i negozi sotto casa (SP05), per confrontarlo con SP02 (gaming) e SP01/SP03/SP04 (consumi).
 - Seconde presse delle 18:30 già programmate (29/11, 30/11, 1/12): restano; se P06-P07 restano sotto 300, il prossimo rifornimento sostituisce quelle del 30/11 e 1/12 con una sfida o dati.
 - Countdown sotto osservazione (D05 30,5% oltre 3 s); prossime uscite D08 (30/11) e D14 (1/12).
+
+## 28 novembre 2026 (analisi automatica, ultimi 14 giorni)
+41 Reel nel periodo (14/11-27/11), mediana **139** visualizzazioni. Post del 27/11 letti dopo circa 11-20 ore.
+
+| Reel (27/11) | Template | Tema/pubblico | Visualizz. | Copertura | >3 s | Tempo medio | Cond.+salv.+comm. |
+|---|---|---|---|---|---|---|---|
+| D16 iPhone prezzi | classifica3d | tecnologia | **173** | 154 | 46,1% | 6,2 s | 0 |
+| P06 pressa budino | pressa | pressa | 140 | 133 | **60,6%** | 8,6 s | 0 |
+| D18 film in Italia | barre | cinema | 140 | 126 | 15,9% | 2,5 s | 1 salvataggio |
+| D17 gas Europa | asse | bollette | 115 | 106 | 29,2% | 3,8 s | 0 |
+
+Aggiornati: P01 1.519, D03 462, SP02 158, S02 156, P05 152, P04 150, P02 148, D04 143, D02 142, S01 137, P03 137, D10 129, D05 128, S04 128, S03 125, D06 122, D09 122, D07 121, D01 117, D12 63, **SP01 Black Friday 25** (dopo 1 giorno e mezzo: 4,8% oltre 3 s, 1,2 s di tempo medio).
+
+**Per template** (Reel Che Numeri, 21-27/11):
+| Template | Uscite | Media | Mediana | >3 s medio |
+|---|---|---|---|---|
+| pressa (con 21/11) | 7 | 521 | 150 | 65,4% |
+| punti | 1 | 462 | 462 | 46,5% |
+| hype | 1 | 142 | 142 | 52,0% |
+| classifica3d | 2 | 145 | 145 | 32,9% |
+| sfida | 4 | 137 | 131 | 42,7% |
+| asse | 4 | 127 | 126 | 36,7% |
+| countdown | 2 | 96 | 96 | 31,9% |
+| barre | 3 | 128 | 122 | 30,8% |
+| spiegone | 2 | 92 | 92 | 19,3% |
+
+**Per tema**: gaming 4 Reel, media 223; tecnologia 173; soldi e lavoro 5, media 133; casa e giovani 3, media 132; cinema 140; calcio 122; bollette 2, media 119; consumi (SP01) 25; TV e musica 63.
+
+- Migliori: P01 pressa (1.519), D03 GTA 6 copie (462), **D16 iPhone (173, il miglior Reel di dati dal 23/11: tema caldo, Italia confrontata con la Germania, classifica3d con il 46,1% oltre 3 s contro il 19,6% di D01)**.
+- Peggiori: SP01 Black Friday (25: lo spiegone su un tema di consumo non è partito, gancio "Black Friday: così ti fanno spendere di più" e apertura con icona senza grafico in movimento), D12 X Factor (63), D18 film (140 ma solo 15,9% oltre 3 s: classifica a barre lunga, pochi secondi di visione).
+- Pressa: P06 140 con 60,6% oltre 3 s. Quinta uscita di fila tra 137 e 152: stabile, resta fissa alle 15:00.
+- Condivisioni, salvataggi e commenti: 1 salvataggio (D18). Nessun oggetto proposto nei commenti.
+
+### Decisioni (28/11)
+- **Spiegone sotto osservazione**: SP01 a 25 (sotto la metà della mediana, 69), SP02 158. Non scatta ancora la regola (servono 4 uscite di fila), ma la settimana 30/11-6/12 ha già 3 spiegoni (SP03 1/12, SP04 2/12, SP05 3/12): il 4/12 alle 21:15 va un Reel di dati (D25). Se SP03 e SP04 restano sotto 69, dal prossimo rifornimento lo spiegone scende a 1 a settimana e si rivede l'apertura (grafico in movimento già nel primo fotogramma).
+- **classifica3d sale** (D16 173, 46,1%): altro test con l'Italia in evidenza e un primato netto, D24 auto ogni 1.000 abitanti (Italia prima in UE), 4/12 12:30.
+- Sfida: dopo 1-5 (Portogallo) e 3-3 (Romania), il 4/12 **Italia-Bulgaria finisce 4-2 per l'Italia**, con un round nuovo (speranza di vita) e due round decisi per pochi decimali.
+- Cibo e prezzi alle 21:15 con un confronto "noi contro la Germania" che ha funzionato per D16 (D25 prezzo del cibo).
+- Template `asse`: l'etichetta del valore va a sinistra del punto quando altrimenti taglierebbe la linea della media (prima si sovrapponeva, es. 94,6 e 97,0 in D25).
+- Barre e countdown restano sotto la mediana (tenuta 30-32%): per ora non entrano nei nuovi slot.

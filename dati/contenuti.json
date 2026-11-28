@@ -3507,6 +3507,336 @@
    "argomento": "Negozi",
    "copertina_numero": "",
    "copertina_titolo": "I negozi sotto casa *spariscono*"
+  },
+  {
+   "id": "D24-auto-europa",
+   "template": "classifica3d",
+   "fps": 60,
+   "hook": [
+    "In Italia ci sono",
+    "*709 auto* ogni mille abitanti"
+   ],
+   "sottotitolo": "AUTO OGNI 1.000 ABITANTI · <b>2025</b>",
+   "suffisso": "",
+   "voci": [
+    {
+     "n": "Lettonia",
+     "f": "🇱🇻",
+     "v": 435
+    },
+    {
+     "n": "Svezia",
+     "f": "🇸🇪",
+     "v": 475
+    },
+    {
+     "n": "Paesi Bassi",
+     "f": "🇳🇱",
+     "v": 519
+    },
+    {
+     "n": "Spagna",
+     "f": "🇪🇸",
+     "v": 550
+    },
+    {
+     "n": "Francia",
+     "f": "🇫🇷",
+     "v": 578
+    },
+    {
+     "n": "Germania",
+     "f": "🇩🇪",
+     "v": 593
+    },
+    {
+     "n": "Polonia",
+     "f": "🇵🇱",
+     "v": 639
+    },
+    {
+     "n": "Lussemburgo",
+     "f": "🇱🇺",
+     "v": 668
+    },
+    {
+     "n": "Cipro",
+     "f": "🇨🇾",
+     "v": 670
+    },
+    {
+     "n": "Finlandia",
+     "f": "🇫🇮",
+     "v": 671
+    },
+    {
+     "n": "Italia",
+     "f": "🇮🇹",
+     "v": 709,
+     "focus": true
+    }
+   ],
+   "nota": "Media UE: *584* auto ogni 1.000 abitanti.",
+   "domanda": [
+    "Quante auto ci sono",
+    "*a casa tua?*"
+   ],
+   "domanda2": "Scrivi il numero 👇",
+   "fonte": "EUROSTAT, AUTOVETTURE OGNI 1.000 ABITANTI, 2025 · PAESI UE · DATI IN PARTE PROVVISORI (ITALIA COMPRESA) O STIMATI",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "In Italia ci sono 709 auto ogni 1.000 abitanti: è il numero più alto dell'Unione Europea 🚗 La media UE è 584, in Germania 593, in Spagna 550. Quante auto ci sono a casa tua?",
+   "hashtag": "#auto #europa",
+   "copertina": [
+    "Il paese",
+    "con più",
+    "*auto*"
+   ],
+   "copertina_numero": "709 AUTO",
+   "frasi": [
+    "Lettonia: *435* ogni mille",
+    "Germania: *593*",
+    "Finlandia: *671*",
+    "Italia: *709*, prima in UE"
+   ],
+   "frasi_at": [
+    "Lettonia",
+    "Germania",
+    "Finlandia",
+    "Italia"
+   ],
+   "numero": 44,
+   "tema": "carta",
+   "argomento": "Auto",
+   "icona": "🚗",
+   "copertina_titolo": "Il paese con più *auto*"
+  },
+  {
+   "id": "P16-pressa-sopravvivono",
+   "template": "pressa",
+   "numero": 45,
+   "fps": 60,
+   "tema": "nero",
+   "hook": [
+    "Quanti ne",
+    "*sopravvivono?*"
+   ],
+   "oggetti": [
+    "telefono",
+    "pallina",
+    "anguria",
+    "budino",
+    "cellulare"
+   ],
+   "domanda": [
+    "Cosa mettiamo",
+    "sotto la *pressa?*"
+   ],
+   "domanda2": "Scrivilo nei commenti 👇",
+   "fonte": "",
+   "fine": "Seguici: ogni giorno una nuova prova.",
+   "didascalia": "Smartphone, pallina antistress, anguria, budino… e il vecchio cellulare 💥 Quanti ne pensavi che sopravvivessero? Cosa mettiamo sotto la pressa la prossima volta?",
+   "hashtag": "#pressaidraulica #satisfying",
+   "copertina": [
+    "Chi",
+    "*sopravvive?*"
+   ],
+   "copertina_numero": "",
+   "copertina_kicker": "LA PRESSA",
+   "argomento": "La pressa",
+   "icona": "📱",
+   "copertina_titolo": "Chi *sopravvive?*"
+  },
+  {
+   "id": "S07-italia-bulgaria",
+   "template": "sfida",
+   "fps": 60,
+   "tema": "carta",
+   "numero": 46,
+   "a": {
+    "n": "Italia",
+    "f": "🇮🇹",
+    "art": "l'Italia"
+   },
+   "b": {
+    "n": "Bulgaria",
+    "f": "🇧🇬",
+    "art": "la Bulgaria"
+   },
+   "hook": [
+    "Italia contro Bulgaria:",
+    "*6 round*"
+   ],
+   "round": [
+    {
+     "frase": "Chi guadagna *di più?*",
+     "a": 28496,
+     "b": 12374,
+     "vince": "alto",
+     "unita": "€",
+     "dec": 0
+    },
+    {
+     "frase": "Chi esce prima *di casa?*",
+     "a": 30.2,
+     "b": 27.9,
+     "vince": "basso",
+     "unita": "anni",
+     "dec": 1
+    },
+    {
+     "frase": "Chi vive *più a lungo?*",
+     "a": 83.7,
+     "b": 75.8,
+     "vince": "alto",
+     "unita": "anni",
+     "dec": 1
+    },
+    {
+     "frase": "Meno giovani *senza studio né lavoro?*",
+     "a": 13.3,
+     "b": 13.8,
+     "vince": "basso",
+     "unita": "%",
+     "dec": 1
+    },
+    {
+     "frase": "Chi paga meno *la luce?*",
+     "a": 31.4,
+     "b": 13.4,
+     "vince": "basso",
+     "unita": "cent",
+     "dec": 1
+    },
+    {
+     "frase": "Prezzi saliti *di meno?*",
+     "a": 5.6,
+     "b": 5.9,
+     "vince": "basso",
+     "unita": "%",
+     "dec": 1
+    }
+   ],
+   "domanda": [
+    "Dove vivresti",
+    "*meglio?*"
+   ],
+   "domanda2": "Scrivi ITALIA o BULGARIA 👇",
+   "fonte": "EUROSTAT: STIPENDIO NETTO ANNUO 2025 (SINGLE SENZA FIGLI, SALARIO MEDIO, IN PPS: PARITÀ DI POTERE D'ACQUISTO), ETÀ DI USCITA DI CASA 2025, SPERANZA DI VITA ALLA NASCITA 2024, NEET 15-29 ANNI 2025, LUCE PER FAMIGLIE 1° SEM. 2026 (CENT/KWH, TASSE INCLUSE), INFLAZIONE OTTOBRE 2026",
+   "fine": "Seguici per i numeri dietro le notizie.",
+   "didascalia": "Italia contro Bulgaria in 6 round: stipendi, casa, salute, giovani, luce e prezzi 🇮🇹🇧🇬 Lì la luce costa 13,4 centesimi al kWh, da noi 31,4. Ma da noi si vive quasi 8 anni di più. Come finisce secondo te? Dove vivresti meglio?",
+   "hashtag": "#italia #bulgaria",
+   "argomento": "Sfida",
+   "icona": "🇮🇹🇧🇬",
+   "copertina_numero": "",
+   "copertina_titolo": "Italia contro *Bulgaria*"
+  },
+  {
+   "id": "D25-cibo-prezzi-europa",
+   "template": "asse",
+   "fps": 60,
+   "kicker": "LIVELLO DEI PREZZI DEL CIBO · UE = 100 · 2024",
+   "hook": [
+    "Al supermercato paghiamo",
+    "più dei *tedeschi*"
+   ],
+   "min": 70,
+   "max": 130,
+   "passo": 10,
+   "unita": "punti",
+   "voci": [
+    {
+     "n": "Romania",
+     "f": "🇷🇴",
+     "v": 74.6
+    },
+    {
+     "n": "Polonia",
+     "f": "🇵🇱",
+     "v": 85.6
+    },
+    {
+     "n": "Bulgaria",
+     "f": "🇧🇬",
+     "v": 87.1
+    },
+    {
+     "n": "Spagna",
+     "f": "🇪🇸",
+     "v": 94.6
+    },
+    {
+     "n": "Paesi Bassi",
+     "f": "🇳🇱",
+     "v": 97.0
+    },
+    {
+     "n": "Germania",
+     "f": "🇩🇪",
+     "v": 102.9
+    },
+    {
+     "n": "Italia",
+     "f": "🇮🇹",
+     "v": 104.0,
+     "focus": true
+    },
+    {
+     "n": "Grecia",
+     "f": "🇬🇷",
+     "v": 105.1
+    },
+    {
+     "n": "Austria",
+     "f": "🇦🇹",
+     "v": 110.9
+    },
+    {
+     "n": "Francia",
+     "f": "🇫🇷",
+     "v": 111.5
+    },
+    {
+     "n": "Danimarca",
+     "f": "🇩🇰",
+     "v": 119.3
+    },
+    {
+     "n": "Lussemburgo",
+     "f": "🇱🇺",
+     "v": 125.7
+    }
+   ],
+   "media": {
+    "label": "MEDIA UE",
+    "v": 100
+   },
+   "messaggio": "In Spagna il cibo costa il *9% meno* che da noi.",
+   "domanda": [
+    "La spesa ti sembra",
+    "*più cara?*"
+   ],
+   "domanda2": "Scrivi SÌ o NO 👇",
+   "fonte": "EUROSTAT, INDICE DEL LIVELLO DEI PREZZI DEL CIBO (UE27 = 100), 2024 · ULTIMO ANNO DISPONIBILE",
+   "fine": "Seguici per i numeri che parlano di noi.",
+   "didascalia": "In Italia il cibo costa il 4% più della media UE, e più che in Germania 🛒 In Spagna costa il 9% meno che da noi, in Danimarca il 15% più. La spesa ti sembra più cara?",
+   "hashtag": "#spesa #prezzi",
+   "copertina": [
+    "Il cibo costa",
+    "più che in",
+    "*Germania*"
+   ],
+   "copertina_numero": "+4 %",
+   "frasi": [
+    "Quanto costa il cibo in Europa",
+    "Media UE: *100*",
+    "Italia: *4% sopra* la media",
+    "Più cara della *Germania*"
+   ],
+   "numero": 47,
+   "tema": "arancio",
+   "argomento": "Spesa",
+   "icona": "🛒",
+   "copertina_titolo": "Il cibo costa più che in *Germania*"
   }
  ]
 }
